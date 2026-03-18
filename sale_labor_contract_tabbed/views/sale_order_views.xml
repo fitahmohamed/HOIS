@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit_labor_recalculate" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.labor.recalculate</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <button name="action_preview_sale_order" position="before">
+                <button
+                    string="Recalculate Labor Costs"
+                    name="action_recalculate_labor_costs"
+                    type="object"
+                    class="btn-secondary"
+                    groups="base.group_user"
+                    invisible="state == 'cancel'"
+                />
+            </button>
+            <group name="order_details" position="after">
+                <group string="Labor Summary" groups="base.group_user">
+                    <field name="x_total_gosi_all_lines" readonly="1"/>
+                    <field name="x_total_service_cost_all_lines" readonly="1"/>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>
