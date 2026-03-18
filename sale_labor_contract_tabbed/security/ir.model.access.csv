@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_labor_rules_config_user,sale_labor_contract_tabbed.access_labor_rules_config_user,model_labor_rules_config,base.group_user,1,0,0,0
-access_labor_rules_config_manager,sale_labor_contract_tabbed.access_labor_rules_config_manager,model_labor_rules_config,sales_team.group_sale_manager,1,1,1,1
