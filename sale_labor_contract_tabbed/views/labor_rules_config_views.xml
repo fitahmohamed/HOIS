@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_labor_rules_config_list" model="ir.ui.view">
+        <field name="name">labor.rules.config.list</field>
+        <field name="model">labor.rules.config</field>
+        <field name="arch" type="xml">
+            <list string="Labor Rules Configurations">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="is_default"/>
+                <field name="iqama_fee"/>
+                <field name="work_permit_fee"/>
+                <field name="visa_fee"/>
+                <field name="medical_insurance_fee"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_labor_rules_config_form" model="ir.ui.view">
+        <field name="name">labor.rules.config.form</field>
+        <field name="model">labor.rules.config</field>
+        <field name="arch" type="xml">
+            <form string="Labor Rules Configuration">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_id"/>
+                            <field name="is_default"/>
+                            <field name="active"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="currency_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Fixed Fees">
+                        <group>
+                            <field name="iqama_fee"/>
+                            <field name="work_permit_fee"/>
+                            <field name="visa_fee"/>
+                        </group>
+                        <group>
+                            <field name="exit_reentry_visa_fee"/>
+                            <field name="medical_insurance_fee"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_labor_rules_config" model="ir.actions.act_window">
+        <field name="name">Labor Rules Configurations</field>
+        <field name="res_model">labor.rules.config</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a labor rules configuration</p>
+            <p>Use this screen to maintain the default government and fixed insurance fees used by labor sales order lines.</p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_labor_rules_config"
+        name="Labor Rules Configurations"
+        parent="sale.menu_sales_config"
+        action="action_labor_rules_config"
+        sequence="90"
+        groups="sales_team.group_sale_manager"
+    />
+</odoo>
