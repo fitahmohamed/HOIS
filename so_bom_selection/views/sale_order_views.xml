@@ -5,10 +5,41 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='order_line']/list/field[@name='name']" position="after">
-                <field name="bom_id" domain="[('product_tmpl_id', '=', product_template_id)]"
-                       options="{'no_create': True, 'no_create_edit':True}" string="Bill of Material"/>
+
+            <!-- Refresh BOM Costs button — visible only on draft/sent orders -->
+            <xpath expr="//field[@name='order_line']" position="before">
+                <button name="action_refresh_bom_costs"
+                        string="Refresh BOM Costs"
+                        type="object"
+                        invisible="state not in ('draft', 'sent')"
+                        class="btn-secondary mb-2"/>
             </xpath>
+
+            <!-- BOM columns added after the product name -->
+            <xpath expr="//field[@name='order_line']/list/field[@name='name']" position="after">
+                <field name="bom_id"
+                       domain="[('product_tmpl_id', '=', product_template_id)]"
+                       options="{'no_create': True, 'no_create_edit': True}"
+                       string="Bill of Material"
+                       readonly="state not in ('draft', 'sent')"/>
+                <field name="bom_unit_cost"
+                       string="BOM Unit Cost"
+                       optional="hide"/>
+                <field name="bom_total_cost"
+                       string="BOM Total Cost"
+                       optional="show"/>
+                <field name="margin_percentage"
+                       string="Margin (%)"
+                       optional="show"
+                       readonly="state not in ('draft', 'sent')"/>
+            </xpath>
+
+            <!-- Make unit price readonly after confirmation -->
+            <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']"
+                   position="attributes">
+                <attribute name="readonly">state not in ('draft', 'sent')</attribute>
+            </xpath>
+
         </field>
     </record>
 </odoo>
