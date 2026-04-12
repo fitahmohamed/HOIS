@@ -19,7 +19,8 @@
             <xpath expr="//field[@name='order_line']/list/field[@name='name']" position="after">
                 <field name="bom_id"
                        domain="[('product_tmpl_id', '=', product_template_id)]"
-                       options="{'no_create': True, 'no_create_edit': True}"
+                       
+                       context="{'default_product_tmpl_id': product_template_id}"
                        string="Bill of Material"
                        readonly="state not in ('draft', 'sent')"/>
                 <field name="bom_unit_cost"
