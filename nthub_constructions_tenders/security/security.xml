@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="res.groups.privilege" id="res_groups_privilege_constructions_tenders">
+            <field name="name">Tender Constructions</field>
+            <field name="sequence">12</field>
+            <field name="category_id" ref="nthub_constructions.nthub_constructions_category"/>
+        </record>
+        <record id="construction_tender_offer" model="res.groups">
+            <field name="name">Offer Manager</field>
+            <field name="privilege_id" ref="nthub_constructions_tenders.res_groups_privilege_constructions_tenders"/>
+        </record>
+    </data>
+</odoo>

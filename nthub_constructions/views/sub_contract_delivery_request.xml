@@ -1,0 +1,154 @@
+<odoo>
+
+        <!--             define a subcontractor_delivery_request search-->
+        <record id="subcontractor_delivery_request_search" model="ir.ui.view">
+            <field name="name">subcontractor_delivery_request_search</field>
+            <field name="model">subcontractor.delivery.request</field>
+            <field name="arch" type="xml">
+                <search string="Search Subcontractor Delivery Request">
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="state"/>
+                    <group>
+                        <filter string="Contract" name="contract_id" context="{'group_by':'contract_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!--             define a subcontractor_delivery_request list-->
+        <record model="ir.ui.view" id="view_subcontractor_delivery_request_tree">
+            <field name="name">subcontractor.delivery.request.list</field>
+            <field name="model">subcontractor.delivery.request</field>
+            <field name="arch" type="xml">
+                <list create="0">
+                    <header>
+                        <button string="Combine Selected Records" type="object"  class="btn-primary"
+                                name="combine_selected_records"
+                        />
+                    </header>
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="contract_id"/>
+                    <field name="date"/>
+                    <field name="type"/>
+                    <field name="state" widget="badge" decoration-success="state == 'paid'"
+                           decoration-muted="state == 'draft'" decoration-info="state == 'confirm'"
+                           decoration-danger="state == 'reject'"/>
+                    <field name="reference" column_invisible="1"/>
+                    <field name="is_cr" column_invisible="1"/>
+                </list>
+            </field>
+        </record>
+
+        <!--         define a form_project_engineer_technical_form-->
+        <record model="ir.ui.view" id="subcontractor_delivery_request_form">
+            <field name="name">subcontractor.delivery.request.form</field>
+            <field name="model">subcontractor.delivery.request</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm"
+                                invisible="state != 'draft'"
+                                class="btn-primary"/>
+                        <button name="create_bill" type="object" string="Create Bill" invisible="state != 'confirm'"
+                                class="btn-primary"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,paid"/>
+                    </header>
+                    <sheet>
+                        <div name="button_box" class="oe_button_box">
+                            <button name="open_subcontractor_bill" type="object" class="oe_stat_button"
+                                    icon="fa-book"
+                                    string="Active Bill"
+                                    invisible="bill_id == False"/>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="project_id"
+                                        readonly="state in ('confirm', 'paid')"/>
+                                <field name="contract_id"
+                                       readonly="state in ('confirm', 'paid')"
+                                       />
+                                <field name="date"
+                                       readonly="state in ('confirm', 'paid')"
+                                       />
+                                <field name="type"
+                                      readonly="state in ('confirm', 'paid')"
+                                       />
+                                <field name="confirmation_date"
+                                      readonly="state in ('confirm', 'paid')"
+                                       />
+                                <field name="bill_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Lines">
+                                <field name="subcontractor_delivery_request_line_ids"
+                                       options="{'delete': [('state', '=', 'draft')]}">
+                                    <list editable="bottom" create="0">
+                                        <field name="item_id" readonly="1"/>
+                                        <field name="description" readonly="1"/>
+                                        <field name="uom_id" readonly="1"/>
+                                        <field name="analytic_distribution" widget="analytic_distribution" readonly="1"/>
+                                        <field name="budget_amount" force_save="1" readonly="1"/>
+                                        <field name="quantity" sum="Total" readonly="parent.state != 'draft'"/>
+                                        <field name="price_unit" readonly="1"/>
+                                        <field name="total_amount" widget="monetary" force_save="1" readonly="1"/>
+                                        <field name="percentage" widget="percentage" readonly="parent.state != 'draft'"/>
+                                        <field name="amount" widget="monetary" readonly="parent.state != 'draft'"/>
+                                        <field name="state" readonly="parent.state != 'draft'"/>
+                                        <field name="subcontractor_delivery_request_id" column_invisible="1"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Deductions">
+                                <field name="deduction_line_ids" nolabel="1" widget="one2many"
+                                       readonly="1">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="percentage" widget="percentage"/>
+                                        <field name="amount"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Allowance">
+                                <field name="allowance_line_ids" nolabel="1" widget="one2many"
+                                       readonly="state != 'draft'"
+                                       context="{'default_main_type':'allowance','main_type':'allowance','default_contract_type':'owner','contract_type':'owner','tree_view_ref':'nthub_constructions.view_sub_contract_completion_deduction_allowance_tree','form_view_ref':'nthub_constructions.view_contract_completion_deduction_allowance_form'}"/>
+                            </page>
+                        </notebook>
+                        <group>
+                            <group class="oe_subtotal_footer oe_right" colspan="2" name="totals">
+                                <field name="total_line_cost" widget="monetary"
+                                       readonly="1" force_save="1"
+                                       />
+                                <field name="total_deduction_cost" widget="monetary"
+                                      readonly="1" force_save="1"
+                                       />
+                                <field name="total_allowance_cost" widget="monetary"
+                                       readonly="1" force_save="1"
+                                       />
+                                <field name="total_cost" widget="monetary"
+                                       readonly="1" force_save="1"
+                                       />
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+        <!--  define  action_project_engineer_technical_action-->
+        <record id="subcontractor_delivery_request_action" model="ir.actions.act_window">
+            <field name="name">Subcontractor Delivery Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">subcontractor.delivery.request</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{"group_by": "contract_id"}</field>
+        </record>
+
+</odoo>

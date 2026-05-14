@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_top_sheet,top_sheet,model_top_sheet,nthub_constructions.construction_group_officer,1,1,1,1
+access_tender_offer,tender_offer,model_tender_offer,nthub_constructions.construction_group_user,1,1,1,1
+access_tender_offer_line,tender_offer_line,model_tender_offer_line,nthub_constructions.construction_group_user,1,1,1,1
+access_tender_offer_version,tender_offer_version,model_tender_offer_version,nthub_constructions.construction_group_user,1,1,1,1
+access_tender_offer_version_line,tender_offer_version_line,model_tender_offer_version_line,nthub_constructions.construction_group_user,1,1,1,1
+access_new_version_wizard,new_version_wizard,model_new_version_wizard,nthub_constructions.construction_group_user,1,1,1,1
+access_project_tender,project_tender,model_project_tender,nthub_constructions.construction_group_user,1,1,1,1

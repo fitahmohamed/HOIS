@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="construction_form_project" model="ir.ui.view">
+        <field name="name">construction.project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="priority" eval="40"/>
+        <field name="arch" type="xml">
+            <form string="Project">
+                <field name="company_id" invisible="1"/>
+                <field name="wbs_count" invisible="1"/>
+                <field name="wbs_state" invisible="1"/>
+                <header>
+                    <field name="task_count" invisible="1"/>
+                    <button name="%(project.project_share_wizard_action)d" string="Share Readonly" type="action"
+                            class="oe_highlight"
+                            groups="project.group_project_manager,nthub_constructions.construction_group_manager"
+                            invisible="privacy_visibility != 'portal' or state == 'draft' or state == 'done'"
+                            context="{'default_access_mode': 'read'}" data-hotkey="r"/>
+
+                    <button name="%(project.project_share_wizard_action)d" string="Share Editable" type="action"
+                            class="oe_highlight"
+                            groups="project.group_project_manager,nthub_constructions.construction_group_manager"
+                            invisible="privacy_visibility != 'portal' or state == 'draft' or state == 'done'"
+                            context="{'default_access_mode': 'edit'}" data-hotkey="e"/>
+
+                    <button name="create_contract" string="Create Contract" type="object" class="oe_highlight"
+                            groups="nthub_constructions.construction_group_officer"
+                            invisible="contract_count > 0 or is_tender == True or state == 'done'"/>
+
+                    <button name="action_create_wbs" string="Create WBS" type="object" class="oe_highlight"
+                            groups="nthub_constructions.construction_group_wbs"
+                            invisible="wbs_count > 0 or contract_count == 0 or state == 'done' or contract_state =='draft'"/>
+
+                    <button name="action_create_task" string="Generate Tasks" type="object" class="oe_highlight"
+                            groups="nthub_constructions.construction_group_officer"
+                            invisible="task_count > 0 or wbs_count == 0 or wbs_state == False  or state == 'done'"/>
+
+                    <button name="action_done" string="End" type="object" class="oe_highlight"
+                            invisible="state != 'contract' or wbs_count == 0 or task_count == 0"
+                            groups="project.group_project_manager,nthub_constructions.construction_group_manager"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,tender,contract,start,done"/>
+                </header>
+
+                <sheet string="Project">
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button ps-2" name="project_update_all_action" type="object"
+                                groups="project.group_project_manager,nthub_constructions.construction_group_manager">
+                            <div class="w-100">
+                                <field name="last_update_color" invisible="1"/>
+                                <field name="last_update_status" readonly="1" widget="status_with_color"
+                                       options="{'color_field': 'last_update_color'}"/>
+                            </div>
+                        </button>
+
+                        <button class="oe_stat_button o_project_not_clickable ps-2" disabled="disabled"
+                                groups="!project.group_project_manager,!nthub_constructions.construction_group_manager">
+                            <div class="w-100">
+                                <field name="last_update_color" invisible="1"/>
+                                <field name="last_update_status" readonly="1" widget="status_with_color"
+                                       options="{'color_field': 'last_update_color'}"/>
+                            </div>
+                        </button>
+
+
+
+                        <button name="action_open_contract" type="object" class="oe_stat_button" icon="fa-book"
+                                groups="nthub_constructions.construction_group_officer" string="Contract"
+                                invisible="contract_count ==0">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value" widget="statinfo">
+                                    <field name="contract_count" widget="statinfo" nolabel="1" class="mr4"
+                                           readonly="1"/>
+                                </span>
+                                <span class="o_stat_text">Contract</span>
+                            </div>
+                        </button>
+
+                        <button type="object" name="action_open_wbs" class="oe_stat_button" icon="fa-align-justify"
+                                groups="nthub_constructions.construction_group_wbs"
+                                invisible="wbs_count ==0">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value" widget="statinfo">
+                                    <field name="wbs_count" widget="statinfo" nolabel="1" class="mr4" readonly="1"/>
+                                </span>
+                                <span class="o_stat_text">WBS</span>
+                            </div>
+                        </button>
+                        <button type="object" name="action_view_Consumables" class="oe_stat_button" icon="fa-align-justify"
+                                    groups="nthub_constructions.construction_group_wbs">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Consumables</span>
+                                </div>
+                            </button>
+
+                        <button type="object" name="action_open_tasks" class="oe_stat_button"
+                                groups="nthub_constructions.construction_group_user" icon="fa-align-justify"
+                                invisible="task_count ==0">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value" widget="statinfo">
+                                    <field name="task_count" widget="statinfo" nolabel="1" class="mr4"
+                                           readonly="1"/>
+                                </span>
+                                <span class="o_stat_text">Tasks</span>
+                            </div>
+                        </button>
+
+                        <button type="object" name="action_open_sub_tasks" class="oe_stat_button"
+                                groups="nthub_constructions.construction_group_user" icon="fa-align-justify"
+                                invisible="task_count ==0">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value" widget="statinfo">
+                                    <field name="sub_task_count" widget="statinfo" nolabel="1" class="mr4"
+                                           readonly="1"/>
+                                </span>
+                                <span class="o_stat_text">Sub Tasks</span>
+                            </div>
+                        </button>
+
+                        <button name="action_open_completion_request" type="object" class="oe_stat_button"
+                                groups="nthub_constructions.construction_group_officer" icon="fa-book"
+                                string="Completion Requests">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value" widget="statinfo">
+                                    <field name="completion_request_count" widget="statinfo" nolabel="1" class="mr4"
+                                           readonly="1"/>
+                                </span>
+                                <span class="o_stat_text">Completion Request</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active==True"/>
+                    <widget name="web_ribbon" title="Ended" bg_color="bg-success" invisible="state!='done'"/>
+
+                    <div class="oe_title">
+                        <h1 class="d-flex flex-row">
+                            <field name="is_favorite" nolabel="1" widget="boolean_favorite" class="me-2"/>
+                            <field name="name" class="o_text_overflow" placeholder="e.g. Office Party"
+                                   readonly="state not in ('draft', 'tender')"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="state" invisible="1"/>
+                            <field name="partner_id" widget="res_partner_many2one" readonly="state not in ('draft', 'tender')"/>
+                            <field name="privacy_visibility" invisible="1"/>
+                            <field name="label_tasks" string="Name of the tasks" readonly="state not in ('draft', 'tender')"/>
+                            <field name="num_of_units" readonly="state not in ('draft', 'tender')"/>
+                            <field name="task_count" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="total_amount" invisible="1"/>
+                            <field name="is_tender" invisible="1"/>
+                            <field name="approved_tender" invisible="1"/>
+                            <field name="contract_count" invisible="1"/>
+                            <field name="active" invisible="1"/>
+                            <field name="date_start" options="{&quot;end_date_field&quot;: &quot;date&quot;}"
+                                   required="date_start or date" readonly="state not in ('draft', 'tender')"/>
+                            <field name="date" invisible="1"/>
+                            <field name="contract_id" readonly="1"/>
+                            <field name="contract_state" invisible="1"/>
+                            <field name="company_id" groups="base.group_multi_company" readonly="state not in ('draft', 'tender')"/>
+                            <field name="user_id" string="Project Manager" widget="many2one_avatar_user"
+                                   readonly="state not in ('draft', 'tender')"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page name="project_information" string="Project Information">
+                            <group>
+                                <field name="tender_approval_date" readonly="1"/>
+                                <field name="contract_date" readonly="1"/>
+                                <field name="wbs_creation_date" readonly="1"/>
+                                <field name="tasks_generation_date" readonly="1"/>
+                                <field name="project_end_date" readonly="1"/>
+                            </group>
+                        </page>
+
+                        <page groups="nthub_constructions.construction_group_manager" name="settings" string="Settings">
+                            <group>
+                                <group>
+                                    <field name="account_id" domain="['|', ('company_id', '=', company_id), ('company_id', '=', False)]"
+                                           context="{'default_partner_id': partner_id}" groups="analytic.group_analytic_accounting"
+                                           readonly="state not in ('draft', 'tender')"/>
+                                    <field name="privacy_visibility" widget="radio"/>
+                                    <span colspan="2" class="text-muted" invisible="access_instruction_message ==''">
+                                        <i class="fa fa-lightbulb-o" title="icon"/>
+                                        <field class="d-inline" name="access_instruction_message" nolabel="1"/>
+                                    </span>
+                                    <span colspan="2" class="text-muted" invisible="privacy_visibility_warning ==''">
+                                        <i class="fa fa-warning" title="icon"/>
+                                        <field class="d-inline" name="privacy_visibility_warning" nolabel="1"/>
+                                    </span>
+                                </group>
+
+                                <group>
+                                    <div name="alias_def" colspan="2" class="pb-2" invisible="alias_domain ==False">
+                                        <span class="oe_edit_only">
+                                            <field name="alias_name" class="oe_inline"/>
+                                            @
+                                            <field name="alias_domain" class="oe_inline" readonly="1"/>
+                                        </span>
+                                    </div>
+                                    <field name="alias_contact" class="oe_inline" string="Accept Emails From"
+                                           invisible="alias_name != '' or alias_name != False"/>
+                                </group>
+
+                                <group name="extra_settings"></group>
+
+                                <group>
+                                    <div class="o_setting_box mt-4" id="task_dependencies_setting"
+                                         groups="project.group_project_task_dependencies">
+                                        <div class="o_setting_left_pane">
+                                            <field name="allow_task_dependencies"/>
+                                        </div>
+                                        <div class="o_setting_right_pane">
+                                            <label for="allow_task_dependencies"/>
+                                            <div class="text-muted">Determine the order in which to perform
+                                                tasks
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="o_setting_box mt-4" id="project_milestone_setting"
+                                         groups="project.group_project_milestone">
+                                        <div class="o_setting_left_pane">
+                                            <field name="allow_milestones"/>
+                                        </div>
+                                        <div class="o_setting_right_pane">
+                                            <label for="allow_milestones"/>
+                                            <div class="text-muted">Track major progress points that must be
+                                                reached to achieve success
+                                            </div>
+                                        </div>
+                                    </div>
+                                </group>
+
+                                <group name="group_time_managment" string="Time Management" invisible="1" col="1"
+                                       class="row mt16 o_settings_container"/>
+                                <group name="group_documents_analytics" string="Analytics" col="1"
+                                       class="row mt16 o_settings_container"
+                                      >
+                                    <div>
+                                        <!-- <field name="rating_status" invisible="1"/> -->
+                                        <div class="o_setting_box" name="analytic_div">
+                                            <!-- <div class="o_setting_left_pane">
+                                                <field name="rating_active"/>
+                                            </div> -->
+                                            <div class="o_setting_right_pane">
+                                                <!-- <label for="rating_active"/> -->
+                                                <div class="text-muted">Get customer feedback</div>
+                                                <div class="mt16" >
+                                                    <!-- <field name="rating_status" widget="radio"/>
+                                                    <div required="rating_status=='periodic'"
+                                                         invisible="rating_status != 'periodic'">
+                                                        <label for="rating_status_period"/>
+                                                        <field name="rating_status_period"/>
+                                                    </div> -->
+                                                    <div class="content-group">
+                                                        <div class="mt8">
+                                                            <button name="%(project.open_task_type_form_domain)d"
+                                                                    context="{'project_id':id}"
+                                                                    icon="fa-arrow-right" type="action"
+                                                                    string="Set a Rating Email Template on Stages"
+                                                                    class="btn-link"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page name="description" string="Description">
+                            <field name="description" options="{'resizable': false}" placeholder="Project description..."/>
+                        </page>
+
+                        <page string="Stack Holders">
+                            <group name="stack_holders">
+                                <field name="stack_holders_ids" readonly="state == 'done'" class="o_website_sale_image_list"
+                                       context="{'default_name': name}"
+                                       mode="kanban"/>
+                            </group>
+                        </page>
+
+                        <page string="Engineers">
+                            <group name="project_engineer">
+                                <field name="engineers_ids" readonly="state == 'done'" class="o_website_sale_image_list"
+                                       context="{'default_name': name}"
+                                       mode="kanban"/>
+                            </group>
+                        </page>
+
+                        <page string="Documents" autofocus="autofocus">
+                            <field name="documents_ids" readonly="state == 'done'" context="{'default_name': name}"
+                                   mode="list"/>
+                        </page>
+
+                        <page string="Images">
+                            <group name="project_images">
+                                <field name="images_ids" readonly="state == 'done'" class="o_website_sale_image_list"
+                                       context="{'default_name': name}"
+                                       mode="kanban" options="{'create_text':'Add a Media'}" nolabel="1"/>
+                            </group>
+                        </page>
+
+                        <page string="Issue Track">
+                            <field name="project_issue_ids" groups="nthub_constructions.construction_group_officer"
+                                   readonly="state == 'done'">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="category"/>
+                                    <field name="date"/>
+                                    <field name="description"/>
+                                    <field name="project_id" invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page name="extra_expense" string="Extra Expenses" invisible="1">
+                            <field name="project_extras_ids">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="cost" sum="Total"/>
+                                    <field name="attachment"/>
+                                    <field name="project_id" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_project_construction">
+        <field name="name">Construction Project</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0), (0, 0, {'view_mode': 'list', 'view_id': ref('project.view_project')}), (0, 0, {'view_mode': 'kanban', 'view_id': ref('project.view_project_kanban')}), (0, 0, {'view_mode': 'form', 'view_id': ref('nthub_constructions.construction_form_project')})]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create New Project</p>
+        </field>
+        <field name="context">{'default_is_tender': False}</field>
+        <field name="domain">['|',('approved_tender', '=', True), ('is_tender', '=', False)]</field>
+    </record>
+    
+<record id="view_project_images_kanban" model="ir.ui.view">
+    <field name="name">project.images.kanban</field>
+    <field name="model">project.images</field>
+    <field name="arch" type="xml">
+        <kanban sample="1" class="o_kanban_images_templates">
+            <!-- Declare fields used inside template -->
+            <field name="image"/>
+            <field name="name"/>
+
+            <templates>
+                <!-- Kanban card layout -->
+                <t t-name="card" class="flex-row">
+                    <!-- MAIN CONTENT -->
+                    <main class="pe-2">
+                        <div class="d-flex flex-column align-items-start">
+                            <strong class="mb-1">
+                                <field name="name"/>
+                            </strong>
+                        </div>
+                    </main>
+
+                    <!-- IMAGE ASIDE -->
+                    <aside class="ms-auto">
+                        <field
+                            name="image"
+                            widget="image"
+                            alt="Project Image"
+                            options="{'img_class': 'w-100 object-fit-contain rounded shadow-sm'}"
+                            invisible="not image"
+                        />
+                    </aside>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+    <record id="view_project_image_form" model="ir.ui.view">
+        <field name="name">project.images.form</field>
+        <field name="model">project.images</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="image" widget="image"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!--document-->
+    <record id="view_project_document_tree" model="ir.ui.view">
+        <field name="name">project.documents.list</field>
+        <field name="model">project.documents</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="binary" widget="binary"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_project_form" model="ir.ui.view">
+        <field name="name">project.documents.form</field>
+        <field name="model">project.documents</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="binary" widget="binary" string="Document"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+        <record id="inherit_owner_contract_form" model="ir.ui.view">
+            <field name="name">owner.contract.form</field>
+            <field name="model">owner.contract</field>
+            <field name="inherit_id" ref="nthub_constructions.owner_contract_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet//notebook//page[@name='allowances']" position="after">
+                    <page name="extra_expense" string="Extra Expenses"
+                          invisible="is_owner!=True"
+                          >
+                        <field name="project_extra_expenses_ids" force_save="1"
+                               readonly="state!='draft'"
+                              >
+                            <list>
+                                <field name="product_id"/>
+                                <field name="date"/>
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="cost" sum="Total"/>
+                                <field name="attachment"/>
+                                <field name="project_id" column_invisible="1"/>
+                            </list>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//sheet//group[2]//group[@name='totals']//field[@name='allowance_total']" position="after">
+                    <field name="total_extra_cost" string="Total Extra Expenses" widget="monetary"
+                           readonly="state =='confirm'"
+                           />
+                </xpath>
+                <xpath expr="//header//field[@name='state']" position="before">
+                    <field name="extra_expense_invoice_id" invisible="1"/>
+                    <field name="project_extra_expenses_ids" invisible="1"/>
+                    <button name="action_create_expenses_invoice" type="object" string="Create Extra Expenses Invoice"
+                            class="btn-primary"
+                            invisible="extra_expense_invoice_id != False or project_extra_expenses_ids == [] or state == 'draft' or is_owner != True"
+                            />
+                </xpath>
+                <xpath expr="//sheet//div[@name='button_box']//button[@name='action_open_sub_contract']" position="before">
+                    <button name="action_open_extra_expense_invoice" type="object" class="oe_stat_button"
+                            icon="fa-external-link" string="Expenses Invoice"
+                            invisible="extra_expense_invoice_id ==False"
+                            />
+                    <field name="extra_expense_invoice_id" class="oe_stat_button p-3" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

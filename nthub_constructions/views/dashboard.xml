@@ -1,0 +1,191 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<odoo>
+    <data>
+        <record id="view_project_contracted_tree_dashboard" model="ir.ui.view">
+            <field name="name">Project Contracted</field>
+            <field name="model">project.project</field>
+            <field name="arch" type="xml">
+                <list create="0">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="company_id"/>
+                    <field name="date_start"/>
+                    <field name="date"/>
+                    <field name="user_id"/>
+                    <field name="state" widget="badge" decoration-success="state=='done'"
+                    decoration-warning="state=='tender'" decoration-muted="state=='draft'" decoration-info="state=='contract'"/>
+                </list>
+            </field>
+        </record>
+
+
+        <record id="view_owner_contract_contracted_tree_dashboard" model="ir.ui.view">
+            <field name="name">owner.contract.list</field>
+            <field name="model">owner.contract</field>
+            <field name="arch" type="xml">
+                <list create="0">
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="partner_id"/>
+                    <field name="date"/>
+                    <field name="reference" readonly="1"/>
+                    <field name="received_date"/>
+                    <field name="down_payment_percentage" widget="percentage"/>
+                    <field name="down_payment"/>
+                    <field name="total_amount"/>
+                    <field name="state" widget="badge" decoration-success="state=='done'"
+                           decoration-muted="state=='draft'" decoration-info="state=='confirm'"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_project_bar" model="ir.ui.view">
+            <field name="name">Project Graph</field>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <graph type="bar" sample="1">
+                    <field name="project_id" type="bar"/>
+                </graph>
+            </field>
+        </record>
+        <record id="view_project_pie_1" model="ir.ui.view">
+            <field name="name">Project Graph</field>
+            <field name="model">project.project</field>
+            <field name="arch" type="xml">
+                <graph type="pie" sample="1">
+                    <field name="partner_id" type="pie"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="view_owner_contract_pivot" model="ir.ui.view">
+            <field name="name">Owner Contract Pivot</field>
+            <field name="model">owner.contract</field>
+            <field name="arch" type="xml">
+                <pivot string="Contract Analysis" sample="1">
+                    <field name="name" type="col"/>
+                    <field name="partner_id" type="col"/>
+                    <field name="project_id" type="col"/>
+                    <field name="date" interval="month" type="row"/>
+                    <field name="end_date" interval="month" type="row"/>
+                    <field name="received_date" interval="month" type="row"/>
+                    <field name="total_after_deduction_allowance" type="measure"/>
+
+                </pivot>
+            </field>
+        </record>
+        <record id="view_project_completion_request_calendar" model="ir.ui.view">
+            <field name="name">Project Completion Request</field>
+            <field name="model">project.completion.request</field>
+            <field name="arch" type="xml">
+                <calendar string="Completion Request" create="0" mode="month" date_start="date" hide_time="true"
+                          event_limit="5">
+                    <field name="contract_id"/>
+                    <field name="project_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="action_project_construction_contract" model="ir.actions.act_window">
+            <field name="name">Current Project</field>
+            <field name="res_model">project.project</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'list', 'view_id': ref('nthub_constructions.view_project_contracted_tree_dashboard')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('nthub_constructions.construction_form_project')})]"/>
+        </record>
+
+
+        <record id="action_project_construction_bar" model="ir.actions.act_window">
+            <field name="name">Construction Project</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="nthub_constructions.view_project_bar"/>
+        </record>
+        <record id="action_project_construction_pie_1" model="ir.actions.act_window">
+            <field name="name">Construction Project</field>
+            <field name="res_model">project.project</field>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="nthub_constructions.view_project_pie_1"/>
+        </record>
+        <record id="owner_contract_action_dashboard" model="ir.actions.act_window">
+            <field name="name">Owner Contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">owner.contract</field>
+            <field name="view_mode">list</field>
+            <field name="view_id" ref="nthub_constructions.view_owner_contract_contracted_tree_dashboard"/>
+        </record>
+
+        <record id="project_completion_request_action_dashboard_calendar" model="ir.actions.act_window">
+            <field name="name">Project Completion Request</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">project.completion.request</field>
+            <field name="view_mode">calendar</field>
+            <field name="view_id" ref="nthub_constructions.view_project_completion_request_calendar"/>
+        </record>
+
+        <record id="owner_contract_action_dashboard_pivot" model="ir.actions.act_window">
+            <field name="name">Owner Contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">owner.contract</field>
+            <field name="view_mode">pivot</field>
+            <field name="view_id" ref="nthub_constructions.view_owner_contract_pivot"/>
+        </record>
+
+
+        <record id="dashboard_form_view" model="ir.ui.view">
+            <field name="name">Dashboard</field>
+            <field name="model">board.board</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Dashboard">
+                    <board style="2-1">
+                        <column>
+                            <action string="Current Projects"
+                                    name="%(action_project_construction_contract)d"
+                                    domain="[('state', '=', 'contract')]"
+                                    height="150"
+                                    width="300"/>
+
+                            <action string="Current Contracts"
+                                    name="%(owner_contract_action_dashboard)d"
+                                    domain="[('is_owner', '=', True)]"
+                                    height="150"
+                                    width="300"/>
+                            <action string="Calendar Project Completion Request"
+                                    name="%(project_completion_request_action_dashboard_calendar)d"
+                                    height="150"
+                                    width="300"/>
+                            <action string="Pivot Contract"
+                                    name="%(owner_contract_action_dashboard_pivot)d"
+                                    domain="[('is_owner', '=', True),('project_id.state', '=', 'contract')]"
+                                    height="150"
+                                    width="300"/>
+                        </column>
+                        <column>
+                            <action string="Tasks"
+                                    name="%(action_project_construction_bar)d"
+                                    domain="[('project_id', '!=', False),('project_id.state', '=', 'contract')]"
+                                    height="150"
+                                    width="300"/>
+                            <action string="Customers"
+                                    name="%(action_project_construction_pie_1)d"
+                                    domain="[('state', '=', 'contract')]"
+                                    height="150"
+                                    width="300"/>
+
+                        </column>
+
+                    </board>
+                </form>
+            </field>
+        </record>
+        <record id="open_board_my_dash_action" model="ir.actions.act_window">
+            <field name="name">Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_mode">form</field>
+            <field name="usage">menu</field>
+            <field name="view_id" ref="nthub_constructions.dashboard_form_view"/>
+        </record>
+    </data>
+</odoo>

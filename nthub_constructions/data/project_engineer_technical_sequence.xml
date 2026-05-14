@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+         <record id="seq_project_engineer_technical" model="ir.sequence">
+            <field name="name">project.completion.request</field>
+            <field name="code">project.completion.request</field>
+            <field name="prefix">COMP/</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"></field>
+        </record>
+    </data>
+</odoo>

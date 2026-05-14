@@ -1,0 +1,3258 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* nthub_constructions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-06 08:24+0000\n"
+"PO-Revision-Date: 2024-02-06 08:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "<i class=\"fa fa-lightbulb-o\"/>&amp;nbsp;"
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid ""
+"<i class=\"fa fa-long-arrow-right mx-2 oe_edit_only\" aria-label=\"Arrow icon\" title=\"Arrow\"/>\n"
+"                                    <i class=\"fa fa-long-arrow-right mx-2 oe_read_only\" aria-label=\"Arrow icon\" title=\"Arrow\" attrs=\"{'invisible': [('date_start', '=', False), ('date', '=', False)]}\"/>"
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "<i class=\"fa fa-warning\"/>&amp;nbsp;"
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                                        Collaborators\n"
+"                                    </span>"
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "<span class=\"o_stat_text\">Completion Request</span>"
+msgstr "المستخلص"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "<span class=\"o_stat_text\">Contract</span>"
+msgstr "العقد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "<span class=\"o_stat_text\">Delivery Request</span>"
+msgstr "طلب التسليم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "<span class=\"o_stat_text\">Sub-Contract</span>"
+msgstr "العقد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "<span class=\"o_stat_text\">Tasks</span>"
+msgstr "المهام"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "<span class=\"o_stat_text\">WBS</span>"
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Amount</strong>"
+msgstr "الكمية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+msgid "<strong>Approved Amount</strong>"
+msgstr "المبلغ المعتمد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+msgid "<strong>Contract</strong>"
+msgstr "العقد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Cost</strong>"
+msgstr "التكلفة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.hr_expense_report
+msgid "<strong>Customer</strong>"
+msgstr "العميل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.hr_expense_report
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Date</strong>"
+msgstr "التاريخ"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Down Payment Percentage</strong>"
+msgstr "نسبة الدفعة الأولى"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Down Payment</strong>"
+msgstr "الدفعة الأولى"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>End Date</strong>"
+msgstr "تاريخ الانتهاء"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.hr_expense_report
+msgid "<strong>Included taxes</strong>"
+msgstr "شامل الضرائب"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Item</strong>"
+msgstr "البند"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Main Type</strong>"
+msgstr "النوع الرئيسي"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.hr_expense_report
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Name</strong>"
+msgstr "الاسم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.hr_expense_report
+msgid "<strong>Paid By</strong>"
+msgstr "مدفوعة بواسطة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Percentage</strong>"
+msgstr "النسبة المئوية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.hr_expense_report
+msgid "<strong>Product</strong>"
+msgstr "المنتج"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Project</strong>"
+msgstr "المشروع"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Quantity</strong>"
+msgstr "الكميه"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Received Date</strong>"
+msgstr "تاريخ الحصول عليه"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.hr_expense_report
+msgid "<strong>State</strong>"
+msgstr "الحالة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+msgid "<strong>Total Allowance Cost</strong>"
+msgstr "إجمالي تكلفة البدل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Total Allowances</strong>"
+msgstr "إجمالي البدلات"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.hr_expense_report
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Total Amount</strong>"
+msgstr "المبلغ الإجمالي"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+msgid "<strong>Total Deduction Cost</strong>"
+msgstr "إجمالي تكلفة الخصم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Total Deduction</strong>"
+msgstr "إجمالي الخصم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Total Extra Expenses</strong>"
+msgstr "إجمالي المصاريف الإضافية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+msgid "<strong>Total Line Cost</strong>"
+msgstr "إجمالي تكلفة السجل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Total</strong>"
+msgstr "المجموع"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>Type Of Contract</strong>"
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+msgid "<strong>Type</strong>"
+msgstr "النوع"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+msgid "<strong>Unit Price</strong>"
+msgstr "سعر الوحدة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "<strong>unit Price</strong>"
+msgstr "سعر الوحدة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Accept Emails From"
+msgstr "قبول رسائل البريد الإلكتروني من"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_completion_request_line__state__accept
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__subcontractor_delivery_request_line__state__accept
+msgid "Accepted"
+msgstr "موافقة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__access_warning
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__access_warning
+msgid "Access warning"
+msgstr "تحذير الوصول"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/contract_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_deduction_allowance.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__account_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__account_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__account_id
+#, python-format
+msgid "Account"
+msgstr "الحساب"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_needaction
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_needaction
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_needaction
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_needaction
+msgid "Action Needed"
+msgstr "الإجراءات اللازمة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_completion_request_form
+msgid "Active Invoice"
+msgstr "الفاتورة النشطة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__activity_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__activity_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__activity_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__activity_ids
+msgid "Activities"
+msgstr "أنشطة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__activity_exception_decoration
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__activity_exception_decoration
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__activity_exception_decoration
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "زخرفة استثناء النشاط"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__activity_state
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__activity_state
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__activity_state
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__activity_type_icon
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__activity_type_icon
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__activity_type_icon
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "رمز نوع النشاط"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_completion_deduction_allowance__main_type__allowance
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_deduction_allowance__main_type__allowance
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__sub_contract_delivery_deduction_allowance__main_type__allowance
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_completion_request_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.subcontractor_delivery_request_form
+msgid "Allowance"
+msgstr "البدلات"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__allowance_line_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__allowance_line_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__allowance_line_ids
+msgid "Allowance Line"
+msgstr "سجل البدلات"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "Allowance Lines"
+msgstr "خطوط المخصصات"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__allowance_total
+msgid "Allowance Total"
+msgstr "إجمالي البدل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Allowances"
+msgstr "البدلات"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/contract_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_deduction_allowance.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__amount
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__amount
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__amount
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__amount
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_completion_deduction_allowance__calculation_type__amount
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_deduction_allowance__calculation_type__amount
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__sub_contract_delivery_deduction_allowance__calculation_type__amount
+#, python-format
+msgid "Amount"
+msgstr "الكمية"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_item.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__analytic_tag
+#, python-format
+msgid "Analytic Tag"
+msgstr "العلامة التحليلية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Analytics"
+msgstr "التحليلات"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_form_view
+msgid "Approve"
+msgstr "موافقة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__tender_job_cost__state__approve
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__wbs_job_cost__state__approve
+msgid "Approved"
+msgstr "الموافقة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__amount
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__amount
+#, python-format
+msgid "Approved Amount"
+msgstr "المبلغ المعتمد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_search
+msgid "Approved Job Costing"
+msgstr "تكلفة الوظيفة المعتمدة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__approved_tender
+#, python-format
+msgid "Approved Tender"
+msgstr "مناقصة تمت الموافقة عليها"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/stages.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_constructions_stages__ar_name
+#, python-format
+msgid "Arabic Name"
+msgstr "الاسم العربي"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Are you sure you want to End this project?"
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__attachment
+#, python-format
+msgid "Attachment"
+msgstr "المرفق"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_attachment_count
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_attachment_count
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_attachment_count
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Auto-generate tasks for regular activities"
+msgstr "إنشاء المهام تلقائيًا للأنشطة العادية"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_documents__binary
+msgid "Binary"
+msgstr "الثنائية"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.action_tender_job_costing
+#: model:ir.ui.menu,name:nthub_constructions.tender_job_costing_menu_action
+msgid "Breakdown Template"
+msgstr "قالب العمل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "CRG Settings"
+msgstr "إعدادات سي آر جي"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/contract_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_deduction_allowance.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__calculation_type
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__calculation_type
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__calculation_type
+#, python-format
+msgid "Calculation Type"
+msgstr "نوع الحساب"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.dashboard_form_view
+msgid "Calendar Project Completion Request"
+msgstr "المستخلص لمشروع التقويم"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_wbs__state__cancel
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.new_wbs_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_search
+msgid "Cancel Job Costing"
+msgstr "إلغاء تكلفة الوظيفة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__tender_job_cost__state__cancel
+msgid "Canceled"
+msgstr "ملغى"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: code:addons/nthub_constructions/models/tender_item.py:0
+#: code:addons/nthub_constructions/models/tender_job.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__code
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__code
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__code
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__code
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job__code
+#, python-format
+msgid "Code"
+msgstr "كود"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_item.py:0
+#: model:ir.model.constraint,message:nthub_constructions.constraint_tender_item_unique_code
+#, python-format
+msgid "Code must be unique"
+msgstr "يجب أن يكون الرمز فريدًا"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_subcontractor_delivery_request_tree
+msgid "Combine Selected Records"
+msgstr "الجمع بين السجلات المحددة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__company_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__company_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__company_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__company_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__company_id
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_search
+#, python-format
+msgid "Company"
+msgstr "الشركة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__request_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__completion_request_id
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_project_completion_request_calendar
+#, python-format
+msgid "Completion Request"
+msgstr "المستخلص"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+msgid "Completion Request -"
+msgstr "المستخلص -"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+msgid "Completion Request Information"
+msgstr "معلومات  المستخلص"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+msgid "Completion Request Items"
+msgstr "بنود  المستخلص"
+
+#. module: nthub_constructions
+#: model:ir.actions.report,name:nthub_constructions.completion_request_id
+msgid "Completion Request Report"
+msgstr "تقرير  المستخلص"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__completion_request_count
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__subcontractor_delivery_request_count
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__completion_request_count
+#: model:ir.ui.menu,name:nthub_constructions.completion_request_menu
+#: model:ir.ui.menu,name:nthub_constructions.owner_completion_request_menu_action
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+#, python-format
+msgid "Completion Requests"
+msgstr "المستخلصات"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Completion Template"
+msgstr "قالب المستخلص"
+
+#. module: nthub_constructions
+#: model:ir.ui.menu,name:nthub_constructions.constructions_category_menu
+msgid "Configuration"
+msgstr "الاعدادات"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_wbs__state__confirm
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.new_wbs_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_completion_request_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.subcontractor_delivery_request_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+msgid "Confirm"
+msgstr "الموافقة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_search
+msgid "Confirm Job Costing"
+msgstr "تأكيد تكلفة الوظيفة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__confirmation_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__confirmation_date
+#, python-format
+msgid "Confirmation Date"
+msgstr "تاريخ تأكيد"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__owner_contract__state__confirm
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_completion_request__state__confirm
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__subcontractor_delivery_request__state__confirm
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.const_product_form_view
+msgid "Construction Options"
+msgstr "خيارات البناء"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.action_project_construction
+#: model:ir.actions.act_window,name:nthub_constructions.action_project_construction_bar
+#: model:ir.actions.act_window,name:nthub_constructions.action_project_construction_pie_1
+msgid "Construction Project"
+msgstr "مشروع بناء"
+
+#. module: nthub_constructions
+#: model:ir.module.category,name:nthub_constructions.nthub_constructions_category
+#: model:ir.ui.menu,name:nthub_constructions.constructions_root_menu
+msgid "Constructions"
+msgstr "المقاولات"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/contract_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/project.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__contract_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__reference
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__contract_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__contract_count
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__contract_id
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.subcontractor_delivery_request_search
+#, python-format
+msgid "Contract"
+msgstr "العقد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "Contract -"
+msgstr "العقد -"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_owner_contract_pivot
+msgid "Contract Analysis"
+msgstr "تحليل العقد"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__contract_date
+#, python-format
+msgid "Contract Date"
+msgstr "تاريخ العقد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "Contract Information"
+msgstr "معلومات العقد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "Contract Items"
+msgstr "بنود العقد"
+
+#. module: nthub_constructions
+#: model:ir.actions.report,name:nthub_constructions.report_owner_contract
+msgid "Contract report"
+msgstr "تقرير العقد"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_project__state__contract
+msgid "Contracted"
+msgstr "التعاقد"
+
+#. module: nthub_constructions
+#: model:ir.ui.menu,name:nthub_constructions.constructions_contract_menu
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__unit_price
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__unit_price
+#, python-format
+msgid "Cost / Unit"
+msgstr "وحدة التكلفة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+msgid "Cost Lines"
+msgstr "خطوط التكلفة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__total_cost
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__total_cost
+#, python-format
+msgid "Cost Price Sub Total"
+msgstr "سعر التكلفة المجموع الفرعي"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__cost_per_day
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__cost_per_day
+#, python-format
+msgid "Cost per day"
+msgstr "التكلفة في اليوم الواحد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Create Completion Req"
+msgstr "إنشاء  المستخلص"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Create Contract"
+msgstr "إنشاء العقد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Create Delivery Req"
+msgstr "إنشاء طلب التسليم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_completion_request_form
+msgid "Create Invoice"
+msgstr "إنشاء فاتورة"
+
+#. module: nthub_constructions
+#: model_terms:ir.actions.act_window,help:nthub_constructions.action_project_construction
+msgid "Create New Project"
+msgstr "إنشاء مشروع جديد"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.subcontractor_delivery_request_form
+msgid "Create Payment"
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Create Sub Contract"
+msgstr "إنشاء عقد من الباطن"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Create WBS"
+msgstr "إنشاء هيكل تنظيم العمل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Create tasks by sending an email to"
+msgstr "إنشاء المهام عن طريق إرسال بريد إلكتروني إلى"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__user_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__user_id
+#, python-format
+msgid "Created By"
+msgstr "انشأ من قبل"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_constructions_stages__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_new_wbs_wizard__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_documents__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_images__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_unit_type__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__create_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_constructions_stages__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_new_wbs_wizard__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_documents__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_images__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_unit_type__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__create_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__currency_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__currency_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__currency_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__currency_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__currency_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__currency_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__currency_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__currency_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__currency_id
+#, python-format
+msgid "Currency"
+msgstr "العملة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.dashboard_form_view
+msgid "Current Contracts"
+msgstr "العقود الحالية"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.action_project_construction_contract
+msgid "Current Project"
+msgstr "المشروع الحالي"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.dashboard_form_view
+msgid "Current Projects"
+msgstr "المشاريع الحالية"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__quantity
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__quantity
+#, python-format
+msgid "Current Quantity"
+msgstr "الكمية الحالية"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__customer_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__customer_id
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+#, python-format
+msgid "Customer"
+msgstr "العميل"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__access_url
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__access_url
+msgid "Customer Portal URL"
+msgstr " لبوابة العملاء url عنوان"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.owner_action
+#: model:ir.ui.menu,name:nthub_constructions.customers_menu_action
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.dashboard_form_view
+msgid "Customers"
+msgstr "العملاء"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.open_board_my_dash_action
+#: model:ir.ui.menu,name:nthub_constructions.dash_menu
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.dashboard_form_view
+msgid "Dashboard"
+msgstr "الاحصائيات"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__date
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__date
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__date
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__date
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost_line__date
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost_line__date
+#, python-format
+msgid "Date"
+msgstr "الوقت"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.contract_completion_deduction_allowance_action
+#: model:ir.actions.act_window,name:nthub_constructions.contract_deduction_allowance_action
+#: model:ir.actions.act_window,name:nthub_constructions.sub_contract_deduction_allowance_action
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_completion_deduction_allowance__main_type__deduction
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_deduction_allowance__main_type__deduction
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__sub_contract_delivery_deduction_allowance__main_type__deduction
+msgid "Deduction"
+msgstr "الخصومات"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__deduction_line_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__deduction_line_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__deduction_line_ids
+msgid "Deduction Line"
+msgstr "سجل الخصم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.completion_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "Deduction Lines"
+msgstr "سجلات الخصم"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__deduction_total
+msgid "Deduction Total"
+msgstr "إجمالي الخصم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_completion_request_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.subcontractor_delivery_request_form
+msgid "Deductions"
+msgstr "الخصومات"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__delivery_date
+#, python-format
+msgid "Delivery Date"
+msgstr "تاريخ التسليم "
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/sub_contract_delivery_deduction_allowance.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_hr_expense__delivery_request_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__request_id
+#, python-format
+msgid "Delivery Request"
+msgstr "طلب التسليم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+msgid "Delivery Request -"
+msgstr "طلب التسليم -"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+msgid "Delivery Request Information"
+msgstr "معلومات طلب التسليم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.delivery_request_request
+msgid "Delivery Request Items"
+msgstr "بنود طلب التسليم"
+
+#. module: nthub_constructions
+#: model:ir.actions.report,name:nthub_constructions.delivery_request_id
+msgid "Delivery Request Report"
+msgstr "تقرير طلب التسليم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Delivery Requestsaction_open_completion_request"
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/project_unit_type.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__description
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__description
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_unit_type__description
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__description
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__description
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__description
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__description
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__description
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost_line__description
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost_line__description
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+#, python-format
+msgid "Description"
+msgstr "الوصف"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Determine the order in which to perform tasks"
+msgstr "تحديد الترتيب الذي سيتم به أداء المهام"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__job_equipment_line_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__job_equipment_line_ids
+#, python-format
+msgid "Direct Equipments"
+msgstr "المعدات المباشرة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__job_expense_line_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__job_expense_line_ids
+#, python-format
+msgid "Direct Expenses"
+msgstr "المصروفات المباشرة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__job_labour_line_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__job_labour_line_ids
+#, python-format
+msgid "Direct Labours"
+msgstr "العمالة المباشرة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__job_cost_line_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__job_cost_line_ids
+#, python-format
+msgid "Direct Materials"
+msgstr "المواد المباشرة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__job_subcontractor_line_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__job_subcontractor_line_ids
+#, python-format
+msgid "Direct Subcontractor"
+msgstr "المقاول من الباطن المباشر"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_constructions_stages__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_new_wbs_wizard__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_documents__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_images__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_unit_type__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__display_name
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_project_form
+msgid "Document"
+msgstr "الوثيقة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__documents_ids
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Documents"
+msgstr "الوثائق"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__owner_contract__state__done
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_project__state__done
+msgid "Done"
+msgstr "مؤكد"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__down_payment
+#, python-format
+msgid "Down Payment"
+msgstr "دفعة مبدئية"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__down_payment_percentage
+#, python-format
+msgid "Down Payment Percentage"
+msgstr "نسبة الدفعة الأولى"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__owner_contract__state__draft
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_completion_request__state__draft
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_project__state__draft
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_wbs__state__draft
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__subcontractor_delivery_request__state__draft
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__tender_job_cost__state__draft
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__wbs_job_cost__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__owner_contract__generation_method__duration
+msgid "Duration"
+msgstr "المدة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "End"
+msgstr "انهاء"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__end_date
+#, python-format
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Ended"
+msgstr "انتهى"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__engineers_ids
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Engineers"
+msgstr "المهندسين"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/product.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_product__equipment
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_template__equipment
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_wbs_builds_line__flag__q
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__tender_job_cost_line__flag__q
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__wbs_job_cost_line__flag__q
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_const_product_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_form_view
+#, python-format
+msgid "Equipment"
+msgstr "المعدات"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_hr_expense
+msgid "Expense"
+msgstr "المصروف"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/product.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_product__expenses
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_template__expenses
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_wbs_builds_line__flag__e
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__tender_job_cost_line__flag__e
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__wbs_job_cost_line__flag__e
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_const_product_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_form_view
+#, python-format
+msgid "Expenses"
+msgstr "المصاريف"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__extra_expenses
+#, python-format
+msgid "Extra Expenses"
+msgstr "المصاريف الاضافية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract
+msgid "Extra Expenses Lines"
+msgstr "سجلات المصاريف الاضافية"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_completion_request__type__final
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__subcontractor_delivery_request__type__final
+msgid "Final"
+msgstr "النهائى"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__finished_quantity
+#, python-format
+msgid "Finished Qty"
+msgstr "الكمية النهائية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid ""
+"Follow this project to automatically track the events associated to tasks "
+"and issues of this project."
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_follower_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_follower_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_follower_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_partner_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_partner_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_partner_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_project_completion_request__activity_type_icon
+#: model:ir.model.fields,help:nthub_constructions.field_subcontractor_delivery_request__activity_type_icon
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__activity_type_icon
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "رمز الخط الرائع على سبيل المثال. مهام كرة القدم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Generate Completion Req"
+msgstr "إنشاءالمستخلص"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Generate Tasks"
+msgstr "إنشاء المهام"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__generation_method
+msgid "Generation Method"
+msgstr "طريقة الجيل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Get customer feedback"
+msgstr "احصل على تعليقات العملاء"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.subcontractor_delivery_request_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_completion_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_sub_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_tender_item_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_search
+msgid "Group By"
+msgstr "مجموعة من"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__has_message
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__has_message
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__has_message
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__has_message
+msgid "Has Message"
+msgstr "لديه رسالة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.hr_expense_report
+msgid "Hr Expense Information"
+msgstr "معلومات مصاريف الموارد البشرية"
+
+#. module: nthub_constructions
+#: model:ir.actions.report,name:nthub_constructions.report_expense
+msgid "Hr Expense Report"
+msgstr "تقرير مصاريف الموارد البشرية"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_constructions_stages__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_new_wbs_wizard__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_documents__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_images__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_unit_type__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__activity_exception_icon
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__activity_exception_icon
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__activity_exception_icon
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__activity_exception_icon
+msgid "Icon"
+msgstr "رمز"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_project_completion_request__activity_exception_icon
+#: model:ir.model.fields,help:nthub_constructions.field_subcontractor_delivery_request__activity_exception_icon
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__activity_exception_icon
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للإشارة إلى نشاط الاستثناء"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_project_completion_request__message_needaction
+#: model:ir.model.fields,help:nthub_constructions.field_subcontractor_delivery_request__message_needaction
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__message_needaction
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديدها، فإن الرسائل الجديدة تتطلب انتباهك"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_project_completion_request__message_has_error
+#: model:ir.model.fields,help:nthub_constructions.field_project_completion_request__message_has_sms_error
+#: model:ir.model.fields,help:nthub_constructions.field_subcontractor_delivery_request__message_has_error
+#: model:ir.model.fields,help:nthub_constructions.field_subcontractor_delivery_request__message_has_sms_error
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__message_has_error
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__message_has_sms_error
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__message_has_error
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده، فإن بعض الرسائل تحتوي على خطأ في التسليم"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_item.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_images__image
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__image
+#, python-format
+msgid "Image"
+msgstr "الصورة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__images_ids
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Images"
+msgstr "الصور"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost_line__unit_price
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost_line__unit_price
+msgid ""
+"In Standard Price & AVCO: value of the product (automatically computed in AVCO).\n"
+"        In FIFO: value of the next unit that will leave the stock (automatically computed).\n"
+"        Used to value the product when the purchase cost is not known (e.g. inventory adjustment).\n"
+"        Used to compute margins on sale orders."
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/product.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_product__indirect_cost
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_template__indirect_cost
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_const_product_search
+#, python-format
+msgid "Indirect Cost"
+msgstr "التكاليف غير المباشرة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_completion_request__type__initial
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__subcontractor_delivery_request__type__initial
+msgid "Initial"
+msgstr "أولي"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__invoice_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__invoice_id
+#, python-format
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_completion_request__state__invoiced
+msgid "Invoiced"
+msgstr "مفوترة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__is_cr
+msgid "Is Cr"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_is_follower
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_is_follower
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_is_follower
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_is_follower
+msgid "Is Follower"
+msgstr "هو تابع"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__is_generated
+#, python-format
+msgid "Is Generated"
+msgstr "تم إنشاؤه"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__is_owner
+#, python-format
+msgid "Is Owner"
+msgstr "هو المالك"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__is_tender
+#, python-format
+msgid "Is Tender"
+msgstr "المناقصة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/contract_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__item_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__item_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__item_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__item_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__item_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__item_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__item_id
+#: model:ir.model.fields,help:nthub_constructions.field_project_wbs_builds_line__item_id
+#, python-format
+msgid "Item"
+msgstr "البند"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__job_cost_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__job_cost_id
+#, python-format
+msgid "Job Cost"
+msgstr "تكلفة الوظيفة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__notes_job
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__notes_job
+#, python-format
+msgid "Job Cost Details"
+msgstr "تفاصيل تكلفة الوظيفة"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_tender_job_cost_line
+#: model:ir.model,name:nthub_constructions.model_wbs_job_cost_line
+msgid "Job Cost Line"
+msgstr "سجل تكلفة الوظيفة"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_tender_job_cost
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost_line__job_cost_id
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost_line__job_cost_id
+msgid "Job Costing"
+msgstr "وظيفة تكلف"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+msgid "Job Costing form"
+msgstr "نموذج تكلفة الوظيفة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__job_costsheet_line_count
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__job_costsheet_line_count
+msgid "Job Costsheet Line Count"
+msgstr "عدد سجلات ورقة تكلفة الوظيفة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/product.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_product__labour
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_template__labour
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_const_product_search
+#, python-format
+msgid "Labour"
+msgstr "العامل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_form_view
+msgid "Labours"
+msgstr "العمال"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_constructions_stages____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_new_wbs_wizard____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_documents____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_images____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_unit_type____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost____last_update
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_constructions_stages__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_new_wbs_wizard__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_documents__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_images__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_unit_type__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__write_uid
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_constructions_stages__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_new_wbs_wizard__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_documents__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_images__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_unit_type__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__write_date
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث بتاريخ"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__line_ids
+msgid "Line"
+msgstr "السجل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_completion_request_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.subcontractor_delivery_request_form
+msgid "Lines"
+msgstr "السجلات"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_main_attachment_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_main_attachment_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_main_attachment_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/contract_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_deduction_allowance.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__main_type
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__main_type
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__main_type
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_completion_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_sub_contract_deduction_allowance_search
+#, python-format
+msgid "Main Type"
+msgstr "النوع الرئيسي"
+
+#. module: nthub_constructions
+#: model:res.groups,name:nthub_constructions.construction_group_manager
+msgid "Manager"
+msgstr "المدير"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/product.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_product__material
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_template__material
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_wbs_builds_line__flag__m
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__tender_job_cost_line__flag__m
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__wbs_job_cost_line__flag__m
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_const_product_search
+#, python-format
+msgid "Material"
+msgstr "المادة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_form_view
+msgid "Materials"
+msgstr "المواد"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_has_error
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_has_error
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_has_error
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: nthub_constructions
+#: model:ir.module.category,description:nthub_constructions.nthub_constructions_category
+msgid "Module category for Construction"
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__months
+#, python-format
+msgid "Months"
+msgstr "الشهور"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__my_activity_date_deadline
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__my_activity_date_deadline
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__my_activity_date_deadline
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي لنشاطي"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/contract_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/project.py:0
+#: code:addons/nthub_constructions/models/project.py:0
+#: code:addons/nthub_constructions/models/project_unit_type.py:0
+#: code:addons/nthub_constructions/models/stages.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/tender_item.py:0
+#: code:addons/nthub_constructions/models/tender_job.py:0
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_constructions_stages__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_documents__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_images__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_unit_type__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__name
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_completion_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_sub_contract_deduction_allowance_search
+#, python-format
+msgid "Name"
+msgstr "الاسم"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.hr_expense_report
+msgid "Name -"
+msgstr "الاسم"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_item.py:0
+#: model:ir.model.constraint,message:nthub_constructions.constraint_tender_item_unique_name
+#, python-format
+msgid "Name must be unique"
+msgstr "يجب أن يكون الاسم فريدًا"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Name of the tasks"
+msgstr "اسم المهام"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_tender_item_kanban
+msgid "Name:"
+msgstr "الاسم :"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_new_wbs_wizard
+msgid "New WBS Wizard"
+msgstr "معالج الهيكلة العامة الجديده"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__activity_date_deadline
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__activity_date_deadline
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__activity_date_deadline
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__activity_summary
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__activity_summary
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__activity_summary
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__activity_type_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__activity_type_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__activity_type_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#, python-format
+msgid "No Payment associated with this subcontractor request."
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#, python-format
+msgid "No invoice associated with this completion request."
+msgstr "لا توجد فاتورة مرتبطة بطلب المستخلص هذا"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__no_of_days
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__no_of_days
+#, python-format
+msgid "No of days"
+msgstr "لا ايام"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__notes
+#, python-format
+msgid "Notes"
+msgstr "الملاحظات"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__number
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__number
+msgid "Number"
+msgstr "الرقم"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_needaction_counter
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_needaction_counter
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_needaction_counter
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__num_of_units
+#, python-format
+msgid "Number of Units"
+msgstr "عدد الوحدات"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_has_error_counter
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_has_error_counter
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_has_error_counter
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_project_completion_request__message_needaction_counter
+#: model:ir.model.fields,help:nthub_constructions.field_subcontractor_delivery_request__message_needaction_counter
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__message_needaction_counter
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تتطلب اتخاذ إجراء"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_project_completion_request__message_has_error_counter
+#: model:ir.model.fields,help:nthub_constructions.field_subcontractor_delivery_request__message_has_error_counter
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__message_has_error_counter
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: nthub_constructions
+#: model:res.groups,name:nthub_constructions.construction_group_officer
+msgid "Officer"
+msgstr "الموظف المسئول"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_completion_deduction_allowance__contract_type__owner
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_deduction_allowance__contract_type__owner
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__sub_contract_delivery_deduction_allowance__contract_type__owner
+msgid "Owner"
+msgstr "المالك"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.owner_completion_request_action
+msgid "Owner Completion Request"
+msgstr " المستخلص المالك"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.actions.act_window,name:nthub_constructions.owner_contract_action
+#: model:ir.actions.act_window,name:nthub_constructions.owner_contract_action_dashboard
+#: model:ir.actions.act_window,name:nthub_constructions.owner_contract_action_dashboard_pivot
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__owner_contract_id
+#: model:ir.ui.menu,name:nthub_constructions.owner_contract_menu
+#, python-format
+msgid "Owner Contract"
+msgstr "عقد المالك"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__owner_contract_line_ids
+msgid "Owner Contract Line"
+msgstr "سجل عقد المالك"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__subcontractor_delivery_request__state__paid
+msgid "Paid"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_completion_request_line__state__partially
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__subcontractor_delivery_request_line__state__partially
+msgid "Partially Accepted"
+msgstr "مقبولة جزئيا"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_hr_expense__customer_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__partner_id
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__payment_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__payment_id
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.subcontractor_delivery_request_form
+#, python-format
+msgid "Payment"
+msgstr "نفقة "
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/contract_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__percentage
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__percentage
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__rate
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__percentage
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__percentage
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__percentage
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__percentage
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_completion_deduction_allowance__calculation_type__percentage
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_deduction_allowance__calculation_type__percentage
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__sub_contract_delivery_deduction_allowance__calculation_type__percentage
+#, python-format
+msgid "Percentage"
+msgstr "النسبة المئوية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.dashboard_form_view
+msgid "Pivot Contract"
+msgstr "العقد المحوري"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Planned Date"
+msgstr "التاريخ المحدد"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__qty
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__qty
+#, python-format
+msgid "Planned Qty"
+msgstr "الكمية المخططة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#, python-format
+msgid "Please Fill Start Date and/or End Date"
+msgstr "يرجى ملء تاريخ البدء و/أو تاريخ الانتهاء"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#, python-format
+msgid "Please Select Generation Method"
+msgstr "الرجاء تحديد طريقة الإنشاء"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#, python-format
+msgid "Please enter a down payment amount."
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#, python-format
+msgid "Please select a Sub-contractor."
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#, python-format
+msgid "Please select a customer."
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__access_url
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__access_url
+msgid "Portal Access URL"
+msgstr "عنوان URL للوصول إلى البوابة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__price_unit
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__price_unit
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__price_unit
+#, python-format
+msgid "Price Unit"
+msgstr "سعر الوحدة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_completion_request__state__processing
+msgid "Processing"
+msgstr "يعالج"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model,name:nthub_constructions.model_product_template
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__product_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__product_id
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost_line__product_id
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost_line__product_id
+#, python-format
+msgid "Product"
+msgstr "المنتج"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.const_product_action
+#: model:ir.ui.menu,name:nthub_constructions.const_product_menu_action
+msgid "Products"
+msgstr "المنتجات"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__owner_contract__generation_method__progress
+msgid "Progress"
+msgstr "التقدم"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: code:addons/nthub_constructions/wizards/new_wbs_wizard.py:0
+#: model:ir.model,name:nthub_constructions.model_project_project
+#: model:ir.model.fields,field_description:nthub_constructions.field_new_wbs_wizard__project_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__project_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__project_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_documents__project_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_images__project_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__project_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__project_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__project_id
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+#, python-format
+msgid "Project"
+msgstr "المشروع"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#, python-format
+msgid ""
+"Project %s is already done. You can not combine records from a done project."
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.project_completion_request_action_dashboard_calendar
+msgid "Project Completion Request"
+msgstr " المستخلص للمشروع"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__project_end_date
+#, python-format
+msgid "Project End Date"
+msgstr "تاريخ انتهاء المشروع"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Project Information"
+msgstr "معلومات المشروع"
+
+#. module: nthub_constructions
+#: model:ir.ui.menu,name:nthub_constructions.tenders_job_item
+msgid "Project Items"
+msgstr "بنود المشروع"
+
+#. module: nthub_constructions
+#: model:ir.ui.menu,name:nthub_constructions.tenders_job
+msgid "Project Jobs"
+msgstr "وظائف المشروع"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Project Manager"
+msgstr "مدير المشروع"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.project_unit_action
+#: model:ir.model,name:nthub_constructions.model_project_unit_type
+msgid "Project Unit Type"
+msgstr "نوع وحدة المشروع"
+
+#. module: nthub_constructions
+#: model:ir.ui.menu,name:nthub_constructions.project_unit_menu
+msgid "Project Unit Types"
+msgstr "أنواع وحدات المشروع"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__project_wbs_builds_ids
+#, python-format
+msgid "Project WBS Builds"
+msgstr "إنشاءات مشروع الهيكلة العامه"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__project_wbs_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__project_wbs_builds_id
+#, python-format
+msgid "Project Wbs"
+msgstr "مشروع الهيكلة العامة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__project_wbs_builds_line_ids
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_wbs_view_form
+#, python-format
+msgid "Project Wbs Builds Lines"
+msgstr "مشروع الهيكله العامه يبني السجلات"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_wbs_view_form
+msgid "Project Wbs Lines"
+msgstr "خطوط مشروع الهيكلة العامة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Project description..."
+msgstr "وصف المشرو"
+
+#. module: nthub_constructions
+#: model:ir.ui.menu,name:nthub_constructions.constructions_project_menu
+msgid "Projects"
+msgstr "المشاريع"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__quantity
+#, python-format
+msgid "Qty"
+msgstr "الكمية"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__qty
+#, python-format
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__received_date
+#, python-format
+msgid "Received Date"
+msgstr "تاريخ الاستلام"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__ref_id
+#, python-format
+msgid "Ref"
+msgstr "المرجع"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__reference
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__name
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__reference
+#, python-format
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_completion_request__state__reject
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_completion_request_line__state__reject
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__subcontractor_delivery_request__state__reject
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__subcontractor_delivery_request_line__state__reject
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/tender_item.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__job_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__job_id
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_tender_item_search
+#, python-format
+msgid "Related Job"
+msgstr "الوظيفة ذات الصلة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_tender_item_kanban
+msgid "Related Job:"
+msgstr "الوظيفة ذات الصلة:"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_item.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__related_product_id
+#, python-format
+msgid "Related Product"
+msgstr "المنتجات ذات الصلة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__remaining_quantity
+#, python-format
+msgid "Remaining Quantity"
+msgstr "الكمية المتبقية"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_item.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__repeated
+#: model:ir.model.fields,help:nthub_constructions.field_tender_item__repeated
+#, python-format
+msgid "Repeated"
+msgstr "متكرر"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_form_view
+msgid "Reset to Draft"
+msgstr "إعادة التعيين إلى المسودة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__activity_user_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__activity_user_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__activity_user_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__message_has_sms_error
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__message_has_sms_error
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__message_has_sms_error
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.subcontractor_delivery_request_search
+msgid "Search Subcontractor Delivery Request"
+msgstr "بحث عن طلب تسليم المقاول الفرعى"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_search
+msgid "Search WBS Template"
+msgstr "بحث في قالب الهيكلة العامة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_search
+msgid "Search c"
+msgstr "البحث"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__access_token
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__access_token
+msgid "Security Token"
+msgstr "رمز الأمان"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#, python-format
+msgid ""
+"Select at least one Confirmed & uncombined previously delivery request."
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Set a Rating Email Template on Stages"
+msgstr "قم بتعيين قالب البريد الإلكتروني للتقييم على المراحل"
+
+#. module: nthub_constructions
+#: model:ir.ui.menu,name:nthub_constructions.setting_menu_action
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Settings"
+msgstr "الاعدادات"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_completion_request_form
+msgid "Setup default Completion Request Details or Technical contents."
+msgstr "إعداد تفاصيل طلب المستخلص الافتراضي أو المحتويات التقنية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_form_view
+msgid "Setup default Job Details or Technical contents."
+msgstr "إعداد تفاصيل الوظيفة الافتراضية أو المحتويات التقنية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Share Editable"
+msgstr "مشاركة للتعديل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Share Readonly"
+msgstr "مشاركة للقراءة فقط"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Split your tasks to organize your work into sub-milestones"
+msgstr "قم بتقسيم مهامك لتنظيم عملك إلى معالم فرعية"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__stack_holders_ids
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Stack Holders"
+msgstr "المالكون"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__stage
+#, python-format
+msgid "Stage"
+msgstr "المرحلة"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.stages_action
+#: model:ir.ui.menu,name:nthub_constructions.stages_menu
+msgid "Stages"
+msgstr "المراحل"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__date
+#, python-format
+msgid "Start Date"
+msgstr "تاريخ البداية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_completion_request_form
+msgid "Start Processing"
+msgstr "ابدأ المعالجة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__state
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__state
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__state
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs__state
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__state
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__state
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__state
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__state
+#, python-format
+msgid "State"
+msgstr "الحالة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__project_state
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__state
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__project_state
+#, python-format
+msgid "Status"
+msgstr "الحالة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_project_completion_request__activity_state
+#: model:ir.model.fields,help:nthub_constructions.field_subcontractor_delivery_request__activity_state
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__activity_state
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#, python-format
+msgid "Sub Contract"
+msgstr "العقد الفرعى"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Sub Contractor"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.sub_contract_action
+#: model:ir.ui.menu,name:nthub_constructions.sub_contract_menu
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Sub-Contract"
+msgstr "العقد الفرعى"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.subcontractors_action
+#: model:ir.ui.menu,name:nthub_constructions.subcontractors_menu_action
+msgid "Sub-Contractors"
+msgstr "العقود الفرعية"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__sub_contract_count
+#, python-format
+msgid "Sub-Contracts"
+msgstr "العقود الفرعية"
+
+#. module: nthub_constructions
+#: model:ir.ui.menu,name:nthub_constructions.subcontractor_delivery_request_menu_action
+msgid "Subcontract Delivery Requests"
+msgstr "طلبات تسليم العقود الفرعى"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/product.py:0
+#: code:addons/nthub_constructions/models/subcontractor.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_product__subcontractor
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_template__subcontractor
+#: model:ir.model.fields,field_description:nthub_constructions.field_res_partner__is_subcontractor
+#: model:ir.model.fields,field_description:nthub_constructions.field_res_users__is_subcontractor
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_completion_deduction_allowance__contract_type__subcontractor
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__contract_deduction_allowance__contract_type__subcontractor
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__sub_contract_delivery_deduction_allowance__contract_type__subcontractor
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__tender_job_cost_line__flag__s
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__wbs_job_cost_line__flag__s
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_const_product_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_form_view
+#, python-format
+msgid "Subcontractor"
+msgstr "المقاول الفرعي"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#, python-format
+msgid "Subcontractor Completion Request"
+msgstr "طلب إنجاز المقاول الفرعى"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.actions.act_window,name:nthub_constructions.subcontractor_delivery_request_action
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__subcontractor_delivery_request_id
+#, python-format
+msgid "Subcontractor Delivery Request"
+msgstr "طلب تسليم المقاول الفرعى"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__subcontractor_delivery_request_line_ids
+msgid "Subcontractor Delivery Request Line"
+msgstr "خط طلب تسليم المقاولالفرعى"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__sub_total
+#, python-format
+msgid "Subtotal"
+msgstr "المجموع الفرعي"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__task_count
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.dashboard_form_view
+#, python-format
+msgid "Tasks"
+msgstr "عدد المهام"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__tasks_generation_date
+#, python-format
+msgid "Tasks Generation Date"
+msgstr "تاريخ إنشاء المهام"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Tasks Management"
+msgstr "إدارة المهام"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__template_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__template_id
+#, python-format
+msgid "Template"
+msgstr "النموذج"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__tender_approval_date
+#, python-format
+msgid "Tender Approval Date"
+msgstr "تاريخ الموافقة على المنافصة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__tender_creation_date
+#, python-format
+msgid "Tender Creation Date"
+msgstr "تاريخ إنشاء المناقصة"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.tender_item_action
+msgid "Tender Item"
+msgstr "بند المناقصة"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.tender_job_action
+msgid "Tender Job"
+msgstr "الوظيفة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_project__state__tender
+msgid "Tendering"
+msgstr "المناقصة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#, python-format
+msgid "The down payment amount cannot be greater than the total amount."
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "Time Management"
+msgstr "إدارة الوقت"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_const_product_search
+msgid "Top Sheet"
+msgstr "اجمالى التكلفة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/product.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_product__top_sheet
+#: model:ir.model.fields,field_description:nthub_constructions.field_product_template__top_sheet
+#, python-format
+msgid "Top sheet"
+msgstr "اجمالى التكلفة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_completion_request_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.subcontractor_delivery_request_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_form_view
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_form_view
+msgid "Total"
+msgstr "المجموع"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__total_after_deduction_allowance
+msgid "Total After Deduction and Allowance"
+msgstr "المجموع بعد الخصم والبدل"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__total_allowance_cost
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__total_allowance_cost
+#, python-format
+msgid "Total Allowance Cost"
+msgstr "إجمالي تكلفة البدل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Total Allowances"
+msgstr "إجمالي البدلات"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/project.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract__total_amount
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__total_amount
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__total_amount
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__total_amount
+#, python-format
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__total_cost
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds__total_cost
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__total_cost
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__jobcost_total
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__jobcost_total
+#, python-format
+msgid "Total Cost"
+msgstr "التكلفة الإجمالية"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Total Deduction"
+msgstr "إجمالي الخصم"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__total_deduction_cost
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__total_deduction_cost
+#, python-format
+msgid "Total Deduction Cost"
+msgstr "اجمالى تكلفة الخصومات"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__equipment_total
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__equipment_total
+#, python-format
+msgid "Total Equipment Cost"
+msgstr "اجمالى تكلفة المعدات"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__expense_total
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__expense_total
+#, python-format
+msgid "Total Expenses Cost"
+msgstr "اجمالى تكلفة المصاريف"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__labor_total
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__labor_total
+#, python-format
+msgid "Total Labour Cost"
+msgstr "إجمالي تكلفة العمالة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__total_line_cost
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__total_line_cost
+#, python-format
+msgid "Total Line Cost"
+msgstr "إجمالي تكلفة السجل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.owner_contract_form
+msgid "Total Lines"
+msgstr "اجمالى السجلات"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__material_total
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__material_total
+#, python-format
+msgid "Total Material Cost"
+msgstr "إجمالي تكلفة المواد"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__subcontractor_total
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__subcontractor_total
+#, python-format
+msgid "Total Subcontractor Cost"
+msgstr "إجمالي تكلفة المقاول الفرعى"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid ""
+"Track major progress points that must be reached to achieve\n"
+"                                                        success"
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__type
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__flag
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__type
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__flag
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__flag
+#, python-format
+msgid "Type"
+msgstr "النوع"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_completion_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_sub_contract_deduction_allowance_search
+msgid "Type And Main Type"
+msgstr "النوع والنوع الرئيسي"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/contract_deduction_allowance.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_deduction_allowance.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_completion_deduction_allowance__contract_type
+#: model:ir.model.fields,field_description:nthub_constructions.field_contract_deduction_allowance__contract_type
+#: model:ir.model.fields,field_description:nthub_constructions.field_sub_contract_delivery_deduction_allowance__contract_type
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_completion_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_contract_deduction_allowance_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_sub_contract_deduction_allowance_search
+#, python-format
+msgid "Type Of Contract"
+msgstr "نوع العقد"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_project_completion_request__activity_exception_decoration
+#: model:ir.model.fields,help:nthub_constructions.field_subcontractor_delivery_request__activity_exception_decoration
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__activity_exception_decoration
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع نشاط الاستثناء المسجل"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_owner_contract_line__uom_id
+#, python-format
+msgid "UOM"
+msgstr "اوم"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_item.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_item__uom_id
+#, python-format
+msgid "Unit Of Measure"
+msgstr "وحدة قياس"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.view_tender_item_kanban
+msgid "Unit Of Measure:"
+msgstr "وحدة قياس"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__unit_price
+#, python-format
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/wizards/new_wbs_wizard.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_new_wbs_wizard__unit_type_id
+#, python-format
+msgid "Unit Type"
+msgstr "نوع الوحدة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project_wbs.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_wbs_builds_line__uom_id
+#, python-format
+msgid "Unit of Measure"
+msgstr "وحدة قياس"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request_line__uom_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request_line__uom_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost_line__uom_id
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__uom_id
+#, python-format
+msgid "Uom"
+msgstr "وحدة قياس"
+
+#. module: nthub_constructions
+#: model:res.groups,name:nthub_constructions.construction_group_user
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.tender_job_costing_search
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_search
+msgid "User"
+msgstr "المستخدم"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost_line__unit_value
+#, python-format
+msgid "Value"
+msgstr "القيمة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.actions.act_window,name:nthub_constructions.project_wbs_action
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__wbs_count
+#: model:ir.ui.menu,name:nthub_constructions.project_wbs_menu_action
+#, python-format
+msgid "WBS"
+msgstr "الهيكلة العامة"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_wbs_job_cost
+msgid "WBS Costing"
+msgstr "تكلفة الهيكلة العامة"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.wbs_job_costing_form_view
+msgid "WBS Costing form"
+msgstr "نموذج تكلفة الهيكلة العامة"
+
+#. module: nthub_constructions
+#: model:res.groups,name:nthub_constructions.construction_group_wbs
+msgid "WBS Manager"
+msgstr "مدير الهيكلة العامة"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.action_job_cost_line_custom
+#: model:ir.actions.act_window,name:nthub_constructions.action_wbs_cost_line_custom
+msgid "WBS Template Lines"
+msgstr "خطوط قالب الهيكلة العامة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/wizards/new_wbs_wizard.py:0
+#, python-format
+msgid "Wbs"
+msgstr "الهيكلة العامة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_project__wbs_creation_date
+#, python-format
+msgid "Wbs Creation Date"
+msgstr "تاريخ إنشاء الهيكلة العامة"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,field_description:nthub_constructions.field_project_completion_request__website_message_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_subcontractor_delivery_request__website_message_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_tender_job_cost__website_message_ids
+#: model:ir.model.fields,field_description:nthub_constructions.field_wbs_job_cost__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: nthub_constructions
+#: model:ir.model.fields,help:nthub_constructions.field_project_completion_request__website_message_ids
+#: model:ir.model.fields,help:nthub_constructions.field_subcontractor_delivery_request__website_message_ids
+#: model:ir.model.fields,help:nthub_constructions.field_tender_job_cost__website_message_ids
+#: model:ir.model.fields,help:nthub_constructions.field_wbs_job_cost__website_message_ids
+msgid "Website communication history"
+msgstr "تاريخ اتصالات الموقع"
+
+#. module: nthub_constructions
+#: model:ir.actions.act_window,name:nthub_constructions.action_wbs_job_costing
+msgid "Work Breakdown Structure"
+msgstr "انهيار الهيكل العمل"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#, python-format
+msgid ""
+"You can not End the project which has Sub-contract delivery requests in "
+"draft state."
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#, python-format
+msgid ""
+"You can not End the project which has completion requests in draft or "
+"processing state."
+msgstr ""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#, python-format
+msgid "You can not combine records from different projects."
+msgstr "لا يمكنك الجمع بين السجلات من مشاريع مختلفة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/wbs_job_cost.py:0
+#, python-format
+msgid "You can not delete Job Cost Sheet which is not draft"
+msgstr "لا يمكنك حذف ورقة تكلفة المهمة التي ليست مسودة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/tender_job_cost.py:0
+#, python-format
+msgid "You can not delete Job Cost Sheet which is not draft or cancelled."
+msgstr "لا يمكنك حذف ورقة تكلفة المهمة التي لم تتم مسودتها أو إلغاؤها"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/owner_contract.py:0
+#, python-format
+msgid "You can not delete a Contract which is in %s state."
+msgstr "لا يمكنك حذف عقد في حالة %s"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#, python-format
+msgid "You can not delete a Request which is not in %s state."
+msgstr "لا يمكنك حذف طلب ليس في حالة %s.""
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/project.py:0
+#, python-format
+msgid "You can not delete a project which is in %s state."
+msgstr "لا يمكنك حذف مشروع موجود في حالة %s"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#, python-format
+msgid "You can only create an invoice for confirmed completion requests."
+msgstr "يمكنك فقط إنشاء فاتورة لطلبات الإكمال المؤكدة"
+
+#. module: nthub_constructions
+#. odoo-python
+#: code:addons/nthub_constructions/models/contract_completion_request.py:0
+#: code:addons/nthub_constructions/models/sub_contract_delivery_request.py:0
+#, python-format
+msgid "You cannot confirm a request with rejected lines or blank lines."
+msgstr "لا يمكنك تأكيد طلب يحتوي على أسطر مرفوضة أو أسطر فارغة"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_contract_completion_deduction_allowance
+#: model:ir.model,name:nthub_constructions.model_sub_contract_delivery_deduction_allowance
+msgid "contract.completion.deduction.allowance"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_contract_deduction_allowance
+msgid "contract.deduction.allowance"
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.construction_form_project
+msgid "e.g. Office Party"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_wbs_builds_line__flag__l
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__tender_job_cost_line__flag__l
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__wbs_job_cost_line__flag__l
+msgid "labour"
+msgstr "العامل"
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.new_wbs_wizard_view_form
+msgid "new_wbs_wizard_form"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_constructions_stages
+msgid "nthub_constructions.stages"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_owner_contract
+msgid "owner.contract"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_owner_contract_line
+msgid "owner.contract.line"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_project_wbs
+msgid "project wbs"
+msgstr "مشروع الهيلكة العامة"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_project_wbs_builds
+msgid "project wbs builds"
+msgstr "بناء مشروع الهيكلة العامة"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_project_wbs_builds_line
+msgid "project wbs builds line"
+msgstr "بناء سجل مشروع الهيكلة العامة"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_project_completion_request
+msgid "project.completion.request"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_project_completion_request_line
+msgid "project.completion.request.line"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_project_documents
+msgid "project.document"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_project_images
+msgid "project.images"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model.fields.selection,name:nthub_constructions.selection__project_wbs_builds_line__flag__s
+msgid "subcontractor"
+msgstr "مقاول فرعى"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_subcontractor_delivery_request
+msgid "subcontractor.delivery.request"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_subcontractor_delivery_request_line
+msgid "subcontractor.delivery.request.line"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_tender_job
+msgid "tender"
+msgstr "المناقصة"
+
+#. module: nthub_constructions
+#: model:ir.model,name:nthub_constructions.model_tender_item
+msgid "tender.item"
+msgstr ""
+
+#. module: nthub_constructions
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_wbs_view_form
+#: model_terms:ir.ui.view,arch_db:nthub_constructions.project_wbs_view_tree
+msgid "tender_offer"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:product.template,name:nthub_constructions.product_material_2
+msgid "اسمنت"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:product.template,name:nthub_constructions.product_equipment_5
+msgid "الات"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:product.template,name:nthub_constructions.product_product_material_1_product_template
+msgid "رمل"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:product.template,name:nthub_constructions.product_product_labour_3_product_template
+msgid "عمالة"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:product.template,name:nthub_constructions.product_expenses_4
+msgid "مصاريف"
+msgstr ""
+
+#. module: nthub_constructions
+#: model:product.template,name:nthub_constructions.product_subcontractor_6
+msgid "مقاول"
+msgstr ""

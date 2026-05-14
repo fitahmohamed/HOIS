@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- stages Types data -->
+        <record model="product.product" id="product_product_material_1">
+            <field name="name">رمل</field>
+            <field name="material">Ture</field>
+            <field name="type">service</field>
+        </record>
+
+        <record model="product.product" id="product_product_material_2">
+            <field name="name">رمل 2 </field>
+            <field name="material">Ture</field>
+            <field name="type">service</field>
+        </record>
+
+        <record model="product.product" id="product_material_1">
+            <field name="name">رمل</field>
+            <field name="material">Ture</field>
+            <field name="type">service</field>
+        </record>
+
+        <record model="product.product" id="product_material_2">
+            <field name="name">اسمنت</field>
+            <field name="material">Ture</field>
+            <field name="type">service</field>
+
+        </record>
+
+        <record model="product.product" id="product_product_labour_3">
+            <field name="name">عمالة</field>
+            <field name="labour">Ture</field>
+            <field name="type">service</field>
+        </record>
+
+        <record model="product.product" id="product_product_labour_2">
+            <field name="name">عمالة2 </field>
+            <field name="labour">Ture</field>
+            <field name="type">service</field>
+        </record>
+
+        <record model="product.product" id="product_labour_3">
+            <field name="name">عمالة</field>
+            <field name="labour">Ture</field>
+            <field name="type">service</field>
+        </record>
+
+        <record model="product.product" id="product_expenses_4">
+            <field name="name">مصاريف</field>
+            <field name="expenses">Ture</field>
+            <field name="type">service</field>
+        </record>
+
+        <record model="product.product" id="product_equipment_5">
+            <field name="name">الات</field>
+            <field name="equipment">Ture</field>
+            <field name="type">service</field>
+
+        </record>
+
+        <record model="product.product" id="product_subcontractor_6">
+            <field name="name">مقاول</field>
+            <field name="subcontractor">Ture</field>
+            <field name="type">service</field>
+        </record>
+    </data>
+
+</odoo>

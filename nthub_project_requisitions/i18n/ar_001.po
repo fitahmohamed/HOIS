@@ -1,0 +1,1018 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* nthub_project_requisitions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-22 13:37+0000\n"
+"PO-Revision-Date: 2024-01-22 13:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: nthub_project_requisitions
+#: model:mail.template,body_html:nthub_project_requisitions.email_confirm_material_purchase_requistion
+msgid ""
+"\n"
+"            <![CDATA[\n"
+"            <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                <p>Dear ${object.employee_id.parent_id.sudo().name},</p>\n"
+"                <p>Approve request for Purchase Requistion - ${object.name}.</p>\n"
+"                <p>Thank you,</p> \n"
+"                <br/>\n"
+"                <div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"                    <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"                        <strong style=\"text-transform:uppercase;\">${user.company_id.name}</strong></h3>\n"
+"                </div>\n"
+"                <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"                    <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"                        ${user.company_id.partner_id.sudo().with_context(show_address=True, html_format=True).name_get()[0][1] | safe}\n"
+"                    </span>\n"
+"                    % if user.company_id.phone:\n"
+"                        <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                            Phone:&nbsp; ${object.company_id.phone}\n"
+"                        </div>\n"
+"                    % endif\n"
+"                    % if user.company_id.website:\n"
+"                        <div>\n"
+"                            Web :&nbsp;<a href=\"${object.company_id.website}\">${user.company_id.website}</a>\n"
+"                        </div>\n"
+"                    %endif\n"
+"                    <p></p>\n"
+"                </div>\n"
+"            </div>\n"
+"            \n"
+"            "
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model:mail.template,body_html:nthub_project_requisitions.email_purchase_requisition
+msgid ""
+"\n"
+"            <![CDATA[\n"
+"            <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                <p>Dear ${object.requisition_responsible_id.name},</p>\n"
+"                <p>Approve request for Purchase Requistion - ${object.name}.</p> \n"
+"                <p>Thank you,</p> \n"
+"                <br/>\n"
+"                <div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"                    <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"                        <strong style=\"text-transform:uppercase;\">${user.company_id.name}</strong></h3>\n"
+"                </div>\n"
+"                <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"                    <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"                        ${user.company_id.partner_id.sudo().with_context(show_address=True, html_format=True).name_get()[0][1] | safe}\n"
+"                    </span>\n"
+"                    % if user.company_id.phone:\n"
+"                        <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                            Phone:&nbsp; ${object.company_id.phone}\n"
+"                        </div>\n"
+"                    % endif\n"
+"                    % if user.company_id.website:\n"
+"                        <div>\n"
+"                            Web :&nbsp;<a href=\"${object.company_id.website}\">${user.company_id.website}</a>\n"
+"                        </div>\n"
+"                    %endif\n"
+"                    <p></p>\n"
+"                </div>\n"
+"            </div>\n"
+"            \n"
+"            "
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model:mail.template,body_html:nthub_project_requisitions.email_purchase_requisition_iruser_custom
+msgid ""
+"\n"
+"            <p>Dear ${object.employee_id.name},</p>\n"
+"            <p>Your Purchase Requistion - ${object.name} is approved by department.</p> \n"
+"            <p>Thank You,</p>\n"
+"            <br/>\n"
+"            <div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"                    <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"                        <strong style=\"text-transform:uppercase;\">${user.company_id.name}</strong></h3>\n"
+"                </div>\n"
+"                <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"                    <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"                        ${user.company_id.partner_id.sudo().with_context(show_address=True, html_format=True).name_get()[0][1] | safe}\n"
+"                    </span>\n"
+"                    % if user.company_id.phone:\n"
+"                        <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                            Phone:&nbsp; ${object.company_id.phone}\n"
+"                        </div>\n"
+"                    % endif\n"
+"                    % if user.company_id.website:\n"
+"                        <div>\n"
+"                            Web :&nbsp;<a href=\"${object.company_id.website}\">${user.company_id.website}</a>\n"
+"                        </div>\n"
+"                    %endif\n"
+"                    <p></p>\n"
+"                </div>\n"
+"            </div>\n"
+"            "
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "<span class=\"o_stat_text\">Internal Picking</span>"
+msgstr "الانتقاء الداخلي"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "<span class=\"o_stat_text\">Purchase Order</span>"
+msgstr "أمر شراء"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Analytic Account</strong>"
+msgstr "الحساب التحليلي"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Department</strong>"
+msgstr "القسم"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Description</strong>"
+msgstr "الوصف"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Destination Location</strong>"
+msgstr "وجة الموقع"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Employee</strong>"
+msgstr "الموظف"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Internal Picking</strong>"
+msgstr "الانتقاء الداخلي"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Product</strong>"
+msgstr "المنتج"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Project</strong>"
+msgstr "المشروع"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Quantity</strong>"
+msgstr "الكمية"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Received Date</strong>"
+msgstr "تاريخ الحصول عليه"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Requisition Action</strong>"
+msgstr "إجراء الطلب"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Requisition Date</strong>"
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Requisition Deadline</strong>"
+msgstr "تاريخ الطلب"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Requisition Responsible</strong>"
+msgstr "مسؤول الطلبات"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Source Location</strong>"
+msgstr "موقع المصدر"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Transit Location</strong>"
+msgstr "موقع العبور"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Unit of Measure</strong>"
+msgstr "وحدة القياس"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "<strong>Vendors</strong>"
+msgstr "الباعة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__access_warning
+msgid "Access warning"
+msgstr "تحذير الوصول"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_needaction
+msgid "Action Needed"
+msgstr "الإجراءات اللازمة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__activity_ids
+msgid "Activities"
+msgstr "الانشطة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr " استثناء النشاط"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "رمز نوع النشاط"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Add Reason for Internal Requistion ...."
+msgstr "إضافة سبب الطلب الداخلي ...."
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__analytic_distribution
+msgid "Analytic"
+msgstr "تحليلية"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__analytic_precision
+msgid "Analytic Precision"
+msgstr "الدقة التحليلية"
+
+#. module: nthub_project_requisitions
+#: model:mail.template,subject:nthub_project_requisitions.email_purchase_requisition
+msgid ""
+"Approval Request for Purchase Requisition to Purchase User - ${object.name}"
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model:mail.template,name:nthub_project_requisitions.email_purchase_requisition
+msgid ""
+"Approval Request for Purchase Requisition to Purchase User - Send by Email"
+msgstr "طلب الموافقة على طلب الشراء لمستخدم الشراء - يُرسل عبر البريد الإلكتروني"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Approve"
+msgstr "موافقة"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Approve By"
+msgstr "الموافقة بواسطة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields.selection,name:nthub_project_requisitions.selection__material_purchase_requisition__state__approve
+msgid "Approved"
+msgstr "موافقة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__userrapp_date
+msgid "Approved Date"
+msgstr "تاريخ الموافقة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__approve_employee_id
+msgid "Approved by"
+msgstr "موافقة بواسطة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__available_qty
+msgid "Available Quantity"
+msgstr "الكمية المتوفرة"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields.selection,name:nthub_project_requisitions.selection__material_purchase_requisition__state__cancel
+msgid "Cancelled"
+msgstr "ملغى"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__company_id
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Company"
+msgstr "الشركه"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Confirm"
+msgstr "موافقة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__confirm_date
+msgid "Confirmed Date"
+msgstr "تاريخ الموافقة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__employee_confirm_id
+msgid "Confirmed by"
+msgstr "موافقة بواسطة"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Create Picking and PO"
+msgstr "إنشاء الانتقاء وأمر الشراء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__create_uid
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__create_uid
+msgid "Created by"
+msgstr "انشاء بواسطة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__create_date
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__access_url
+msgid "Customer Portal URL"
+msgstr "  عنوان  الخاص ببوابة URL العملاء  "
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__date_done
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Date Done"
+msgstr " تاريخ الانتهاء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__date_done
+msgid "Date of Completion of Purchase Requisition"
+msgstr "تاريخ الانتهاء من طلب الشراء"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Delivery Picking"
+msgstr "اختيار التسليم"
+
+#. module: nthub_project_requisitions
+#: model:ir.model,name:nthub_project_requisitions.model_hr_department
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__department_id
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Department"
+msgstr "القسم"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__managerapp_date
+msgid "Department Approval Date"
+msgstr "تاريخ موافقة القسم"
+
+#. module: nthub_project_requisitions
+#: model:mail.template,subject:nthub_project_requisitions.email_purchase_requisition_iruser_custom
+msgid "Department Approval Purchase Requisition - ${object.name}"
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model:mail.template,name:nthub_project_requisitions.email_purchase_requisition_iruser_custom
+msgid "Department Approval Purchase Requisition - Send by Email"
+msgstr "موافقة الدائرة على طلب الشراء - أرسل عبر البريد الإلكتروني"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Department Approve"
+msgstr "موافقة القسم"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__approve_manager_id
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Department Manager"
+msgstr "مدير القسم"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__reject_manager_id
+msgid "Department Manager Reject"
+msgstr "رفض مدير القسم"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__manareject_date
+msgid "Department Manager Reject Date"
+msgstr "تاريخ رفض مدير القسم"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_hr_department__dest_location_id
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_hr_employee__dest_location_id
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__dest_location_id
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Destination Location"
+msgstr "وجهة الموقع"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__display_name
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: nthub_project_requisitions
+#: model:ir.model,name:nthub_project_requisitions.model_hr_employee
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__employee_id
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "رمز الخط الرائع على سبيل المثال. مهام كرة القدم"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Group By"
+msgstr "مجموعة من"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__has_message
+msgid "Has Message"
+msgstr "لديه رسالة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__id
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__activity_exception_icon
+msgid "Icon"
+msgstr "الايقونة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديدها، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__message_has_error
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم تحديده، فإن بعض الرسائل تحتوي على خطأ في التسليم."
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_is_follower
+msgid "Is Follower"
+msgstr "هو تابع"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition____last_update
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__write_uid
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__write_date
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث بتاريخ"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__date_end
+msgid "Last date for the product to be needed"
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Location"
+msgstr "الموقع"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Manager Approve Date"
+msgstr "تاريخ موافقة المدير"
+
+#. module: nthub_project_requisitions
+#: model:ir.model,name:nthub_project_requisitions.model_material_purchase_requisition_line
+msgid "Material Purchase Requisition Lines"
+msgstr "خطوط طلب شراء المواد"
+
+#. module: nthub_project_requisitions
+#: model:res.groups,name:nthub_project_requisitions.group_purchase_requisition_manager
+msgid "Material Purchase Requisition Manager"
+msgstr "مدير طلبات شراء المواد"
+
+#. module: nthub_project_requisitions
+#: model:res.groups,name:nthub_project_requisitions.group_purchase_requisition_user
+msgid "Material Purchase Requisition User"
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model:res.groups,name:nthub_project_requisitions.group_purchase_requisition_department
+msgid "Material Purchase Requistion Department Manager"
+msgstr "مدير قسم طلبات شراء المواد"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: nthub_project_requisitions
+#: model:ir.module.category,description:nthub_project_requisitions.project_requisitions_category
+msgid "Module category for Requisition"
+msgstr "فئة الوحدة للطلبات"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي لنشاطي"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields.selection,name:nthub_project_requisitions.selection__material_purchase_requisition__state__draft
+msgid "New"
+msgstr "جديد"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__name
+msgid "Number"
+msgstr "الرقم"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Other Information"
+msgstr "معلومات أخرى"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__picking_counter
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__po_counter
+msgid "Picking Counter"
+msgstr "عداد الانتقاء"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "Picking Details"
+msgstr "تفاصيل الانتقاء"
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__custom_picking_trans_type_id
+#, python-format
+msgid "Picking Transit Type"
+msgstr "اختيار نوع الانتقاء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__custom_picking_type_id
+msgid "Picking Type"
+msgstr "نوع الانتقاء"
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#, python-format
+msgid "Please create some requisition lines."
+msgstr "الرجاء إنشاء بعض سجلات الطلب."
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#, python-format
+msgid ""
+"Please enter atleast one vendor on Requisition Lines for Requisition Action "
+"Purchase"
+msgstr "الشراء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#: model:ir.model,name:nthub_project_requisitions.model_project_project
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__project_id
+#, python-format
+msgid "Project"
+msgstr "المشروع"
+
+#. module: nthub_project_requisitions
+#: model:ir.module.category,name:nthub_project_requisitions.project_requisitions_category
+msgid "Project Requisitions"
+msgstr "طلبات المشروع"
+
+#. module: nthub_project_requisitions
+#: model:ir.model,name:nthub_project_requisitions.model_purchase_order
+#: model:ir.model.fields.selection,name:nthub_project_requisitions.selection__material_purchase_requisition_line__requisition_type__purchase
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields.selection,name:nthub_project_requisitions.selection__material_purchase_requisition__state__stock
+msgid "Purchase Order Created"
+msgstr "تم إنشاء أمر الشراء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model,name:nthub_project_requisitions.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "سجل أمر الشراء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__purchase_order_ids
+msgid "Purchase Ordes"
+msgstr "أوامر الشراء"
+
+#. module: nthub_project_requisitions
+#: model:ir.actions.report,name:nthub_project_requisitions.report_purchase_requisition
+#: model:ir.model,name:nthub_project_requisitions.model_material_purchase_requisition
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_stock_picking__custom_requisition_id
+#: model:ir.ui.menu,name:nthub_project_requisitions.menu_item_purchase_requisition
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "Purchase Requisition"
+msgstr "طلب شراء"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition_employee_form_view
+msgid "Purchase Requisition Settings"
+msgstr "إعدادات طلب الشراء"
+
+#. module: nthub_project_requisitions
+#: model:ir.actions.act_window,name:nthub_project_requisitions.action_material_purchase_requisition
+#: model:ir.ui.menu,name:nthub_project_requisitions.menu_action_purchase_requisition
+msgid "Purchase Requisitions"
+msgstr "طلبات الشراء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__requisition_line_ids
+msgid "Purchase Requisitions Line"
+msgstr "سجل طلبات الشراء"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Purchase Requistion search"
+msgstr "بحث طلبات الشراء"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__qty
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Reason"
+msgstr "السبب"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "Reason for Requisition"
+msgstr "سبب الطلب"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__reason
+msgid "Reason for Requisitions"
+msgstr "سبب الطلبات"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields.selection,name:nthub_project_requisitions.selection__material_purchase_requisition__state__receive
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Received"
+msgstr "مستلم"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__receive_date
+msgid "Received Date"
+msgstr "تاريخ الحصول عليه"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Reject"
+msgstr "مرفوض"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields.selection,name:nthub_project_requisitions.selection__material_purchase_requisition__state__reject
+msgid "Rejected"
+msgstr "اترفض"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__userreject_date
+msgid "Rejected Date"
+msgstr "تاريخ الرفض"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__reject_employee_id
+msgid "Rejected by"
+msgstr "رفض بواسطة"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Reqisition Date"
+msgstr "تاريخ الطلب"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "Reqisition Dedline"
+msgstr "الموعد النهائي للطلب"
+
+#. module: nthub_project_requisitions
+#: model:mail.template,subject:nthub_project_requisitions.email_confirm_material_purchase_requistion
+msgid "Request for Material Purchase Requisition - ${object.name}"
+msgstr "طلب طلب شراء مواد"
+
+#. module: nthub_project_requisitions
+#: model:mail.template,name:nthub_project_requisitions.email_confirm_material_purchase_requistion
+msgid "Request for Material Purchase Requisition - Send by Email"
+msgstr "طلب طلب شراء مواد - أرسل عبر البريد الإلكتروني"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__requisition_type
+msgid "Requisition Action"
+msgstr "إجراء الطلب"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__request_date
+msgid "Requisition Date"
+msgstr "تاريخ الطلب"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__date_end
+msgid "Requisition Deadline"
+msgstr "الموعد النهائي للطلب"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.purchase_requisition
+msgid "Requisition Lines"
+msgstr "سجلات الطلبات"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__requisition_responsible_id
+msgid "Requisition Responsible"
+msgstr "مسؤول الطلبات"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__requisition_id
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_purchase_order__custom_requisition_id
+#: model:ir.ui.menu,name:nthub_project_requisitions.menu_purchase_requisition
+msgid "Requisitions"
+msgstr "الطلبات"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_purchase_order_line__custom_requisition_line_id
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_stock_move__custom_requisition_line_id
+msgid "Requisitions Line"
+msgstr "خط الطلبات"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Requisitions Lines"
+msgstr "سجلات الطلبات"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "Reset to Draft"
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسائل القصيرة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__access_token
+msgid "Security Token"
+msgstr "رمز الأمان"
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#, python-format
+msgid "Select Destination location under the picking details."
+msgstr "حدد موقع الوجهة ضمن تفاصيل الانتقاء."
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#, python-format
+msgid "Select Picking Type under the picking details."
+msgstr "حدد نوع الانتقاء ضمن تفاصيل الانتقاء."
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#, python-format
+msgid "Select Source location under the picking details."
+msgstr "حدد موقع المصدر ضمن تفاصيل الانتقاء."
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#, python-format
+msgid "Select Transited Picking Type under the picking details."
+msgstr "حدد نوع الانتقاء العابر ضمن تفاصيل الانتقاء."
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#, python-format
+msgid "Select Transited location under the picking details."
+msgstr "حدد الموقع العابر ضمن تفاصيل الانتقاء."
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__location_id
+msgid "Source Location"
+msgstr "موقع المصدر"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__state
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "State"
+msgstr "الحالة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model:ir.model,name:nthub_project_requisitions.model_stock_move
+msgid "Stock Move"
+msgstr "تحرك المخزون"
+
+#. module: nthub_project_requisitions
+#: model:ir.model,name:nthub_project_requisitions.model_stock_picking
+msgid "Transfer"
+msgstr "التحويل"
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__transit_location_id
+#, python-format
+msgid "Transit Location"
+msgstr "موقع العبور"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع نشاط الاستثناء المسجل."
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__uom
+msgid "Unit of Measure"
+msgstr "وحدة القياس"
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_search_view
+msgid "User Approve Date"
+msgstr "تاريخ موافقة المستخدم"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition_line__partner_id
+msgid "Vendors"
+msgstr "الباعة"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields.selection,name:nthub_project_requisitions.selection__material_purchase_requisition__state__dept_confirm
+msgid "Waiting Department Approval"
+msgstr "في انتظار موافقة القسم"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields.selection,name:nthub_project_requisitions.selection__material_purchase_requisition__state__ir_approve
+msgid "Waiting IR Approval"
+msgstr "IR في انتظار موافقة "
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/project.py:0
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_project_project__warehouse_id
+#, python-format
+msgid "Warehouse"
+msgstr "المستودع"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,field_description:nthub_project_requisitions.field_material_purchase_requisition__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: nthub_project_requisitions
+#: model:ir.model.fields,help:nthub_project_requisitions.field_material_purchase_requisition__website_message_ids
+msgid "Website communication history"
+msgstr "تاريخ اتصالات الموقع"
+
+#. module: nthub_project_requisitions
+#. odoo-python
+#: code:addons/nthub_project_requisitions/models/purchase_requisition.py:0
+#, python-format
+msgid ""
+"You can not delete Purchase Requisition which is not in draft or cancelled "
+"or rejected state."
+msgstr ""
+
+#. module: nthub_project_requisitions
+#: model_terms:ir.ui.view,arch_db:nthub_project_requisitions.material_purchase_requisition_form_view
+msgid "confirm"
+msgstr "موافقة"

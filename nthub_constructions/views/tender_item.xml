@@ -1,0 +1,131 @@
+<odoo>
+<record id="view_tender_item_kanban" model="ir.ui.view">
+    <field name="name">tender.item.kanban</field>
+    <field name="model">tender.item</field>
+    <field name="arch" type="xml">
+        <kanban sample="1" class="o_kanban_item_templates">
+            <field name="image"/>
+            <field name="name"/>
+            <field name="job_id"/>
+            <field name="uom_id"/>
+
+            <templates>
+                <t t-name="card" class="flex-row">
+                    <!-- MAIN INFO -->
+                    <main class="pe-2">
+                        <div class="o_kanban_details">
+                            <div class="mb-1">
+                                <div class="d-flex mb-0 h5">
+                                    <strong>Name:</strong>
+                                    <field name="name"/>
+                                </div>
+                            </div>
+
+                            <div class="mt-1">
+                                <strong>Related Job:</strong>
+                                <t t-if="record.job_id.value">
+                                    <field name="job_id"/>
+                                </t>
+                                <t t-else=""/>
+                                <span class="text-muted">N/A</span>
+                            </div>
+
+                            <div class="mt-1">
+                                <strong>Unit of Measure:</strong>
+                                <t t-if="record.uom_id.value">
+                                    <field name="uom_id"/>
+                                </t>
+                                <t t-else=""/>
+                                <span class="text-muted">N/A</span>
+                            </div>
+                        </div>
+                    </main>
+
+                    <!-- IMAGE SECTION -->
+                    <aside>
+                        <field
+                            name="image"
+                            widget="image"
+                            alt="Item Image"
+                            options="{'img_class': 'w-100 object-fit-contain rounded'}"
+                            invisible="not image"
+                        />
+                    </aside>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+    <!-- Define a view for the tender_item form -->
+    <record model="ir.ui.view" id="view_tender_item_form">
+        <field name="name">view.tender.item.form</field>
+        <field name="model">tender.item</field>
+        <field name="arch" type="xml">
+            <form create="0">
+                <header>
+                    <button string="Approved" type="object" class="btn-primary"
+                            name="action_approved"
+                            invisible="state!='draft'"
+                    />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,approved"/>
+                </header>
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="job_id"/>
+                            <field name="uom_id"/>
+                            <field name="code"/>
+                            <field name="repeated"/>
+                            <field name="analytic_tag" widget="many2many_tags"/>
+                            <field name="related_product_id"/>
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- define a list view tender_item -->
+    <record model="ir.ui.view" id="view_tender_item_tree">
+        <field name="name">item.list</field>
+        <field name="model">tender.item</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="job_id"/>
+                <field name="uom_id"/>
+                <field name="code"/>
+                <field name="repeated"/>
+
+            </list>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_tender_item_search">
+        <field name="name">item.search</field>
+        <field name="model">tender.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" filter_domain="[('name','ilike',self)]"/>
+                <field name="job_id" filter_domain="[('job_id','ilike',self)]"/>
+
+                <group>
+                    <filter string="Related Job" name="group_by_cjob_id"
+                            context="{'group_by': 'job_id'}"/>
+                </group>
+                <searchpanel>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+    <!-- define the tender_item-->
+    <record model="ir.actions.act_window" id="tender_item_action">
+        <field name="name">Tender Item</field>
+        <field name="res_model">tender.item</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+</odoo>

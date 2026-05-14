@@ -1,0 +1,246 @@
+<odoo>
+    <record id="inherit_project_task_form_view" model="ir.ui.view">
+        <field name="name">project.task.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//header" position="inside">
+                <field name="comp_request" invisible="1"/>
+                <button name="create_comp_request" string="Create Requisitions" type="object"
+                        invisible="comp_request or state not in ('1_done', '03_approved') or not parent_id"/>
+            </xpath>
+
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button type="object" name="action_open_stock_picking" class="oe_stat_button" icon="fa-truck"
+                        invisible="not parent_id">
+                    <field name="picking_count" widget="statinfo" string="Receipt" help="Incoming Shipments"/>
+                </button>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="project_wbs_id" readonly="1" invisible="parent_id"/>
+                <field name="wbs_builds_id" readonly="1" invisible="parent_id"/>
+                <field name="item_wbs_builds_line_id" readonly="1" invisible="not parent_id"/>
+                <field name="template_wbs_builds_line_id" readonly="1" invisible="not parent_id"/>
+                <field name="location_dest_id" invisible="not parent_id"/>
+                <field name="picking_type_id" invisible="not parent_id"/>
+            </xpath>
+
+            <xpath expr="//page[@name='description_page']" position="before">
+                <page string="Product Sub Tasks" invisible="not parent_id">
+                    <field name="product_sub_task_ids">
+                        <list create="0" delete="0" editable="bottom">
+                            <field name="product_id" readonly="1"/>
+                            <field name="quantity" readonly="1"/>
+                            <field name="analytic_distribution" widget="analytic_distribution"/>
+                            <field name="budget_amount" force_save="1" readonly="1"/>
+                            <field name="remaining" force_save="1"/>
+                            <field name="finished" readonly="1"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+
+            <xpath expr="//page[@name='extra_info']" position="after">
+                <page name="consumable" string="Consumable">
+                    <notebook>
+                        <page name="material" string="Materials">
+                            <div class="col-12 mb-3">
+                                <button name="action_open_material_form"
+                                        type="object"
+                                        string="ADD new"
+                                        class="oe_stat_button btn btn-primary mx-2 px-2"
+                                        style="float:right; background:#714B67; color:white;"
+                                        icon="fa-send">
+                                    New
+                                </button>
+                            </div>
+
+                            <div class="col-12 mt-3">
+                                <field name="job_material_line_ids" mode="list" grouped="1">
+                                    <list create="0" delete="0" editable="bottom" group_by="product_id">
+                                        <field name="date"/> <!-- Display only name of the visit -->
+                                        <field name="budget_amount"/> <!-- Display only name of the visit -->
+                                        <field name="analytic_distribution"/> <!-- Display only name of the visit -->
+                                        <field name="product_id" domain="[('material', '=', True)]"/>
+                                        <field name="qty"/>
+                                    </list>
+                                </field>
+                            </div>
+                        </page>
+
+                        <page name="labours" string="Labours">
+                            <div class="col-12 mb-3">
+                                <button name="action_open_labour_form"
+                                        type="object"
+                                        string="ADD new"
+                                        class="oe_stat_button btn btn-primary mx-2 px-2"
+                                        style="float:right; background:#714B67; color:white;"
+                                        icon="fa-send">
+                                    New
+                                </button>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <field name="job_labour_line_ids">
+
+                                    <list create="0" delete="0" editable="bottom" group_by="product_id">
+
+                                        <field name="check_state"
+                                               column_invisible='1'/> <!-- Display only name of the visit -->
+                                        <field name="date" widget="datetime"/> <!-- Display only name of the visit -->
+                                        <field name="budget_amount"/> <!-- Display only name of the visit -->
+                                        <field name="analytic_distribution"/> <!-- Display only name of the visit -->
+                                        <field name="product_id" domain="[('labour', '=', True)]"/>
+                                        <field name="employee_id" widget="many2many_tags"/>
+                                        <button name="check_in_attend"
+                                                type="object"
+                                                string="Check In"
+                                                class="oe_stat_button btn btn-primary mx-2 px-2"
+                                                style="float:right; background:#714B67; color:white;"
+                                                icon="fa-send"
+                                                invisible="check_state != 'in' ">
+                                            New
+                                        </button>
+                                        <button name="check_out_attend"
+                                                type="object"
+                                                string="Check Out"
+                                                class="oe_stat_button btn btn-primary mx-2 px-2"
+                                                style="float:right; background:#714B67; color:white;"
+                                                icon="fa-send"
+                                                invisible="check_state != 'out' ">
+                                            New
+                                        </button>
+                                    </list>
+                                </field>
+                            </div>
+                        </page>
+
+                        <page name="expenses" string="Expenses">
+                            <div class="col-12 mb-3">
+                                <button name="action_open_expenses_form"
+                                        type="object"
+                                        string="ADD new"
+                                        class="oe_stat_button btn btn-primary mx-2 px-2"
+                                        style="float:right; background:#714B67; color:white;"
+                                        icon="fa-send">
+                                    New
+                                </button>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <field name="job_expense_line_ids">
+
+                                    <list create="0" delete="0" editable="bottom">
+                                        <field name="date"/> <!-- Display only name of the visit -->
+                                        <field name="budget_amount"/> <!-- Display only name of the visit -->
+                                        <field name="analytic_distribution"/> <!-- Display only name of the visit -->
+                                        <field name="product_id" domain="[('expenses', '=', True)]"/>
+                                        <field name="qty"/>
+                                    </list>
+                                </field>
+                            </div>
+                        </page>
+
+                        <page name="equipment" string="Equipment">
+                            <div class="col-12 mb-3">
+                                <button name="action_open_equipment_form"
+                                        type="object"
+                                        string="ADD new"
+                                        class="oe_stat_button btn btn-primary mx-2 px-2"
+                                        style="float:right; background:#714B67; color:white;"
+                                        icon="fa-send">
+                                    New
+                                </button>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <field name="job_equipment_line_ids">
+
+                                    <list create="0" delete="0" editable="bottom">
+                                        <field name="check_start"  column_invisible='1'/>
+                                        <field name="date"/> <!-- Display only name of the visit -->
+                                        <field name="budget_amount"/> <!-- Display only name of the visit -->
+                                        <field name="analytic_distribution"/> <!-- Display only name of the visit -->
+                                        <field name="product_id" domain="[('equipment', '=', True)]"/>
+                                        <field name="qty"/>
+                                        <field name="start"/>
+                                        <field name="end"/>
+                                       
+                                        <button name="start_date"
+                                                type="object"
+                                                string="Start Date"
+                                                class="oe_stat_button btn btn-primary mx-2 px-2"
+                                                style="float:right; background:#714B67; color:white;"
+                                                icon="fa-send"
+                                                invisible="check_start != 'st' ">
+                                            New
+                                        </button>
+                                        <button name="end_date"
+                                                type="object"
+                                                string="End Date"
+                                                class="oe_stat_button btn btn-primary mx-2 px-2"
+                                                style="float:right; background:#714B67; color:white;"
+                                                icon="fa-send"
+                                                invisible="check_start != 'out' ">
+                                            New
+                                        </button>
+                                    </list>
+                                </field>
+                            </div>
+                        </page>
+
+                        <page name="subcontractor" string="Subcontractor">
+                            <div class="col-12 mb-3">
+                                <button name="action_open_subcontract_form"
+                                        type="object"
+                                        string="ADD new"
+                                        class="oe_stat_button btn btn-primary mx-2 px-2"
+                                        style="float:right; background:#714B67; color:white;"
+                                        icon="fa-send">
+                                    New
+                                </button>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <field name="job_subcontractor_line_ids">
+
+                                    <list create="0" delete="0" editable="bottom">
+                                        <field name="date"/> <!-- Display only name of the visit -->
+                                        <field name="budget_amount"/> <!-- Display only name of the visit -->
+                                        <field name="analytic_distribution"/> <!-- Display only name of the visit -->
+                                        <field name="product_id" domain="[('subcontractor', '=', True)]"/>
+                                        <field name="qty"/>
+                                    </list>
+                                </field>
+                            </div>
+                        </page>
+                    </notebook>
+                </page>
+            </xpath>
+
+            <xpath expr="//header" position="inside">
+                <button name="action_open_sub_task_wizard" groups="nthub_constructions.construction_group_officer"
+                        type="object" string="Transfer Product" invisible="not parent_id" class="oe_highlight"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_project_task_tree_view" model="ir.ui.view">
+        <field name="name">project.task.list.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_tree2"/>
+        <field name="arch" type="xml">
+            <list position="attributes">
+                <attribute name="default_group_by"></attribute>
+            </list>
+
+            <xpath expr="//list" position="inside">
+                <header>
+                    <button name="create_comp_request" string="Create Requisitions" type="object"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+</odoo>
