@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- List view: combined (deduction + allowance) with type badge -->
+    <record id="tender_deduction_type_list_view" model="ir.ui.view">
+        <field name="name">tender.deduction.type.list</field>
+        <field name="model">tender.deduction.type</field>
+        <field name="arch" type="xml">
+            <list string="أنواع الخصومات والإضافات / Deduction &amp; Allowance Types" editable="bottom">
+                <field name="name" string="الاسم / Name"/>
+                <field name="type" string="النوع / Type"
+                       widget="badge"
+                       decoration-danger="type == 'deduction'"
+                       decoration-success="type == 'allowance'"/>
+                <field name="account_id" string="الحساب / Account"/>
+                <field name="percentage" string="نسبة %"/>
+                <field name="active" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form view: nicer layout with Arabic help -->
+    <record id="tender_deduction_type_form_view" model="ir.ui.view">
+        <field name="name">tender.deduction.type.form</field>
+        <field name="model">tender.deduction.type</field>
+        <field name="arch" type="xml">
+            <form string="نوع خصم / إضافة">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="الاسم / Name"/>
+                        <h1><field name="name" placeholder="مثال: ضمان حسن التنفيذ..."/></h1>
+                    </div>
+                    <group>
+                        <group string="البيانات الأساسية / Details">
+                            <field name="type" string="النوع"
+                                   widget="radio"
+                                   help="خصم = يُطرح من المستخلص / إضافة = تُضاف للمستخلص"/>
+                            <field name="percentage" string="نسبة % الافتراضية"
+                                   help="إذا حُددت، تُستخدم كنسبة افتراضية عند إضافة هذا النوع في العقود"/>
+                        </group>
+                        <group string="الحساب المحاسبي / Account">
+                            <field name="account_id" string="حساب المحاسبة"
+                                   help="الحساب المرتبط بهذا النوع في دفتر الأستاذ — مطلوب لإصدار الفواتير الصحيحة"
+                                   options="{'no_create': True}"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" string="نشط"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action: ALL types (deduction + allowance) — combined -->
+    <record id="action_tender_all_types" model="ir.actions.act_window">
+        <field name="name">أنواع الخصومات والإضافات / Types</field>
+        <field name="res_model">tender.deduction.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                أضف نوع خصم أو إضافة جديد
+            </p>
+            <p>
+                كل نوع بيتربط بحساب محاسبي — ده بيضمن إن الفواتير بتاعت المستخلصات تاخد الحسابات الصح تلقائيًا.
+            </p>
+        </field>
+    </record>
+
+    <!-- Action for Deduction Types only (kept for backwards compat) -->
+    <record id="action_tender_deduction_type" model="ir.actions.act_window">
+        <field name="name">أنواع الخصومات / Deduction Types</field>
+        <field name="res_model">tender.deduction.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('type', '=', 'deduction')]</field>
+        <field name="context">{'default_type': 'deduction'}</field>
+    </record>
+
+    <!-- Action for Allowance Types only (kept for backwards compat) -->
+    <record id="action_tender_allowance_type" model="ir.actions.act_window">
+        <field name="name">أنواع الإضافات / Allowance Types</field>
+        <field name="res_model">tender.deduction.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('type', '=', 'allowance')]</field>
+        <field name="context">{'default_type': 'allowance'}</field>
+    </record>
+
+</odoo>

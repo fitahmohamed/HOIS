@@ -1,0 +1,1754 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* nthub_constructions_tenders
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: 2025-01-01 00:00+0000\n"
+"Last-Translator: Neoteric Hub\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.constructions_tenders_root_menu
+msgid "Tenders"
+msgstr "المناقصات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.constructions_tenders_category_menu
+msgid "Settings"
+msgstr "الإعدادات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tenders_job
+msgid "Project Jobs"
+msgstr "أعمال المشروع"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tenders_job_item
+msgid "Project Items"
+msgstr "بنود المشروع"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.constructions_tenders_job_cost_menu
+msgid "Job Cost Templates"
+msgstr "قوالب العمل"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tender_offer_menu_action
+msgid "Offers"
+msgstr "العروض"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.constructions_tenders_Project_menu
+msgid "Tender Projects"
+msgstr "مشاريع المناقصات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.actions.act_window,name:nthub_constructions_tenders.action_project_tender
+msgid "Tender Project"
+msgstr "مشروع المناقصة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.actions.act_window,name:nthub_constructions_tenders.tender_version_view_action
+msgid "Versions"
+msgstr "الإصدارات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.actions.act_window,name:nthub_constructions_tenders.tender_offer_view_action
+msgid "Tender Offers"
+msgstr "عروض المناقصة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.actions.act_window,name:nthub_constructions_tenders.top_sheet_action
+msgid "Top Sheet"
+msgstr "ملخص التكاليف"
+
+#. module: nthub_constructions_tenders
+msgid "A Top Sheet already exists for the selected project."
+msgstr "ملخص التكاليف موجود بالفعل لهذا المشروع."
+
+#. module: nthub_constructions_tenders
+msgid "Accept Email From"
+msgstr "قبول البريد من"
+
+#. module: nthub_constructions_tenders
+msgid "Account"
+msgstr "الحساب"
+
+#. module: nthub_constructions_tenders
+msgid "Active Contracts"
+msgstr "العقود الجارية"
+
+#. module: nthub_constructions_tenders
+msgid "Active Invoice"
+msgstr "الفاتورة النشطة"
+
+#. module: nthub_constructions_tenders
+msgid "Active Projects"
+msgstr "المشاريع الجارية"
+
+#. module: nthub_constructions_tenders
+msgid "Actual Cost"
+msgstr "التكلفة الفعلية"
+
+#. module: nthub_constructions_tenders
+msgid "Add New"
+msgstr "إضافة جديد"
+
+#. module: nthub_constructions_tenders
+msgid "All items already have job cost templates."
+msgstr "جميع البنود لديها قوالب عمل بالفعل."
+
+#. module: nthub_constructions_tenders
+msgid "Allowance"
+msgstr "إضافة"
+
+#. module: nthub_constructions_tenders
+msgid "Allowances"
+msgstr "الإضافات"
+
+#. module: nthub_constructions_tenders
+msgid "Analytics"
+msgstr "التحليلات"
+
+#. module: nthub_constructions_tenders
+msgid "Applied to all lines - each line can be adjusted individually"
+msgstr "تُطبَّق على جميع البنود — يمكن تعديل كل بند بشكل منفرد"
+
+#. module: nthub_constructions_tenders
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: nthub_constructions_tenders
+msgid "Approve Tender"
+msgstr "اعتماد المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: nthub_constructions_tenders
+msgid "Approved Job Templates"
+msgstr "قوالب عمل معتمدة"
+
+#. module: nthub_constructions_tenders
+msgid "Auto Matched"
+msgstr "تطابق تلقائي"
+
+#. module: nthub_constructions_tenders
+msgid "Bill"
+msgstr "فاتورة المورد"
+
+#. module: nthub_constructions_tenders
+msgid "Budget Amount"
+msgstr "المبلغ التقديري"
+
+#. module: nthub_constructions_tenders
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: nthub_constructions_tenders
+msgid "Cancelled Job Templates"
+msgstr "قوالب عمل ملغاة"
+
+#. module: nthub_constructions_tenders
+msgid "Check In"
+msgstr "تسجيل الحضور"
+
+#. module: nthub_constructions_tenders
+msgid "Check Out"
+msgstr "تسجيل الانصراف"
+
+#. module: nthub_constructions_tenders
+msgid "Code"
+msgstr "الكود"
+
+#. module: nthub_constructions_tenders
+msgid "Code Column"
+msgstr "عمود الكود"
+
+#. module: nthub_constructions_tenders
+msgid "Code in File"
+msgstr "الكود في الملف"
+
+#. module: nthub_constructions_tenders
+msgid "Company"
+msgstr "الشركة"
+
+#. module: nthub_constructions_tenders
+msgid "Completion Request"
+msgstr "طلب الاستلام"
+
+#. module: nthub_constructions_tenders
+msgid "Completion Requests"
+msgstr "طلبات الاستلام"
+
+#. module: nthub_constructions_tenders
+msgid "Completion Requests Calendar"
+msgstr "تقويم طلبات الاستلام"
+
+#. module: nthub_constructions_tenders
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: nthub_constructions_tenders
+msgid "Confirmed Job Templates"
+msgstr "قوالب عمل مؤكدة"
+
+#. module: nthub_constructions_tenders
+msgid "Construction Settings"
+msgstr "إعدادات الإنشاءات"
+
+#. module: nthub_constructions_tenders
+msgid "Constructions & Contracting"
+msgstr "الإنشاءات والمقاولات"
+
+#. module: nthub_constructions_tenders
+msgid "Constructions &amp; Contracting"
+msgstr "الإنشاءات والمقاولات"
+
+#. module: nthub_constructions_tenders
+msgid "Consumable"
+msgstr "مستهلك"
+
+#. module: nthub_constructions_tenders
+msgid "Consumables"
+msgstr "المستهلكات"
+
+#. module: nthub_constructions_tenders
+msgid "Contract"
+msgstr "العقد"
+
+#. module: nthub_constructions_tenders
+msgid "Contract Analysis"
+msgstr "تحليل العقود"
+
+#. module: nthub_constructions_tenders
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: nthub_constructions_tenders
+msgid "Cost / Unit"
+msgstr "التكلفة / الوحدة"
+
+#. module: nthub_constructions_tenders
+msgid "Cost Lines"
+msgstr "بنود التكلفة"
+
+#. module: nthub_constructions_tenders
+msgid "Cost Price"
+msgstr "سعر التكلفة"
+
+#. module: nthub_constructions_tenders
+msgid "Cost Structure"
+msgstr "هيكل التكاليف"
+
+#. module: nthub_constructions_tenders
+msgid "Cost Structure Execution Lines"
+msgstr "بنود تنفيذ هيكل التكاليف"
+
+#. module: nthub_constructions_tenders
+msgid "Cost Structure Lines"
+msgstr "بنود هيكل التكاليف"
+
+#. module: nthub_constructions_tenders
+msgid "Create"
+msgstr "إنشاء"
+
+#. module: nthub_constructions_tenders
+msgid "Create Completion Request"
+msgstr "إنشاء طلب استلام"
+
+#. module: nthub_constructions_tenders
+msgid "Create Contract"
+msgstr "إنشاء عقد"
+
+#. module: nthub_constructions_tenders
+msgid "Create Cost Structure"
+msgstr "إنشاء هيكل التكاليف"
+
+#. module: nthub_constructions_tenders
+msgid "Create Delivery Request"
+msgstr "إنشاء طلب تسليم"
+
+#. module: nthub_constructions_tenders
+msgid "Create Extra Expenses Invoice"
+msgstr "إنشاء فاتورة مصروفات إضافية"
+
+#. module: nthub_constructions_tenders
+msgid "Create Invoice"
+msgstr "إنشاء فاتورة"
+
+#. module: nthub_constructions_tenders
+msgid "Create Job Templates"
+msgstr "إنشاء قوالب العمل"
+
+#. module: nthub_constructions_tenders
+msgid "Create Offer"
+msgstr "إنشاء عرض"
+
+#. module: nthub_constructions_tenders
+msgid "Create Subcontract"
+msgstr "إنشاء عقد باطن"
+
+#. module: nthub_constructions_tenders
+msgid "Create Supply Requests"
+msgstr "إنشاء طلبات التوريد"
+
+#. module: nthub_constructions_tenders
+msgid "Create Top Sheet"
+msgstr "إنشاء ملخص التكاليف"
+
+#. module: nthub_constructions_tenders
+msgid "Create Vendor Bill"
+msgstr "إنشاء فاتورة مورد"
+
+#. module: nthub_constructions_tenders
+msgid "Create Work Structure"
+msgstr "إنشاء هيكل العمل"
+
+#. module: nthub_constructions_tenders
+msgid "Customer"
+msgstr "العميل"
+
+#. module: nthub_constructions_tenders
+msgid "Customers"
+msgstr "العملاء"
+
+#. module: nthub_constructions_tenders
+msgid "Dashboard"
+msgstr "لوحة القيادة"
+
+#. module: nthub_constructions_tenders
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: nthub_constructions_tenders
+msgid "Deductions"
+msgstr "الخصومات"
+
+#. module: nthub_constructions_tenders
+msgid "Delivery Request"
+msgstr "طلب تسليم"
+
+#. module: nthub_constructions_tenders
+msgid "Description"
+msgstr "الوصف"
+
+#. module: nthub_constructions_tenders
+msgid "Description Column"
+msgstr "عمود الوصف"
+
+#. module: nthub_constructions_tenders
+msgid "Detected Columns"
+msgstr "الأعمدة المكتشفة"
+
+#. module: nthub_constructions_tenders
+msgid "Direct Cost"
+msgstr "التكلفة المباشرة"
+
+#. module: nthub_constructions_tenders
+msgid "Document"
+msgstr "المستند"
+
+#. module: nthub_constructions_tenders
+msgid "Documents"
+msgstr "المستندات"
+
+#. module: nthub_constructions_tenders
+msgid "Done"
+msgstr "الانتهاء"
+
+#. module: nthub_constructions_tenders
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: nthub_constructions_tenders
+msgid "Engineers"
+msgstr "المهندسون"
+
+#. module: nthub_constructions_tenders
+msgid "Equipment"
+msgstr "المعدات"
+
+#. module: nthub_constructions_tenders
+msgid "Error"
+msgstr "خطأ"
+
+#. module: nthub_constructions_tenders
+msgid "Expected Date"
+msgstr "التاريخ المتوقع"
+
+#. module: nthub_constructions_tenders
+msgid "Expenses"
+msgstr "المصروفات"
+
+#. module: nthub_constructions_tenders
+msgid "Expenses Invoice"
+msgstr "فاتورة المصروفات"
+
+#. module: nthub_constructions_tenders
+msgid "Extra Expenses"
+msgstr "المصروفات الإضافية"
+
+#. module: nthub_constructions_tenders
+msgid "Extra Expenses invoice"
+msgstr "فاتورة المصروفات الإضافية"
+
+#. module: nthub_constructions_tenders
+msgid "Extra expenses invoice"
+msgstr "فاتورة المصروفات الإضافية"
+
+#. module: nthub_constructions_tenders
+msgid "Extras"
+msgstr "إضافات"
+
+#. module: nthub_constructions_tenders
+msgid "File (Excel / PDF)"
+msgstr "الملف (Excel / PDF)"
+
+#. module: nthub_constructions_tenders
+msgid "File Name"
+msgstr "اسم الملف"
+
+#. module: nthub_constructions_tenders
+msgid "Found"
+msgstr "موجود"
+
+#. module: nthub_constructions_tenders
+msgid "Generate Completion Requests"
+msgstr "توليد طلبات الاستلام"
+
+#. module: nthub_constructions_tenders
+msgid "Generate Tasks"
+msgstr "توليد المهام"
+
+#. module: nthub_constructions_tenders
+msgid "Header Row"
+msgstr "رقم صف الهيدر"
+
+#. module: nthub_constructions_tenders
+msgid "Images"
+msgstr "الصور"
+
+#. module: nthub_constructions_tenders
+msgid "Import Items from File"
+msgstr "استيراد البنود من ملف"
+
+#. module: nthub_constructions_tenders
+msgid "Import Tender Items from Excel / PDF"
+msgstr "استيراد بنود المناقصة من Excel / PDF"
+
+#. module: nthub_constructions_tenders
+msgid "Indirect Cost"
+msgstr "التكاليف غير المباشرة"
+
+#. module: nthub_constructions_tenders
+msgid "Indirect Cost Percentage"
+msgstr "نسبة التكاليف غير المباشرة"
+
+#. module: nthub_constructions_tenders
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: nthub_constructions_tenders
+msgid "Issue Categories"
+msgstr "تصنيفات المشكلات"
+
+#. module: nthub_constructions_tenders
+msgid "Issue Tracking"
+msgstr "متابعة المشكلات"
+
+#. module: nthub_constructions_tenders
+msgid "Item"
+msgstr "البند"
+
+#. module: nthub_constructions_tenders
+msgid "Item Data"
+msgstr "بيانات البند"
+
+#. module: nthub_constructions_tenders
+msgid "Item Name"
+msgstr "اسم البند"
+
+#. module: nthub_constructions_tenders
+msgid "Item WBS Builds Line"
+msgstr "بند تنفيذ هيكل التكاليف"
+
+#. module: nthub_constructions_tenders
+msgid "Job Cost Template"
+msgstr "قالب العمل"
+
+#. module: nthub_constructions_tenders
+msgid "Job Cost Template Form"
+msgstr "نموذج قالب العمل"
+
+#. module: nthub_constructions_tenders
+msgid "Labour"
+msgstr "العمالة"
+
+#. module: nthub_constructions_tenders
+msgid "Lines"
+msgstr "البنود"
+
+#. module: nthub_constructions_tenders
+msgid "Main Type"
+msgstr "النوع الرئيسي"
+
+#. module: nthub_constructions_tenders
+msgid "Map Columns"
+msgstr "تعيين الأعمدة"
+
+#. module: nthub_constructions_tenders
+msgid "Materials"
+msgstr "المواد"
+
+#. module: nthub_constructions_tenders
+msgid "Merge Selected Records"
+msgstr "دمج السجلات المختارة"
+
+#. module: nthub_constructions_tenders
+msgid "Name"
+msgstr "الاسم"
+
+#. module: nthub_constructions_tenders
+msgid "Name Column"
+msgstr "عمود الاسم"
+
+#. module: nthub_constructions_tenders
+msgid "Name in File"
+msgstr "الاسم في الملف"
+
+#. module: nthub_constructions_tenders
+msgid "New"
+msgstr "جديد"
+
+#. module: nthub_constructions_tenders
+msgid "New Item"
+msgstr "بند جديد"
+
+#. module: nthub_constructions_tenders
+msgid "New Version"
+msgstr "إصدار جديد"
+
+#. module: nthub_constructions_tenders
+msgid "No items found in the tender."
+msgstr "لا توجد بنود في المناقصة."
+
+#. module: nthub_constructions_tenders
+msgid "No items linked to a breakdown. Link templates first."
+msgstr "لا توجد بنود مرتبطة ببريك داون. ربّط القوالب أولاً."
+
+#. module: nthub_constructions_tenders
+msgid "Offer Cost Total"
+msgstr "إجمالي تكلفة العرض"
+
+#. module: nthub_constructions_tenders
+msgid "Offer Lines"
+msgstr "بنود العرض"
+
+#. module: nthub_constructions_tenders
+msgid "Offer Selling Total"
+msgstr "إجمالي سعر البيع"
+
+#. module: nthub_constructions_tenders
+msgid "Offer Version"
+msgstr "إصدار العرض"
+
+#. module: nthub_constructions_tenders
+msgid "Owner Contracts"
+msgstr "عقود الملاك"
+
+#. module: nthub_constructions_tenders
+msgid "Please enter quantity for %s."
+msgstr "الرجاء إدخال الكمية للبند: %s"
+
+#. module: nthub_constructions_tenders
+msgid "Please set the customer first."
+msgstr "الرجاء تحديد العميل أولاً."
+
+#. module: nthub_constructions_tenders
+msgid "Preview"
+msgstr "معاينة"
+
+#. module: nthub_constructions_tenders
+msgid "Preview Lines"
+msgstr "معاينة البنود"
+
+#. module: nthub_constructions_tenders
+msgid "Products & Services"
+msgstr "المنتجات والخدمات"
+
+#. module: nthub_constructions_tenders
+msgid "Products &amp; Services"
+msgstr "المنتجات والخدمات"
+
+#. module: nthub_constructions_tenders
+msgid "Profit Margin %"
+msgstr "نسبة الربح %"
+
+#. module: nthub_constructions_tenders
+msgid "Project"
+msgstr "المشروع"
+
+#. module: nthub_constructions_tenders
+msgid "Project Information"
+msgstr "بيانات المشروع"
+
+#. module: nthub_constructions_tenders
+msgid "Project Settings"
+msgstr "إعدادات المشروع"
+
+#. module: nthub_constructions_tenders
+msgid "Project Stages"
+msgstr "مراحل المشروع"
+
+#. module: nthub_constructions_tenders
+msgid "Project Unit Types"
+msgstr "أنواع وحدات المشروع"
+
+#. module: nthub_constructions_tenders
+msgid "Projects"
+msgstr "المشاريع"
+
+#. module: nthub_constructions_tenders
+msgid "Qty Column"
+msgstr "عمود الكمية"
+
+#. module: nthub_constructions_tenders
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: nthub_constructions_tenders
+msgid "Raw UoM"
+msgstr "الوحدة في الملف"
+
+#. module: nthub_constructions_tenders
+msgid "Ready"
+msgstr "جاهز"
+
+#. module: nthub_constructions_tenders
+msgid "Receipt"
+msgstr "إيصال"
+
+#. module: nthub_constructions_tenders
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: nthub_constructions_tenders
+msgid "Register Payment"
+msgstr "تسجيل دفعة"
+
+#. module: nthub_constructions_tenders
+msgid "Related Job"
+msgstr "الوظيفة المرتبطة"
+
+#. module: nthub_constructions_tenders
+msgid "Reset to Draft"
+msgstr "إرجاع إلى مسودة"
+
+#. module: nthub_constructions_tenders
+msgid "Revenue"
+msgstr "الإيراد"
+
+#. module: nthub_constructions_tenders
+msgid "Row"
+msgstr "الصف"
+
+#. module: nthub_constructions_tenders
+msgid "Search"
+msgstr "بحث"
+
+#. module: nthub_constructions_tenders
+msgid "Search Cost Structure"
+msgstr "بحث في هيكل التكاليف"
+
+#. module: nthub_constructions_tenders
+msgid "Search Subcontractor Delivery Requests"
+msgstr "بحث في طلبات تسليم مقاول الباطن"
+
+#. module: nthub_constructions_tenders
+msgid "Section"
+msgstr "عنوان"
+
+#. module: nthub_constructions_tenders
+msgid "Sections/Notes"
+msgstr "عناوين/ملاحظات"
+
+#. module: nthub_constructions_tenders
+msgid "Select Version"
+msgstr "اختر الإصدار"
+
+#. module: nthub_constructions_tenders
+msgid "Selling Price"
+msgstr "سعر البيع"
+
+#. module: nthub_constructions_tenders
+msgid "Set Rating Template on Stages"
+msgstr "تعيين قالب تقييم على المراحل"
+
+#. module: nthub_constructions_tenders
+msgid "Share Editable"
+msgstr "مشاركة قابلة للتعديل"
+
+#. module: nthub_constructions_tenders
+msgid "Share Read Only"
+msgstr "مشاركة للقراءة فقط"
+
+#. module: nthub_constructions_tenders
+msgid "Stakeholders"
+msgstr "أصحاب المصلحة"
+
+#. module: nthub_constructions_tenders
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: nthub_constructions_tenders
+msgid "Start Processing"
+msgstr "بدء التنفيذ"
+
+#. module: nthub_constructions_tenders
+msgid "State"
+msgstr "الحالة"
+
+#. module: nthub_constructions_tenders
+msgid "Status"
+msgstr "الحالة"
+
+#. module: nthub_constructions_tenders
+msgid "Step"
+msgstr "الخطوة"
+
+#. module: nthub_constructions_tenders
+msgid "Sub Product Tasks"
+msgstr "مهام المنتج الفرعية"
+
+#. module: nthub_constructions_tenders
+msgid "Sub Task Wizard"
+msgstr "مساعد المهام الفرعية"
+
+#. module: nthub_constructions_tenders
+msgid "Subcontract"
+msgstr "عقد الباطن"
+
+#. module: nthub_constructions_tenders
+msgid "Subcontractor"
+msgstr "مقاول الباطن"
+
+#. module: nthub_constructions_tenders
+msgid "Subcontractor Delivery Requests"
+msgstr "طلبات تسليم مقاول الباطن"
+
+#. module: nthub_constructions_tenders
+msgid "Subcontractors"
+msgstr "مقاولو الباطن"
+
+#. module: nthub_constructions_tenders
+msgid "Subcontracts"
+msgstr "عقود الباطن"
+
+#. module: nthub_constructions_tenders
+msgid "Subtotal"
+msgstr "الإجمالي"
+
+#. module: nthub_constructions_tenders
+msgid "System Settings"
+msgstr "إعدادات النظام"
+
+#. module: nthub_constructions_tenders
+msgid "Task Name"
+msgstr "اسم المهمة"
+
+#. module: nthub_constructions_tenders
+msgid "Tasks"
+msgstr "المهام"
+
+#. module: nthub_constructions_tenders
+msgid "Tender"
+msgstr "المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "Tender Information"
+msgstr "بيانات المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "Tender Offer"
+msgstr "عرض المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "Time Management"
+msgstr "إدارة الوقت"
+
+#. module: nthub_constructions_tenders
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: nthub_constructions_tenders
+msgid "Total Allowances"
+msgstr "إجمالي الإضافات"
+
+#. module: nthub_constructions_tenders
+msgid "Total Amount"
+msgstr "إجمالي المبلغ"
+
+#. module: nthub_constructions_tenders
+msgid "Total Cost"
+msgstr "إجمالي التكلفة"
+
+#. module: nthub_constructions_tenders
+msgid "Total Cost Price"
+msgstr "سعر التكلفة الإجمالي"
+
+#. module: nthub_constructions_tenders
+msgid "Total Deductions"
+msgstr "إجمالي الخصومات"
+
+#. module: nthub_constructions_tenders
+msgid "Total Extra Expenses"
+msgstr "إجمالي المصروفات الإضافية"
+
+#. module: nthub_constructions_tenders
+msgid "Total Lines"
+msgstr "إجمالي البنود"
+
+#. module: nthub_constructions_tenders
+msgid "Total Lines Cost"
+msgstr "إجمالي تكلفة البنود"
+
+#. module: nthub_constructions_tenders
+msgid "Total Rows"
+msgstr "إجمالي الصفوف"
+
+#. module: nthub_constructions_tenders
+msgid "Total Selling"
+msgstr "إجمالي البيع"
+
+#. module: nthub_constructions_tenders
+msgid "Total Selling Price"
+msgstr "إجمالي سعر البيع"
+
+#. module: nthub_constructions_tenders
+msgid "Total Tender Cost"
+msgstr "إجمالي تكلفة المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "Transfer Product"
+msgstr "نقل منتج"
+
+#. module: nthub_constructions_tenders
+msgid "Type"
+msgstr "النوع"
+
+#. module: nthub_constructions_tenders
+msgid "Type Column"
+msgstr "عمود النوع"
+
+#. module: nthub_constructions_tenders
+msgid "Type and Main Type"
+msgstr "النوع والنوع الرئيسي"
+
+#. module: nthub_constructions_tenders
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: nthub_constructions_tenders
+msgid "Unit of Measure"
+msgstr "وحدة القياس"
+
+#. module: nthub_constructions_tenders
+msgid "UoM Column"
+msgstr "عمود وحدة القياس"
+
+#. module: nthub_constructions_tenders
+msgid "UoM Mapping"
+msgstr "تطابق وحدات القياس"
+
+#. module: nthub_constructions_tenders
+msgid "UoM in File"
+msgstr "الوحدة في الملف"
+
+#. module: nthub_constructions_tenders
+msgid "UoM in Odoo"
+msgstr "وحدة القياس في أودو"
+
+#. module: nthub_constructions_tenders
+msgid "Update"
+msgstr "تحديث"
+
+#. module: nthub_constructions_tenders
+msgid "Update Unit Price from Breakdown"
+msgstr "تحديث سعر الوحدة من قالب العمل"
+
+#. module: nthub_constructions_tenders
+msgid "Upload"
+msgstr "رفع الملف"
+
+#. module: nthub_constructions_tenders
+msgid "Upload File"
+msgstr "رفع الملف"
+
+#. module: nthub_constructions_tenders
+msgid "Version Lines"
+msgstr "بنود الإصدار"
+
+#. module: nthub_constructions_tenders
+msgid "Warnings"
+msgstr "تنبيهات"
+
+#. module: nthub_constructions_tenders
+msgid "Work Structure"
+msgstr "هيكل العمل"
+
+#. module: nthub_constructions_tenders
+msgid "construction Settings"
+msgstr "إعدادات الإنشاءات"
+
+#. module: nthub_constructions_tenders
+msgid "⬆ Import from Excel"
+msgstr "⬆ استيراد من إكسيل"
+
+#. module: nthub_constructions_tenders
+msgid "⬇ Download Template"
+msgstr "⬇ تحميل النموذج"
+
+#. module: nthub_constructions_tenders
+msgid "🔄 Update Unit Price from Breakdown"
+msgstr "🔄 تحديث سعر الوحدة من البريك داون"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_tender_job_cost__number
+msgid "Internal Code"
+msgstr "الكود الداخلي"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_tender_job_cost__is_breakdown_template
+msgid "Use as Template"
+msgstr "استخدام كقالب"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_tender_job_cost__template_source_id
+msgid "Load from Template"
+msgstr "تحميل من قالب"
+
+#. module: nthub_constructions_tenders
+msgid "⬇ Load from Template"
+msgstr "⬇ تحميل من قالب"
+
+#. module: nthub_constructions_tenders
+msgid "⬆ Import Lines from Excel"
+msgstr "⬆ استيراد البنود من إكسيل"
+
+#. module: nthub_constructions_tenders
+msgid "Template"
+msgstr "قالب"
+
+#. module: nthub_constructions_tenders
+msgid "Loading from a template is only allowed in draft state."
+msgstr "التحميل من قالب مسموح به فقط في حالة المسودة."
+
+#. module: nthub_constructions_tenders
+msgid "Please select a template breakdown first."
+msgstr "من فضلك اختر قالب البريك داون أولاً."
+
+#. module: nthub_constructions_tenders
+msgid "The selected template has no cost lines."
+msgstr "القالب المختار لا يحتوي على بنود تكلفة."
+
+#. module: nthub_constructions_tenders
+msgid "This will replace the current cost lines with the template's lines (quantities scaled to this item's quantity). Continue?"
+msgstr "سيتم استبدال بنود التكلفة الحالية ببنود القالب (مع تحجيم الكميات على كمية هذا البند). هل تريد المتابعة؟"
+
+#. module: nthub_constructions_tenders
+msgid "If checked, this breakdown can be picked as a template inside other breakdowns to load all its cost lines."
+msgstr "عند التفعيل، يمكن اختيار هذا البريك داون كقالب داخل البريك داونات الأخرى لتحميل كل بنود تكلفته."
+
+#. module: nthub_constructions_tenders
+msgid "Pick a breakdown marked as template, then press \"Load from Template\" to copy all its cost lines here."
+msgstr "اختر بريك داون معلّم كقالب ثم اضغط \"تحميل من قالب\" لنسخ كل بنود تكلفته هنا."
+
+#. module: nthub_constructions_tenders
+#: model:ir.module.category,name:nthub_constructions_tenders.nthub_constructions_tenders_category
+msgid "Construction Tenders"
+msgstr "مناقصات الإنشاءات"
+
+#. module: nthub_constructions_tenders
+#: model:res.groups.privilege,name:nthub_constructions_tenders.privilege_tender_offer
+#: model:res.groups,name:nthub_constructions_tenders.construction_tender_offer
+msgid "Tender: Offer Manager"
+msgstr "المناقصات: مدير العروض"
+
+#. module: nthub_constructions_tenders
+#: model:res.groups.privilege,name:nthub_constructions_tenders.privilege_tender_confirm_offer
+#: model:res.groups,name:nthub_constructions_tenders.construction_tender_confirm_offer
+msgid "Tender: Offer Confirm"
+msgstr "المناقصات: اعتماد العرض"
+
+#. module: nthub_constructions_tenders
+#: model:res.groups.privilege,name:nthub_constructions_tenders.privilege_tender_confirm_version
+#: model:res.groups,name:nthub_constructions_tenders.construction_tender_confirm_version
+msgid "Tender: Version Confirm"
+msgstr "المناقصات: اعتماد النسخة"
+
+#. module: nthub_constructions_tenders
+#: model:res.groups.privilege,name:nthub_constructions_tenders.privilege_tender_confirm_breakdown
+#: model:res.groups,name:nthub_constructions_tenders.construction_tender_confirm_breakdown
+msgid "Tender: Breakdown Confirm"
+msgstr "المناقصات: اعتماد البريك داون"
+
+#. module: nthub_constructions_tenders
+#: model:res.groups.privilege,name:nthub_constructions_tenders.privilege_tender_confirm_contract
+#: model:res.groups,name:nthub_constructions_tenders.construction_tender_confirm_contract
+msgid "Tender: Contract Confirm"
+msgstr "المناقصات: اعتماد العقد"
+
+#. module: nthub_constructions_tenders
+#: model:res.groups.privilege,name:nthub_constructions_tenders.privilege_subcontractor_delivery_confirm
+#: model:res.groups,name:nthub_constructions_tenders.construction_subcontractor_delivery_confirm
+msgid "Tender: Subcontractor Delivery Confirm"
+msgstr "المناقصات: اعتماد تسليم مقاول الباطن"
+
+#. module: nthub_constructions_tenders
+#: model:res.groups.privilege,name:nthub_constructions_tenders.privilege_completion_request_confirm
+#: model:res.groups,name:nthub_constructions_tenders.construction_completion_request_confirm
+msgid "Tender: Completion Request Confirm"
+msgstr "المناقصات: اعتماد طلب المستخلص"
+
+#. module: nthub_constructions_tenders
+#: model:res.groups.privilege,name:nthub_constructions_tenders.privilege_requisition_over_budget
+#: model:res.groups,name:nthub_constructions_tenders.construction_requisition_over_budget
+msgid "Tender: Allow Over-Budget Requisition"
+msgstr "المناقصات: السماح بطلب شراء فوق الميزانية"
+
+#. module: nthub_constructions_tenders
+#: model:res.groups.privilege,name:nthub_constructions_tenders.privilege_task_transfer
+#: model:res.groups,name:nthub_constructions_tenders.construction_task_transfer
+msgid "Tender: Task Transfer Product"
+msgstr "المناقصات: تحويل منتجات المهام"
+
+#. module: nthub_constructions_tenders
+msgid "Items with Previous Breakdown"
+msgstr "بنود ليها بريك داون سابق"
+
+#. module: nthub_constructions_tenders
+msgid "Items with Previous Breakdown — Choose"
+msgstr "بنود ليها بريك داون سابق — اختار"
+
+#. module: nthub_constructions_tenders
+msgid "✓ Apply Choices"
+msgstr "✓ تنفيذ الاختيارات"
+
+#. module: nthub_constructions_tenders
+msgid "📋 Copy All"
+msgstr "📋 خد كوبي للكل"
+
+#. module: nthub_constructions_tenders
+msgid "✚ Create New for All"
+msgstr "✚ أنشئ جديد للكل"
+
+#. module: nthub_constructions_tenders
+msgid "Copy Last One"
+msgstr "خد كوبي من الأخير"
+
+#. module: nthub_constructions_tenders
+msgid "Create New"
+msgstr "أنشئ جديد"
+
+#. module: nthub_constructions_tenders
+msgid "Import Tender Items"
+msgstr "استيراد بنود المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "📥 Upload File"
+msgstr "📥 رفع الملف"
+
+#. module: nthub_constructions_tenders
+msgid "ℹ Supported Files"
+msgstr "ℹ الملفات المدعومة"
+
+#. module: nthub_constructions_tenders
+msgid "Excel (.xlsx) - all sheets in the file are read at once"
+msgstr "Excel (.xlsx) - كل الشيتات في الملف بتتقرا مرة واحدة"
+
+#. module: nthub_constructions_tenders
+msgid "PDF - files containing tables"
+msgstr "PDF - ملفات تحتوي على جداول"
+
+#. module: nthub_constructions_tenders
+msgid "Odoo will detect the columns automatically — you can adjust them in the next step."
+msgstr "أودو سيكتشف الأعمدة تلقائياً — يمكنك تعديلها في الخطوة التالية."
+
+#. module: nthub_constructions_tenders
+msgid "Detected Columns:"
+msgstr "الأعمدة المكتشفة:"
+
+#. module: nthub_constructions_tenders
+msgid "Column Mapping (column number — starts at 0)"
+msgstr "تعيين الأعمدة (رقم العمود — يبدأ من 0)"
+
+#. module: nthub_constructions_tenders
+msgid "Header Row Number"
+msgstr "صف الهيدر (رقمه)"
+
+#. module: nthub_constructions_tenders
+msgid "Code Column (-1 if missing)"
+msgstr "عمود الكود (-1 لو غير موجود)"
+
+#. module: nthub_constructions_tenders
+msgid "Name Column *"
+msgstr "عمود الاسم *"
+
+#. module: nthub_constructions_tenders
+msgid "Description Column (-1 if missing)"
+msgstr "عمود الوصف (-1 لو غير موجود)"
+
+#. module: nthub_constructions_tenders
+msgid "Quantity Column *"
+msgstr "عمود الكمية *"
+
+#. module: nthub_constructions_tenders
+msgid "UoM Column (-1 if missing)"
+msgstr "عمود وحدة القياس (-1 لو غير موجود)"
+
+#. module: nthub_constructions_tenders
+msgid "Type Column (-1 if missing)"
+msgstr "عمود النوع (-1 لو غير موجود)"
+
+#. module: nthub_constructions_tenders
+msgid "UoM Matching"
+msgstr "تطابق وحدات القياس"
+
+#. module: nthub_constructions_tenders
+msgid "Auto matched | Manual | Unmatched"
+msgstr "تطابق تلقائي | يدوي | غير محدد"
+
+#. module: nthub_constructions_tenders
+msgid "Auto"
+msgstr "تلقائي"
+
+#. module: nthub_constructions_tenders
+msgid "✓ Existing"
+msgstr "✓ موجود"
+
+#. module: nthub_constructions_tenders
+msgid "+ New"
+msgstr "+ جديد"
+
+#. module: nthub_constructions_tenders
+msgid "⚠ UoM Conflict"
+msgstr "⚠ تعارض وحدة قياس"
+
+#. module: nthub_constructions_tenders
+msgid "Sections"
+msgstr "عناوين"
+
+#. module: nthub_constructions_tenders
+msgid "UoM (File)"
+msgstr "وحدة (الملف)"
+
+#. module: nthub_constructions_tenders
+msgid "File UoM (Odoo)"
+msgstr "وحدة الملف (أودو)"
+
+#. module: nthub_constructions_tenders
+msgid "Your Decision"
+msgstr "قرارك"
+
+#. module: nthub_constructions_tenders
+msgid "✅ Imported successfully!"
+msgstr "✅ تم الاستيراد بنجاح!"
+
+#. module: nthub_constructions_tenders
+msgid "Next →"
+msgstr "التالي ←"
+
+#. module: nthub_constructions_tenders
+msgid "Match UoMs →"
+msgstr "تطابق الوحدات ←"
+
+#. module: nthub_constructions_tenders
+msgid "↩ Back"
+msgstr "↩ رجوع"
+
+#. module: nthub_constructions_tenders
+msgid "Preview Items →"
+msgstr "معاينة البنود ←"
+
+#. module: nthub_constructions_tenders
+msgid "✓ Import Items"
+msgstr "✓ استيراد البنود"
+
+#. module: nthub_constructions_tenders
+msgid "↩ Edit Columns"
+msgstr "↩ تعديل الأعمدة"
+
+#. module: nthub_constructions_tenders
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: nthub_constructions_tenders
+msgid "↩ Import Another File"
+msgstr "↩ استيراد ملف آخر"
+
+#. module: nthub_constructions_tenders
+msgid "Import Breakdown Lines from Excel"
+msgstr "استيراد لاينات البريك داون من إكسيل"
+
+#. module: nthub_constructions_tenders
+msgid "Import Breakdown Lines"
+msgstr "استيراد لاينات البريك داون"
+
+#. module: nthub_constructions_tenders
+msgid "ℹ Notes"
+msgstr "ℹ ملاحظات"
+
+#. module: nthub_constructions_tenders
+msgid "All sheets in the file are read at once."
+msgstr "كل الشيتات في الملف بتتقرا مرة واحدة."
+
+#. module: nthub_constructions_tenders
+msgid "Supported columns: Product / Code / Description / Quantity / UoM / Price / Type / Days / Day Rate."
+msgstr "الأعمدة المدعومة: المنتج / الكود / الوصف / الكمية / وحدة القياس / السعر / النوع / عدد الأيام / سعر اليوم."
+
+#. module: nthub_constructions_tenders
+msgid "Type: material, labour, expenses, equipment, subcontractor, deduction, allowance — if missing it is taken from the product settings."
+msgstr "النوع: مواد، عمالة، مصروفات، معدات، مقاول، خصم، إضافة — لو مش موجود بياخده من إعدادات المنتج."
+
+#. module: nthub_constructions_tenders
+msgid "Products are matched by internal code first then by name — rows with unknown products are skipped with a note."
+msgstr "المنتج بيتطابق بالكود الداخلي أولاً ثم بالاسم — الصفوف اللي منتجها مش موجود بتتخطى مع ملاحظة."
+
+#. module: nthub_constructions_tenders
+msgid "✅ Imported!"
+msgstr "✅ تم الاستيراد!"
+
+#. module: nthub_constructions_tenders
+msgid "✓ Import Lines"
+msgstr "✓ استيراد اللاينات"
+
+#. module: nthub_constructions_tenders
+msgid "openpyxl library is not installed."
+msgstr "مكتبة openpyxl غير مثبتة."
+
+#. module: nthub_constructions_tenders
+msgid "pdfplumber library is not installed. Contact your administrator."
+msgstr "مكتبة pdfplumber غير مثبتة. تواصل مع المسؤول."
+
+#. module: nthub_constructions_tenders
+msgid "Please upload the file first."
+msgstr "الرجاء رفع الملف أولاً."
+
+#. module: nthub_constructions_tenders
+msgid "The file is empty or contains no data."
+msgstr "الملف فارغ أو لا يحتوي على بيانات."
+
+#. module: nthub_constructions_tenders
+msgid "Section / Note"
+msgstr "عنوان / ملاحظة"
+
+#. module: nthub_constructions_tenders
+msgid "New item — will be created on import"
+msgstr "بند جديد — هيتنشأ عند الاستيراد"
+
+#. module: nthub_constructions_tenders
+msgid "File UoM (%(file_uom)s) differs from item UoM (%(item_uom)s) — choose a decision."
+msgstr "وحدة القياس في الملف (%(file_uom)s) مختلفة عن وحدة البند (%(item_uom)s) — اختار القرار."
+
+#. module: nthub_constructions_tenders
+msgid "No valid items to import."
+msgstr "لا توجد بنود صالحة للاستيراد."
+
+#. module: nthub_constructions_tenders
+msgid "Import is only allowed while the breakdown is in draft state."
+msgstr "يمكن الاستيراد فقط والبريك داون في حالة مسودة."
+
+#. module: nthub_constructions_tenders
+msgid "Row %(row)s: product \"%(name)s\" not found — skipped."
+msgstr "صف %(row)s: المنتج \"%(name)s\" غير موجود — تم تخطيه."
+
+#. module: nthub_constructions_tenders
+msgid "Keep Item UoM"
+msgstr "اعتماد وحدة قياس البند القديمة"
+
+#. module: nthub_constructions_tenders
+msgid "Create New Item with File UoM"
+msgstr "إنشاء بند جديد بوحدة الملف"
+
+#. module: nthub_constructions_tenders
+msgid "Material"
+msgstr "مواد"
+
+#. module: nthub_constructions_tenders
+msgid "Existing"
+msgstr "موجود"
+
+#. module: nthub_constructions_tenders
+msgid "UoM Conflict"
+msgstr "تعارض وحدة قياس"
+
+#. module: nthub_constructions_tenders
+msgid "% of Remaining"
+msgstr "نسبة من المتبقي"
+
+#. module: nthub_constructions_tenders
+msgid "Actual Qty"
+msgstr "الكمية الفعلية"
+
+#. module: nthub_constructions_tenders
+msgid "All contract items are fully completed."
+msgstr "كل بنود العقد مكتملة بالكامل."
+
+#. module: nthub_constructions_tenders
+msgid "All retained deductions have already been returned."
+msgstr "كل الخصومات المحتجزة تم ردها بالفعل."
+
+#. module: nthub_constructions_tenders
+msgid "Allowance Type"
+msgstr "نوع الإضافة"
+
+#. module: nthub_constructions_tenders
+msgid "Allowance Types"
+msgstr "أنواع الإضافات"
+
+#. module: nthub_constructions_tenders
+msgid "Allowed Templates"
+msgstr "القوالب المسموح بها"
+
+#. module: nthub_constructions_tenders
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: nthub_constructions_tenders
+msgid "Amount (%.2f) exceeds remaining (%.2f)."
+msgstr "المبلغ (%.2f) يتجاوز المتبقي (%.2f)."
+
+#. module: nthub_constructions_tenders
+msgid "Amount must be greater than zero."
+msgstr "يجب أن يكون المبلغ أكبر من صفر."
+
+#. module: nthub_constructions_tenders
+msgid "Approved %"
+msgstr "نسبة الاعتماد %"
+
+#. module: nthub_constructions_tenders
+msgid "Approved Amt"
+msgstr "المبلغ المعتمد"
+
+#. module: nthub_constructions_tenders
+msgid "Approved Tender"
+msgstr "مناقصة معتمدة"
+
+#. module: nthub_constructions_tenders
+msgid "Breakdown"
+msgstr "البريك داون"
+
+#. module: nthub_constructions_tenders
+msgid "Breakdown Templates"
+msgstr "قوالب البريك داون"
+
+#. module: nthub_constructions_tenders
+msgid "Budget"
+msgstr "الميزانية"
+
+#. module: nthub_constructions_tenders
+msgid "Contract (Deduction Return)"
+msgstr "العقد (رد الخصومات)"
+
+#. module: nthub_constructions_tenders
+msgid "Contract Qty"
+msgstr "كمية العقد"
+
+#. module: nthub_constructions_tenders
+msgid "Cost Center"
+msgstr "مركز التكلفة"
+
+#. module: nthub_constructions_tenders
+msgid "Currency"
+msgstr "العملة"
+
+#. module: nthub_constructions_tenders
+msgid "Decision"
+msgstr "القرار"
+
+#. module: nthub_constructions_tenders
+msgid "Deduction"
+msgstr "خصم"
+
+#. module: nthub_constructions_tenders
+msgid "Deduction / Allowance Type"
+msgstr "نوع الخصم / الإضافة"
+
+#. module: nthub_constructions_tenders
+msgid "Deduction / Allowance Types"
+msgstr "أنواع الخصومات / الإضافات"
+
+#. module: nthub_constructions_tenders
+msgid "Deduction Return Invoice"
+msgstr "فاتورة رد الخصومات"
+
+#. module: nthub_constructions_tenders
+msgid "Deduction Return Invoiced"
+msgstr "خصومات مردودة بفواتير"
+
+#. module: nthub_constructions_tenders
+msgid "Deduction Return Invoices"
+msgstr "فواتير رد الخصومات"
+
+#. module: nthub_constructions_tenders
+msgid "Deduction Return Remaining"
+msgstr "المتبقي من رد الخصومات"
+
+#. module: nthub_constructions_tenders
+msgid "Deduction Types"
+msgstr "أنواع الخصومات"
+
+#. module: nthub_constructions_tenders
+msgid "Deduction for Item: %s"
+msgstr "خصم للبند: %s"
+
+#. module: nthub_constructions_tenders
+msgid "Default account for down payment invoices from contracts"
+msgstr "الحساب الافتراضي لفواتير الدفعات المقدمة من العقود"
+
+#. module: nthub_constructions_tenders
+msgid "Down Payment"
+msgstr "دفعة مقدمة"
+
+#. module: nthub_constructions_tenders
+msgid "Down Payment Account"
+msgstr "حساب الدفعة المقدمة"
+
+#. module: nthub_constructions_tenders
+msgid "Down Payment Invoice"
+msgstr "فاتورة دفعة مقدمة"
+
+#. module: nthub_constructions_tenders
+msgid "Down Payment Invoiced"
+msgstr "دفعة مقدمة مفوترة"
+
+#. module: nthub_constructions_tenders
+msgid "Down Payment Invoices"
+msgstr "فواتير الدفعات المقدمة"
+
+#. module: nthub_constructions_tenders
+msgid "Down Payment Percentage"
+msgstr "نسبة الدفعة المقدمة"
+
+#. module: nthub_constructions_tenders
+msgid "Down Payment Recovery - %s"
+msgstr "استرداد دفعة مقدمة - %s"
+
+#. module: nthub_constructions_tenders
+msgid "Down Payment Remaining"
+msgstr "المتبقي من الدفعة المقدمة"
+
+#. module: nthub_constructions_tenders
+msgid "Down payment has been fully invoiced."
+msgstr "الدفعة المقدمة تمت فوترتها بالكامل."
+
+#. module: nthub_constructions_tenders
+msgid "Excel File"
+msgstr "ملف إكسيل"
+
+#. module: nthub_constructions_tenders
+msgid "Imported Lines"
+msgstr "السطور المستوردة"
+
+#. module: nthub_constructions_tenders
+msgid "Invoice amount (%.2f) exceeds remaining down payment (%.2f)."
+msgstr "مبلغ الفاتورة (%.2f) يتجاوز المتبقي من الدفعة المقدمة (%.2f)."
+
+#. module: nthub_constructions_tenders
+msgid "Invoice amount must be greater than zero."
+msgstr "يجب أن يكون مبلغ الفاتورة أكبر من صفر."
+
+#. module: nthub_constructions_tenders
+msgid "Item Code"
+msgstr "كود البند"
+
+#. module: nthub_constructions_tenders
+msgid "Item Current UoM"
+msgstr "وحدة البند الحالية"
+
+#. module: nthub_constructions_tenders
+msgid "Items"
+msgstr "البنود"
+
+#. module: nthub_constructions_tenders
+msgid "Its Total Cost"
+msgstr "تكلفته الإجمالية"
+
+#. module: nthub_constructions_tenders
+msgid "Last Breakdown"
+msgstr "آخر بريك داون"
+
+#. module: nthub_constructions_tenders
+msgid "Last Update"
+msgstr "آخر تحديث"
+
+#. module: nthub_constructions_tenders
+msgid "Lines can only be reloaded in Draft state."
+msgstr "لا يمكن إعادة تحميل السطور إلا في حالة المسودة."
+
+#. module: nthub_constructions_tenders
+msgid "Maximum Amount"
+msgstr "الحد الأقصى للمبلغ"
+
+#. module: nthub_constructions_tenders
+msgid "No Top Sheet is linked to this Tender Offer."
+msgstr "لا يوجد توب شيت مرتبط بهذا العرض."
+
+#. module: nthub_constructions_tenders
+msgid "No budget created for this contract."
+msgstr "لا توجد ميزانية منشأة لهذا العقد."
+
+#. module: nthub_constructions_tenders
+msgid "No deductions have been retained for this contract."
+msgstr "لا توجد خصومات محتجزة لهذا العقد."
+
+#. module: nthub_constructions_tenders
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: nthub_constructions_tenders
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: nthub_constructions_tenders
+msgid "Number of Units"
+msgstr "عدد الوحدات"
+
+#. module: nthub_constructions_tenders
+msgid "Offer"
+msgstr "عرض"
+
+#. module: nthub_constructions_tenders
+msgid "Offer Report"
+msgstr "تقرير العرض"
+
+#. module: nthub_constructions_tenders
+msgid "Offer Sequence"
+msgstr "تسلسل العرض"
+
+#. module: nthub_constructions_tenders
+msgid "Only draft state can be deleted"
+msgstr "لا يمكن الحذف إلا في حالة المسودة"
+
+#. module: nthub_constructions_tenders
+msgid "Order Lines"
+msgstr "سطور الأمر"
+
+#. module: nthub_constructions_tenders
+msgid "Overall %"
+msgstr "النسبة الإجمالية %"
+
+#. module: nthub_constructions_tenders
+msgid "Percentage (%)"
+msgstr "النسبة (%)"
+
+#. module: nthub_constructions_tenders
+msgid "Percentage should be less than 100."
+msgstr "يجب أن تكون النسبة أقل من 100."
+
+#. module: nthub_constructions_tenders
+msgid "Planned Qty"
+msgstr "الكمية المخططة"
+
+#. module: nthub_constructions_tenders
+msgid "Please enter a down payment amount."
+msgstr "من فضلك أدخل مبلغ الدفعة المقدمة."
+
+#. module: nthub_constructions_tenders
+msgid "Please enter quantity for %s in offer."
+msgstr "من فضلك أدخل الكمية للبند %s في العرض."
+
+#. module: nthub_constructions_tenders
+msgid "Please enter quantity for at least one line."
+msgstr "من فضلك أدخل الكمية لسطر واحد على الأقل."
+
+#. module: nthub_constructions_tenders
+msgid "Please select a contract first."
+msgstr "من فضلك اختر العقد أولاً."
+
+#. module: nthub_constructions_tenders
+msgid "Please select a contract."
+msgstr "من فضلك اختر العقد."
+
+#. module: nthub_constructions_tenders
+msgid "Please select a customer on contract."
+msgstr "من فضلك حدد العميل في العقد."
+
+#. module: nthub_constructions_tenders
+msgid "Please select a customer."
+msgstr "من فضلك حدد العميل."
+
+#. module: nthub_constructions_tenders
+msgid "Please select a customer/sub-contractor."
+msgstr "من فضلك حدد العميل / مقاول الباطن."
+
+#. module: nthub_constructions_tenders
+msgid "Please select a customer/vendor on the contract."
+msgstr "من فضلك حدد العميل / المورد في العقد."
+
+#. module: nthub_constructions_tenders
+msgid "Please select a sub-contractor."
+msgstr "من فضلك حدد مقاول الباطن."
+
+#. module: nthub_constructions_tenders
+msgid "Please set the end date for the tender."
+msgstr "من فضلك حدد تاريخ نهاية المناقصة."
+
+#. module: nthub_constructions_tenders
+msgid "Prev. Done"
+msgstr "المنفذ سابقاً"
+
+#. module: nthub_constructions_tenders
+msgid "Price / Unit"
+msgstr "سعر الوحدة"
+
+#. module: nthub_constructions_tenders
+msgid "Project Cost Center"
+msgstr "مركز تكلفة المشروع"
+
+#. module: nthub_constructions_tenders
+msgid "Related Top Sheet"
+msgstr "التوب شيت المرتبط"
+
+#. module: nthub_constructions_tenders
+msgid "Reload Contract Lines"
+msgstr "إعادة تحميل سطور العقد"
+
+#. module: nthub_constructions_tenders
+msgid "Remaining"
+msgstr "المتبقي"
+
+#. module: nthub_constructions_tenders
+msgid "Remaining After Invoice"
+msgstr "المتبقي بعد الفاتورة"
+
+#. module: nthub_constructions_tenders
+msgid "Requisitioned"
+msgstr "مطلوب بطلبات شراء"
+
+#. module: nthub_constructions_tenders
+msgid "Return Deductions"
+msgstr "رد الخصومات"
+
+#. module: nthub_constructions_tenders
+msgid "Setup default Tender Details or Technical contents."
+msgstr "إعداد تفاصيل المناقصة أو المحتوى الفني الافتراضي."
+
+#. module: nthub_constructions_tenders
+msgid "Skipped Rows"
+msgstr "الصفوف المتخطاة"
+
+#. module: nthub_constructions_tenders
+msgid "Subcontractor Delivery Request"
+msgstr "طلب تسليم مقاول الباطن"
+
+#. module: nthub_constructions_tenders
+msgid "Tags"
+msgstr "الوسوم"
+
+#. module: nthub_constructions_tenders
+msgid "Task Qty"
+msgstr "كمية المهمة"
+
+#. module: nthub_constructions_tenders
+msgid "Tender Approval Date"
+msgstr "تاريخ اعتماد المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "Tender Creation Date"
+msgstr "تاريخ إنشاء المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "Tender Line"
+msgstr "سطر المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "Tender Responsible"
+msgstr "مسؤول المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "Tender Submission Date"
+msgstr "تاريخ تقديم المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "Tender Version Sequence"
+msgstr "تسلسل نسخ المناقصة"
+
+#. module: nthub_constructions_tenders
+msgid "The down payment amount cannot be greater than the total amount."
+msgstr "لا يمكن أن يكون مبلغ الدفعة المقدمة أكبر من المبلغ الإجمالي."
+
+#. module: nthub_constructions_tenders
+msgid "This Period Qty"
+msgstr "كمية الفترة الحالية"
+
+#. module: nthub_constructions_tenders
+msgid "This will reload lines from the contract. Lines with quantities will be protected."
+msgstr "سيتم إعادة تحميل السطور من العقد. السطور التي بها كميات لن يتم المساس بها."
+
+#. module: nthub_constructions_tenders
+msgid "Top Sheet Report"
+msgstr "تقرير التوب شيت"
+
+#. module: nthub_constructions_tenders
+msgid "Total Extra Cost"
+msgstr "إجمالي التكاليف الإضافية"
+
+#. module: nthub_constructions_tenders
+msgid "Total Remaining"
+msgstr "إجمالي المتبقي"
+
+#. module: nthub_constructions_tenders
+msgid "Total Retained Deductions"
+msgstr "إجمالي الخصومات المحتجزة"
+
+#. module: nthub_constructions_tenders
+msgid "UoM"
+msgstr "وحدة القياس"
+
+#. module: nthub_constructions_tenders
+msgid "UoM Conflicts"
+msgstr "تعارضات وحدات القياس"
+
+#. module: nthub_constructions_tenders
+msgid "UoM Decision"
+msgstr "قرار وحدة القياس"
+
+#. module: nthub_constructions_tenders
+msgid "Vendor Invoice"
+msgstr "فاتورة مورد"
+
+#. module: nthub_constructions_tenders
+msgid "Version"
+msgstr "نسخة"
+
+#. module: nthub_constructions_tenders
+msgid "You can not delete an Offer Version which is not in %s state."
+msgstr "لا يمكنك حذف نسخة عرض ليست في حالة %s."
+
+#. module: nthub_constructions_tenders
+msgid "You can not delete an Offer which is in %s state."
+msgstr "لا يمكنك حذف عرض في حالة %s."
+
+#. module: nthub_constructions_tenders
+msgid "You can only create an invoice for confirmed requests."
+msgstr "يمكنك إنشاء فاتورة للطلبات المعتمدة فقط."
+
+#. module: nthub_constructions_tenders
+msgid "openpyxl is not installed. Contact your administrator."
+msgstr "مكتبة openpyxl غير مثبتة. تواصل مع المسؤول."
+
+#. module: nthub_constructions_tenders
+msgid "No valid rows found. Make sure the sheet has a header with columns like: Product / Code / Quantity / Price / Type."
+msgstr "لم يتم العثور على صفوف صالحة. تأكد أن الشيت فيه هيدر بأعمدة زي: المنتج / الكود / الكمية / السعر / النوع."

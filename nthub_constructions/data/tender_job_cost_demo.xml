@@ -1,0 +1,68 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<odoo>
+
+    <!--     tender_job_cost_demo.xml-->
+    <record id="parent_record_1" model="tender.job.cost">
+        <field name="name">تمبلت انشاء شقة</field>
+<!--        <field name="job_cost_line_ids" eval="[(6,0, [ref('nthub_constructions.parent_record_1_child_1')])]"/>-->
+    </record>
+
+    <record id="parent_record_1_child_1" model="tender.job.cost.line">
+        <field name="product_id" ref="nthub_constructions.product_product_material_1"/>
+        <field name="date">1990-08-18</field>
+        <field name="flag">m</field>
+        <field name="qty">2</field>
+        <field name="unit_price">120</field>
+        <field name="job_cost_id" ref="parent_record_1"/>
+    </record>
+
+    <record id="parent_record_1_child_2" model="tender.job.cost.line">
+        <field name="product_id" ref="nthub_constructions.product_product_labour_3"/>
+        <field name="date">1990-08-14</field>
+        <field name="flag">l</field>
+        <field name="qty">3</field>
+        <field name="unit_price">230</field>
+        <field name="job_cost_id" ref="parent_record_1"/>
+    </record>
+
+     <record id="parent_record_1_child_3" model="tender.job.cost.line">
+        <field name="product_id" ref="nthub_constructions.product_equipment_5"/>
+        <field name="date">1990-08-10</field>
+        <field name="flag">q</field>
+        <field name="qty">2</field>
+        <field name="unit_price">100</field>
+        <field name="job_cost_id" ref="parent_record_1"/>
+    </record>
+
+<!--    parent 2-->
+<!--    <record id="parent_record_2" model="tender.job.cost">-->
+<!--        <field name="name"> تمبلت انشاء شقة2</field>-->
+<!--    </record>-->
+<!--    <record id="parent_record_2_child_1" model="tender.job.cost.line">-->
+<!--        <field name="product_id" ref="nthub_constructions.product_product_material_2"/>-->
+<!--        <field name="date">1990-08-18</field>-->
+<!--        <field name="flag">m</field>-->
+<!--        <field name="job_cost_id" ref="parent_record_2"/>-->
+<!--    </record>-->
+<!--    <record id="parent_record_2_child_2" model="tender.job.cost.line">-->
+<!--        <field name="product_id" ref="nthub_constructions.product_product_labour_2"/>-->
+<!--        <field name="date">1990-08-14</field>-->
+<!--        <field name="flag">l</field>-->
+<!--        <field name="job_cost_id" ref="parent_record_2"/>-->
+<!--    </record>-->
+
+<!--    <record id="parent_record_2" model="tender.job.cost">-->
+<!--        <field name="name" >parent 2</field>-->
+<!--    </record>-->
+<!--    <record id="parent_record_2_child" model="tender.job.cost.line">-->
+<!--        <field name="name">child parent 2</field>-->
+<!--        <field name="job_cost_id" ref="nthub_constructions.parent_record_2"/>-->
+<!--        <field name="flag">m</field>-->
+<!--    </record>-->
+
+<!--    <record id="parent_record_1" model="tender.job.cost">-->
+<!--        <field name="name">Parent Record 1</field>-->
+<!--        <field name="job_cost_line_ids"-->
+<!--               eval="[(0, 0, {'product_id': ref('product_material_1'), 'unit_value': 100, 'qty': 20, 'flag': 1})]"/>-->
+<!--    </record>-->
+</odoo>

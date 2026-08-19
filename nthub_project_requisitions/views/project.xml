@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="construction_form_project_inherit_project_requisitions" model="ir.ui.view">
+            <field name="name">project.project.form.inherit</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet//notebook//page[@name='settings']//field[@name='account_id']" position="before">
+                    <field name="warehouse_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

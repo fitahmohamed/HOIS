@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- stages Types data -->
+    <record model="project.unit.type" id="project_unit_1">
+        <field name="name" >Apartment</field>
+    </record>
+    <record model="project.unit.type" id="project_unit_type_2">
+        <field name="name"> Floor</field>
+    </record>
+    <record model="project.unit.type" id="project_unit_3">
+        <field name="name"> Building</field>
+    </record>
+    <record model="project.unit.type" id="project_unit_4">
+        <field name="name">Unit</field>
+    </record>
+
+</odoo>
