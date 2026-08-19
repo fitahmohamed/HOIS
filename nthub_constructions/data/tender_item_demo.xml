@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-
-    <!-- tender Types data -->
-<!--    <record model="tender.item" id="tender_type_1">-->
-<!--        <field name="name">بند عمل 1</field>-->
-<!--    </record>-->
-
-</odoo>
