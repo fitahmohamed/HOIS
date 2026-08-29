@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+         <record id="seq_subcontractor_delivery_request" model="ir.sequence">
+            <field name="name">subcontractor.delivery.request</field>
+            <field name="code">subcontractor.delivery.request</field>
+            <field name="prefix">DL/</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"></field>
+        </record>
+    </data>
+</odoo>

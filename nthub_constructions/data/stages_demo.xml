@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- stages Types data -->
+    <record model="constructions.stages" id="stages_type_1">
+        <field name="name">Basics</field>
+        <field name="ar_name">الاساسيات</field>
+    </record>
+    <record model="constructions.stages" id="stages_type_2">
+        <field name="ar_name">اعمال الخرسانه</field>
+    </record>
+    <record model="constructions.stages" id="stages_type_3">
+        <field name="ar_name">اعمال البناء</field>
+    </record>
+    <record model="constructions.stages" id="stages_type_4">
+        <field name="ar_name">الاعمال الكهروميكانيكيه</field>
+    </record>
+    <record model="constructions.stages" id="stages_type_5">
+        <field name="ar_name">الاعمال المعماريه</field>
+    </record>
+
+</odoo>

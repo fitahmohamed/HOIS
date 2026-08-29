@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Standalone list view for Breakdown Templates -->
+    <record id="tender_job_costing_list_view" model="ir.ui.view">
+        <field name="name">tender.job.cost.list.tenders</field>
+        <field name="model">tender.job.cost</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <list decoration-info="state=='draft'"
+                  decoration-success="state=='approve'"
+                  decoration-danger="state=='cancel'">
+                <field name="number"/>
+                <field name="tender_item_code" string="Code"/>
+                <field name="tender_item_name" string="Item Name"/>
+                <field name="tender_item_desc" string="Description" optional="hide"/>
+                <field name="tender_item_qty" string="Quantity" sum="Total"/>
+                <field name="tender_item_uom_id" string="UoM"/>
+                <field name="jobcost_total" string="Total Cost" widget="monetary" sum="Total"/>
+                <field name="project_id" string="Tender"/>
+                <field name="partner_id" string="Customer"/>
+                <field name="analytic_account_id" string="Cost Center" optional="show"/>
+                <field name="is_breakdown_template" string="Template" optional="show" widget="boolean_toggle"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="company_id" column_invisible="1" groups="base.group_multi_company"/>
+                <field name="state" widget="badge"
+                       decoration-success="state=='approve'"
+                       decoration-danger="state=='cancel'"
+                       decoration-muted="state=='draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action for Breakdown Templates using our list view -->
+    <record model="ir.actions.act_window" id="action_tender_job_costing_tenders">
+        <field name="name">Breakdown Templates</field>
+        <field name="res_model">tender.job.cost</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'list', 'view_id': ref('tender_job_costing_list_view')})]"/>
+    </record>
+
+    <!-- Override the form view to add fields side by side + restrict confirm button -->
+    <record id="tender_job_costing_form_inherit" model="ir.ui.view">
+        <field name="name">tender.job.cost.form.inherit.tenders</field>
+        <field name="model">tender.job.cost</field>
+        <field name="inherit_id" ref="nthub_constructions.tender_job_costing_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Add project/partner/analytic as second column next to name/user -->
+            <xpath expr="//field[@name='user_id']/.." position="after">
+                <group>
+                    <field name="project_id" readonly="1" string="Tender"/>
+                    <field name="partner_id" readonly="1" string="Customer"/>
+                    <field name="analytic_account_id" readonly="1" string="Cost Center"/>
+                    <field name="tender_item_code" readonly="1" string="Item Code"/>
+                    <field name="tender_item_qty" readonly="1" string="Quantity"/>
+                    <field name="tender_item_uom_id" readonly="1" string="UoM"/>
+                    <field name="is_breakdown_template"/>
+                    <field name="template_source_id"
+                           options="{'no_create': True}"
+                           invisible="state != 'draft'"
+                           readonly="state != 'draft'"/>
+                </group>
+            </xpath>
+            <!-- Hide the separate Item Data section since we show it inline -->
+            <xpath expr="//field[@name='tender_item_name']/../.." position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_approve']" position="attributes">
+                <attribute name="groups">nthub_constructions_tenders.construction_tender_confirm_breakdown</attribute>
+            </xpath>
+            <!-- زرار استيراد اللاينات من اكسيل على مستوى البريك داون -->
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button name="%(nthub_constructions_tenders.action_import_jobcost_lines_wizard)d"
+                        string="⬆ Import Lines from Excel"
+                        type="action"
+                        class="btn-secondary"
+                        invisible="state != 'draft'"/>
+                <!-- تحميل كل بنود التكلفة من بريك داون متعلم كتمبلت -->
+                <button name="action_load_from_template"
+                        string="⬇ Load from Template"
+                        type="object"
+                        class="btn-secondary"
+                        confirm="This will replace the current cost lines with the template's lines (quantities scaled to this item's quantity). Continue?"
+                        invisible="state != 'draft' or not template_source_id"/>
+                <!-- لينك صفحة العميل لتحميل ورفع تمبلت البريك داون -->
+                <button name="action_open_customer_portal"
+                        string="🔗 Customer Portal Link"
+                        type="object"
+                        class="btn-secondary"
+                        invisible="not partner_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

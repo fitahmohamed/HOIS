@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Entry point on the customer portal home page (/my) -->
+    <template id="portal_my_home_breakdown" name="Portal My Home: Breakdowns" inherit_id="portal.portal_my_home" priority="50">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-if="breakdown_count" t-call="portal.portal_docs_entry">
+                <t t-set="title">البريك داون / Breakdowns</t>
+                <t t-set="url" t-value="'/my/breakdowns'"/>
+                <t t-set="placeholder_count" t-value="'breakdown_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- List of breakdowns available to the connected customer -->
+    <template id="portal_my_breakdowns" name="My Breakdowns">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">البريك داون / Breakdowns</t>
+            </t>
+
+            <t t-if="not breakdowns">
+                <p class="alert alert-warning">
+                    لا توجد بنود بريك داون متاحة لك حاليًا. / No breakdowns are available for you yet.
+                </p>
+            </t>
+            <t t-else="">
+                <table class="table table-hover o_portal_my_doc_table">
+                    <thead>
+                        <tr class="active">
+                            <th>الكود / Reference</th>
+                            <th>البند / Item</th>
+                            <th>الحالة / Status</th>
+                            <th/>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="breakdowns" t-as="breakdown">
+                            <td>
+                                <a t-attf-href="/my/breakdowns/#{breakdown.id}?access_token=#{breakdown.access_token}">
+                                    <t t-esc="breakdown.number"/>
+                                </a>
+                            </td>
+                            <td>
+                                <t t-esc="breakdown.tender_item_name or breakdown.name"/>
+                            </td>
+                            <td>
+                                <span t-field="breakdown.state"/>
+                            </td>
+                            <td>
+                                <a t-attf-href="/my/breakdowns/#{breakdown.id}?access_token=#{breakdown.access_token}"
+                                   class="btn btn-sm btn-primary">
+                                    عرض / View
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <t t-call="portal.pager"/>
+            </t>
+        </t>
+    </template>
+
+    <!-- Breakdown detail: download the fillable template / upload it back -->
+    <template id="portal_breakdown_page" name="Breakdown Detail">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False"/>
+
+            <div class="container o_portal_breakdown_page">
+
+                <h3>
+                    البريك داون / Breakdown:
+                    <t t-esc="breakdown.number"/>
+                    <t t-if="breakdown.tender_item_name"> — <t t-esc="breakdown.tender_item_name"/></t>
+                </h3>
+
+                <div t-if="message == 'success'" class="alert alert-success mt-2" role="alert">
+                    تم رفع الملف وإضافة البنود بنجاح. / File uploaded and lines added successfully.
+                </div>
+                <div t-if="error" class="alert alert-danger mt-2" role="alert">
+                    <t t-if="error == 'state'">
+                        لا يمكن رفع بنود جديدة لأن البريك داون ليس في حالة المسودة. /
+                        New lines can only be uploaded while the breakdown is in draft state.
+                    </t>
+                    <t t-elif="error == 'file'">
+                        من فضلك اختر ملف إكسيل لرفعه. / Please select an Excel file to upload.
+                    </t>
+                    <t t-else="">
+                        حدث خطأ أثناء قراءة الملف، تأكد من أنه نفس قالب التحميل. /
+                        Could not read the file — make sure it follows the downloaded template.
+                    </t>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12 col-md-6 mb-3">
+                        <h5>تحميل القالب / Download Template</h5>
+                        <p>
+                            قم بتحميل القالب، وعبّئه ببنود التكلفة المطلوبة (الأكواد، الكميات، الأسعار...)، ثم أعد رفعه من هنا.
+                        </p>
+                        <a t-attf-href="/my/breakdowns/#{breakdown.id}/template?access_token=#{access_token or ''}"
+                           class="btn btn-secondary">
+                            ⬇ تحميل القالب / Download Template
+                        </a>
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-3" t-if="breakdown.state == 'draft'">
+                        <h5>رفع الملف المعبأ / Upload Filled Template</h5>
+                        <form t-attf-action="/my/breakdowns/#{breakdown.id}/upload" method="post"
+                              enctype="multipart/form-data" class="mt-2">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <input type="hidden" name="access_token" t-att-value="access_token"/>
+                            <div class="mb-2">
+                                <input type="file" name="breakdown_file" class="form-control"
+                                       accept=".xlsx" required="required"/>
+                            </div>
+                            <button type="submit" class="btn btn-primary">⬆ رفع الملف / Upload</button>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-6 mb-3" t-else="">
+                        <p class="text-muted">
+                            لا يمكن رفع ملفات جديدة بعد اعتماد البريك داون. /
+                            New files can no longer be uploaded once the breakdown is approved.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row mt-2" t-if="breakdown_lines">
+                    <div class="col-12">
+                        <h5>البنود الحالية / Current Lines</h5>
+                        <table class="table table-sm table-striped">
+                            <thead>
+                                <tr>
+                                    <th>النوع / Type</th>
+                                    <th>كود المنتج / Code</th>
+                                    <th>المنتج / Product</th>
+                                    <th>الوصف / Description</th>
+                                    <th>الكمية / Qty</th>
+                                    <th>الوحدة / UoM</th>
+                                    <th>السعر / Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="breakdown_lines" t-as="line">
+                                    <td><span t-field="line.flag"/></td>
+                                    <td><t t-esc="line.product_id.default_code"/></td>
+                                    <td><t t-esc="line.product_id.display_name"/></td>
+                                    <td><t t-esc="line.description"/></td>
+                                    <td><t t-esc="line.qty"/></td>
+                                    <td><t t-esc="line.uom_id.name"/></td>
+                                    <td><span t-field="line.unit_price"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </template>
+
+</odoo>

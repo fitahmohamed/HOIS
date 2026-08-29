@@ -1,0 +1,40 @@
+<odoo>
+
+        <!-- Define a view for the constructions_stages form -->
+        <record model="ir.ui.view" id="view_stages_form">
+            <field name="name">view.tender.form</field>
+            <field name="model">constructions.stages</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="ar_name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- define a list view constructions_stages -->
+        <record model="ir.ui.view" id="view_stages_tree">
+            <field name="name">stages.list</field>
+            <field name="model">constructions.stages</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="ar_name"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- define the stages-->
+        <record model="ir.actions.act_window" id="stages_action">
+            <field name="name">Stages</field>
+            <field name="res_model">constructions.stages</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+</odoo>

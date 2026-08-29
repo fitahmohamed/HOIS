@@ -1,0 +1,83 @@
+<odoo>
+
+    <!-- Root menu (top bar) -->
+    <menuitem id="constructions_tenders_root_menu"
+              name="Tenders"
+              sequence="10"
+              web_icon="nthub_constructions_tenders,static/description/icon.png"/>
+
+    <!-- ── Settings sub-menu ─────────────────────────────────────────── -->
+    <menuitem id="constructions_tenders_category_menu"
+              name="Settings"
+              parent="constructions_tenders_root_menu"
+              sequence="100"/>
+
+    <menuitem id="tenders_job"
+              name="Project Jobs"
+              parent="constructions_tenders_category_menu"
+              action="nthub_constructions.tender_job_action"
+              sequence="5"/>
+
+    <menuitem id="tenders_job_item"
+              name="Project Items"
+              parent="constructions_tenders_category_menu"
+              action="nthub_constructions.tender_item_action"
+              sequence="10"/>
+
+    <menuitem id="constructions_tenders_job_cost_menu"
+              name="Job Cost Templates"
+              parent="constructions_tenders_category_menu"
+              action="action_tender_job_costing_tenders"
+              sequence="20"/>
+
+    <menuitem id="tenders_deduction_type_menu"
+              name="Deduction Types"
+              parent="constructions_tenders_category_menu"
+              action="action_tender_deduction_type"
+              sequence="25"/>
+
+    <menuitem id="tenders_allowance_type_menu"
+              name="Allowance Types"
+              parent="constructions_tenders_category_menu"
+              action="action_tender_allowance_type"
+              sequence="26"/>
+
+    <menuitem id="tenders_overhead_type_menu"
+              name="Overhead Types"
+              parent="constructions_tenders_category_menu"
+              action="action_overhead_type"
+              sequence="30"/>
+
+    <!-- ── Main menu items ───────────────────────────────────────────── -->
+    <menuitem id="constructions_tenders_Project_menu"
+              name="Tender Projects"
+              parent="constructions_tenders_root_menu"
+              action="action_project_tender"
+              groups="nthub_constructions.construction_group_user"
+              sequence="0"/>
+
+    <menuitem id="tender_offer_menu_action"
+              name="Offers"
+              parent="constructions_tenders_root_menu"
+              action="tender_offer_view_action"
+              sequence="2"/>
+
+    <menuitem id="tender_contracts_menu_action"
+              name="Contracts"
+              parent="constructions_tenders_root_menu"
+              action="nthub_constructions.owner_contract_action"
+              sequence="3"/>
+
+    <menuitem id="tender_completion_request_menu_action"
+              name="Completion Requests"
+              parent="constructions_tenders_root_menu"
+              action="nthub_constructions.owner_completion_request_action"
+              sequence="4"/>
+
+    <menuitem id="tender_variation_order_menu_action"
+              name="Variation Orders"
+              parent="constructions_tenders_root_menu"
+              action="action_variation_order"
+              sequence="5"/>
+
+</odoo>
