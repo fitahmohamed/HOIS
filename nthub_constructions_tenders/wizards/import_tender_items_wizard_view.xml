@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<record id="import_tender_items_wizard_view_form" model="ir.ui.view">
+    <field name="name">import.tender.items.wizard.form</field>
+    <field name="model">import.tender.items.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Import Tender Items">
+
+            <!-- ═══ STEP 1 — Upload ══════════════════════════════════════ -->
+            <group invisible="state != 'upload'">
+                <group string="📥 Upload File">
+                    <field name="project_id" readonly="1"/>
+                    <field name="upload_file" widget="binary" filename="file_name"
+                           required="state == 'upload'"/>
+                    <field name="file_name" invisible="1"/>
+                </group>
+                <group string="ℹ Supported Files">
+                    <div class="alert alert-info o_field_widget" role="alert">
+                        <ul style="margin:0; padding-right:16px; font-size:12px;">
+                            <li>Excel (.xlsx) - all sheets in the file are read at once</li>
+                            <li>PDF - files containing tables</li>
+                        </ul>
+                        <div style="margin-top:6px; font-size:11px; color:#555;">
+                            Odoo will detect the columns automatically — you can adjust them in the next step.
+                        </div>
+                    </div>
+                </group>
+            </group>
+
+            <!-- ═══ STEP 2 — Column Mapping ══════════════════════════════ -->
+            <group invisible="state != 'col_map'">
+                <div class="alert alert-warning o_field_widget" role="alert"
+                     style="font-size:12px; margin-bottom:8px;">
+                    <b>Detected Columns:</b><br/>
+                    <field name="detected_columns" readonly="1" nolabel="1"
+                           style="font-size:11px; color:#555; word-break:break-all;"/>
+                </div>
+                <group string="Column Mapping (column number — starts at 0)">
+                    <field name="header_row"  string="Header Row Number"/>
+                    <field name="col_code"    string="Code Column (-1 if missing)"/>
+                    <field name="col_name"    string="Name Column *"/>
+                    <field name="col_desc"    string="Description Column (-1 if missing)"/>
+                    <field name="col_qty"     string="Quantity Column *"/>
+                    <field name="col_uom"     string="UoM Column (-1 if missing)"/>
+                    <field name="col_type"    string="Type Column (-1 if missing)"/>
+                </group>
+            </group>
+
+            <!-- ═══ STEP 3 — UoM Matching ════════════════════════════════ -->
+            <group invisible="state != 'uom_map'">
+                <div class="alert alert-info o_field_widget" role="alert"
+                     style="font-size:12px;">
+                    <b>UoM Matching</b> - review and adjust if needed.
+                    <br/>Auto matched | Manual | Unmatched
+                </div>
+            </group>
+
+            <field name="uom_mapping_ids"
+                   invisible="state != 'uom_map'"
+                   nolabel="1">
+                <list editable="bottom"
+                      decoration-success="auto_matched == True and uom_id != False"
+                      decoration-warning="auto_matched == False and uom_id != False"
+                      decoration-danger="uom_id == False">
+                    <field name="raw_name"     string="UoM in File"        readonly="1"/>
+                    <field name="uom_id"       string="UoM in Odoo"
+                           options='{"no_create": true}'/>
+                    <field name="auto_matched" string="Auto"               readonly="1" widget="boolean"/>
+                </list>
+            </field>
+
+            <!-- ═══ Stats bar ════════════════════════════════════════════ -->
+            <group invisible="state not in ('preview','done')" col="4">
+                <div class="o_field_widget" colspan="4"
+                     style="display:flex; gap:10px; flex-wrap:wrap; padding:8px 0;">
+
+                    <div style="flex:1; min-width:90px; background:#1F4E79; color:#fff;
+                                border-radius:8px; padding:10px 12px; text-align:center;">
+                        <div style="font-size:20px; font-weight:bold;">
+                            <field name="count_total" readonly="1" nolabel="1"/>
+                        </div>
+                        <div style="font-size:10px;">Total</div>
+                    </div>
+
+                    <div style="flex:1; min-width:90px; background:#1E8449; color:#fff;
+                                border-radius:8px; padding:10px 12px; text-align:center;">
+                        <div style="font-size:20px; font-weight:bold;">
+                            <field name="count_ready" readonly="1" nolabel="1"/>
+                        </div>
+                        <div style="font-size:10px;">✓ Existing</div>
+                    </div>
+
+                    <div style="flex:1; min-width:90px; background:#1A7FC1; color:#fff;
+                                border-radius:8px; padding:10px 12px; text-align:center;">
+                        <div style="font-size:20px; font-weight:bold;">
+                            <field name="count_new" readonly="1" nolabel="1"/>
+                        </div>
+                        <div style="font-size:10px;">+ New</div>
+                    </div>
+
+                    <div style="flex:1; min-width:90px; background:#922B21; color:#fff;
+                                border-radius:8px; padding:10px 12px; text-align:center;">
+                        <div style="font-size:20px; font-weight:bold;">
+                            <field name="count_uom_diff" readonly="1" nolabel="1"/>
+                        </div>
+                        <div style="font-size:10px;">⚠ UoM Conflict</div>
+                    </div>
+
+                    <div style="flex:1; min-width:90px; background:#7D6608; color:#fff;
+                                border-radius:8px; padding:10px 12px; text-align:center;">
+                        <div style="font-size:20px; font-weight:bold;">
+                            <field name="count_section" readonly="1" nolabel="1"/>
+                        </div>
+                        <div style="font-size:10px;">Sections</div>
+                    </div>
+
+                </div>
+            </group>
+
+            <!-- ═══ STEP 4 — Preview ═════════════════════════════════════ -->
+            <field name="preview_line_ids"
+                   invisible="state not in ('preview','done')"
+                   nolabel="1">
+                <list editable="bottom"
+                      decoration-success="status == 'ok'"
+                      decoration-info="status == 'new'"
+                      decoration-danger="status in ('error','uom_diff')"
+                      decoration-warning="status == 'section'">
+                    <field name="row_number" string="#"            readonly="1" width="50"/>
+                    <field name="item_code"  string="Code"        readonly="1"/>
+                    <field name="item_name"  string="Name"        readonly="1"/>
+                    <field name="item_desc"  string="Description"        readonly="1"/>
+                    <field name="item_id"    string="Item"        options='{"no_create": true}'/>
+                    <field name="qty"        string="Quantity"/>
+                    <field name="uom_name"   string="UoM (File)" readonly="1"/>
+                    <field name="uom_id"     string="File UoM (Odoo)"  options='{"no_create": true}'/>
+                    <field name="item_uom_id" string="Item Current UoM" readonly="1" optional="show"/>
+                    <field name="uom_decision" string="Your Decision"
+                           required="status == 'uom_diff'"
+                           readonly="status != 'uom_diff'"/>
+                    <field name="flag"       string="Type"/>
+                    <field name="status"     string="Status"       readonly="1"/>
+                    <field name="error_msg"  string="Note"       readonly="1" optional="show"/>
+                </list>
+            </field>
+
+            <!-- ═══ STEP 5 — Done ════════════════════════════════════════ -->
+            <group invisible="state != 'done'">
+                <div class="alert alert-success o_field_widget" role="alert"
+                     style="text-align:center; font-size:14px;">
+                    <strong>✅ Imported successfully!</strong><br/>
+                    <span style="font-size:12px; color:#1E8449;">
+                        Added
+                        <field name="count_ready" readonly="1" nolabel="1"/>
+                        existing items and
+                        <field name="count_new" readonly="1" nolabel="1"/>
+                        new items.
+                    </span>
+                </div>
+            </group>
+
+            <field name="state" invisible="1"/>
+
+            <!-- ═══ Footer ═══════════════════════════════════════════════ -->
+            <footer>
+
+                <!-- Step 1 -->
+                <button name="action_download_template" string="⬇ Download Template"
+                        type="object" class="btn-secondary"
+                        invisible="state != 'upload'"/>
+                <button name="action_parse_file" string="Next →"
+                        type="object" class="btn-primary"
+                        invisible="state != 'upload'"/>
+
+                <!-- Step 2 -->
+                <button name="action_go_uom_map" string="Match UoMs →"
+                        type="object" class="btn-primary"
+                        invisible="state != 'col_map'"/>
+                <button name="action_back_to_upload" string="↩ Back"
+                        type="object" class="btn-secondary"
+                        invisible="state != 'col_map'"/>
+
+                <!-- Step 3 -->
+                <button name="action_preview" string="Preview Items →"
+                        type="object" class="btn-primary"
+                        invisible="state != 'uom_map'"/>
+                <button name="action_back_to_upload" string="↩ Back"
+                        type="object" class="btn-secondary"
+                        invisible="state != 'uom_map'"/>
+
+                <!-- Step 4 -->
+                <button name="action_import" string="✓ Import Items"
+                        type="object" class="btn-primary"
+                        invisible="state != 'preview'"/>
+                <button name="action_back_to_upload" string="↩ Edit Columns"
+                        type="object" class="btn-secondary"
+                        invisible="state != 'preview'"/>
+
+                <!-- Done -->
+                <button name="action_close" string="Close"
+                        type="object" class="btn-primary"
+                        invisible="state != 'done'"/>
+                <button name="action_back_to_upload" string="↩ Import Another File"
+                        type="object" class="btn-secondary"
+                        invisible="state != 'done'"/>
+
+                <button string="Cancel" class="btn-secondary" special="cancel"
+                        invisible="state == 'done'"/>
+            </footer>
+
+        </form>
+    </field>
+</record>
+
+<record id="action_import_tender_items_wizard" model="ir.actions.act_window">
+    <field name="name">Import Items from File</field>
+    <field name="res_model">import.tender.items.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="import_tender_items_wizard_view_form"/>
+    <field name="target">new</field>
+    <field name="context">{'default_project_id': active_id}</field>
+</record>
+
+<!-- ═══ Import breakdown lines from Excel ═════════════════════════════════ -->
+
+<record id="import_jobcost_lines_wizard_view_form" model="ir.ui.view">
+    <field name="name">import.jobcost.lines.wizard.form</field>
+    <field name="model">import.jobcost.lines.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Import Breakdown Lines from Excel">
+
+            <group invisible="state != 'upload'">
+                <group string="📥 Upload File">
+                    <field name="job_cost_id" readonly="1"/>
+                    <field name="upload_file" widget="binary" filename="file_name"
+                           required="state == 'upload'"/>
+                    <field name="file_name" invisible="1"/>
+                </group>
+                <group string="ℹ Notes">
+                    <div class="alert alert-info o_field_widget" role="alert">
+                        <ul style="margin:0; padding-right:16px; font-size:12px;">
+                            <li>القالب فيه شيت لكل نوع تكلفة: مواد، عمالة، مصروفات، معدات، مقاول باطن — معبأ ببنود البريك داون الحالية، بالإضافة لشيت كتالوج المنتجات. /
+                                The template has one sheet per cost type (Materials, Labour, Expenses, Equipment, Subcontractor) pre-filled with current lines, plus a product catalog sheet.</li>
+                            <li>الربط بالمنتج يتم بكود المنتج (Internal Reference) بشكل دقيق — أي كود غير موجود يتم تجاهل سطره مع ملاحظة. /
+                                Products are matched strictly by Internal Reference (default_code) — unmatched codes are skipped with a note.</li>
+                            <li>الشيتات اللي فيها بيانات صحيحة بتستبدل بنود نوعها الحالية، والشيتات الفاضية تسيب بنود نوعها كما هي. /
+                                Sheets with valid rows replace that type's existing lines; empty sheets leave their type's lines unchanged.</li>
+                        </ul>
+                    </div>
+                </group>
+            </group>
+
+            <group invisible="state != 'done'">
+                <div class="alert alert-success o_field_widget" role="alert"
+                     style="text-align:center; font-size:14px;">
+                    <strong>✅ Imported!</strong><br/>
+                    <span style="font-size:12px;">
+                        Imported <field name="count_imported" readonly="1" nolabel="1"/> lines,
+                        skipped <field name="count_skipped" readonly="1" nolabel="1"/> rows.
+                    </span>
+                </div>
+                <field name="import_errors" readonly="1" nolabel="1"
+                       invisible="not import_errors"/>
+            </group>
+
+            <field name="state" invisible="1"/>
+
+            <footer>
+                <button name="action_download_template" string="⬇ Download Template"
+                        type="object" class="btn-secondary"
+                        invisible="state != 'upload'"/>
+                <button name="action_import" string="✓ Import Lines"
+                        type="object" class="btn-primary"
+                        invisible="state != 'upload'"/>
+                <button name="action_close" string="Close"
+                        type="object" class="btn-primary"
+                        invisible="state != 'done'"/>
+                <button string="Cancel" class="btn-secondary" special="cancel"
+                        invisible="state == 'done'"/>
+            </footer>
+
+        </form>
+    </field>
+</record>
+
+<record id="action_import_jobcost_lines_wizard" model="ir.actions.act_window">
+    <field name="name">Import Breakdown Lines</field>
+    <field name="res_model">import.jobcost.lines.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="import_jobcost_lines_wizard_view_form"/>
+    <field name="target">new</field>
+    <field name="context">{'default_job_cost_id': active_id}</field>
+</record>
+
+</odoo>

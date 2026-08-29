@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <record model="ir.ui.view" id="project_tender_form_view">
+        <field name="name">Tender.Project.Form</field>
+        <field name="model">project.project</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <form string='Tender Project'>
+                <header>
+                    <button name="action_create_offer" string="Create Offer" type="object"
+                            class="oe_highlight"
+                            groups="nthub_constructions_tenders.construction_tender_offer"
+                            invisible="offer_count!=0"
+                    />
+                    <button name="action_confirm_tender" string="Approve Tender" type="object"
+                            class="oe_highlight"
+                            groups="nthub_constructions_tenders.construction_tender_confirm_contract"
+                            invisible="contract_count > 0 or offer_count == 0"
+                    />
+                    <button name="action_create_wbs" string="Create Work Structure" type="object"
+                            class="oe_highlight"
+                            groups="nthub_constructions.construction_group_wbs"
+                            invisible="wbs_count > 0 or contract_count == 0"
+                    />
+                    <field name="state" widget="statusbar" statusbar_visible="draft,tender,contract,done"/>
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button type="object" name="action_open_offer" class="oe_stat_button"
+                                icon="fa-align-justify"
+                                invisible="offer_count==0">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value" widget="statinfo">
+                                    <field name="offer_count" widget="statinfo" nolabel="1" class="mr4"
+                                           readonly="1"/>
+                                </span>
+                                <span class="o_stat_text">Offers</span>
+                            </div>
+                        </button>
+                        <button type="object" name="action_open_wbs" class="oe_stat_button" icon="fa-align-justify"
+                                invisible="wbs_count==0"
+                        >
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value" widget="statinfo">
+                                    <field name="wbs_count" widget="statinfo" nolabel="1" class="mr4"
+                                           readonly="1"/>
+                                </span>
+                                <span class="o_stat_text">Work Structure</span>
+                            </div>
+                        </button>
+                        <button name="action_open_contract" type="object" class="oe_stat_button"
+                                icon="fa-book"
+                                groups="nthub_constructions.construction_group_officer"
+
+                                invisible="contract_count==0"
+                        >
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value" widget="statinfo">
+                                    <field name="contract_count" widget="statinfo" nolabel="1" class="mr4"
+                                           readonly="1"/>
+                                </span>
+                                <span class="o_stat_text">Contracts</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"
+                                   readonly="state not in ('draft', 'tender')"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="is_tender" invisible="1"/>
+                            <field name="approved_tender" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="approved_tender" invisible="1"/>
+                            <field name="partner_id" required="1"
+                                   readonly="state not in ('draft', 'tender')"/>
+                            <field name="tender_creation_date" readonly="state not in ('draft', 'tender')"/>
+                            <field name="tender_approval_date" readonly="1"/>
+                            <field name="analytic_account_id" readonly="1" string="Cost Center"/>
+                            <field name="contract_count" invisible="1"/>
+                            <field name="account_id"
+                                   readonly="state not in ('draft', 'tender')"/>
+                        </group>
+                        <group>
+                            <field name="date_start"
+                                   options="{&quot;end_date_field&quot;: &quot;date&quot;}"
+                                   required="date_start or date"
+                                   readonly="state not in ('draft', 'tender')"/>
+
+                            <field name="date"
+
+                                   required="date_start or date"
+                                   invisible="1"
+                            />
+
+                            <field name="tender_responsible_id" readonly="state not in ('draft', 'tender')"/>
+                            <field name="num_of_units" readonly="state not in ('draft', 'tender')"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   readonly="state not in ('draft', 'tender')"/>
+                            <field name="currency_id" groups="base.group_multi_currency" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Tender" name="tender">
+                            <div class="mb-2" invisible="state not in ('draft', 'tender')">
+                                <button name="action_download_tender_template"
+                                        string="&#11015; Download Template"
+                                        type="object"
+                                        class="btn btn-secondary"
+                                        icon="fa-download"
+                                />
+                                <button name="%(nthub_constructions_tenders.action_import_tender_items_wizard)d"
+                                        string="&#11014; Import from Excel"
+                                        type="action"
+                                        class="btn btn-secondary"
+                                        icon="fa-upload"
+                                        context="{'default_project_id': id}"
+                                />
+                                <button name="action_create_job_cost_templates"
+                                        string="Create Job Templates"
+                                        type="object"
+                                        class="btn btn-secondary"
+                                        icon="fa-wrench"
+                                />
+                            </div>
+                            <field name="tender_ids" nolabel="1"
+                                   context="{'default_flag':'m','default_repeated':True}"
+                                   readonly="state not in ('draft', 'tender')">
+                                <list editable="bottom">
+                                    <field name="date"/>
+                                    <field name="item_id"/>
+                                    <field name="allowed_template_ids" column_invisible="1"/>
+                                    <field name="reference" string="Code"/>
+                                    <field name="description"/>
+                                    <field name="qty" sum="Total"/>
+                                    <field name="uom_id"/>
+                                    <field name="template_id" options='{"no_create": true}'/>
+                                    <field name="unit_price" sum="Total"/>
+                                    <field name="total_cost" widget="monetary" sum="Total"/>
+                                    <field name="currency_id" optional="hide"/>
+                                    <field name="flag" optional="hide"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Job Cost Templates" name="job_cost_templates">
+                            <field name="tender_ids" nolabel="1" readonly="1"
+                                   domain="[('template_id', '!=', False)]">
+                                <list create="0" delete="0" edit="0">
+                                    <field name="reference"   string="Code"/>
+                                    <field name="description" string="Item Name"/>
+                                    <field name="qty"         string="Quantity"/>
+                                    <field name="uom_id"      string="Unit of Measure"/>
+                                    <field name="template_id" string="Job Cost Template"/>
+                                    <field name="total_cost"  widget="monetary" string="Total Cost"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Extra Expenses" name="extras expanses">
+                            <field name="project_extras_ids" nolabel="1"
+                                   readonly="state not in ('draft', 'tender')">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="date"/>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="cost" sum="Total"/>
+                                    <field name="attachment"/>
+                                </list>
+                            </field>
+                        </page>
+                        <!-- الأوفر هيد يتعدل من شاشة عرض السعر فقط — هنا للعرض بس -->
+                        <page string="الأوفر هيد / Overhead" name="project_overhead">
+                            <field name="project_overhead_ids" nolabel="1" readonly="1">
+                                <list>
+                                    <field name="type_id" optional="show"
+                                           string="نوع الأوفر هيد"
+                                           options="{'no_create': True}"/>
+                                    <field name="name"       string="الوصف"/>
+                                    <field name="category"   string="التصنيف"/>
+                                    <field name="uom_name"   string="الوحدة"/>
+                                    <field name="qty"        string="الكمية"/>
+                                    <field name="unit_price" string="سعر الوحدة"/>
+                                    <field name="amount" widget="monetary" sum="Total"
+                                           readonly="1" force_save="1"/>
+                                </list>
+                            </field>
+                            <group>
+                                <group class="oe_subtotal_footer oe_right" colspan="2">
+                                    <field name="total_overhead_cost" string="إجمالي الأوفر هيد / Total Overhead"
+                                           widget="monetary" readonly="1" force_save="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group>
+                        <group class="oe_subtotal_footer oe_right" colspan="2" name="total_tender_cost">
+                            <field name="total_tender_cost" widget="monetary"/>
+                            <field name="total_extra_cost" string="Total Extra Expenses" widget="monetary"/>
+                            <field name="total_overhead_cost" string="إجمالي الأوفر هيد / Total Overhead" widget="monetary"/>
+                            <field name="total_cost" string="Total Tender Cost"
+                                   class="oe_subtotal_footer_separator" widget="monetary"/>
+                            <field name="offer_cost_total" string="Offer Cost Total"
+                                   widget="monetary" readonly="1"/>
+                            <field name="offer_sell_total" string="Total Selling Price"
+                                   widget="monetary" readonly="1"
+                                   style="font-weight:bold; color:#1E8449;"/>
+                        </group>
+                        <label for="notes_tender"/>
+                        <field name="notes_tender" class="oe_inline" nolabel="1"
+                               placeholder="Setup default Tender Details or Technical contents."/>
+                        <div class="oe_clear"/>
+                    </group>
+                </sheet>
+                <chatter reload_on_follower="True"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_tender_list_view" model="ir.ui.view">
+        <field name="name">Tender.Project.List</field>
+        <field name="model">project.project</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <list string="Tender Projects">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="date_start"/>
+                <field name="tender_responsible_id" optional="show"/>
+                <field name="total_cost" widget="monetary" string="Total Cost" optional="show"/>
+                <field name="state" widget="badge"
+                       decoration-success="state=='done'"
+                       decoration-info="state=='draft'"
+                       decoration-warning="state=='tender'"
+                       decoration-primary="state=='contract'"/>
+            </list>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_project_tender">
+        <field name="name">Tender Project</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'list', 'view_id': ref('project_tender_list_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('project_tender_form_view')})]"/>
+        <field name="context">{'default_is_tender': True}</field>
+        <field name="domain">[('is_tender', '=', True)]</field>
+    </record>
+
+
+</odoo>

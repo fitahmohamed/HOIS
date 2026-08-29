@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="project_task_form_inherit_requisitions" model="ir.ui.view">
+        <field name="name">project.task.form.inherit.requisitions</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+
+            <!-- Smart button for requisitions -->
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button class="oe_stat_button" type="object" icon="fa-truck"
+                        name="action_open_requisitions"
+                        invisible="requisition_count == 0">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="requisition_count" widget="statinfo" nolabel="1" class="mr4"/>
+                        </span>
+                        <span class="o_stat_text">Requisitions</span>
+                    </div>
+                </button>
+            </xpath>
+
+            <!-- Create Requisition button in header (next to Start/Transfer) -->
+            <xpath expr="//header" position="inside">
+                <button name="action_create_requisition" type="object"
+                        string="طلب شراء / Purchase Requisition"
+                        class="btn-secondary"
+                        invisible="not parent_id"/>
+                <!-- أمر صرف مخزني - عداده منفصل عن الشراء -->
+                <!-- شراء 100 لا يمنع صرف الـ100 بعد دخولها المخزن -->
+                <button name="action_create_issue_requisition" type="object"
+                        string="أمر صرف / Issue Requisition"
+                        class="btn-secondary"
+                        invisible="not parent_id"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

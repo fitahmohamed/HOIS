@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Inherit sub task form: add budget, cost center, and security groups -->
+    <record id="project_task_form_inherit_budget" model="ir.ui.view">
+        <field name="name">project.task.form.inherit.budget.tenders</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+
+            <!-- Override Transfer Product button group -->
+            <xpath expr="//button[@name='action_open_sub_task_wizard']" position="attributes">
+                <attribute name="groups">nthub_constructions_tenders.construction_task_transfer</attribute>
+            </xpath>
+
+            <!-- Override Create Supply Requests button group -->
+            <xpath expr="//button[@name='create_comp_request']" position="attributes">
+                <attribute name="groups">nthub_constructions_tenders.construction_completion_request_confirm</attribute>
+            </xpath>
+
+            <!-- Replace product_sub_task_ids list to show budget and cost center -->
+            <xpath expr="//field[@name='product_sub_task_ids']//list" position="replace">
+                <list create="0" delete="0" editable="bottom">
+                    <field name="product_id" readonly="1"/>
+                    <field name="quantity" readonly="1" string="Task Qty"/>
+                    <field name="finished" readonly="1" string="Requisitioned"/>
+                    <field name="remaining" force_save="1" string="Remaining"
+                           decoration-danger="remaining == 0"
+                           decoration-success="remaining > 0"/>
+                    <field name="analytic_distribution" widget="analytic_distribution"
+                           string="Cost Center"/>
+                    <field name="budget_amount" force_save="1" readonly="1"
+                           string="Budget"/>
+                </list>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

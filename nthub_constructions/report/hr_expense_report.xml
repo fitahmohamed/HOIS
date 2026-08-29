@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="report_expense" model="ir.actions.report">
+            <field name="name">Hr Expense Report</field>
+            <field name="model">hr.expense</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">nthub_constructions.hr_expense_report</field>
+            <field name="report_file">nthub_constructions.hr_expense_report</field>
+            <field name="binding_model_id" ref="model_hr_expense"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="hr_expense_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <div class="text-center">
+                                <h2 style="text-align: center; color: #ffffff; background-color: silver; padding: 0px;">
+                                    <strong>
+                                        <p style="text-align: center; color: black;"> Name -
+                                            <span t-field="doc.name"/>
+                                        </p>
+                                    </strong>
+                                    <br/>
+                                </h2>
+                            </div>
+                            <strong>
+                                <h3>Hr Expense Information</h3>
+                            </strong>
+
+                            <table class="table table-responsive">
+                                <tr style="border: 2px solid black;">
+                                    <td>
+                                        <strong>Name</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.name"/>
+                                    </td>
+                                    <td>
+                                        <strong>Customer</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.customer_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr style="border: 2px solid black;">
+                                    <td>
+                                        <strong>Product</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.product_id.name"/>
+                                    </td>
+
+
+                                    <td>
+                                        <strong>Date</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.date"/>
+                                    </td>
+                                </tr>
+                                <tr style="border: 2px solid black;">
+                                    <td>
+                                        <strong>Total Amount</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.total_amount"/>
+                                    </td>
+                                    <td>
+                                        <strong>Included taxes</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.tax_ids"/>
+                                    </td>
+                                </tr>
+                                <tr style="border: 2px solid black;">
+                                     <td>
+                                        <strong>Paid By</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.payment_mode"/>
+                                    </td>
+                                    <td>
+                                        <strong>State</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.state"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

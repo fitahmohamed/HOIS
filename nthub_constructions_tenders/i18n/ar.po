@@ -1,0 +1,297 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* nthub_constructions_tenders
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.constructions_tenders_root_menu
+msgid "Tenders"
+msgstr "المناقصات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.constructions_tenders_category_menu
+msgid "Settings"
+msgstr "الإعدادات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tenders_job
+msgid "Project Jobs"
+msgstr "الوظائف"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tenders_job_item
+msgid "Project Items"
+msgstr "البنود"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.constructions_tenders_job_cost_menu
+msgid "Job Cost Templates"
+msgstr "قوالب تحليل الأسعار"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tenders_deduction_type_menu
+msgid "Deduction Types"
+msgstr "أنواع الاستقطاعات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tenders_allowance_type_menu
+msgid "Allowance Types"
+msgstr "أنواع الإضافات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tenders_overhead_type_menu
+msgid "Overhead Types"
+msgstr "أنواع الأوفر هيد"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.constructions_tenders_Project_menu
+msgid "Tender Projects"
+msgstr "مشاريع المناقصات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tender_offer_menu_action
+msgid "Offers"
+msgstr "العروض"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tender_contracts_menu_action
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tender_completion_request_menu_action
+msgid "Completion Requests"
+msgstr "المستخلصات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.ui.menu,name:nthub_constructions_tenders.tender_variation_order_menu_action
+msgid "Variation Orders"
+msgstr "عقود تكميلية"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model,name:nthub_constructions_tenders.model_owner_variation_order
+msgid "Contract Variation Order"
+msgstr "عقد تكميلي"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model,name:nthub_constructions_tenders.model_owner_variation_order_line
+msgid "Variation Order Line"
+msgstr "بند عقد تكميلي"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model,name:nthub_constructions_tenders.model_project_overhead_type
+msgid "Overhead Type"
+msgstr "نوع الأوفر هيد"
+
+#. module: nthub_constructions_tenders
+#: model:ir.actions.act_window,name:nthub_constructions_tenders.action_variation_order
+msgid "Variation Orders"
+msgstr "عقود تكميلية"
+
+#. module: nthub_constructions_tenders
+#: model:ir.actions.act_window,name:nthub_constructions_tenders.action_overhead_type
+msgid "Overhead Types"
+msgstr "أنواع الأوفر هيد"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order__name
+msgid "Reference"
+msgstr "الرقم المرجعي"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__owner_variation_order__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__owner_variation_order__state__submitted
+msgid "Submitted"
+msgstr "مرفوع للمراجعة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__owner_variation_order__state__reviewed
+msgid "Reviewed"
+msgstr "تمت المراجعة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__owner_variation_order__state__approved
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__owner_variation_order__state__executed
+msgid "Executed"
+msgstr "مُنفَّذ"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__owner_variation_order__state__rejected
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order__contract_id
+msgid "Main Contract"
+msgstr "العقد الأصلي"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order__reason
+msgid "Reason"
+msgstr "السبب"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order__notes
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order__total_increase
+msgid "Total Increase"
+msgstr "إجمالي الزيادات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order__total_decrease
+msgid "Total Decrease"
+msgstr "إجمالي النقص"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order__net_amount
+msgid "Net Amount"
+msgstr "الصافي"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order_line__change_type
+msgid "Change Type"
+msgstr "نوع التغيير"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__owner_variation_order_line__change_type__increase
+msgid "Increase"
+msgstr "زيادة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__owner_variation_order_line__change_type__decrease
+msgid "Decrease"
+msgstr "نقص"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__owner_variation_order_line__change_type__new
+msgid "New Item"
+msgstr "بند جديد"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order_line__ref_quantity
+msgid "Contract Qty"
+msgstr "الكمية في العقد"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order_line__ref_unit_price
+msgid "Contract Price"
+msgstr "السعر في العقد"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order_line__use_new_breakdown
+msgid "New Price?"
+msgstr "تسعير جديد؟"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order_line__quantity
+msgid "Change Qty"
+msgstr "كمية التغيير"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order_line__unit_price
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_owner_variation_order_line__amount
+msgid "Amount"
+msgstr "القيمة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_project_overhead_type__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_project_overhead_type__category
+msgid "Category"
+msgstr "التصنيف"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__project_overhead_type__category__labour
+msgid "Labour"
+msgstr "عمالة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__project_overhead_type__category__engineering
+msgid "Engineering & Supervision"
+msgstr "مهندسين ومتابعة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__project_overhead_type__category__expenses
+msgid "Expenses"
+msgstr "مصاريف"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__project_overhead_type__category__equipment
+msgid "Equipment"
+msgstr "معدات"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields.selection,name:nthub_constructions_tenders.selection__project_overhead_type__category__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_project_overhead_type__account_id
+msgid "Account"
+msgstr "الحساب المحاسبي"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_project_overhead_type__uom_name
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_project_overhead_type__unit_price
+msgid "Default Unit Cost"
+msgstr "التكلفة الافتراضية"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_project_overhead_line__type_id
+msgid "Overhead Type"
+msgstr "نوع الأوفر هيد"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_project_overhead_line__name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_project_overhead_line__qty
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: nthub_constructions_tenders
+#: model:ir.model.fields,field_description:nthub_constructions_tenders.field_project_overhead_line__unit_price
+msgid "Unit Cost"
+msgstr "سعر الوحدة"

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="inherit_view_currency_tree" model="ir.ui.view">
+            <field name="name">ares.currency.view.tree.inherit</field>
+            <field name="model">res.currency</field>
+            <field name="inherit_id" ref="base.view_currency_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='full_name']" position="after">
+                    <field name="arabic_name"/>
+                    <field name="arabic_cents_name"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="inherit_view_currency_form" model="ir.ui.view">
+            <field name="name">ares.currency.view.form.inherit</field>
+            <field name="model">res.currency</field>
+            <field name="inherit_id" ref="base.view_currency_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='full_name']" position="after">
+                    <field name="arabic_name"/>
+                    <field name="arabic_cents_name"/>
+                </xpath>
+            </field>
+        </record>
+        <!-- Payment Form View Extension -->
+        <record id="view_account_payment_form_inherit" model="ir.ui.view">
+            <field name="name">account.payment.form.inherit</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <!-- Add transfer type field -->
+                <xpath expr="//field[@name='payment_type']" position="before">
+                    <field name="transfer_type" options="{'horizontal': true}"/>
+                    <field name="paired_internal_transfer_payment_id" invisible="1"/>
+                    <field name="is_internal_transfer" invisible="1"/>
+                    <field name="is_multi_dest_account" readonly="state == 'posted'" invisible="1"/>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button
+                            name="print_journal_entry"
+                            string="Print Journal Entry"
+                            type="object"
+                            class="oe_stat_button"
+                            invisible="not move_id"
+                            icon="fa-print"/>
+                </xpath>
+                <!-- Modify partner fields visibility -->
+                <xpath expr="//field[@name='payment_method_line_id']" position="after">
+                    <!-- Standard payment fields -->
+                    <field name="destination_account_id"
+                           invisible="is_multi_dest_account or transfer_type not in ['standard','account_to_journal']"/>
+                    <field name="analytic_account_id"
+                           invisible="is_multi_dest_account or transfer_type not in ['standard','account_to_journal','account_to_account']"/>
+                    <field name="dest_account_id" invisible="transfer_type != 'account_to_account'"/>
+                    <field name="dest_journal_id" invisible="transfer_type != 'journal_to_journal'"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="invisible">is_multi_dest_account or transfer_type not in ['standard','account_to_journal','account_to_account']
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='payment_method_line_id']" position="attributes">
+                    <attribute name="required">0</attribute>
+                    <attribute name="invisible">transfer_type in ('account_to_account', 'account_to_accounts')</attribute>
+                </xpath>
+                <!-- Add transfer-specific fields -->
+                <xpath expr="//group/group/field[@name='partner_id']" position="after">
+                    <field name="move_id" invisible="1"/>
+                    <field name="source_account_id"
+                           invisible="transfer_type not in ['account_to_account', 'account_to_accounts']"/>
+
+
+                </xpath>
+
+                <!-- Add transfer notebook -->
+                <xpath expr="//group[@name='main_group']" position="after">
+                    <notebook>
+                        <!-- Multi-account distribution page -->
+                        <page name="move_line_ids_page" string="Journal Items"
+                              invisible="transfer_type not in ['multi_account', 'account_to_accounts']">
+                            <field name="move_line_ids" widget="section_and_note_one2many" readonly="state == 'paid'">
+                                <list editable="bottom" string="Journal Items">
+                                    <field name="partner_id" column_invisible="True"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                    <field name="company_id" column_invisible="True"/>
+                                    <field name="company_currency_id" column_invisible="True"/>
+                                    <field name="move_id" column_invisible="True"/>
+                                    <field name="account_id"/>
+                                    <field name="name"/>
+                                    <field name="partner_id"/>
+                                    <field name="tax_type" column_invisible="True"/>
+                                    <field name="tax_ids" widget="many2many_tags"/>
+                                    <field name="analytic_account_id"/>
+                                    <field name="balance_tax_excl" string="Tax excl."/>
+                                    <field name="balance" string="Tax incl."/>
+                                </list>
+                            </field>
+                        </page>
+
+<!--                        &lt;!&ndash; Transfer details page &ndash;&gt;-->
+<!--                        <page name="transfer_details" string="Transfer Details" invisible="transfer_type == 'standard'">-->
+<!--                            <group>-->
+<!--                                <field name="transfer_description"/>-->
+<!--                            </group>-->
+<!--                        </page>-->
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+ <record id="action_account_payments_inherit" model="ir.actions.act_window">
+            <field name="name">Customer Payments</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">list,kanban,form,graph,activity</field>
+            <field name="context">{
+                'default_payment_type': 'inbound',
+                'default_partner_type': 'customer',
+                'default_transfer_type': 'account_to_journal',
+                'search_default_inbound_filter': 1,
+                'default_move_journal_types': ('bank', 'cash'),
+                'display_account_trust': True,
+                }
+            </field>
+            <field name="view_id" ref="account.view_account_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Register a payment
+                </p>
+                <p>
+                    Payments are used to register liquidity movements. You can process those payments by your own means
+                    or by using installed facilities.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_account_payments_payable_inherit" model="ir.actions.act_window">
+            <field name="name">Vendor Payments</field>
+            <field name="res_model">account.payment</field>
+            <field name="view_mode">list,kanban,form,graph,activity</field>
+            <field name="context">{
+                'default_payment_type': 'outbound',
+                'default_partner_type': 'supplier',
+                'default_transfer_type': 'standard',
+                'search_default_outbound_filter': 1,
+                'default_move_journal_types': ('bank', 'cash'),
+                'display_account_trust': True,
+                }
+            </field>
+            <field name="view_id" ref="account.view_account_supplier_payment_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Register a payment
+                </p>
+                <p>
+                    Payments are used to register liquidity movements. You can process those payments by your own means
+                    or by using installed facilities.
+                </p>
+            </field>
+        </record>
+        <!-- Menu Items -->
+        <menuitem id="menu_payments_root" name="Payments" parent="accountant.menu_accounting" sequence="3"/>
+
+        <!-- Customer Payments -->
+        <menuitem id="menu_customer_payments" name="Customer Payments"
+                  parent="bi_account_payment_customization.menu_payments_root"
+                  sequence="1" action="action_account_payments_inherit"/>
+
+        <!-- Vendor Payments -->
+        <menuitem id="menu_vendor_payments" name="Vendor Payments"
+                  parent="bi_account_payment_customization.menu_payments_root"
+                  sequence="2" action="action_account_payments_payable_inherit"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="report_owner_contract" model="ir.actions.report">
+            <field name="name">Contract report</field>
+            <field name="model">owner.contract</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">nthub_constructions.owner_contract</field>
+            <field name="report_file">nthub_constructions.owner_contract</field>
+            <field name="binding_model_id" ref="model_owner_contract"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="owner_contract">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <div class="text-center">
+                                <h2 style="text-align: center; color: #ffffff; background-color: silver; padding: 0px;">
+                                    <strong>
+                                        <p style="text-align: center; color: black;">Contract -
+                                            <span t-field="doc.name"/>
+                                        </p>
+                                    </strong>
+                                </h2>
+                            </div>
+                            <br/>
+                            <strong>
+                                <h3>Contract Information</h3>
+                            </strong>
+
+                            <table class="table table-responsive">
+                                <tr>
+                                       <td>
+                                        <strong>Project</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.project_id"/>
+                                    </td>
+
+                                    <td>
+                                        <strong>Date</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.date"/>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                     <td>
+                                        <strong>End Date</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.end_date"/>
+                                    </td>
+
+                                    <td>
+                                        <strong>Received Date</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.received_date"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <strong>Down Payment</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.down_payment"/>
+                                    </td>  <td>
+                                        <strong>Down Payment Percentage</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.down_payment_percentage"  widget="percentage"/>
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+                            <strong >
+                                <h3>Contract Items</h3>
+                            </strong>
+                            <table class="table table-responsive">
+                                <tr style="border: 2px solid black;">
+                                    <td>
+                                        <strong>Item</strong>
+                                    </td>
+                                    <td>
+                                        <strong>unit Price</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Quantity</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Amount</strong>
+                                    </td>
+                                </tr>
+                                <t t-foreach="doc.owner_contract_line_ids" t-as="line">
+                                    <tr style="border: 2px solid grey;">
+                                        <td>
+                                            <span t-field="line.item_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.price_unit"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line.quantity"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="line.amount"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                            <strong t-if="doc.allowance_line_ids">
+                                <h3>Deduction Lines</h3>
+                            </strong>
+                            <table   t-if="doc.allowance_line_ids"  class="table table-responsive">
+                                <tr style="border: 2px solid black;">
+                                    <td>
+                                        <strong>Name</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Type Of Contract</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Main Type</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Percentage</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Amount</strong>
+                                    </td>
+
+                                </tr>
+                                <t t-foreach="doc.deduction_line_ids" t-as="line">
+                                    <tr style="border: 2px solid grey;">
+                                        <td>
+                                            <span t-field="line.item_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.contract_type"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="line.main_type"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line.percentage"  widget="percentage"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line.amount"/>
+                                        </td>
+
+                                    </tr>
+                                </t>
+                            </table>
+                            <strong t-if="doc.allowance_line_ids">
+                                <h3>Allowance Lines</h3>
+                            </strong>
+                            <table t-if="doc.allowance_line_ids" class="table table-responsive">
+                                <tr style="border: 2px solid black;">
+                                    <td>
+                                        <strong>Name</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Type Of Contract</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Main Type</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Percentage</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Amount</strong>
+                                    </td>
+
+                                </tr>
+                                <t t-foreach="doc.allowance_line_ids" t-as="line">
+                                    <tr style="border: 2px solid grey;">
+                                        <td>
+                                            <span t-field="line.item_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.contract_type"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="line.main_type"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line.percentage"  widget="percentage"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="line.amount"/>
+                                        </td>
+
+                                    </tr>
+                                </t>
+                            </table>
+                               <strong t-if="doc.project_extra_expenses_ids">
+                                <h3> Extra Expenses Lines</h3>
+                            </strong>
+                            <table t-if="doc.project_extra_expenses_ids" class="table table-responsive">
+                                <tr style="border: 2px solid black;">
+                                    <td>
+                                        <strong>Name</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Project</strong>
+                                    </td>
+                                    <td>
+                                        <strong>Date</strong>
+                                    </td>
+
+                                    <td>
+                                        <strong>Cost</strong>
+                                    </td>
+
+                                </tr>
+                                <t t-foreach="doc.project_extra_expenses_ids" t-as="line">
+                                    <tr style="border: 2px solid grey;">
+                                        <td>
+                                            <span t-field="line.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.project_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="line.date"/>
+                                        </td>
+
+                                        <td class="text-right">
+                                            <span t-esc="line.cost"/>
+                                        </td>
+
+                                    </tr>
+                                </t>
+                            </table>
+
+
+                            <div class="text-right">
+
+                                <table class="table table-responsive" style="width:50%; float:right">
+                                    <tr>
+                                        <td>
+                                            <strong>Total Amount</strong>
+                                        </td>
+                                        <td>
+                                            <span t-field="doc.total_amount"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Total Deduction</strong>
+                                        </td>
+                                        <td>
+                                            <span t-field="doc.deduction_total"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Total Allowances</strong>
+                                        </td>
+                                        <td>
+                                            <span t-field="doc.allowance_total"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Total Extra Expenses</strong>
+                                        </td>
+                                        <td>
+                                            <span t-field="doc.total_extra_cost"/>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Total</strong>
+                                        </td>
+                                        <td>
+                                            <span t-field="doc.total_after_deduction_allowance"/>
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

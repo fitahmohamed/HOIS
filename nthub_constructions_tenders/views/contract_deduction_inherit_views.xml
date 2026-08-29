@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Inherit list view to add deduction_type_id and account_id -->
+    <record id="view_contract_deduction_allowance_tree_inherit" model="ir.ui.view">
+        <field name="name">contract.deduction.allowance.list.inherit.tenders</field>
+        <field name="model">contract.deduction.allowance</field>
+        <field name="inherit_id" ref="nthub_constructions.view_contract_deduction_allowance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="deduction_type_id"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="account_id" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit form view to add deduction_type_id and account_id -->
+    <record id="view_contract_deduction_allowance_form_inherit" model="ir.ui.view">
+        <field name="name">contract.deduction.allowance.form.inherit.tenders</field>
+        <field name="model">contract.deduction.allowance</field>
+        <field name="inherit_id" ref="nthub_constructions.view_contract_deduction_allowance_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="deduction_type_id"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="account_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit contract form -->
+    <record id="owner_contract_form_inherit_deductions" model="ir.ui.view">
+        <field name="name">owner.contract.form.inherit.deductions</field>
+        <field name="model">owner.contract</field>
+        <field name="inherit_id" ref="nthub_constructions.owner_contract_form"/>
+        <field name="arch" type="xml">
+            <!-- Fix partner_id label and domain for sub-contractor contracts -->
+            <xpath expr="//field[@name='partner_id'][2]" position="attributes">
+                <attribute name="string">Vendor</attribute>
+                <attribute name="domain">[]</attribute>
+            </xpath>
+
+            <!-- Override confirm button group -->
+            <xpath expr="//button[@name='action_confirm']" position="attributes">
+                <attribute name="groups">nthub_constructions_tenders.construction_tender_confirm_contract</attribute>
+            </xpath>
+
+            <!-- Replace deduction_line_ids: inline editable, no wizard -->
+            <xpath expr="//field[@name='deduction_line_ids']" position="replace">
+                <field name="deduction_line_ids" nolabel="1"
+                       context="{'default_main_type':'deduction','default_contract_type':'owner'}"
+                       readonly="state == 'confirm'">
+                    <list editable="bottom">
+                        <field name="deduction_type_id"/>
+                        <field name="name"/>
+                        <field name="account_id"/>
+                        <field name="main_type" column_invisible="1" force_save="1"/>
+                        <field name="contract_type" column_invisible="1" force_save="1"/>
+                        <field name="calculation_type"/>
+                        <field name="percentage" widget="percentage"/>
+                        <field name="amount" sum="Total"/>
+                    </list>
+                </field>
+            </xpath>
+            <!-- Replace allowance_line_ids: inline editable, no wizard -->
+            <xpath expr="//field[@name='allowance_line_ids']" position="replace">
+                <field name="allowance_line_ids" nolabel="1"
+                       context="{'default_main_type':'allowance','default_contract_type':'owner'}"
+                       readonly="state == 'confirm'">
+                    <list editable="bottom">
+                        <field name="deduction_type_id"/>
+                        <field name="name"/>
+                        <field name="account_id"/>
+                        <field name="main_type" column_invisible="1" force_save="1"/>
+                        <field name="contract_type" column_invisible="1" force_save="1"/>
+                        <field name="calculation_type"/>
+                        <field name="percentage" widget="percentage"/>
+                        <field name="amount" sum="Total"/>
+                    </list>
+                </field>
+            </xpath>
+            <!-- Down payment: replace payment_id with invoiced/remaining info -->
+            <xpath expr="//field[@name='payment_id']" position="replace">
+                <field name="down_payment_invoiced" widget="monetary" readonly="1"
+                       invisible="down_payment == 0"/>
+            </xpath>
+            <xpath expr="//button[@name='create_payment']" position="attributes">
+                <attribute name="string">Create Invoice</attribute>
+                <attribute name="invisible">down_payment_remaining &lt;= 0 or is_owner != True or state == 'draft'</attribute>
+            </xpath>
+            <xpath expr="//button[@name='create_payment_from_down_payment']" position="attributes">
+                <attribute name="string">Create Invoice</attribute>
+                <attribute name="invisible">down_payment_remaining &lt;= 0 or is_owner == True or state == 'draft'</attribute>
+            </xpath>
+            <!-- Add down payment status info -->
+            <xpath expr="//field[@name='down_payment_percentage']" position="before">
+                <field name="down_payment_remaining" widget="monetary" readonly="1"
+                       invisible="down_payment == 0"
+                       string="Down Payment Remaining"/>
+                <field name="down_payment_invoice_count" invisible="1"/>
+            </xpath>
+            <!-- Add smart button for down payment invoices in button_box -->
+            <xpath expr="//sheet//div[@name='button_box']//button[@name='action_open_sub_contract']" position="before">
+                <button name="action_open_down_payment_invoices" type="object" class="oe_stat_button"
+                        icon="fa-money"
+                        invisible="down_payment_invoice_count == 0">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="down_payment_invoice_count" widget="statinfo" nolabel="1" class="mr4"/>
+                        </span>
+                        <span class="o_stat_text">Down Payment Invoices</span>
+                    </div>
+                </button>
+                <button name="action_open_budget" type="object" class="oe_stat_button"
+                        icon="fa-bar-chart"
+                        invisible="budget_created == False">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Budget</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

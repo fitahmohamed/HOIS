@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="report_sheet" model="ir.actions.report">
+            <field name="name">Top Sheet Report</field>
+            <field name="model">top.sheet</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">nthub_constructions_tenders.top_sheet</field>
+            <field name="report_file">nthub_constructions_tenders.top_sheet</field>
+            <field name="binding_model_id" ref="model_top_sheet"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="top_sheet">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <div class="text-center">
+                                <h2 style="text-align: center; color: #ffffff; background-color: silver; padding: 0px;">
+                                    <strong>
+                                        <p style="text-align: center; color: black;">Top Sheet -
+                                            <span t-field="doc.project_id"/>
+                                        </p>
+                                    </strong>
+                                </h2>
+                            </div>
+                            <br/>
+                            <strong>
+                                <h3>Top Sheet Information</h3>
+                            </strong>
+                            <table class="table table-responsive">
+                                <tr>
+                                     <td>
+                                        <strong>Project</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.project_id.name"/>
+                                    </td>
+                                    <td>
+                                        <strong>Offer</strong>
+                                    </td>
+                                    <td>
+                                        <span t-field="doc.offer_id"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+                            <br/>
+                                <div class="text-right">
+                                <table class="table table-responsive" style="width:50%; float:right">
+                                    <tr>
+                                        <td>
+                                            <strong>Direct Cost</strong>
+                                        </td>
+                                        <td>
+                                            <span t-field="doc.total_tender_cost"/>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Indirect Cost</strong>
+                                        </td>
+                                        <td>
+                                            <span t-field="doc.total_indirect_cost"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Indirect Cost Percentage</strong>
+                                        </td>
+                                        <td>
+                                            <t t-set="percentage" t-value="doc.indirect_cost_percentage * 100"/>
+                                            <t t-esc="'%.2f' % percentage"/>
+                                            <span>%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Total Cost</strong>
+                                        </td>
+                                        <td>
+                                            <span t-field="doc.sub_total"/>
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+                            </div>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

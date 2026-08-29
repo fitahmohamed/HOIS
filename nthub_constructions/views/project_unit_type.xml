@@ -1,0 +1,45 @@
+<odoo>
+
+        <!-- Define a view for the Project Unit Type form -->
+        <record model="ir.ui.view" id="view_project_unit_type_form">
+            <field name="name">view.project.unit.form</field>
+            <field name="model">project.unit.type</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="description"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- define a list view Project Unit Type -->
+        <record model="ir.ui.view" id="view_project_type_tree">
+            <field name="name">builds.list</field>
+            <field name="model">project.unit.type</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="description"/>
+
+                </list>
+            </field>
+        </record>
+
+
+        <!-- define the Project Unit Type-->
+
+        <record model="ir.actions.act_window" id="project_unit_action">
+            <field name="name">Project Unit Type</field>
+            <field name="res_model">project.unit.type</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+
+</odoo>

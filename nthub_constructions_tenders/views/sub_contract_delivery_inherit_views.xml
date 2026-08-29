@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Inherit subcontractor delivery request form -->
+    <record id="subcontractor_delivery_request_form_inherit" model="ir.ui.view">
+        <field name="name">subcontractor.delivery.request.form.inherit.tenders</field>
+        <field name="model">subcontractor.delivery.request</field>
+        <field name="inherit_id" ref="nthub_constructions.subcontractor_delivery_request_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Override confirm button group -->
+            <xpath expr="//button[@name='action_confirm']" position="attributes">
+                <attribute name="groups">nthub_constructions_tenders.construction_subcontractor_delivery_confirm</attribute>
+            </xpath>
+
+            <!-- Override create_bill button group -->
+            <xpath expr="//button[@name='create_bill']" position="attributes">
+                <attribute name="groups">nthub_constructions_tenders.construction_subcontractor_delivery_confirm</attribute>
+            </xpath>
+
+            <!-- Reload Contract Lines button -->
+            <xpath expr="//button[@name='action_confirm']" position="before">
+                <button name="action_load_contract_lines" type="object"
+                        string="Reload Contract Lines"
+                        invisible="state != 'draft' or not contract_id"
+                        class="btn-secondary"
+                        confirm="This will reload lines from the contract. Lines with quantities will be protected."/>
+            </xpath>
+
+            <!-- Replace lines list with enhanced columns -->
+            <xpath expr="//field[@name='subcontractor_delivery_request_line_ids']" position="replace">
+                <field name="subcontractor_delivery_request_line_ids"
+                       readonly="state in ('confirm', 'paid')">
+                    <list editable="bottom" create="0">
+                        <field name="item_id" readonly="1"/>
+                        <field name="uom_id" readonly="1"/>
+                        <field name="contract_qty" readonly="1" string="Contract Qty"
+                               decoration-muted="contract_qty == 0"/>
+                        <field name="prev_completed_qty" readonly="1" string="Prev. Done"/>
+                        <field name="remaining_contract_qty" readonly="1" string="Remaining"
+                               decoration-danger="remaining_contract_qty == 0"/>
+                        <field name="price_unit" readonly="1"/>
+                        <!-- Mode 1: Enter quantity directly -->
+                        <field name="quantity" string="This Period Qty"
+                               readonly="parent.state != 'draft'"/>
+                        <!-- Mode 2: Enter % of the base contract qty -->
+                        <field name="completion_percentage" string="النسبة % / Percentage"
+                               widget="percentage"
+                               readonly="parent.state != 'draft'"/>
+                        <field name="total_amount" readonly="1" sum="Total"/>
+                        <field name="overall_completion_pct" string="Overall %" widget="percentage" readonly="1"/>
+                        <!-- Approval fields -->
+                        <field name="percentage" widget="percentage" string="Approved %"
+                               readonly="parent.state == 'draft'"/>
+                        <field name="amount" sum="Total" string="Approved Amt"
+                               readonly="parent.state == 'draft'"/>
+                        <field name="state" readonly="parent.state == 'draft'"
+                               widget="badge"
+                               decoration-success="state == 'accept'"
+                               decoration-warning="state == 'partially'"
+                               decoration-danger="state == 'reject'"/>
+                        <field name="subcontractor_delivery_request_id" column_invisible="1"/>
+                        <field name="analytic_distribution" widget="analytic_distribution"
+                               optional="hide"/>
+                        <field name="budget_amount" optional="hide" readonly="1"/>
+                    </list>
+                </field>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
