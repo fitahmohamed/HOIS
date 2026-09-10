@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields, api
-from datetime import datetime
+from odoo import models, fields
 
 
 class AccountMoveReversal(models.TransientModel):
     _inherit = 'account.move.reversal'
 
-    date = fields.Datetime(
-        string='Reversal date',
-        required=True,
+    reversal_datetime = fields.Datetime(
+        string='Reversal Date & Time',
         readonly=True,
-        default=lambda self: fields.Datetime.now(),
+        default=fields.Datetime.now,
     )
