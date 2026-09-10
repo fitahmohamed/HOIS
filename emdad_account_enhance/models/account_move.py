@@ -31,6 +31,8 @@ class AccountMove(models.Model):
         for move in self:
             if move.state == 'draft':
                 move.display_payment_status = 'Draft'
+            elif move.state == 'cancel':
+                move.display_payment_status = 'Cancelled'
             elif move.payment_state == 'paid':
                 move.display_payment_status = 'Paid'
             elif move.payment_state == 'partial':
