@@ -56,7 +56,7 @@
                 <xpath expr="//field[@name='status_in_payment']" position="replace">
                     <field name="display_payment_status"
                         widget="badge"
-                        decoration-success="payment_state == 'paid'"
+                        decoration-success="payment_state == 'paid' or payment_state == 'reversed'"
                         decoration-warning="payment_state == 'partial'"
                         decoration-danger="payment_state == 'not_paid' and state == 'posted' and invoice_date_due and invoice_date_due &lt; current_date"
                         decoration-muted="(payment_state == 'not_paid' and state == 'posted' and (not invoice_date_due or invoice_date_due &gt;= current_date)) or state == 'cancel'"

@@ -33,10 +33,12 @@ class AccountMove(models.Model):
                 move.display_payment_status = 'Draft'
             elif move.state == 'cancel':
                 move.display_payment_status = 'Cancelled'
+            elif move.payment_state == 'reversed':
+                move.display_payment_status = 'Reversed'
             elif move.payment_state == 'paid':
                 move.display_payment_status = 'Paid'
             elif move.payment_state == 'partial':
-                move.display_payment_status = 'Partial'
+                move.display_payment_status = 'Partially Paid'
             elif move.payment_state == 'not_paid':
                 move.display_payment_status = 'Not Paid'
             elif move.payment_state == 'in_payment':
