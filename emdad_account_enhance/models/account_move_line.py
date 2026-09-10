@@ -17,23 +17,20 @@ class AccountMoveLine(models.Model):
         AnalyticAccount = self.env["account.analytic.account"]
 
         for line in self:
-            values = []
+            result = []
 
-            if line.analytic_distribution:
-                for key, percentage in line.analytic_distribution.items():
+            for key, percentage in (line.analytic_distribution or {}).items():
+                account_ids = [
+                    int(x)
+                    for x in key.split(",")
+                    if x.strip().isdigit()
+                ]
 
-                    # key can be "1" or "1,2"
-                    account_ids = [
-                        int(x)
-                        for x in key.split(",")
-                        if x.strip().isdigit()
-                    ]
+                accounts = AnalyticAccount.browse(account_ids)
 
-                    accounts = AnalyticAccount.browse(account_ids)
+                for account in accounts:
+                    result.append(
+                        f"{account.name}: {percentage}%"
+                    )
 
-                    for account in accounts:
-                        values.append(
-                            f"{account.display_name}: {percentage}%"
-                        )
-
-            line.analytic_distribution_export = " | ".join(values)
+            line.analytic_distribution_export = " | ".join(result)
