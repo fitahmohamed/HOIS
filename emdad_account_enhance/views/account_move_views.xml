@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account_move_form_inherit_po_ref" model="ir.ui.view">
+            <field name="name">account.move.form.inherit.po.ref</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='ref']" position="after">
+                    <field name="vs_po_contract_ref"
+                           string="PO/Contract Reference" required="state != 'cancel'"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="account_move_list_inherit_po_ref" model="ir.ui.view">
+            <field name="name">account.move.list.inherit.po.ref</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_out_invoice_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_date']" position="after">
+                    <field name="vs_po_contract_ref"
+                           string="PO/Contract Ref."
+                           optional="show"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="account_move_vendor_list_inherit_po_ref" model="ir.ui.view">
+            <field name="name">account.move.vendor.list.inherit.po.ref</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_in_invoice_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_date']" position="after">
+                    <field name="vs_po_contract_ref"
+                        string="PO/Contract Ref."
+                        optional="show"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="account_move_journal_list_inherit_po_ref" model="ir.ui.view">
+            <field name="name">account.move.journal.list.inherit.po.ref</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='ref']" position="after">
+                    <field name="vs_po_contract_ref"
+                        string="PO/Contract Ref."
+                        optional="show"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="account_move_list_inherit_payment_state" model="ir.ui.view">
+            <field name="name">account.move.list.inherit.payment.state</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_out_invoice_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='status_in_payment']" position="replace">
+                    <field name="display_payment_status"
+                        widget="badge"
+                        decoration-success="payment_state == 'paid'"
+                        decoration-warning="payment_state == 'partial'"
+                        decoration-danger="payment_state == 'not_paid' and state == 'posted'"
+                        decoration-info="payment_state == 'in_payment' or state == 'draft'"
+                        optional="show"/>
+                    <field name="state" invisible="1"/>
+                    <field name="payment_state" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

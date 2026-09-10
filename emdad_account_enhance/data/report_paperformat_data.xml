@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="emdad_invoice_paperformat_sa_a4" model="report.paperformat">
+            <field name="name">Emdad Saudi Invoice A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_bottom">32</field>
+            <field name="margin_top">50</field>
+            <field name="header_spacing">50</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+        </record>
+        <record id="account.account_invoices" model="ir.actions.report">
+            <field name="paperformat_id" ref="emdad_account_enhance.emdad_invoice_paperformat_sa_a4"/>
+        </record>
+        <record id="account.account_invoices_without_payment" model="ir.actions.report">
+            <field name="paperformat_id" ref="emdad_account_enhance.emdad_invoice_paperformat_sa_a4"/>
+        </record>
+        <function model="res.company" name="write">
+            <value model="res.company" search="[('partner_id.country_id', '=', ref('base.sa'))]"/>
+            <value eval="{'paperformat_id': ref('emdad_account_enhance.emdad_invoice_paperformat_sa_a4')}"/>
+        </function>
+    </data>
+</odoo>
