@@ -51,12 +51,9 @@
         <record id="account_move_list_inherit_payment_state" model="ir.ui.view">
             <field name="name">account.move.list.inherit.payment.state</field>
             <field name="model">account.move</field>
-            <field name="inherit_id" ref="account.view_invoice_tree"/>
+            <field name="inherit_id" ref="account.view_out_invoice_tree"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='status_in_payment']" position="replace">
-                    <field name="state" invisible="1"/>
-                    <field name="payment_state" invisible="1"/>
-                    <field name="invoice_date_due" invisible="1"/>
                     <field name="display_payment_status"
                         widget="badge"
                         decoration-success="payment_state == 'paid'"
@@ -65,6 +62,16 @@
                         decoration-muted="(payment_state == 'not_paid' and state == 'posted' and (not invoice_date_due or invoice_date_due &gt;= current_date)) or state == 'cancel'"
                         decoration-info="payment_state == 'in_payment' or state == 'draft'"
                         optional="show"/>
+                    <field name="state" invisible="1"/>
+                    <field name="payment_state" invisible="1"/>
+                    <field name="invoice_date_due" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='state']" position="attributes">
+                    <attribute name="column_invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='payment_state']" position="attributes">
+                    <attribute name="column_invisible">1</attribute>
                 </xpath>
             </field>
         </record>
