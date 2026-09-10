@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="vs_rental_order_tree_extension" model="ir.ui.view">
+            <field name="name">vs.rental.order.tree.extension</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_renting.rental_order_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="vs_po_contract_ref" optional="show"/>
+                    <field name="vs_site_no_id" optional="show"/>
+                    <field name="vs_department_id" optional="show"/>
+                    <field name="vs_truck_ids"
+                           widget="many2many_tags"
+                           optional="show"
+                           string="Trucks"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
