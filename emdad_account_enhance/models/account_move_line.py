@@ -6,31 +6,34 @@ class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
     analytic_distribution_export = fields.Char(
-        string="Analytic Distribution",
+        string="Analytic Distribution Export",
         compute="_compute_analytic_distribution_export",
         store=True,
+        compute_sudo=True,
     )
 
     @api.depends("analytic_distribution")
     def _compute_analytic_distribution_export(self):
+        AnalyticAccount = self.env["account.analytic.account"]
+
         for line in self:
-            result = []
+            values = []
 
             if line.analytic_distribution:
-                for analytic_accounts, percentage in line.analytic_distribution.items():
-                    # analytic_accounts may contain multiple analytic account IDs
+                for key, percentage in line.analytic_distribution.items():
+
+                    # key can be "1" or "1,2"
                     account_ids = [
-                        int(account_id)
-                        for account_id in analytic_accounts.split(",")
-                        if account_id
+                        int(x)
+                        for x in key.split(",")
+                        if x.strip().isdigit()
                     ]
 
-                    accounts = self.env["account.analytic.account"].browse(account_ids)
+                    accounts = AnalyticAccount.browse(account_ids)
 
-                    account_names = ", ".join(accounts.mapped("name"))
+                    for account in accounts:
+                        values.append(
+                            f"{account.display_name}: {percentage}%"
+                        )
 
-                    result.append(
-                        f"{account_names}: {percentage}%"
-                    )
-
-            line.analytic_distribution_export = " | ".join(result)
+            line.analytic_distribution_export = " | ".join(values)
