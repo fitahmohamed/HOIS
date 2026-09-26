@@ -4,6 +4,7 @@ import { patch } from "@web/core/utils/patch";
 import { registry } from "@web/core/registry";
 import { DateTimeField } from "@web/views/fields/datetime/datetime_field";
 
+
 patch(DateTimeField.prototype, {
     getFormattedValue(valueIndex, numeric) {
         const value = this.values[valueIndex];
@@ -24,6 +25,7 @@ patch(DateTimeField.prototype, {
     },
 });
 
+
 const formatters = registry.category("formatters");
 
 const originalDateFormatter = formatters.get("date");
@@ -32,10 +34,6 @@ if (originalDateFormatter) {
     const englishDateFormatter = function (value, options = {}) {
         if (!value) {
             return "";
-        }
-
-        if (options.numeric) {
-            return originalDateFormatter(value, options);
         }
 
         return value
@@ -53,16 +51,13 @@ if (originalDateFormatter) {
     );
 }
 
+
 const originalDatetimeFormatter = formatters.get("datetime");
 
 if (originalDatetimeFormatter) {
     const englishDatetimeFormatter = function (value, options = {}) {
         if (!value) {
             return "";
-        }
-
-        if (options.numeric) {
-            return originalDatetimeFormatter(value, options);
         }
 
         return value
