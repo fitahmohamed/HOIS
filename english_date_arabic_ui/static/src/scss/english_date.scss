@@ -1,0 +1,14 @@
+/* Keep date values LTR while the Odoo interface remains RTL */
+
+.o_field_date,
+.o_field_datetime {
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+}
+
+.o_field_date input,
+.o_field_datetime input {
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+    text-align: left !important;
+}

@@ -9,6 +9,7 @@
     "assets": {
         "web.assets_backend": [
             "english_date_arabic_ui/static/src/js/english_date.js",
+            "english_date_arabic_ui/static/src/scss/english_date.scss",
         ],
     },
     "installable": True,
