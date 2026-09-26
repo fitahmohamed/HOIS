@@ -22,6 +22,33 @@ function toEnglishDigits(value) {
 
 
 
+function formatEnglishDate(value) {
+    if (!value) {
+        return "";
+    }
+
+    const result = value
+        .setLocale("en")
+        .toFormat("dd MMMM yyyy");
+
+    return `\u2066${toEnglishDigits(result)}\u2069`;
+}
+
+
+function formatEnglishDatetime(value) {
+    if (!value) {
+        return "";
+    }
+
+    const result = value
+        .setLocale("en")
+        .toFormat("dd MMMM yyyy, HH:mm");
+
+    return `\u2066${toEnglishDigits(result)}\u2069`;
+}
+
+
+
 patch(DateTimeField.prototype, {
     getFormattedValue(valueIndex, numeric) {
         const value = this.values[valueIndex];
@@ -30,19 +57,11 @@ patch(DateTimeField.prototype, {
             return "";
         }
 
-        let result;
-
         if (this.field.type === "date") {
-            result = value
-                .setLocale("en")
-                .toFormat("dd MMMM yyyy");
-        } else {
-            result = value
-                .setLocale("en")
-                .toFormat("dd MMMM yyyy, HH:mm");
+            return formatEnglishDate(value);
         }
 
-        return toEnglishDigits(result);
+        return formatEnglishDatetime(value);
     },
 });
 
@@ -53,18 +72,12 @@ const formatters = registry.category("formatters");
 const originalDateFormatter = formatters.get("date");
 
 if (originalDateFormatter) {
-
     const englishDateFormatter = function (value, options = {}) {
-
         if (!value) {
             return "";
         }
 
-        const result = value
-            .setLocale("en")
-            .toFormat("dd MMMM yyyy");
-
-        return toEnglishDigits(result);
+        return formatEnglishDate(value);
     };
 
     englishDateFormatter.extractOptions =
@@ -82,18 +95,12 @@ if (originalDateFormatter) {
 const originalDatetimeFormatter = formatters.get("datetime");
 
 if (originalDatetimeFormatter) {
-
     const englishDatetimeFormatter = function (value, options = {}) {
-
         if (!value) {
             return "";
         }
 
-        const result = value
-            .setLocale("en")
-            .toFormat("dd MMMM yyyy, HH:mm");
-
-        return toEnglishDigits(result);
+        return formatEnglishDatetime(value);
     };
 
     englishDatetimeFormatter.extractOptions =
