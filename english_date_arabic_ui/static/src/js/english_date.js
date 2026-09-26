@@ -1,6 +1,7 @@
 /** @odoo-module **/
 
 import { patch } from "@web/core/utils/patch";
+import { registry } from "@web/core/registry";
 import { DateTimeField } from "@web/views/fields/datetime/datetime_field";
 
 patch(DateTimeField.prototype, {
@@ -23,7 +24,6 @@ patch(DateTimeField.prototype, {
     },
 });
 
-
 const formatters = registry.category("formatters");
 
 const originalDateFormatter = formatters.get("date");
@@ -34,7 +34,6 @@ if (originalDateFormatter) {
             return "";
         }
 
-    
         if (options.numeric) {
             return originalDateFormatter(value, options);
         }
@@ -54,7 +53,6 @@ if (originalDateFormatter) {
     );
 }
 
-
 const originalDatetimeFormatter = formatters.get("datetime");
 
 if (originalDatetimeFormatter) {
@@ -63,7 +61,6 @@ if (originalDatetimeFormatter) {
             return "";
         }
 
-        
         if (options.numeric) {
             return originalDatetimeFormatter(value, options);
         }
