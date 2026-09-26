@@ -5,6 +5,23 @@ import { registry } from "@web/core/registry";
 import { DateTimeField } from "@web/views/fields/datetime/datetime_field";
 
 
+
+function toEnglishDigits(value) {
+    if (!value) {
+        return "";
+    }
+
+    return String(value)
+        .replace(/[٠-٩]/g, (digit) => {
+            return String("٠١٢٣٤٥٦٧٨٩".indexOf(digit));
+        })
+        .replace(/[۰-۹]/g, (digit) => {
+            return String("۰۱۲۳۴۵۶۷۸۹".indexOf(digit));
+        });
+}
+
+
+
 patch(DateTimeField.prototype, {
     getFormattedValue(valueIndex, numeric) {
         const value = this.values[valueIndex];
@@ -13,17 +30,22 @@ patch(DateTimeField.prototype, {
             return "";
         }
 
+        let result;
+
         if (this.field.type === "date") {
-            return value
+            result = value
                 .setLocale("en")
                 .toFormat("dd MMMM yyyy");
+        } else {
+            result = value
+                .setLocale("en")
+                .toFormat("dd MMMM yyyy, HH:mm");
         }
 
-        return value
-            .setLocale("en")
-            .toFormat("dd MMMM yyyy, HH:mm");
+        return toEnglishDigits(result);
     },
 });
+
 
 
 const formatters = registry.category("formatters");
@@ -31,14 +53,18 @@ const formatters = registry.category("formatters");
 const originalDateFormatter = formatters.get("date");
 
 if (originalDateFormatter) {
+
     const englishDateFormatter = function (value, options = {}) {
+
         if (!value) {
             return "";
         }
 
-        return value
+        const result = value
             .setLocale("en")
             .toFormat("dd MMMM yyyy");
+
+        return toEnglishDigits(result);
     };
 
     englishDateFormatter.extractOptions =
@@ -52,17 +78,22 @@ if (originalDateFormatter) {
 }
 
 
+
 const originalDatetimeFormatter = formatters.get("datetime");
 
 if (originalDatetimeFormatter) {
+
     const englishDatetimeFormatter = function (value, options = {}) {
+
         if (!value) {
             return "";
         }
 
-        return value
+        const result = value
             .setLocale("en")
             .toFormat("dd MMMM yyyy, HH:mm");
+
+        return toEnglishDigits(result);
     };
 
     englishDatetimeFormatter.extractOptions =
