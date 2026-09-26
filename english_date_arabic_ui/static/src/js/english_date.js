@@ -1,25 +1,20 @@
 /** @odoo-module **/
 
 import { patch } from "@web/core/utils/patch";
-import {
-    DateTimeField,
-    dateTimeField,
-} from "@web/views/fields/datetime/datetime_field";
-import { registry } from "@web/core/registry";
-
-
+import { DateTimeField } from "@web/views/fields/datetime/datetime_field";
 
 patch(DateTimeField.prototype, {
     getFormattedValue(valueIndex, numeric) {
-        const values = this.values;
-        const value = values[valueIndex];
+        const value = this.values[valueIndex];
 
         if (!value) {
             return "";
         }
 
         if (this.field.type === "date") {
-            return value.setLocale("en").toFormat("dd MMMM yyyy");
+            return value
+                .setLocale("en")
+                .toFormat("dd MMMM yyyy");
         }
 
         return value
