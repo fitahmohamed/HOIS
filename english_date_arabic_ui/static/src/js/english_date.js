@@ -29,7 +29,7 @@ function formatEnglishDate(value) {
 
     const result = value
         .setLocale("en")
-        .toFormat("dd MMMM yyyy");
+        .toFormat("dd/MM/yyyy");
 
     return `\u2066${toEnglishDigits(result)}\u2069`;
 }
@@ -42,7 +42,7 @@ function formatEnglishDatetime(value) {
 
     const result = value
         .setLocale("en")
-        .toFormat("dd MMMM yyyy, HH:mm");
+        .toFormat("dd/MM/yyyy, HH:mm");
 
     return `\u2066${toEnglishDigits(result)}\u2069`;
 }
