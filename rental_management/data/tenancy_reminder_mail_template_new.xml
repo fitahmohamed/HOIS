@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+    
+        <record id="tenancy_reminder_contract_mail_template_new" model="mail.template">
+            <field name="name">Rent Reminder Mail Template (New)</field>
+            <field name="model_id" ref="rental_management.model_tenancy_details"/>
+            <field name="subject">{{ object.tenancy_seq }} - Rent Payment Reminder</field>
+            <field name="email_from">{{object.property_landlord_id.email}}</field>
+            <field name="partner_to">{{ object.tenancy_id.id }}</field>
+            <field name="body_html" type="html">
+                <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;text-align:center;">
+                    <img t-attf-src="data:image/*;base64,{{object.company_id.logo}}" style="border-radius: 12px;"
+                         alt="Company Logo" height="60"/>
+                    <strong>
+                        <div t-out="object.company_id.name" style="margin:10px 0px;"/>
+                    </strong>
+                    <div style="margin-bottom: 15px">
+                        <div style="font-size: 14px; font-weight: 500; margin-bottom: 27px; font-family:Arial,Helvetica,sans-serif;">
+                            <p style="margin-bottom:9px; color:#181C32; font-size: 22px; font-weight:700">
+                                Rent Payment Reminder -
+                                <t t-out="object.property_id.name"/>
+                            </p>
+                            <strong>
+                                Hello<t t-out="object.tenancy_id.name"/>, Hope you’re doing well.
+                            </strong>
+                            <p style="margin:0px 20px 2px 20px;color:#7E8299">
+                                This is an official reminder regarding the pending rent payment for the property
+                                <strong>
+                                    <t t-out="object.property_id.name"/>,
+                                </strong>
+                                We’re sharing this to help you stay on track.
+                            </p>
+                        </div>
+                    </div>
+                    <p style="color: #181C32; font-size: 18px; font-weight: 600; margin-bottom: 15px;">
+                        <span t-esc="object.company_id.section_title">
+                            Due Rent Information
+                        </span>
+                    </p>
+                    <table align="center" border="0" cellpadding="0" cellspacing="0"
+                           style="width: 80%; max-width: 500px; background-color: #fceeeb ; border-radius: 12px; border-collapse: separate; padding: 20px;">
+                        <!-- Step 1 -->
+                        <tr>
+                            <td style="vertical-align: top; width: 40px; ">
+                                <p style="color: #5E6278; font-size: 13px; font-weight: 500; line-height: 1.4;">
+                                    <span>
+                                        Kindly <strong>review</strong> the summary below.
+                                        The detailed invoice has been attached for reference.
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left; padding: 15px 0; border-top: 1px dashed gray;border-bottom: 1px dashed gray;">
+                                <div style="color: #181C32; font-size: 14px; font-weight: 600; text-decoration: none; font-family: Arial, sans-serif;">
+                                    Property Details
+                                </div>
+                                <p style="color: #5E6278; font-size: 13px; font-weight: 500; margin: 5px 0 0 0; line-height: 1.4;">
+                                    <span style="font-weight:700;">
+                                        <t t-out="object.property_id.name"/>
+                                    </span>
+                                </p>
+                                <p style="color: #5E6278; font-size: 13px; font-weight: 500; margin: 5px 0 0 0; line-height: 1.4;">
+                                    <strong>Type :</strong>
+                                    <span>
+                                        <span t-field="object.property_type"/>
+                                        ,
+                                        <span t-field="object.property_subtype_id.name"/>
+                                    </span>
+                                </p>
+                                <p style="color: #5E6278; font-size: 13px; font-weight: 500; margin: 5px 0 0 0; line-height: 1.4;"
+                                   t-if="object.property_id.street or object.property_id.street2 or object.property_id.city_id or object.property_id.state_id or object.property_id.zip or object.property_id.country_id">
+                                    <strong>Address :</strong>
+                                    <span>
+                                        <t t-esc="', '.join(filter(None, [
+                                            object.property_id.street or '',
+                                            object.property_id.street2 or '',
+                                            object.property_id.city_id.name or '',
+                                            object.property_id.state_id and object.property_id.state_id.name or '',
+                                            object.property_id.zip or '',
+                                            object.property_id.country_id.name or '',
+                                        ]))"/>
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: top; width: 40px;padding: 15px 0; ">
+                                <p style="color: #5E6278; font-size: 13px; font-weight: 500; line-height: 1.4;">
+                                    <span>
+                                        Please arrange the payment by the due date. If payment has already been made,
+                                        <strong>thank you for your promptness.</strong>
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <div align="center" valign="center"
+                         style="font-size: 13px; text-align:center; padding: 0 10px 10px 10px; font-weight: 500; color: #A1A5B7; font-family:Arial,Helvetica,sans-serif">
+                        <p style="color:#5E6278; font-size: 16px; font-weight: 600; margin-bottom:9px">
+                            Please refer to the attached document for further details.
+                        </p>
+                        <p>
+                            <strong>Happy to Help</strong>
+                            <br/>
+                            Have a question or need help? We’re always happy to assist you.
+                            <br/>
+                            <t t-if="object.company_id.phone">
+                                <a t-attf-href="tel:{{ object.company_id.phone }}">
+                                    <span t-field="object.company_id.phone" style="font-size:13px;"/>
+                                </a>
+                                |
+                            </t>
+                            <t t-if="object.company_id.email">
+                                <a t-attf-href="mailto:{{ object.company_id.email }}">
+                                    <span t-field="object.company_id.email" style="font-size:13px;"/>
+                                </a>
+                                |
+                            </t>
+                            <a href="${object.company_id.website or '#'}" target="_blank">
+                                        <span t-field="object.company_id.website" style="font-size:13px;"/>
+                                    </a>
+                        </p>
+                    </div>
+                    <div style="margin-bottom:20px;">
+                        <div align="center" valign="center" style="text-align:center; padding-bottom: 20px;">
+                            <a t-attf-href="{{ object.company_id.social_linkedin or '#' }}" target="_blank">
+                                <img alt="Logo" src="/rental_management/static/src/img/icon-linkedin.png"/>
+                            </a>
+                            <a t-attf-href="{{ object.company_id.social_facebook or '#' }}" target="_blank">
+                                <img alt="Logo" src="/rental_management/static/src/img/icon-facebook.png"/>
+                            </a>
+                            <a t-attf-href="{{ object.company_id.social_twitter or '#' }}" target="_blank">
+                                <img alt="Logo" src="/rental_management/static/src/img/icon-twitter.png"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </field>
+            <field name="auto_delete" eval="False"/>
+        </record>
+    
+
+    </data>
+</odoo>

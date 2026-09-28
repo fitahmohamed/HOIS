@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+    
+        <template id="property_details_qweb_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <t t-set="report_color" t-value="docs.get_report_color()"/>
+                        <style>
+                            .page {
+                            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                            font-size: 13px;
+                            line-height: 1.4;
+                            }
+
+                            h1, h2, h3, h4, p {
+                            margin: 0;
+                            padding: 0;
+                            }
+
+                            /* UTILITIES */
+                            .text-right { text-align: right; }
+                            .text-center { text-align: center; }
+                            .text-uppercase { text-transform: uppercase; }
+                            .text-muted { color: #666666; font-size: 12px; }
+                            .text-primary { color: #1a2a3a; } /* Deep Navy */
+                            .fw-bold { font-weight: 700; }
+                            .mb-5 { margin-bottom: 5px; }
+                            .mb-10 { margin-bottom: 10px; }
+                            .mb-15 { margin-bottom: 15px; }
+                            .mt-10 { margin-top: 10px; }
+
+                            .badge {
+                            background-color: #1a2a3a;
+                            color: white;
+                            padding: 4px 8px;
+                            border-radius: 3px;
+                            font-size: 10px;
+                            font-weight: bold;
+                            display: inline-block;
+                            text-transform: uppercase;
+                            letter-spacing: 0.5px;
+                            }
+
+                            .badge-highlight {
+                            background-color: #c0392b; /* Brick Red for Action */
+                            color: white;
+                            }
+
+                            /* LAYOUT CONTAINERS */
+                            .page-container {
+                            width: 100%;
+                            max-width: 210mm;
+                            margin: 0 auto;
+                            background: white;
+                            padding-bottom: 40px;
+                            }
+
+                            /* Consistent Section Padding */
+                            .section-padding {
+                            padding: 0 30px;
+                            margin-bottom: 25px;
+                            }
+
+                            /* Section Headers */
+                            .section-header {
+                            border-bottom: 2px solid #f0f0f0;
+                            padding-bottom: 8px;
+                            margin-bottom: 15px;
+                            color: #1a2a3a;
+                            font-size: 16px;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                            }
+                            <!--HERO SECTION-->
+                            .hero-section {
+                            width: 100%;
+                            margin-bottom: 25px;
+                            }
+
+                            .hero-img-container {
+                            width: 100%;
+                            height: auto;
+                            overflow: hidden;
+                            background-color: #ddd;
+                            }
+
+                            .hero-img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            }
+
+                            .hero-details {
+                            padding: 20px 30px;
+                            background-color:<t t-esc="report_color"/>;
+                            border-bottom: 1px solid #e1e4e8;
+                            }
+
+                            .hero-title h1 {
+                            font-size: 26px;
+                            color: #1a2a3a;
+                            margin: 5px 0;
+                            }
+
+                            .price-tag {
+                            font-size: 24px;
+                            color: #27ae60;
+                            font-weight: 800;
+                            }
+
+                            .highlight-card {
+                            border: 1px solid #eee;
+                            border-radius: 4px;
+                            padding: 12px;
+                            background-color: #fff;
+                            display: flex;
+                            flex-direction: column;
+                            }
+
+                            .card-box {
+                            background-color: #ffffff;
+                            border: 2px solid #eee;
+                            border-radius: 4px;
+                            padding: 15px;
+                            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+                            }
+
+                            .area-row {
+                            display: flex;
+                            justify-content: space-between;
+                            border-bottom: 1px solid #eee;
+                            padding: 6px 0;
+                            }
+                            .area-row:last-child { border-bottom: none; }
+
+                            .no-break { page-break-inside: avoid; }
+
+                            .icon-grid {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 15px;
+                            }
+
+                            .icon-card {
+                            display: flex;
+                            align-items: center;
+                            padding: 10px;
+                            border: 1px solid #eee;
+                            border-radius: 4px;
+                            }
+
+                            .icon-box {
+                            width: 35px;
+                            height: 35px;
+                            background-color: #f0f2f5;
+                            border-radius: 4px;
+                            margin-right: 12px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            }
+
+                            .icon-box img {
+                            width: 20px;
+                            height: 20px;
+                            opacity: 0.7;
+                            }
+
+                            .spec-list {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: 12px;
+                            }
+                            .spec-list-item {
+                            display: flex;
+                            align-items: flex-start;
+                            }
+
+                            .gallery-grid {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 15px;
+                            }
+
+                            .gallery-img {
+                            width: 100%;
+                            height: 200px;
+                            object-fit: cover;
+                            border-radius: 4px;
+                            background-color: #eee;
+                            }
+
+                            .plan-img-container {
+                            border: 1px solid #eee;
+                            padding: 10px;
+                            border-radius: 4px;
+                            text-align: center;
+                            }
+                            .plan-img {
+                            width: 100%;
+                            height: auto;
+                            max-height: 250px;
+                            object-fit: contain;
+                            }
+
+                            .pricing-grid {
+                            display: grid;
+                            border: 1px solid #e0e0e0;
+                            border-radius: 4px;
+                            }
+
+                            .pricing-item {
+                            padding: 10px 15px;
+                            border-bottom: 1px solid #eee;
+                            background: #fff;
+                            }
+
+                            .pricing-head {
+                            background-color: #f4f6f7;
+                            font-weight: bold;
+                            color: #1a2a3a;
+                            }
+
+                        </style>
+                        <div class="page">
+                            <!-- ================================================= HERO SECTION ================================================= -->
+                            <section class="hero-section">
+                                <!--header image -->
+                                <div class="hero-img-container" t-if="doc.image">
+                                    <img t-att-src="image_data_uri(doc.image)"
+                                         style="width: 100%; height: 27rem; border-radius: 5px;"
+                                         alt="Image"/>
+                                </div>
+                                <div class="hero-details">
+                                    <div style="width:59%; display: inline-block;">
+                                        <div class="mb-5" style="margin-bottom:7px !important;">
+                                            <span class="badge" t-if="doc.type">
+                                                <span t-field="doc.type"/>
+                                            </span>
+                                            <span class="badge badge-highlight" t-if="doc.sale_lease">
+                                                <span t-field="doc.sale_lease"/>
+                                            </span>
+                                        </div>
+                                        <div class="hero-title">
+                                            <h1>
+                                                <span t-field="doc.name"/>
+                                            </h1>
+                                        </div>
+                                        <p class="text-muted" style="font-size: 14px;" t-if="doc.street or doc.street2 or doc.city_id or doc.state_id.name or doc.country_id.name">
+                                            <i class="fa fa-map-marker" style="color:red;"/>
+                                            <span t-field="doc.street"/>
+                                            <span t-field="doc.street2"/>
+                                            <t t-if="doc.city_id">
+                                                <span t-field="doc.city_id.name"/>
+                                                <t t-if="doc.city_id and doc.zip">,</t>
+                                                <span t-field="doc.zip"/>
+                                            </t>
+                                            <span t-field="doc.state_id.name"/>
+                                            <t t-if="doc.state_id and doc.country_id">,</t>
+                                            <span t-field="doc.country_id.name"/>
+                                        </p>
+                                    </div>
+                                    <div style="width:39%; text-align: right; display: inline-block;">
+                                        <p class="text-muted text-uppercase"
+                                           style="font-size: 10px; letter-spacing: 1px;">
+                                            <t t-if="doc.sale_lease== 'for_sale'">Sell Price
+                                            </t>
+                                            <t t-if="doc.sale_lease== 'for_tenancy'">Rent Price
+                                            </t>
+                                        </p>
+                                        <div style=" text-align: right;">
+                                            <div class="price-tag">
+                                                <strong>
+                                                    <span t-field="doc.price" t-if="doc.sale_lease== 'for_sale'"/>
+                                                    <t t-if="doc.sale_lease== 'for_tenancy'">
+                                                        <span t-field="doc.price"/>
+                                                        /
+                                                        <span t-field="doc.rent_unit"/>
+                                                    </t>
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- ================================================= Property Overview ================================================= -->
+                            <h3 class="section-header" t-if="doc.type or doc.property_subtype_id or doc.sale_lease or doc.property_seq">Property Overview</h3>
+                            <table class=" table table-borderless" style="width:100%;" t-if="doc.type or doc.property_subtype_id or doc.sale_lease or doc.property_seq">
+                                <tr>
+                                    <td style="width:33.33%;" t-if="doc.type">
+                                        <div t-attf-style="border:2px solid #eee; border-radius: 6px; padding:10px;">
+                                            <span class="text-muted" t-if="doc.type">Type</span>
+                                            <br/>
+                                            <span class="fw-bold" t-if="doc.type">
+                                                <span t-field="doc.type"/>
+                                                /
+                                                <span t-field="doc.property_subtype_id"/>
+                                            </span>
+                                        </div>
+                                    </td>
+
+                                    <td style="width:33.33%;" t-if="doc.sale_lease">
+                                        <div t-attf-style="border:2px solid #eee; border-radius: 6px; padding:10px;">
+                                            <span class="text-muted" t-if="doc.sale_lease">Property For</span>
+                                            <br/>
+                                            <span class="fw-bold" t-if="doc.sale_lease">
+                                                <span t-field="doc.sale_lease"/>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td style="width:33.33%;" t-if="doc.property_seq">
+                                        <div t-attf-style="border:2px solid #eee; border-radius: 6px; padding:10px;">
+                                            <span class="text-muted" t-if="doc.property_seq">Code</span>
+                                            <br/>
+                                            <span class="fw-bold" style="color: green;" t-if="doc.property_seq">
+                                                <span t-field="doc.property_seq"/>
+                                            </span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- ================================================= Owner details ================================================= -->
+                            <div class="split-row" style="margin-top:0px;">
+                                <div class="card-box no-break">
+                                    <table class="table table-borderless">
+                                        <tr style="font-size:14px;">
+                                            <td t-if="doc.landlord_id" style="width: 50%;">
+                                                <h4 class="section-header" t-if="doc.landlord_id"
+                                                    style="color:#1a2a3a; border-bottom:1px solid #eee; padding-bottom:5px;">
+                                                    Owner Details
+                                                </h4>
+                                                <strong>
+                                                    <span t-field="doc.landlord_id"/>
+                                                </strong>
+                                                <br t-if="doc.landlord_phone"/>
+                                                <i class="fa fa-phone" style="color:gray" t-if="doc.landlord_phone"/>
+                                                <span t-field="doc.landlord_phone"/>
+                                                <br t-if="doc.landlord_email"/>
+                                                <i class="fa fa-envelope" style="color:gray" t-if="doc.landlord_email"/>
+                                                <span t-field="doc.landlord_email"/>
+                                                <br t-if="doc.website"/>
+                                                <i class="fa fa-globe" style="color:gray" t-if="doc.website"/>
+                                                <span t-field="doc.website"/>
+                                            </td>
+
+                                            <td t-if="doc.company_id">
+                                                <h4 class="section-header" t-if="doc.company_id"
+                                                    style="color:#1a2a3a; border-bottom:1px solid #eee; padding-bottom:5px;">
+                                                    Company Details
+                                                </h4>
+                                                <strong>
+                                                    <span t-field="doc.company_id"/>
+                                                </strong>
+                                                <br t-if="doc.company_id.phone"/>
+                                                <i class="fa fa-phone" style="color:gray" t-if="doc.company_id.phone"/>
+                                                <span t-field="doc.company_id.phone"/>
+                                                <br t-if="doc.company_id.email"/>
+                                                <i class="fa fa-envelope" style="color:gray"
+                                                   t-if="doc.company_id.email"/>
+                                                <span t-field="doc.company_id.email"/>
+                                                <br t-if="doc.company_id.website"/>
+                                                <i class="fa fa-globe" style="color:gray"
+                                                   t-if="doc.company_id.website"/>
+                                                <span t-field="doc.company_id.website"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- ================================================= area details ================================================= -->
+                            <div class="split-row" style="margin-top:10px;">
+                                <div class="card-box no-break" t-if="doc.total_area or doc.measure_unit or doc.usable_area or doc.measure_unit">
+                                    <h4 class="section-header"
+                                        style="color:#1a2a3a; border-bottom:1px solid #eee; padding-bottom:5px;">
+                                        Area Details
+                                    </h4>
+                                    <table class="table table-borderless">
+
+                                        <tr style="border-bottom: 1px solid #cdc2c2;font-size:14px;">
+                                            <td>Total Area</td>
+                                            <td style="text-align:right;">
+                                                <strong>
+                                                    <span t-field="doc.total_area"/>
+                                                    <span t-field="doc.measure_unit"/>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid #cdc2c2;font-size:14px;">
+                                            <td>Usable Area</td>
+                                            <td style="text-align:right;">
+                                                <strong>
+                                                    <span t-field="doc.usable_area"/>
+                                                    <span t-field="doc.measure_unit"/>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br/>
+                                    <table class="table table-borderless" t-if="doc.is_section_measurement and doc.room_measurement_ids">
+                                        <tr style="border-bottom:1px solid gray;background-color:#f4f6f7;">
+                                            <td style="padding-left:10px;">
+                                                <strong>
+                                                    Section
+                                                </strong>
+                                            </td>
+                                            <td style="text-align:right;">
+                                                <strong>
+                                                    No of Unit
+                                                </strong>
+                                            </td>
+                                            <td style="text-align:right;">
+                                                <strong>
+                                                    Length
+                                                </strong>
+                                            </td>
+                                            <td style="text-align:right;">
+                                                <strong>
+                                                    Width
+                                                </strong>
+                                            </td>
+                                            <td style="text-align:right;" t-if="doc.measure_unit in ['cu_m','cu_ft']">
+                                                <strong>
+                                                    Height
+                                                </strong>
+                                            </td>
+                                            <td style="text-align:right;padding-right:10px;">
+                                                <strong>
+                                                    Total Area
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                        <t t-foreach="doc.room_measurement_ids" t-as="s">
+                                            <tr style="border-bottom: 1px solid #cdc2c2;font-size:14px;">
+                                                <td style="padding-left:10px;">
+                                                    <span t-field="s.section_id.name"/>
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <span t-field="s.no_of_unit"/>
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <span t-field="s.length"/>
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <span t-field="s.width"/>
+                                                </td>
+                                                <td style="text-align:right;"
+                                                    t-if="doc.measure_unit in ['cu_m','cu_ft']">
+                                                    <span t-field="s.height"/>
+                                                </td>
+                                                <td style="text-align:right;padding-right:10px;">
+                                                    <span t-field="s.carpet_area"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- ================================================= RESIDENTIAL details ================================================= -->
+                            <div class="split-row" style="margin-top:10px;" t-if="doc.type == 'residential' or doc.type == 'commercial' or doc.type == 'industrial'">
+                                <div class="card-box no-break" t-if="doc.type">
+                                    <h4 class="section-header"
+                                        style="color:#1a2a3a; border-bottom:1px solid #eee; padding-bottom:5px;">
+                                        <t t-if="doc.type == 'residential'">
+                                            Residential Details
+                                        </t>
+                                        <t t-if="doc.type == 'commercial'">
+                                            Commercial Details
+                                        </t>
+                                        <t t-if="doc.type == 'industrial'">
+                                            Industrial Details
+                                        </t>
+                                    </h4>
+                                    <t t-set="items" t-value="[]"/>
+
+                                    <t t-if="doc.total_floor">
+                                        <t t-set="items" t-value="items + [('No of Floors', doc.total_floor, '')]"/>
+                                    </t>
+                                    <t t-if="doc.floor">
+                                        <t t-set="items" t-value="items + [('Floor', doc.floor, '')]"/>
+                                    </t>
+                                    <t t-if="doc.parking and doc.type != 'land'">
+                                        <t t-set="items" t-value="items + [('Parking', doc.parking, '')]"/>
+                                    </t>
+                                    <t t-if="doc.facing and doc.type != 'land'">
+                                        <t t-set="items"
+                                           t-value="items + [('Facing', dict(doc._fields['facing'].selection).get(doc.facing), '')]"/>
+                                    </t>
+                                    <t t-if="doc.type == 'residential' and doc.unit_type">
+                                        <t t-set="items" t-value="items + [('BHK', doc.unit_type, '')]"/>
+                                    </t>
+                                    <t t-if="doc.type == 'residential' and doc.bed">
+                                        <t t-set="items" t-value="items + [('Rooms', doc.bed, '')]"/>
+                                    </t>
+
+                                    <t t-if="doc.type in ['residential','commercial'] and doc.bathroom">
+                                        <t t-set="items" t-value="items + [('Bathrooms', doc.bathroom, '')]"/>
+                                    </t>
+                                    <t t-if="doc.type in ['residential','commercial'] and doc.furnishing_id">
+                                        <t t-set="items" t-value="items + [('Furnishing', doc.furnishing_id.name, '')]"/>
+                                    </t>
+                                    <t t-if="doc.type != 'land' and doc.exposure_ids">
+                                        <t t-set="items" t-value="items + [('Exposure/Orientation', doc.exposure_ids.mapped('name'), 'm2m')]"/>
+                                    </t>
+                                    <table style="width:100%; border-collapse:separate; border-spacing:0 10px;">
+                                        <t t-foreach="range(0, len(items), 4)" t-as="i">
+                                            <tr style="border:2px solid #eee;">
+                                                <t t-foreach="items[i:i+4]" t-as="item">
+                                                    <td style="border:2px solid #eee; text-align:center;padding:20px;">
+                                                        <t t-esc="item[0]"/>
+                                                        <br/>
+                                                        <t t-if="item[2] == 'm2m'">
+                                                            <strong t-esc="', '.join(item[1])" />
+                                                        </t>
+                                                        <strong t-else="">
+                                                            <t t-esc="item[1]"/>
+                                                        </strong>
+                                                    </td>
+                                                </t>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- =================================================  Maintenance Details ================================================= -->
+                            <div class="split-row" style="margin-top:10px;" t-if="doc.is_maintenance_service">
+                                <div class="card-box no-break" t-if="doc.sale_lease == 'for_tenancy'">
+                                    <h4 class="section-header"
+                                        style="color:#1a2a3a; border-bottom:1px solid #eee; padding-bottom:5px;">
+                                        Maintenance Details
+                                    </h4>
+                                    <table class="table table-borderless" style="margin-bottom:4px;"
+                                           t-if="doc.sale_lease == 'for_tenancy'">
+                                        <tr>
+                                            <td style="width:50%; vertical-align:top;">
+                                                <table class="table table-borderless">
+                                                    <tr style="border-bottom:1px solid #cdc2c2;font-size:14px;"
+                                                        t-if="doc.sale_lease == 'for_tenancy'">
+                                                        <td>Maintenance Type</td>
+                                                        <td style="text-align:right;">
+                                                            <strong>
+                                                                <span t-field="doc.maintenance_rent_type"/>
+                                                            </strong>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="border-bottom:1px solid #cdc2c2;font-size:14px;"
+                                                        t-if="doc.maintenance_type">
+                                                        <td>Charge Type</td>
+                                                        <td style="text-align:right;">
+                                                            <strong>
+                                                                <span t-field="doc.maintenance_type"/>
+                                                            </strong>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+
+                                            <td style="width:50%; vertical-align:top;">
+                                                <table class="table table-borderless">
+                                                    <tr style="border-bottom:1px solid #cdc2c2;font-size:14px;"
+                                                        t-if="doc.maintenance_type == 'area_wise'">
+                                                        <td>Maintenance / Area
+                                                        </td>
+                                                        <td style="text-align:right;">
+                                                            <strong>
+                                                                <span t-field="doc.per_area_maintenance"/>
+                                                            </strong>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="border-bottom:1px solid #cdc2c2;font-size:14px;">
+                                                        <td>Total Maintenance
+                                                        </td>
+                                                        <td style="text-align:right;">
+                                                            <strong>
+                                                                <span t-field="doc.total_maintenance"/>
+                                                            </strong>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- =================================================  Utility Services ================================================= -->
+                            <div class="split-row" style="margin-top:10px;" t-if="doc.extra_service_ids">
+                                <div class="card-box no-break">
+                                    <h4 class="section-header"
+                                        style="color:#1a2a3a; border-bottom:1px solid #eee; padding-bottom:5px;">
+                                        Utility Services
+                                    </h4>
+                                    <table class="table table-borderless">
+                                        <tr style="border-bottom:1px solid gray;background-color:#f4f6f7;">
+                                            <td style="padding-left:10px;">
+                                                <strong>
+                                                    Service
+                                                </strong>
+                                            </td>
+                                            <td style="text-align:right;">
+                                                <strong>
+                                                    Type
+                                                </strong>
+                                            </td>
+                                            <td style="text-align:right;padding-right:10px;">
+                                                <strong>
+                                                    Cost
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                        <t t-foreach="doc.extra_service_ids" t-as="s">
+                                            <tr style="border-bottom: 1px solid #cdc2c2;font-size:14px;">
+                                                <td style="padding-left:10px;">
+                                                    <span t-field="s.service_id.name"/>
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <span t-field="s.service_type"/>
+                                                </td>
+                                                <td style="text-align:right;padding-right:10px;">
+                                                    <span t-field="s.price"
+                                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- =================================================  Amenities ================================================= -->
+                            <section class="no-break" style="margin-top: 1rem;" t-if="doc.amenities and doc.amenities_ids">
+                                <h3 class="section-header">Amenities</h3>
+                                <!-- Table with all outer borders removed -->
+                                <table border="0" style="width: 100%; border: none; border-collapse: collapse;"
+                                       class="table table-borderless">
+                                    <t t-foreach="doc.amenities_ids" t-as="img">
+                                        <!-- Start a new row every 3 items -->
+                                        <tr style="border: none; vertical-align: top;" t-if="img_index % 3 == 0">
+                                            <t t-set="row_items"
+                                               t-value="doc.amenities_ids[img_index:img_index+3]"/>
+                                            <t t-foreach="row_items" t-as="item">
+
+                                                <!-- 1. Top row check: index 0, 1, 2 -->
+                                                <t t-set="is_first_row" t-value="img_index == 0"/>
+
+                                                <!-- 2. Bottom row check: if adding 3 exceeds total count -->
+                                                <t t-set="is_last_row"
+                                                   t-value="(img_index + 3) &gt;= len(doc.amenities_ids)"/>
+
+                                                <!-- 3. First column check: item_index 0 -->
+                                                <t t-set="is_first_col" t-value="item_index == 0"/>
+
+                                                <!-- 4. Last column check: item_index 2 OR absolute last item -->
+                                                <t t-set="is_last_col"
+                                                   t-value="item_index == 2 or (img_index + item_index + 1) == len(doc.amenities_ids)"/>
+
+                                                <td t-attf-style="width: 33.33%; padding: 15px 20px; text-align: left; border: 2px solid #eee;
+                                                            #{'border-top: none;' if is_first_row else ''} #{'border-bottom: none;' if is_last_row else ''} #{'border-left: none;' if is_first_col else ''} #{'border-right: none;' if is_last_col else ''}">
+                                                    <img t-att-src="image_data_uri(item.image)  if item.image else '/rental_management/static/src/img/amenity.jpeg'"
+                                                         style="width: 60px; height: 60px; border-radius: 10px; vertical-align: middle; margin-right: 10px;"
+                                                         t-att-alt="item.title"/>
+                                                    <strong>
+                                                        <span t-field="item.title" t-if="item.title"/>
+                                                    </strong>
+                                                </td>
+                                            </t>
+                                            <!-- Filler cells if row has < 3 items to prevent layout collapse -->
+                                            <t t-foreach="range(3 - len(row_items))" t-as="empty"
+                                               t-if="len(row_items) &lt; 3">
+                                                <t t-set="is_empty_last_col"
+                                                   t-value="(item_index + empty_index + 1) == 2"/>
+                                                <td t-attf-style="width: 33.33%; border: 2px solid #eee; border-top: none; border-bottom: none; #{'border-right: none;' if is_empty_last_col else ''}"></td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                </table>
+                            </section>
+                            <!-- =================================================  Specifications ================================================= -->
+                            <section class="no-break" t-if="doc.is_facilities and doc.property_specification_ids">
+                                <h3 class="section-header">Specifications</h3>
+                                <div style="width: 100%; padding: 12px 0px;  border-radius: 8px; box-sizing: border-box;">
+                                    <t t-foreach="doc.property_specification_ids" t-as="ps">
+                                        <div t-attf-style=" width: 100%; margin-bottom:15px;padding: 15px 20px; border: 2px solid #eee; vertical-align: top; text-align: left; box-sizing: border-box;border-radius: 10px;">
+                                            <div >
+                                                <!-- Image -->
+                                                <div style="display: table-cell; width: 45px; vertical-align: top;">
+                                                    <img t-att-src="image_data_uri(ps.image) if ps.image else '/rental_management/static/src/img/specifications.jpeg'"
+                                                         style="width: 60px; height: 60px; object-fit: cover;border-radius: 20px;"/>
+
+                                                </div>
+                                                <!-- Text -->
+                                                <div style="display: table-cell; vertical-align: top; padding-left: 10px;padding-top: 10px;">
+                                                    <strong style="display: block; font-size: 15px;">
+                                                        <span t-field="ps.title"/>
+                                                    </strong>
+                                                    <hr style="margin-top:0.25rem;margin-bottom:0.25rem;background-color:#eee;width:770px;"/>
+                                                    <span t-field="ps.description"
+                                                          style="display: block; font-size: 13px; color: #666;"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                            </section>
+                            <!-- =================================================   Nearby Connectivities ================================================= -->
+                            <section class="no-break" t-if="doc.nearby_connectivity and doc.connectivity_ids">
+                                <h3 class="section-header">Nearby Connectivities</h3>
+                                <table border="0" style="width: 100%; border: none; border-collapse: collapse;"
+                                       class="table table-borderless">
+                                    <t t-foreach="doc.connectivity_ids" t-as="img">
+                                        <!-- Open a new row every 3 items -->
+                                        <tr style="border: none; vertical-align: top;" t-if="img_index % 3 == 0">
+                                            <t t-set="row_items"
+                                               t-value="doc.connectivity_ids[img_index:img_index+3]"/>
+                                            <t t-foreach="row_items" t-as="item">
+                                                <!-- Calculate Border Positions -->
+                                                <t t-set="is_first_row" t-value="img_index == 0"/>
+                                                <t t-set="is_last_row"
+                                                   t-value="(img_index + 3) &gt;= len(doc.connectivity_ids)"/>
+                                                <t t-set="is_first_col" t-value="item_index == 0"/>
+                                                <t t-set="is_last_col"
+                                                   t-value="item_index == 2 or (img_index + item_index + 1) == len(doc.connectivity_ids)"/>
+
+                                                <td t-attf-style="width: 33.33%; padding: 15px 20px; text-align: center; vertical-align: top; border: 2px solid #eee; #{'border-top: none;' if is_first_row else ''} #{'border-bottom: none;' if is_last_row else ''} #{'border-left: none;' if is_first_col else ''} #{'border-right: none;' if is_last_col else ''}">
+                                                    <img t-att-src="image_data_uri(item.image) if item.image else '/rental_management/static/src/img/amenity.jpeg'"
+                                                         style="width: 50px; height: 50px; border-radius: 10px; margin-bottom: 5px;"
+                                                         t-att-alt="item.connectivity_id" />
+                                                    <br/>
+                                                    <strong>
+                                                        <span t-field="item.connectivity_id"
+                                                              style="color:black;"/>
+                                                    </strong>
+                                                    <br/>
+                                                    <strong>
+                                                        <span t-field="item.distance"
+                                                              style="color:#00A09D; font-size:16px;"/>
+                                                    </strong>
+                                                </td>
+                                            </t>
+                                            <!-- Filler cells for alignment if last row is incomplete -->
+                                            <t t-foreach="range(3 - len(row_items))" t-as="empty"
+                                               t-if="len(row_items) &lt; 3">
+                                                <t t-set="is_empty_last_col"
+                                                   t-value="(len(row_items) + empty_index) == 2"/>
+                                                <td t-attf-style="width: 33.33%; border: 2px solid #eee; border-top: none; border-bottom: none; #{'border-right: none;' if is_empty_last_col else ''}"></td>
+                                            </t>
+                                        </tr>
+                                    </t>
+                                </table>
+                            </section>
+                            <!-- ================================================= Property Floor Plan ================================================= -->
+                            <section class="no-break" t-if="doc.is_floor_plan and doc.floreplan_ids">
+                                <h3 class="section-header">Property Floor Plan</h3>
+                                <div class="icon-grid-container" style="width: 100%;">
+                                    <t t-foreach="doc.floreplan_ids" t-as="i">
+                                        <div t-attf-style="margin-bottom: 20px;display: inline-block; vertical-align: top; text-align: left; box-sizing: border-box;border-radius: 10px;">
+                                            <div>
+                                                <strong t-field="i.title"/>
+                                            </div>
+                                            <img t-att-src="image_data_uri(i.image)" class="mt-2" t-if="i.image"
+                                                 style="width:400px;height:220px;margin: 4px; margin-top:3px;margin-bottom:8px;border-radius: 10px;"
+                                                 alt="Image"/>
+                                        </div>
+                                    </t>
+                                </div>
+                            </section>
+                            <!-- ================================================= Property Gallery ================================================= -->
+                            <section class="no-break" t-if="doc.is_images and doc.property_images_ids">
+                                <h3 class="section-header">Property Gallery</h3>
+                                <div class="icon-grid-container" style="width: 100%;">
+                                    <t t-foreach="doc.property_images_ids" t-as="p">
+                                        <div t-attf-style="margin-bottom: 20px;display: inline-block; vertical-align: top; text-align: left; box-sizing: border-box;border-radius: 10px;">
+                                            <img t-att-src="image_data_uri(p.image)" class="mt-2" t-if="p.image"
+                                                 style="width:400px;height:220px;margin: 4px; margin-top:3px;margin-bottom:8px;border-radius: 10px;"
+                                                 alt="Image"/>
+                                        </div>
+                                    </t>
+                                </div>
+                            </section>
+                            <!-- ================================================= Financial Breakdown ================================================= -->
+                            <section class="no-break" style="margin-top: 1rem;">
+                                <h3 class="section-header">Financial Breakdown</h3>
+                                <table class="table table-borderless">
+                                    <tr style="border-bottom:1px solid gray;background-color:#f4f6f7;">
+                                        <td style="padding-left:10px;">
+                                            <strong>
+                                                Description
+                                            </strong>
+                                        </td>
+                                        <td style="text-align:right; padding-right:10px;">
+                                            <strong>
+                                                Amount
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #cdc2c2;font-size:14px;">
+                                        <td style="padding-left:10px;">
+                                            Price
+                                        </td>
+                                        <td style="text-align:right; padding-right:10px;">
+                                            <span t-field="doc.price"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #cdc2c2;font-size:14px;">
+                                        <td style="padding-left:10px;">
+                                            Total Maintenance
+                                        </td>
+                                        <td style="text-align:right; padding-right:10px;">
+                                            <span t-field="doc.total_maintenance"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #cdc2c2;font-size:14px;">
+                                        <td style="padding-left:10px;">
+                                            Utility Cost
+                                        </td>
+                                        <td style="text-align:right; padding-right:10px;">
+                                            <span t-field="doc.extra_service_cost"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </section>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <record id="property_details_report_id" model="ir.actions.report">
+            <field name="name">Property Brochure</field>
+            <field name="model">property.details</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">rental_management.property_details_qweb_report_template</field>
+            <field name="report_file">rental_management.property_details_qweb_report_template</field>
+            <field name="binding_model_id" ref="model_property_details"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'Property Details'</field>
+        </record>
+    
+
+    </data>
+</odoo>

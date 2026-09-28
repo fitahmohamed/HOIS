@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- حذف الـ views القديمة من الـ DB -->
+        <delete model="ir.ui.view" search="[('model', '=', 'landlord.commission.report'), ('name', '!=', 'landlord.commission.report.form')]"/>
+        <delete model="ir.ui.view" search="[('model', '=', 'landlord.commission.report'), ('id', 'not in', [ref('landlord_commission_report_form_v4')])]"/>
+
+        <record id="landlord_commission_report_form_v4" model="ir.ui.view">
+            <field name="name">landlord.commission.report.form</field>
+            <field name="model">landlord.commission.report</field>
+            <field name="arch" type="xml">
+                <form string="تقرير المالك - إيجار بعمولة">
+                    <group>
+                        <group>
+                            <field name="subproject_id" options="{'no_create': True}" />
+                            <field name="landlord_id" />
+                            <field name="period_type" />
+                        </group>
+                        <group invisible="period_type != 'custom'">
+                            <field name="date_from" required="period_type == 'custom'" />
+                            <field name="date_to" required="period_type == 'custom'" />
+                        </group>
+                    </group>
+                    <field name="property_ids" widget="many2many_tags"
+                           string="الوحدات"
+                           options="{'no_create': True}"
+                           domain="[('subproject_id', '=', subproject_id)]" />
+                    <footer>
+                        <button name="action_print_html" type="object"
+                                string="عرض HTML" class="btn btn-secondary" />
+                        <button name="action_print_pdf" type="object"
+                                string="تحميل PDF" class="btn btn-primary" />
+                        <button name="action_print_excel" type="object"
+                                string="تحميل Excel" class="btn btn-success" />
+                        <button string="إغلاق" class="btn btn-light" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="landlord_commission_report_action_v2" model="ir.actions.act_window">
+            <field name="name">تقرير المالك</field>
+            <field name="res_model">landlord.commission.report</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="landlord_commission_report_form_v4"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
