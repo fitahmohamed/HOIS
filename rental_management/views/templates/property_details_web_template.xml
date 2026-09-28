@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+    
+
+
+
+    <template id="rental_property_details" name="Rental Property Details">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+            <div class="main">
+                <div class="page-container property-brochure">
+                    <section class="hero-section">
+                        <div class="hero-img-container">
+                            <img t-att-src="image_data_uri(property_id.image)" t-if="property_id.image" class="hero-section-img" alt="Image"/>
+                            <img class="hero-section-img" t-else="" alt="Image" src="/rental_management/static/src/img/property-placeholder.jpg"/>
+                        </div>
+                        <div class="hero-details">
+                            <div>
+                                <div class="mb-4">
+                                    <span class="hero-section-badge">
+                                        <span t-field="property_id.type"/>
+                                    </span>
+                                    <span class="hero-section-badge badge-highlight">
+                                        <span t-field="property_id.sale_lease"/>
+                                    </span>
+                                </div>
+                                <div class="hero-section-title">
+                                    <h1>
+                                        <span t-field="property_id.name"/>
+                                    </h1>
+                                </div>
+                                <p class="text-muted prop-fs-14" t-if="property_id.street or property_id.street2 or property_id.city_id or property_id.state_id or property_id.country_id">
+                                    📍
+                                    <span t-field="property_id.street"/>
+                                    <span t-field="property_id.street2"/>
+                                    <t t-if="property_id.city_id">
+                                        <span t-field="property_id.city_id.name"/>
+                                        <t t-if="property_id.city_id and property_id.zip">,</t>
+                                    </t>
+                                    <span t-field="property_id.zip"/>
+                                    <span t-field="property_id.state_id.name"/>
+                                    <t t-if="property_id.state_id and property_id.country_id">,</t>
+                                    <span t-field="property_id.country_id.name"/>
+                                </p>
+                            </div>
+                            <div class="text-start text-md-end mt-4 mb-md-0">
+                                <p class="text-muted text-uppercase prop-price-type">
+                                    <t t-if="property_id.sale_lease== 'for_sale'">Sell Price
+                                    </t>
+                                    <t t-if="property_id.sale_lease== 'for_tenancy'">Rent Price
+                                    </t>
+
+                                </p>
+                                <div class="price-tag">
+                                    <span t-field="property_id.price" t-if="property_id.sale_lease== 'for_sale'"/>
+                                    <t t-if="property_id.sale_lease== 'for_tenancy'">
+                                        <span t-field="property_id.price"/>
+                                        /
+                                        <span t-field="property_id.rent_unit"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section-padding">
+                        <h3 class="section-header">Property Overview</h3>
+                        <div class="highlights-grid">
+                            <div class="highlight-card" t-if="property_id.type">
+                                <span class="text-muted">Type</span>
+                                <span class="fw-bold">
+                                    <span class="fw-bold" t-if="property_id.type">
+                                        <span t-field="property_id.type"/>
+                                        /
+                                        <span t-field="property_id.property_subtype_id"/>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="highlight-card" t-if="property_id.sale_lease">
+                                <span class="text-muted">Property For</span>
+                                <span class="fw-bold">
+                                    <span t-field="property_id.sale_lease"/>
+                                </span>
+                            </div>
+                            <div class="highlight-card" t-if="property_id.property_seq">
+                                <span class="text-muted">Code</span>
+                                <span class="fw-bold color-green">
+                                    <span t-field="property_id.property_seq"/>
+                                </span>
+                            </div>
+                            <div class="highlight-card" t-if="property_id.furnishing_id">
+                                <span class="text-muted">Furnishing</span>
+                                <span class="fw-bold">
+                                    <span t-field="property_id.furnishing_id"/>
+                                </span>
+                            </div>
+                            <div class="highlight-card" t-if="property_id.facing">
+                                <span class="text-muted">Facing</span>
+                                <span class="fw-bold">
+                                    <span t-field="property_id.facing"/>
+                                </span>
+                            </div>
+                            <div class="highlight-card" t-if="property_id.floor">
+                                <span class="text-muted">Floor</span>
+                                <span class="fw-bold">
+                                    <span class="fw-bold"><span t-field="property_id.floor"/>th
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section-padding" t-if="property_id.landlord_id">
+                        <div class="split-row">
+                            <div class="card-box no-break">
+                                <h4 class="mb-10 section-header">
+                                    Owner Details
+                                </h4>
+                                <div class="d-flex align-items-center mt-10">
+                                    <div>
+                                        <p class="fw-bold prop-fs-14">
+                                            <span t-field="property_id.landlord_id"/>
+                                        </p>
+                                        <p class="text-muted" t-if="property_id.website">
+                                            <i class="fa fa-globe color-gray"/>
+                                            <span t-field="property_id.website"/>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="mt-10">
+                                    <p class="text-primary" t-if="property_id.landlord_phone">
+                                        <i class="fa fa-phone color-gray"/>
+                                        <span t-field="property_id.landlord_phone"/>
+                                    </p>
+                                    <p class="text-muted" t-if="property_id.landlord_email">
+                                        <i class="fa fa-envelope color-gray"/>
+                                        <span t-field="property_id.landlord_email"/>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="card-box no-break" t-if="property_id.company_id">
+                                <h4 class="mb-10 section-header">
+                                    Company Details
+                                </h4>
+                                <div class="d-flex align-items-center mt-10">
+                                    <div>
+                                        <p class="fw-bold prop-fs-14" t-if="property_id.company_id">
+                                            <span t-field="property_id.company_id"/>
+                                        </p>
+                                        <p class="text-muted" t-if="property_id.company_id.website">
+                                            <i class="fa fa-globe color-gray"/>
+                                            <span t-field="property_id.company_id.website"/>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="mt-10">
+                                    <p class="text-primary" t-if="property_id.company_id.phone">
+                                        <i class="fa fa-phone color-gray"/>
+                                        <span t-field="property_id.company_id.phone"/>
+                                    </p>
+                                    <p class="text-muted" t-if="property_id.company_id.email">
+                                        <i class="fa fa-envelope color-gray"/>
+                                        <span t-field="property_id.company_id.email"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section-padding" t-if="property_id.total_area or property_id.measure_unit or property_id.usable_area or property_id.measure_unit or property_id.room_measurement_ids">
+                        <div class="card-box no-break">
+                            <h4 class="mb-10 section-header">
+                                Area Details
+                            </h4>
+                            <div class="area-row">
+                                <span class="text-muted">Total Area</span>
+                                <span class="fw-bold">
+                                    <span t-field="property_id.total_area"/>
+                                    <span t-field="property_id.measure_unit"/>
+                                </span>
+                            </div>
+                            <div class="area-row">
+                                <span class="text-muted">Usable Area</span>
+                                <span class="fw-bold">
+                                    <span t-field="property_id.usable_area"/>
+                                    <span t-field="property_id.measure_unit"/>
+                                </span>
+                            </div>
+                            <t t-if="property_id.is_section_measurement and property_id.room_measurement_ids">
+                                <br/>
+                                <br/>
+                                <div class="area-row">
+                                    <span class="fw-bold flex-1">Section</span>
+                                    <span class="fw-bold flex-1 text-right">No of Unit</span>
+                                    <span class="fw-bold flex-1 text-right">Length</span>
+                                    <span class="fw-bold flex-1 text-right">Width</span>
+                                    <span class="fw-bold flex-1 text-right" t-if="property_id.measure_unit in ['cu_m','cu_ft']">Height
+                                    </span>
+                                    <span class="fw-bold flex-1 text-right">Total Area</span>
+                                </div>
+
+                                <t t-foreach="property_id.room_measurement_ids" t-as="s">
+                                    <div class="area-row">
+                                        <span class="text-muted flex-1" t-field="s.section_id.name"/>
+                                        <span class="text-muted flex-1 text-right" t-field="s.no_of_unit"/>
+                                        <span class="text-muted flex-1 text-right" t-field="s.length"/>
+                                        <span class="text-muted flex-1 text-right" t-field="s.width"/>
+                                        <span class="text-muted flex-1 text-right" t-field="s.height" t-if="property_id.measure_unit in ['cu_m','cu_ft']"/>
+                                        <span class="text-muted flex-1 text-right" t-field="s.carpet_area"/>
+                                    </div>
+                                </t>
+                            </t>
+                        </div>
+                    </section>
+
+                    <section class="section-padding no-break">
+                        <h3 class="section-header">
+                            <t t-if="property_id.type == 'residential'">
+                                Residential Details
+                            </t>
+                            <t t-if="property_id.type == 'commercial'">
+                                Commercial Details
+                            </t>
+                            <t t-if="property_id.type == 'industrial'">
+                                Industrial Details
+                            </t>
+                        </h3>
+                        <div class="specs-container">
+                            <div class="spec-box" t-if="property_id.total_floor">
+                                <span class="text-muted text-uppercase prop-fs-10">No of Floors</span>
+                                <div class="prop-details">
+                                    <span t-field="property_id.total_floor"/>
+                                </div>
+                            </div>
+                            <div class="spec-box" t-if="property_id.floor">
+                                <span class="text-muted text-uppercase prop-fs-10">Floor</span>
+                                <div class="prop-details">
+                                    <span t-field="property_id.floor"/>
+                                </div>
+                            </div>
+                            <div class="spec-box" t-if="property_id.parking">
+                                <span class="text-muted text-uppercase prop-fs-10">Parking</span>
+                                <div class="prop-details">
+                                    <span t-field="property_id.parking"/>
+                                </div>
+                            </div>
+                            <div class="spec-box" t-if="property_id.facing">
+                                <span class="text-muted text-uppercase prop-fs-10">Facing</span>
+                                <div class="prop-details">
+                                    <span t-field="property_id.facing"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="specs-container mt-10">
+                            <t t-if="property_id.type == 'residential'">
+                                <div class="spec-box" t-if="property_id.unit_type">
+                                    <span class="text-muted text-uppercase prop-fs-10">BHK</span>
+                                    <div class="prop-details">
+                                        <span t-field="property_id.unit_type"/>BHK
+                                    </div>
+                                </div>
+                                <div class="spec-box" t-if="property_id.bed">
+                                    <span class="text-muted text-uppercase prop-fs-10">Rooms</span>
+                                    <div class="prop-details">
+                                        <span t-field="property_id.bed"/>
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-if="property_id.type in ['residential','commercial']">
+                                <div class="spec-box" t-if="property_id.bathroom">
+                                    <span class="text-muted text-uppercase prop-fs-10">Bathrooms</span>
+                                    <div class="prop-details">
+                                        <span t-field="property_id.bathroom"/>
+                                    </div>
+                                </div>
+                                <div class="spec-box" t-if="property_id.furnishing_id">
+                                    <span class="text-muted text-uppercase prop-fs-10">Furnishing
+                                    </span>
+                                    <div class="prop-details">
+                                        <span t-field="property_id.furnishing_id"/>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+
+                        <div class="specs-container mt-10">
+                            <div class="spec-box" t-if="property_id.exposure_ids">
+                                <span class="text-muted text-uppercase prop-fs-10">Exposure/Orientation</span>
+                                <div class="d-flex flex-wrap align-items-center justify-content-center gap-2 prop-details">
+                                    <t t-foreach="property_id.exposure_ids" t-as="exposure">
+                                        <span class="list-details badge text-bg-primary" t-esc="exposure.name"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section-padding no-break">
+                        <h3 class="section-header">Maintenance Details</h3>
+                        <div class="pricing-grid">
+                            <t t-if="property_id.sale_lease == 'for_tenancy'">
+                                <div class="pricing-item">Maintenance Type</div>
+                                <div class="pricing-item text-right">
+                                    <span t-field="property_id.maintenance_rent_type"/>
+                                </div>
+                            </t>
+                            <t t-if="property_id.maintenance_type">
+                                <div class="pricing-item">Charge Type</div>
+                                <div class="pricing-item text-right">
+                                    <span t-field="property_id.maintenance_type"/>
+                                </div>
+                            </t>
+
+                            <t t-if="property_id.maintenance_type == 'area_wise'">
+                                <div class="pricing-item">Maintenance / Area</div>
+                                <div class="pricing-item text-right">
+                                    <span t-field="property_id.per_area_maintenance"/>
+                                </div>
+                            </t>
+
+                            <div class="pricing-item">Total Maintenance</div>
+                            <div class="pricing-item text-right">
+                                <span t-field="property_id.total_maintenance"/>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section-padding no-break" t-if="property_id.extra_service_ids">
+                        <h3 class="section-header">Utility Services</h3>
+                        <div class="card-box">
+                            <div class="area-row">
+                                <span class="fw-bold flex-1">Service</span>
+                                <span class="fw-bold flex-1 text-right">Type</span>
+                                <span class="fw-bold flex-1 text-right">Cost</span>
+                            </div>
+
+                            <t t-foreach="property_id.extra_service_ids" t-as="s">
+                                <div class="area-row">
+                                    <span class="text-muted flex-1" t-field="s.service_id.name"/>
+                                    <span class="text-muted flex-1 text-right" t-field="s.service_type"/>
+                                    <span class="text-muted flex-1 text-right" t-field="s.price" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: property_id.currency_id}"/>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+
+                    <section class="section-padding no-break" t-if="property_id.amenities and property_id.amenities_ids">
+                        <h3 class="section-header">Amenities</h3>
+                        <div class="icon-grid">
+                            <t t-foreach="property_id.amenities_ids" t-as="img">
+                                <div class="icon-card">
+                                    <div class="icon-box">
+                                        <img t-att-src="image_data_uri(img.image) if img.image else '/rental_management/static/src/img/amenity.jpeg'" class="details-image"/>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold">
+                                            <span t-field="img.title"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+
+                    <section class="section-padding no-break" t-if="property_id.is_facilities and property_id.property_specification_ids">
+                        <h3 class="section-header">Specifications</h3>
+                        <div class="spec-list">
+                            <t t-foreach="property_id.property_specification_ids" t-as="ps">
+                                <div class="spec-list-item">
+                                    <div class="icon-box spec-img-section">
+                                         <img t-att-src="image_data_uri(ps.image) if ps.image else '/rental_management/static/src/img/specifications.jpeg'" class="details-image"/>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold">
+                                            <span t-field="ps.title"/>
+                                        </div>
+                                        <div class="text-muted">
+                                            <span t-field="ps.description"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+
+                    <section class="section-padding no-break" t-if="property_id.nearby_connectivity and property_id.connectivity_ids">
+                        <h3 class="section-header">Nearby Connectivities</h3>
+                        <div class="highlights-grid">
+                            <t t-foreach="property_id.connectivity_ids" t-as="img">
+                                <div class="highlight-card text-center align-items-center border-0 bg-f9f9f9">
+                                    <div class="icon-box conn-img-section">
+                                        <img t-att-src="image_data_uri(img.image) if img.image else '/rental_management/static/src/img/amenity.jpeg'" class="details-image"/>
+                                    </div>
+                                    <span class="fw-bold prop-fs-18">
+                                        <span t-field="img.connectivity_id"/>
+                                    </span>
+                                    <span class="text-muted prop-fs-10">
+                                        <span t-field="img.distance"/>
+                                    </span>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+
+                    <section class="section-padding" t-if="property_id.is_floor_plan and property_id.floreplan_ids">
+                        <h3 class="section-header">Property Floor Plan</h3>
+                        <div class="gallery-grid">
+                            <t t-foreach="property_id.floreplan_ids" t-as="i">
+                                <div class="img-div">
+                                    <div>
+                                        <strong t-field="i.title"/>
+                                    </div>
+                                    <img t-att-src="image_data_uri(i.image)" class="gallery-img"/>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+
+                    <section class="section-padding" t-if="property_id.is_images and property_id.property_images_ids">
+                        <h3 class="section-header">Property Gallery</h3>
+                        <div class="gallery-grid">
+                            <t t-foreach="property_id.property_images_ids" t-as="p">
+                                <div class="img-div">
+                                    <img t-att-src="image_data_uri(p.image)" class="gallery-img"/>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+
+                    <footer class="footer">
+                        <h4 class="mb8">
+                            <span t-field="property_id.company_id"/>
+                        </h4>
+                        <p>
+                            📍
+                            <span t-field="property_id.company_id.street" t-if="property_id.company_id.street"/>
+                            <span t-field="property_id.company_id.street2" t-if="property_id.company_id.street2"/>
+                            <span t-if="property_id.company_id.city" t-field="property_id.company_id.city"/>
+                            <span t-field="property_id.company_id.state_id.name" t-if="property_id.company_id.state_id.name"/>
+                            <t t-if="property_id.company_id.state_id and property_id.company_id.country_id">,</t>
+                            <span t-field="property_id.company_id.country_id.name" t-if="property_id.company_id.country_id.name"/>
+                            <span t-field="property_id.company_id.zip" t-if="property_id.company_id.zip"/>
+                        </p>
+                        <p>
+                            <i class="fa fa-envelope icon-color"/>
+                            <span t-field="property_id.company_id.email"/>
+                            |
+                            <i class="fa fa-phone icon-color"/>
+                            <span t-field="property_id.company_id.phone"/>
+                            |
+                            <i class="fa fa-globe icon-color"/>
+                            <span t-field="property_id.company_id.website"/>
+                        </p>
+                        <div class="disclaimer-section">
+                            DISCLAIMER: This document is for information purposes only. Prices and availability are
+                            subject
+                            to change.
+                            All dimensions are approximate. Please verify with our sales team.
+                        </div>
+                    </footer>
+
+                </div>
+            </div>
+        </t>
+    </template>
+        
+
+    </data>
+</odoo>

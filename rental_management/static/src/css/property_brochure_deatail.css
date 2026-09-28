@@ -1,0 +1,420 @@
+@page {
+    margin: 0;
+    size: A4;
+}
+
+.main {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    /* Slightly smaller for compact business fit */
+    line-height: 1.4;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* UTILITIES */
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-muted {
+    color: #666666;
+    font-size: 12px;
+}
+
+.text-primary {
+    color: #1a2a3a;
+}
+
+/* Deep Navy */
+.fw-bold {
+    font-weight: 700;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.prop-fs-10 {
+    font-size: 10px;
+}
+
+.prop-fs-14 {
+    font-size: 14px;
+}
+
+.prop-fs-18 {
+    font-size: 18px;
+}
+
+.prop-price-type {
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.color-green {
+    color: green;
+}
+
+.color-gray {
+    color: gray;
+}
+
+.prop-details {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.details-image {
+    max-height: 50px;
+    width: auto;
+    vertical-align: middle;
+    border-radius: 4px;
+}
+
+.spec-img-section {
+    margin-right:15px !important;
+    background-color:transparent !important;
+    border:1px solid #ddd;
+}
+
+.bg-f9f9f9 {
+    background: #f9f9f9 !important;
+}
+
+.conn-img-section {
+    margin-right:15px;
+    background:none;
+    border:1px solid #ddd;
+}
+
+.disclaimer-section {
+    margin-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 10px;
+    font-size: 9px;
+    color: #aaa;
+}
+
+.hero-section-badge {
+    background-color: #71639e;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-highlight {
+    background-color: #FF5F15;
+    /* Brick Red for Action */
+    color: white;
+}
+
+/* LAYOUT CONTAINERS */
+.page-container {
+    width: 100%;
+    max-width: 210mm;
+    margin: 0 auto;
+    background: white;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    padding: 40px 16px;
+}
+
+/* Consistent Section Padding */
+.section-padding {
+    padding: 0px;
+    margin-bottom: 25px;
+}
+
+/* Section Headers */
+.section-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    color: #1a2a3a;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-header {
+    color: #1a2a3a;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* 1. HERO SECTION */
+.hero-section {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.hero-img-container {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background-color: #ddd;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-section-img {
+    width: 100%;
+    height: 500px;
+    border-radius: 5px;
+    object-fit: cover;
+
+}
+
+.hero-details {
+    padding: 20px 12px;
+    background-color: #f4f6f7;
+    border-bottom: 1px solid #e1e4e8;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.hero-section-title h1 {
+    font-size: 26px;
+    color: #1a2a3a;
+    margin: 8px 0;
+}
+
+.price-tag {
+    font-size: 24px;
+    color: #27ae60;
+    /* Success Green */
+    font-weight: 800;
+}
+
+/* 2. HIGHLIGHTS GRID */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 15px;
+}
+
+.highlight-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 12px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3 & 4. SPLIT ROW (Owner/Area) */
+.split-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card-box {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+}
+
+.area-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 6px 0;
+}
+
+.area-row:last-child {
+    border-bottom: none;
+}
+
+/* 5. SPECS GRID */
+.specs-container {
+    display: flex;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.spec-box {
+    flex: 1;
+    text-align: center;
+    padding: 15px 10px;
+    border-right: 1px solid #e0e0e0;
+    background-color: #fdfdfd;
+}
+
+.spec-box:last-child {
+    border-right: none;
+}
+
+/* 6. PRICING TABLE */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.pricing-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+
+.pricing-head {
+    background-color: #f4f6f7;
+    font-weight: bold;
+    color: #1a2a3a;
+}
+
+/* 7 & 9. ICON GRIDS (Amenities/Connectivity) */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.icon-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.icon-box {
+    width: 35px;
+    height: 35px;
+    background-color: #f0f2f5;
+    border-radius: 4px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-box img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+}
+
+/* 8. SPECS LIST */
+.spec-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.spec-list-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* 10 & 11. GALLERY & PLANS */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
+.plan-img-container {
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.plan-img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+/* 12. FOOTER */
+.footer {
+    background-color: #1a2a3a;
+    color: #ffffff;
+    padding: 30px;
+    text-align: center;
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+.footer p {
+    margin-bottom: 5px !important;
+    opacity: 0.8;
+}
+
+/* PRINT HELPERS */
+.no-break {
+    page-break-inside: avoid;
+}
+
+.section-width {
+    width: 50%;
+}
+
+.col-width {
+    width: 10%;
+}
+
+.icon-color {
+    color: white;
+}
+
+.property-brochure p {
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+    
+        <template id="property_sold_qweb_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <t t-set="report_color" t-value="docs.get_contract_report_color()"/>
+                        <style>
+                            h1 {
+                            text-align: center;
+                            font-size: 24px;
+                            text-transform: uppercase;
+                            margin-bottom: 20px;
+                            border-bottom: 2px solid <t t-esc="report_color"/>;
+                            padding-bottom: 10px;
+                            color:<t t-esc="report_color"/>;
+                            }
+
+                            h2 {
+                            font-size: 14px;
+                            background-color: #f0f0f0;
+                            padding: 5px 10px;
+                            border-left: 5px solid <t t-esc="report_color"/>;
+                            margin-top: 15px;
+                            margin-bottom: 10px;
+                            text-transform: uppercase;
+                            color:<t t-esc="report_color"/>;
+                            }
+
+                            strong {
+                            color: #000;
+                            }
+
+                            .no-border td {
+                            border: none;
+                            padding: 4px 0;
+                            }
+                            .data-table{
+                            width:100%;
+                            border:2px solid #ddd;
+                            }
+
+                            .data-table th {
+                            background-color: #eaeaea;
+                            text-align: left;
+                            font-weight: bold;
+                            font-size: 11px;
+                            padding:8px;
+                            border:2px solid #ddd;
+                            }
+
+                            .data-table td {
+                            font-size: 12px;
+                            padding:8px;
+                            border-bottom:2px solid #ddd;
+                            }
+
+                            /* Layout Helper Tables */
+                            .split-table {
+                            border: none;
+                            width: 100%;
+                            }
+                            .split-table td {
+                            border: none;
+                            padding: 8px;
+                            width: 48%;
+                            }
+
+                            .split-inner {
+                            width: 98%; /* Small gap */
+                            }
+
+                            /* Lists for Terms */
+                            ul, ol {
+                            margin: 5px 0 10px 20px;
+                            padding: 0;
+                            }
+
+                            li {
+                            margin-bottom: 4px;
+                            text-align: justify;
+                            }
+
+                            /* Signature Section */
+                            .signature-table td {
+                            border: none;
+                            padding-top: 40px;
+                            text-align: center;
+                            width: 33.33%;
+                            }
+
+                            .sign-line {
+                            border-top: 1px solid #000;
+                            width: 80%;
+                            margin: 0 auto;
+                            display: block;
+                            padding-top: 5px;
+                            font-weight: bold;
+                            }
+
+                            /* Print Optimization */
+                            @media print {
+                            body {
+                            background: none;
+                            -webkit-print-color-adjust: exact;
+                            }
+                            .container {
+                            width: 100%;
+                            max-width: 100%;
+                            padding: 0;
+                            }
+                            table { page-break-inside: avoid; }
+                            }
+
+                        </style>
+                        <div class="page">
+
+                            <h1>
+                                Property Selling Details
+                            </h1>
+
+                            <h2 t-attf-style="color:{{report_color}}">Contract Details</h2>
+                            <table class="data-table">
+                                <tr t-if="o.sold_seq">
+                                    <th width="20%" style="padding-left:8px;">Ref.</th>
+                                    <td width="80%">
+                                        <span t-field="o.sold_seq"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.date">
+                                    <th width="20%" style="padding-left:8px;">Date</th>
+                                    <td width="80%">
+                                        <span t-field="o.date"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.company_id">
+                                    <th width="20%" style="padding-left:8px;">Company</th>
+                                    <td width="80%">
+                                        <span t-field="o.company_id"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                            <h2 t-attf-style="color:{{report_color}}">Property Details</h2>
+                            <table class="data-table">
+                                <tr t-if="o.property_id">
+                                    <th width="20%" style="padding-left:8px;">Property</th>
+                                    <td width="80%">
+                                        <span t-field="o.property_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.street or o.street2 or o.city_id or o.state_id or o.country_id">
+                                    <th style="padding-left:8px;">Address</th>
+                                    <td>
+                                        <span>
+                                            <span t-field="o.street" t-if="o.street"/>
+                                            <span t-field="o.street2" t-if="o.street2"/>
+                                            <t t-if="o.city_id">
+                                                <span t-field="o.city_id.name"/>
+                                                <t t-if="o.city_id and o.zip">,</t>
+                                                <span t-field="o.zip"/>
+                                            </t>
+                                            <span t-field="o.state_id.name" t-if="o.state_id.name"/>
+                                            <t t-if="o.state_id and o.country_id">,</t>
+                                            <span t-field="o.country_id.name" t-if="o.country_id.name"/>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.type ">
+                                    <th style="padding-left:8px;">Property Type</th>
+                                    <td>
+                                        <span t-field="o.type"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.property_subtype_id">
+                                    <th style="padding-left:8px;">Sub Type</th>
+                                    <td>
+                                        <span t-field="o.property_subtype_id"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.total_area">
+                                    <th style="padding-left:8px;">Total Area</th>
+                                    <td>
+                                        <span t-field="o.total_area"/>
+                                        <span t-field="o.measure_unit"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.price">
+                                    <th style="padding-left:8px;">Price</th>
+                                    <td>
+                                        <span t-field="o.price"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.property_project_id">
+                                    <th style="padding-left:8px;">Project</th>
+                                    <td>
+                                        <span t-field="o.property_project_id"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.subproject_id">
+                                    <th style="padding-left:8px;">Sub Project</th>
+                                    <td>
+                                        <span t-field="o.subproject_id"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.region_id">
+                                    <th style="padding-left:8px;">Region</th>
+                                    <td>
+                                        <span t-field="o.region_id"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <h2 t-attf-style="color:{{report_color}}">Buyer &amp; Seller</h2>
+                            <table class="split-table table table-borderless"
+                                   t-if="o.customer_id or o.property_landlord_id">
+                                <tr>
+                                    <td style="padding-top:0px;">
+                                        <table class="data-table split-inner" t-if="o.customer_id">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2"
+                                                        t-attf-style="background-color:{{report_color}}; color:#fff;padding-left:8px;">
+                                                        Buyer / Customer
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr t-if="o.customer_id">
+                                                    <td width="30%" style="padding-left:8px;">
+                                                        <strong>Customer</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.customer_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr t-if="o.customer_phone">
+                                                    <td style="padding-left:8px;">
+                                                        <strong>Contact</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.customer_phone"/>
+                                                    </td>
+                                                </tr>
+                                                <tr t-if="o.customer_email">
+                                                    <td style="padding-left:8px;">
+                                                        <strong>Email</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.customer_email"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td style="padding-top:0px;">
+                                        <table class="data-table split-inner" style="float:right;"
+                                               t-if="o.landlord_id">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2"
+                                                        t-attf-style="background-color:{{report_color}}; color:#fff;padding-left:8px;">
+                                                        Landlord
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr t-if="o.landlord_id">
+                                                    <td width="30%" style="padding-left:8px;">
+                                                        <strong>Landlord</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.landlord_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr t-if="o.landlord_phone">
+                                                    <td style="padding-left:8px;">
+                                                        <strong>Contact</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.landlord_phone"/>
+                                                    </td>
+                                                </tr>
+                                                <tr t-if="o.landlord_email">
+                                                    <td style="padding-left:8px;">
+                                                        <strong>Email</strong>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="o.landlord_email"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <h2 t-if="o.is_any_broker" t-attf-style="color:{{report_color}}">Broker Details</h2>
+                            <table class="data-table" t-if="o.is_any_broker ">
+                                <tr t-if="o.broker_id">
+                                    <th width="20%" style="padding-left:8px;">Broker</th>
+                                    <td width="80%">
+                                        <span t-field="o.broker_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.commission_from">
+                                    <th style="padding-left:8px;">Commission From</th>
+                                    <td>
+                                        <span t-field="o.commission_from"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.commission_type">
+                                    <th style="padding-left:8px;">Commission Type</th>
+                                    <td>
+                                        <span t-field="o.commission_type"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.broker_commission or o.broker_commission_percentage or o.broker_final_commission">
+                                    <th style="padding-left:8px;">Commission</th>
+                                    <td>
+                                        <span t-field="o.broker_commission" t-if="o.commission_type == 'f'"/>
+                                        <t t-if="o.commission_type == 'p'">
+                                            <span
+                                                    t-field="o.broker_commission_percentage"/>
+                                            % -
+                                            <span
+                                                    t-field="o.broker_final_commission"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.broker_bill_id.payment_state == 'paid'">
+                                    <th style="padding-left:8px;">Bill Ref.</th>
+                                    <td>
+                                        <span t-field="o.broker_bill_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.broker_invoice_id.payment_state == 'paid'">
+                                    <th style="padding-left:8px;">Invoice Ref.</th>
+                                    <td>
+                                        <span t-field="o.broker_invoice_id.name"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <h2 t-attf-style="color:{{report_color}}"
+                                t-if="o.payment_term or o.ask_price or o.sale_price or o.total_maintenance or o.total_service or o.total_sell_amount or o.book_price or o.book_invoice_id or o.payable_amount">
+                                Payment Details
+                            </h2>
+                            <table class="data-table" t-if="o.payment_term or o.ask_price or o.sale_price or o.total_maintenance or o.total_service or o.total_sell_amount or o.book_price or o.book_invoice_id or o.payable_amount">
+                                <tr t-if="o.payment_term">
+                                    <th width="20%" style="padding-left:8px;">Payment Term</th>
+                                    <td width="80%">
+                                        <span t-field="o.payment_term"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.ask_price">
+                                    <th width="20%" style="padding-left:8px;">Customer Ask Price</th>
+                                    <td width="80%">
+                                        <span t-field="o.ask_price"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.sale_price">
+                                    <th width="20%" style="padding-left:8px;">Confirmed Sale Price</th>
+                                    <td width="80%">
+                                        <span t-field="o.sale_price"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.is_any_maintenance">
+                                    <th width="20%" style="padding-left:8px;">Total Maintainance</th>
+                                    <td width="80%">
+                                        <span t-field="o.total_maintenance"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.is_utility_service">
+                                    <th width="20%" style="padding-left:8px;">Utility Cost</th>
+                                    <td width="80%">
+                                        <span t-field="o.total_service"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.total_sell_amount">
+                                    <th width="20%" style="padding-left:8px;">Total Amount</th>
+                                    <td width="80%">
+                                        <span t-field="o.total_sell_amount"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.book_price">
+                                    <th width="20%" style="padding-left:8px;">Book Price</th>
+                                    <td width="80%">
+                                        <span t-field="o.book_price"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.book_invoice_id.payment_state == 'paid'">
+                                    <th width="20%" style="padding-left:8px;">Invoice Ref.</th>
+                                    <td width="80%">
+                                        <span t-field="o.book_invoice_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr t-if="o.payable_amount">
+                                    <th width="20%" style="padding-left:8px;">Payable Amount</th>
+                                    <td width="80%">
+                                        <span t-field="o.payable_amount"/>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <h2 t-attf-style="color:{{report_color}}" t-if="o.sale_invoice_ids">Invoices &amp; Installments</h2>
+                            <table class="data-table" t-if="o.sale_invoice_ids">
+                                <thead>
+                                    <tr>
+                                        <th width="25%" style="border-left:none;border-right:none;padding-left:8px;">
+                                            Title
+                                        </th>
+                                        <th width="15%" style="border-left:none;border-right:none;">Date</th>
+                                        <th width="15%" style="border-left:none;border-right:none;">Invoice Ref.
+                                        </th>
+                                        <th width="15%" style="border-left:none;border-right:none;text-align:right;">
+                                            Taxes
+                                        </th>
+                                        <th width="15%" style="border-left:none;border-right:none;text-align:right;">Tax
+                                            Amount
+                                        </th>
+                                        <th width="15%" style="text-align:right;border-left:none;padding-right:8px;">
+                                            Amount
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.sale_invoice_ids" t-as="s">
+                                        <tr>
+                                            <td width="25%"
+                                                style="padding-left:8px;border-left:none;border-right:none;">
+                                                <span t-field="s.name"/>
+                                            </td>
+                                            <td width="15%" style="border-left:none;border-right:none;">
+                                                <span t-field="s.invoice_date"/>
+                                            </td>
+                                            <td width="15%" style="border-left:none;border-right:none;">
+                                                <span t-field="s.invoice_id.name" t-if="s.invoice_id.payment_state=='paid'"/>
+                                            </td>
+                                            <td width="15%"
+                                                style="border-left:none;border-right:none;text-align:right;">
+                                                <span t-esc="', '.join(map(lambda x: (x.name), s.tax_ids))"
+                                                      id="line_tax_ids"/>
+                                            </td>
+                                            <td width="15%"
+                                                style="border-left:none;border-right:none;text-align:right;">
+                                                <span t-field="s.tax_amount"/>
+                                            </td>
+                                            <td width="15%"
+                                                style="text-align:right;padding-right:8px;border-left:none;">
+                                                <span t-field="s.amount"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <table class="split-table table table-borderless" t-if="o.total_untaxed_amount or o.tax_amount or o.total_amount or o.paid_amount or o.remaining_amount">
+                                <tr>
+                                    <td style="padding-top:0px;">
+                                    </td>
+                                    <td style="margin-top:10px;">
+                                        <table class="data-table" style="float:right;width:60%;">
+                                            <tbody>
+                                                <tr t-if="o.total_untaxed_amount">
+                                                    <td width="30%" style="padding-left:8px; ">
+                                                        Untaxed Amount
+                                                    </td>
+                                                    <td style="text-align:right;padding-right:8px;">
+                                                        <span t-field="o.total_untaxed_amount" style=""/>
+                                                    </td>
+                                                </tr>
+                                                <tr t-if="o.tax_amount" style="border-bottom:2px solid #ddd;">
+                                                    <td style="padding-left:8px; ">
+                                                        Tax Amount
+                                                    </td>
+                                                    <td style="text-align:right;padding-right:8px;">
+                                                        <span t-field="o.tax_amount"/>
+                                                    </td>
+                                                </tr>
+                                                <tr t-if="o.total_amount">
+                                                    <td style="padding-left:8px; ">
+                                                        <strong>Total Amount</strong>
+                                                    </td>
+                                                    <td style="text-align:right;padding-right:8px;">
+                                                        <strong>
+                                                            <span t-field="o.total_amount"/>
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+                                                <tr style="border-bottom:2px solid #ddd;" t-if="o.paid_amount">
+                                                    <td style="padding-left:8px; ">
+                                                        Paid
+                                                    </td>
+                                                    <td style="text-align:right;padding-right:8px;">
+                                                        <span t-field="o.paid_amount"/>
+                                                    </td>
+                                                </tr>
+                                                <tr t-if="o.remaining_amount">
+                                                    <td style="padding-left:8px; ">
+                                                        <strong>Remaining Amount</strong>
+                                                    </td>
+                                                    <td style="text-align:right;padding-right:8px;">
+                                                        <strong>
+                                                            <span t-field="o.remaining_amount"/>
+                                                        </strong>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <h2 t-if="o.term_condition" t-attf-style="color:{{report_color}}">TERMS &amp; CONDITIONS
+                            </h2>
+                            <table class="data-table table table-borderless" style="border:none;"
+                                   t-if="o.term_condition">
+                                <tr>
+                                    <td style="border:none; padding:0px 8px;">
+                                        <span t-field="o.term_condition" t-options="{'widget': 'html'}"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <record id="property_sold_report_template_id" model="ir.actions.report">
+            <field name="name">Sold Contract</field>
+            <field name="model">property.vendor</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">rental_management.property_sold_qweb_report_template</field>
+            <field name="report_file">rental_management.property_sold_qweb_report_template</field>
+            <field name="binding_model_id" ref="model_property_vendor"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'Sold Information'</field>
+        </record>
+    
+
+    </data>
+</odoo>

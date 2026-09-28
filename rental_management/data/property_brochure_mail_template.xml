@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+    
+        <record id="property_brochure_details_mail_template" model="mail.template">
+            <field name="name">Property brochure Mail Template</field>
+            <field name="model_id" ref="rental_management.model_property_details"/>
+            <field name="subject">Property Brochure</field>
+            <field name="email_from">{{ object.company_id.email or object.env.user.email }}</field>
+            <field name="partner_to" eval="False"/>
+            <field name="email_to" eval="False"/>
+            <field name="use_default_to" eval="True"/>
+            <field name="body_html" type="html">
+                <style>html,body { padding:0; margin:0; font-family: Inter, Helvetica, "sans-serif"; } a:hover { color:
+                    #009ef7; }
+                </style>
+                <div style="font-family: Arial, sans-serif; font-size: 14px; color: #333;text-align:center;">
+                    <img t-attf-src="data:image/*;base64,{{object.company_id.logo}}" style="border-radius: 12px;"
+                         alt="Company Logo" height="60"/>
+                    <strong>
+                        <div t-out="object.company_id.name" style="margin:10px 0px;"/>
+                    </strong>
+                    <div style="margin-bottom: 15px">
+                        <img t-if="object.company_id.mail_template_image"
+                             t-attf-src="/web/image/res.company/{{object.company_id.id}}/mail_template_image"
+                             alt="Logo"
+                             style="height:120px;width:120px;"/>
+
+                        <img t-else=""
+                             src="/rental_management/static/src/img/icon-positive-vote.png"
+                             alt="Logo"/>
+                    </div>
+                    <div style="font-size: 14px; font-weight: 500; margin-bottom: 27px; font-family:Arial,Helvetica,sans-serif;">
+                        <p style="margin-bottom:9px; color:#181C32; font-size: 22px; font-weight:700">
+                            <span t-esc="object.company_id.property_mail_template_title">
+                                Discover Your Ideal Property
+                            </span>
+                        </p>
+                        <p style="margin:0px 20px 2px 20px;color:#7E8299">
+                            <span t-esc="object.company_id.property_mail_template_description">
+                                Ready-to-move property featuring quality construction, prime location, and excellent
+                                lifestyle amenities.
+                            </span>
+                        </p>
+                    </div>
+                    <a t-att-href="object.env.context.get('property_brochure_link')"
+                       style="background-color:#50cd89;color:white;padding:10px 20px;text-decoration:none;border-radius:5px;">
+                        Explore Property
+                    </a>
+                    <br/>
+                    <br/>
+                    <p style="color: #181C32; font-size: 18px; font-weight: 600; margin-bottom: 15px;">
+                        <span t-esc="object.company_id.section_title">
+                            What's New?
+                        </span>
+                    </p>
+                    <table align="center" border="0" cellpadding="0" cellspacing="0"
+                           style="width: 100%; max-width: 500px; background-color: #F9F9F9; border-radius: 12px; border-collapse: separate; padding: 20px;">
+                        <!-- Step 1 -->
+                        <tr>
+                            <td>
+                                <div style="margin-right:10px; background: #fff; width: 40px; height: 40px; text-align: center; font-size: 17px; color: #50cd89; font-weight: 600; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <span>1</span>
+                                </div>
+                            </td>
+                            <td style="text-align: left; padding: 15px 0; border-bottom: 1px dashed #E4E6EF;">
+                                <a href="#"
+                                   style="color: #181C32; font-size: 14px; font-weight: 600; text-decoration: none; font-family: Arial, sans-serif;">
+                                    <span t-esc="object.company_id.property_mail_section_one_title">
+                                        Review the Digital Brochure
+                                    </span>
+                                </a>
+                                <p style="color: #5E6278; font-size: 13px; font-weight: 500; margin: 5px 0 0 0; line-height: 1.4;">
+                                    <span t-esc="object.company_id.property_mail_section_one_description">
+                                        Dive into the high-resolution gallery, floor plans, and neighborhood insights.
+                                        Every detail of your potential new home is just a click away.
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        <!-- Step 2 -->
+                        <tr>
+                            <td>
+                                <div style="margin-right:10px; background: #fff; width: 40px; height: 40px; text-align: center; font-size: 17px; color: #50cd89; font-weight: 600; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <span>2</span>
+                                </div>
+                            </td>
+                            <td style="text-align: left; padding: 15px 0; border-bottom: 1px dashed #E4E6EF;">
+                                <a href="#"
+                                   style="color: #181C32; font-size: 14px; font-weight: 600; text-decoration: none; font-family: Arial, sans-serif;">
+                                    <span t-esc="object.company_id.property_mail_section_two_title">
+                                        Schedule a Private Tour
+                                    </span>
+                                </a>
+                                <p style="color: #5E6278; font-size: 13px; font-weight: 500; margin: 5px 0 0 0; line-height: 1.4;">
+                                    <span t-esc="object.company_id.property_mail_section_two_description">
+                                        Nothing beats the feeling of walking through the front door. Pick a time that
+                                        suits your schedule for a personalized, one-on-one viewing.
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        <!-- Step 3 -->
+                        <tr>
+                            <td>
+                                <div style="margin-right:10px; background: #fff; width: 40px; height: 40px; text-align: center; font-size: 17px; color: #50cd89; font-weight: 600; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <span>3</span>
+                                </div>
+                            </td>
+                            <td style="text-align: left; padding: 15px 0;">
+                                <a href="#"
+                                   style="color: #181C32; font-size: 14px; font-weight: 600; text-decoration: none; font-family: Arial, sans-serif;">
+                                    <span t-esc="object.company_id.property_mail_section_three_title">
+                                        Get Your Questions Answered
+                                    </span>
+                                </a>
+                                <p style="color: #5E6278; font-size: 13px; font-weight: 500; margin: 5px 0 0 0; line-height: 1.4;">
+                                    <span t-esc="object.company_id.property_mail_section_three_description">
+                                        Whether it’s about financing options or local school districts, our team is
+                                        ready to provide the data you need to make a confident decision.
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <div align="center" valign="center"
+                         style="font-size: 13px; text-align:center; padding: 0 10px 10px 10px; font-weight: 500; color: #A1A5B7; font-family:Arial,Helvetica,sans-serif">
+                        <p style="color:#5E6278; font-size: 16px; font-weight: 600; margin-bottom:9px">
+                            It’s all about finding home!
+                        </p>
+                        <p>
+                            <strong>Happy to Help</strong>
+                            <br/>
+                            Have a question or need help? We’re always happy to assist you.
+                            <br/>
+                            <t t-if="object.company_id.phone">
+                                <a t-attf-href="tel:{{ object.company_id.phone }}">
+                                    <span t-field="object.company_id.phone" style="font-size:13px;"/>
+                                </a>
+                                |
+                            </t>
+                            <t t-if="object.company_id.email">
+                                <a t-attf-href="mailto:{{ object.company_id.email }}">
+                                    <span t-field="object.company_id.email" style="font-size:13px;"/>
+                                </a>
+                                |
+                            </t>
+                            <a href="${object.company_id.website or '#'}" target="_blank">
+                                <span t-field="object.company_id.website" style="font-size:13px;"/>
+                            </a>
+                        </p>
+                    </div>
+                    <div style="margin-bottom:20px;">
+                        <div align="center" valign="center" style="text-align:center; padding-bottom: 20px;">
+                            <a t-attf-href="{{ object.company_id.social_linkedin or '#' }}" target="_blank">
+                                <img alt="Logo" src="/rental_management/static/src/img/icon-linkedin.png"/>
+                            </a>
+                            <a t-attf-href="{{ object.company_id.social_facebook or '#' }}" target="_blank">
+                                <img alt="Logo" src="/rental_management/static/src/img/icon-facebook.png"/>
+                            </a>
+                            <a t-attf-href="{{ object.company_id.social_twitter or '#' }}" target="_blank">
+                                <img alt="Logo" src="/rental_management/static/src/img/icon-twitter.png"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </field>
+        </record>
+    
+
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="property_brochure_detail_url_cron" model="ir.cron">
+            <field name="name">Rental Management: Property Access Token</field>
+            <field name="model_id" ref="rental_management.model_property_details"/>
+            <field name="state" eval="'code'"/>
+            <field name="code" eval="'model.property_brochure_url_cron()'"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</odoo>

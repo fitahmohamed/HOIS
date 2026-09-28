@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="rental_management.rental_dashboard" owl="1">
+        <section class="section tk_rental_dash">
+            <div class="container">
+                <div class="row pt32">
+                    <div class="col-lg-12">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button t-attf-class="nav-link bg-dashboard {{ state.activeTab === 'overview' ? 'active' : '' }}"
+                                        t-on-click="() => this.switchTab('overview')">
+                                    <strong>Overview</strong>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button t-attf-class="nav-link bg-dashboard {{ state.activeTab === 'maintenance' ? 'active' : '' }}"
+                                        t-on-click="() => this.switchTab('maintenance')">
+                                    <strong>Maintenance</strong>
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div t-attf-class="tab-pane fade {{ state.activeTab === 'overview' ? 'show active' : '' }}">
+                                <div class="row">
+                                    <div class="col-md-12 mt32">
+                                        <h4 class="tk-primary">Statistics</h4>
+                                        <hr class="border-primary" />
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-6 g-4">
+                                            <div class="col" t-on-click="() => this.viewStatistic('region')">
+                                                <div class="card info-bg p-32">
+                                                    <div class="card-body info-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/treasure-map.svg" />
+                                                        <h4 class="tk-st-1 info-bg"> Regions </h4>
+                                                        <h6 class="tk-st-2 info-bg">
+                                                            <t t-esc="state.propertyStats['region_count']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewStatistic('project')">
+                                                <div class="card warn-bg p-32">
+                                                    <div class="card-body warn-bg tk-card-body">
+                                                        <img alt="users" width="40" src="/rental_management/static/src/img/city.svg" />
+                                                        <h4 class="tk-st-1 warn-bg"> Projects </h4>
+                                                        <h6 class="tk-st-2 warn-bg">
+                                                            <t t-esc="state.propertyStats['project_count']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewStatistic('sub_project')">
+                                                <div class="card purple-bg p-32">
+                                                    <div class="card-body purple-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/office.svg" />
+                                                        <h4 class="tk-st-1 purple-bg"> Sub Projects </h4>
+                                                        <h6 class="tk-st-2 purple-bg">
+                                                            <t t-esc="state.propertyStats['subproject_count']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewProperties('all')">
+                                                <div class="card success-bg p-32">
+                                                    <div class="card-body success-bg tk-card-body">
+                                                        <img alt="users" width="40" src="/rental_management/static/src/img/town.svg" />
+                                                        <h4 class="tk-st-1 success-bg"> Properties </h4>
+                                                        <h6 class="tk-st-2 success-bg">
+                                                            <t t-esc="state.propertyStats['total_property']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewPartner('customer')">
+                                                <div class="card info-bg p-32">
+                                                    <div class="card-body info-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/people.svg" />
+                                                        <h4 class="tk-st-1 info-bg"> Customers </h4>
+                                                        <h6 class="tk-st-2 info-bg">
+                                                            <t t-esc="state.propertyStats['customer_count']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewPartner('landlord')">
+                                                <div class="card danger-bg p-32">
+                                                    <div class="card-body danger-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/lender.svg" />
+                                                        <h4 class="tk-st-1 danger-bg"> Landlords </h4>
+                                                        <h6 class="tk-st-2 danger-bg">
+                                                            <t t-esc="state.propertyStats['landlord_count']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-5 align-items-stretch">
+                                        <div class="col-md-12 mt32">
+                                            <h4 class="tk-primary">Property Statics</h4>
+                                            <hr class="border-primary" />
+                                        </div>
+                                        <div class="row row-cols-1 row-cols-sm-2 g-4">
+                                            <div class="col" t-on-click="() => this.viewProperties('available')">
+                                                <div class="card info-bg p-32">
+                                                    <div class="card-body info-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/residential.svg" />
+                                                        <h4 class="tk-st-1 info-bg"> Available</h4>
+                                                        <h6 class="tk-st-2 info-bg">
+                                                            <t t-esc="state.propertyStats['avail_property']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewProperties('on_lease')">
+                                                <div class="card warn-bg p-32">
+                                                    <div class="card-body warn-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/rental.svg" />
+                                                        <h4 class="tk-st-1 warn-bg"> On Lease </h4>
+                                                        <h6 class="tk-st-2 warn-bg">
+                                                            <t t-esc="state.propertyStats['lease_property']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewProperties('sale')">
+                                                <div class="card danger-bg p-32">
+                                                    <div class="card-body danger-bg tk-card-body">
+                                                        <img alt="users" width="40" class="rounded-circle"
+                                                            src="/rental_management/static/src/img/sale.svg" />
+                                                        <h4 class="tk-st-1 danger-bg"> On Sale </h4>
+                                                        <h6 class="tk-st-2 danger-bg">
+                                                            <t t-esc="state.propertyStats['sale_property']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewProperties('sold')">
+                                                <div class="card success-bg p-32">
+                                                    <div class="card-body success-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/real-estate.svg" />
+                                                        <h4 class="tk-st-1 success-bg"> Sold </h4>
+                                                        <h6 class="tk-st-2 success-bg">
+                                                            <t t-esc="state.propertyStats['sold_property']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-7">
+                                        <div class="col-md-12 mt32">
+                                            <h4 class="tk-primary">Property Type</h4>
+                                            <hr class="border-primary" />
+                                        </div>
+                                        <div class="tk-os-chart" t-ref="propertyType"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mt32">
+                                        <h4 class="tk-primary">Rent Contract Statics</h4>
+                                        <hr class="border-primary" />
+                                    </div>
+                                    <div class="col-md-12 mt32">
+                                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-6 g-4">
+                                            <div class="col" t-on-click="() => this.viewPropertyTenancies('new_contract')">
+                                                <div class="card info-bg p-32">
+                                                    <div class="card-body info-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/contract_d.svg" />
+                                                        <h4 class="tk-st-1 info-bg"> Draft </h4>
+                                                        <h6 class="tk-st-2 info-bg">
+                                                            <t t-esc="state.propertyStats['draft_contract']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewPropertyTenancies('running_contract')">
+                                                <div class="card success-bg p-32">
+                                                    <div class="card-body success-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/running_c.svg" />
+                                                        <h4 class="tk-st-1 success-bg"> Running</h4>
+                                                        <h6 class="tk-st-2 success-bg">
+                                                            <t t-esc="state.propertyStats['running_contract']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewPropertyTenancies('expire_contract')">
+                                                <div class="card danger-bg p-32">
+                                                    <div class="card-body danger-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/warning.svg" />
+                                                        <h4 class="tk-st-1 danger-bg"> Expire</h4>
+                                                        <h6 class="tk-st-2 danger-bg">
+                                                            <t t-esc="state.propertyStats['expire_contract']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewPropertyTenancies('extend_contract')">
+                                                <div class="card purple-bg p-32">
+                                                    <div class="card-body purple-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/renewal_ec.svg" />
+                                                        <h4 class="tk-st-1 purple-bg"> Extended</h4>
+                                                        <h6 class="tk-st-2 purple-bg">
+                                                            <t t-esc="state.propertyStats['extend_contract']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewPropertyTenancies('close_contract')">
+                                                <div class="card warn-bg p-32">
+                                                    <div class="card-body warn-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/contract_com.svg" />
+                                                        <h4 class="tk-st-1 warn-bg"> Close</h4>
+                                                        <h6 class="tk-st-2 warn-bg">
+                                                            <t t-esc="state.propertyStats['close_contract']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewPropertyTenancies('not_paid')">
+                                                <div class="card danger-bg p-32">
+                                                    <div class="card-body danger-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/pending.svg" />
+                                                        <h4 class="tk-st-1 danger-bg"> Invoice Due </h4>
+                                                        <h6 class="tk-st-2 danger-bg">
+                                                            <t t-esc="state.propertyStats['pending_invoice']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mt32">
+                                        <div class="row g-4">
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-4"
+                                                t-on-click="() => this.viewPropertyTenancies('rent_total')">
+                                                <div class="card info-bg p-32">
+                                                    <div class="card-body info-bg tk-card-body">
+                                                        <img alt="users" width="40" src="/rental_management/static/src/img/cash.svg" />
+                                                        <h4 class="tk-st-1 info-bg"> Total Rent Amount </h4>
+                                                        <h6 class="tk-st-2 info-bg">
+                                                            <t t-esc="state.propertyStats['rent_total']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-2">
+                                                <div class="tk-center-primary">Rent Invoice Due / Paid</div>
+                                                <div class="card-graph p-16" t-ref="tenancyDuePaid"></div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                                <div class="tk-center-primary">Rent Contract Top Broker</div>
+                                                <div class="card-graph p-16" t-ref="tenancyTopBroker"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mt32">
+                                        <h4 class="tk-primary">Sale Contract Statics</h4>
+                                        <hr class="border-primary" />
+                                    </div>
+                                    <div class="col-md-12 mt32">
+                                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xl-4 g-4">
+                                            <div class="col" t-on-click="() => this.viewPropertySale('booked')">
+                                                <div class="card info-bg p-32">
+                                                    <div class="card-body info-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/online-booking.svg" />
+                                                        <h4 class="tk-st-1 info-bg"> Booked</h4>
+                                                        <h6 class="tk-st-2 info-bg">
+                                                            <t t-esc="state.propertyStats['booked']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewPropertySale('sold')">
+                                                <div class="card success-bg p-32">
+                                                    <div class="card-body success-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/p_sold.svg" />
+                                                        <h4 class="tk-st-1 success-bg"> Sold </h4>
+                                                        <h6 class="tk-st-2 success-bg">
+                                                            <t t-esc="state.propertyStats['sale_sold']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewPropertySale('refund')">
+                                                <div class="card info-bg p-32">
+                                                    <div class="card-body info-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/refund.svg" />
+                                                        <h4 class="tk-st-1 info-bg"> Refund</h4>
+                                                        <h6 class="tk-st-2 info-bg">
+                                                            <t t-esc="state.propertyStats['refund']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewPropertySale('not_paid')">
+                                                <div class="card warn-bg p-32">
+                                                    <div class="card-body warn-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/pending.svg" />
+                                                        <h4 class="tk-st-1 warn-bg"> Invoice Due </h4>
+                                                        <h6 class="tk-st-2 warn-bg">
+                                                            <t t-esc="state.propertyStats['pending_invoice_sale']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mt32">
+                                        <div class="row g-4">
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3"
+                                                t-on-click="() => this.viewPropertySale('sold')">
+                                                <div class="card info-bg p-32">
+                                                    <div class="card-body info-bg tk-card-body">
+                                                        <img alt="users" width="40" src="/rental_management/static/src/img/cash.svg" />
+                                                        <h4 class="tk-st-1 info-bg"> Total Sold Amount </h4>
+                                                        <h6 class="tk-st-2 info-bg">
+                                                            <t t-esc="state.propertyStats['sold_total']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                                <div class="tk-center-primary">Sale Invoice Due / Paid</div>
+                                                <div class="card-graph p-16" t-ref="soldDuePaid"></div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                                                <div class="tk-center-primary">Sold Contract Top Broker</div>
+                                                <div class="card-graph p-16" t-ref="soldTopBroker"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-12 mt32">
+                                        <h4 class="tk-primary">Property Locations</h4>
+                                        <hr class="border-primary" />
+                                        <div class="tk-charts" t-ref="worldMap"></div>
+                                        <div class="map-legend-container mt-3">
+                                            <div class="map-legend">
+                                                <div class="legend-item">
+                                                    <span class="legend-color draft"></span>
+                                                    <span>Draft</span>
+                                                </div>
+                                                <div class="legend-item">
+                                                    <span class="legend-color available"></span>
+                                                    <span>Available</span>
+                                                </div>
+                                                <div class="legend-item">
+                                                    <span class="legend-color on-lease"></span>
+                                                    <span>On Rent</span>
+                                                </div>
+                                                <div class="legend-item">
+                                                    <span class="legend-color booked"></span>
+                                                    <span>Booked</span>
+                                                </div>
+                                                <div class="legend-item">
+                                                    <span class="legend-color sale"></span>
+                                                    <span>For Sale</span>
+                                                </div>
+                                                <div class="legend-item">
+                                                    <span class="legend-color sold"></span>
+                                                    <span>Sold</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div t-attf-class="tab-pane fade {{ state.activeTab === 'maintenance' ? 'show active' : '' }}">
+                                <div class="row">
+                                    <div class="col-md-12 mt32">
+                                        <h4 class="tk-primary">Statistics</h4>
+                                        <hr class="border-primary" />
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-6 g-4">
+                                            <div class="col" t-on-click="() => this.viewMaintenances('all')">
+                                                <div class="card info-bg p-32">
+                                                    <div class="card-body info-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/maintenance-all.svg" />
+                                                        <h4 class="tk-st-1 info-bg"> Total </h4>
+                                                        <h6 class="tk-st-2 info-bg">
+                                                            <t t-esc="state.maintenanceStats['total_maintenances']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewMaintenances('in_progress')">
+                                                <div class="card warn-bg p-32">
+                                                    <div class="card-body warn-bg tk-card-body">
+                                                        <img alt="users" width="40" src="/rental_management/static/src/img/maintenance-progress.svg" />
+                                                        <h4 class="tk-st-1 warn-bg"> In Progress </h4>
+                                                        <h6 class="tk-st-2 warn-bg">
+                                                            <t t-esc="state.maintenanceStats['in_progress_maintenances']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewMaintenances('blocked')">
+                                                <div class="card purple-bg p-32">
+                                                    <div class="card-body purple-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/maintenance-block.svg" />
+                                                        <h4 class="tk-st-1 purple-bg"> Blocked </h4>
+                                                        <h6 class="tk-st-2 purple-bg">
+                                                            <t t-esc="state.maintenanceStats['blocked_maintenances']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewMaintenances('done')">
+                                                <div class="card success-bg p-32">
+                                                    <div class="card-body success-bg tk-card-body">
+                                                        <img alt="users" width="40" src="/rental_management/static/src/img/maintenance-done.svg" />
+                                                        <h4 class="tk-st-1 success-bg"> Done </h4>
+                                                        <h6 class="tk-st-2 success-bg">
+                                                            <t t-esc="state.maintenanceStats['done_maintenances']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewMaintenances('corrective')">
+                                                <div class="card info-bg p-32">
+                                                    <div class="card-body info-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/maintenance-corrective.svg" />
+                                                        <h4 class="tk-st-1 info-bg"> Corrective </h4>
+                                                        <h6 class="tk-st-2 info-bg">
+                                                            <t t-esc="state.maintenanceStats['corrective_maintenances']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col" t-on-click="() => this.viewMaintenances('preventive')">
+                                                <div class="card danger-bg p-32">
+                                                    <div class="card-body danger-bg tk-card-body">
+                                                        <img alt="users" width="40"
+                                                            src="/rental_management/static/src/img/maintenance-predictive.svg" />
+                                                        <h4 class="tk-st-1 danger-bg"> Preventive </h4>
+                                                        <h6 class="tk-st-2 danger-bg">
+                                                            <t t-esc="state.maintenanceStats['preventive_maintenances']" />
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 col-sm-12">
+                                        <div class="col-md-12 mt32">
+                                            <h4 class="tk-primary">Maintenance Type</h4>
+                                            <hr class="border-primary" />
+                                        </div>
+                                        <div class="tk-maintenance-chart" t-ref="maintenanceType"></div>
+                                    </div>
+                                    <div class="col-md-5 col-sm-12">
+                                        <div class="col-md-12 mt32">
+                                            <h4 class="tk-primary">Maintenance Stats</h4>
+                                            <hr class="border-primary" />
+                                        </div>
+                                        <div class="tk-maintenance-chart" t-ref="maintenanceState"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="col-md-12 mt32">
+                                            <h4 class="tk-primary">Monthly Maintenance Cost</h4>
+                                            <hr class="border-primary" />
+                                        </div>
+                                        <div class="tk-maintenance-chart" t-ref="monthlyMaintenanceCost"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-12 mt32">
+                                                <h4 class="tk-primary">Overdue Requests</h4>
+                                                <hr class="border-primary" />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <table id="overdueTable" class="table table-bordered w-100">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Subjects</th>
+                                                            <th>Date</th>
+                                                            <th>Technician</th>
+                                                            <th>Category</th>
+                                                            <th>Property</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <t t-if="state.maintenanceStats['overdue'].length > 0">
+                                                            <t t-foreach="state.maintenanceStats['overdue']" t-as="overdue" t-key="overdue.id">
+                                                                <tr class="cursor-pointer" t-on-click="() => this.goToMaintenanceRequest(overdue.id)">
+                                                                    <td>
+                                                                        <span t-out="overdue.name" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-out="overdue.request_date" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-out="overdue.user_id[1]" t-if="overdue.user_id" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-out="overdue.category_id[1]" t-if="overdue.category_id" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-out="overdue.property_id[1]" t-if="overdue.property_id" />
+                                                                    </td>
+                                                                </tr>
+                                                            </t>
+                                                        </t>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-12 mt32">
+                                                <h4 class="tk-primary">Maintenance Due Today</h4>
+                                                <hr class="border-primary" />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <table id="maintenanceTable" class="table table-bordered w-100">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Subjects</th>
+                                                            <th>Date</th>
+                                                            <th>Technician</th>
+                                                            <th>Category</th>
+                                                            <th>Property</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <t t-if="state.maintenanceStats['due_today'].length > 0">
+                                                            <t t-foreach="state.maintenanceStats['due_today']" t-as="due" t-key="due.id">
+                                                                <tr class="cursor-pointer" t-on-click="() => this.goToMaintenanceRequest(due.id)">
+                                                                    <td>
+                                                                        <span t-out="due.name" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-out="due.request_date" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-out="due.user_id[1]" t-if="due.user_id" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-out="due.category_id[1]" t-if="due.category_id" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-out="due.property_id[1]" t-if="due.property_id" />
+                                                                    </td>
+                                                                </tr>
+                                                            </t>
+                                                        </t>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-5">
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-12 mt32">
+                                                <h4 class="tk-primary">Property Wise Maintenance Amount</h4>
+                                                <hr class="border-primary" />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <table id="propertyTable" class="table table-bordered w-100">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Property</th>
+                                                            <th>Invoice Amount</th>
+                                                            <th>Bill Amount</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <t t-if="state.maintenanceStats['property_wise_amount'].length > 0">
+                                                            <t t-set="property_wise_amount_count" t-value="0" />
+                                                            <t t-foreach="state.maintenanceStats['property_wise_amount']" t-as="prop_amount" t-key="property_wise_amount_count">
+                                                                <tr class="cursor-pointer">
+                                                                    <td>
+                                                                        <span t-out="prop_amount.property" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-out="prop_amount.invoice_amount" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <span t-out="prop_amount.bill_amount" />
+                                                                    </td>
+                                                                </tr>
+                                                                <t t-set="property_wise_amount_count" t-value="property_wise_amount_count + 1" />
+                                                            </t>
+                                                        </t>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-12 mt32">
+                                                <h4 class="tk-primary">Most Serviced Equipments</h4>
+                                                <hr class="border-primary" />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <table id="equipmentTable" class="table table-bordered w-100">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <t t-if="state.maintenanceStats['top_5_equipment_list'].length > 0">
+                                                            <t t-set="equipment_count" t-value="1" />
+                                                            <t t-foreach="state.maintenanceStats['top_5_equipment_list']" t-as="equipment" t-key="equipment_count">
+                                                                <tr class="cursor-pointer">
+                                                                    <td>
+                                                                        <span t-out="equipment" />
+                                                                    </td>
+                                                                </tr>
+                                                                <t t-set="equipment_count" t-value="equipment_count + 1" />
+                                                            </t>
+                                                        </t>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </t>
+</templates>

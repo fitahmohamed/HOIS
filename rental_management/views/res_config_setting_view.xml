@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+    
+        <record id="res_config_settings_view_form_rental" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.rental</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="40"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="inside">
+                    <app data-string="العقارات" string="العقارات"
+                         name="rental_management">
+                        <block title="Reminder Days">
+                            <setting help="Reminder days for Creating Tenancy Invoice">
+                                <field name="reminder_days" required="1"/>
+                            </setting>
+                            <setting help="Reminder days for Creating Invoice">
+                                <field name="sale_reminder_days"/>
+                            </setting>
+                        </block>
+                        <block title="Default Duration Days for Month, Quarter and Year">
+                            <setting help="Month Days">
+                                <field name="month_days"/>
+                            </setting>
+                            <setting help="Quarter Days">
+                                <field name="quarter_days"/>
+                            </setting>
+                            <setting help="Year Days">
+                                <field name="year_days"/>
+                            </setting>
+                            <setting help="Half Year Days">
+                                <field name="half_year_days"/>
+                            </setting>
+                        </block>
+                        <block title="Default Service Quantity for Payment Terms">
+                            <setting help="Quarterly Utility &amp; Maintenance Services Quantity">
+                                <field name="quarterly_service_quantity"/>
+                            </setting>
+                            <setting help="Half-Yearly Utility &amp; Maintenance Services Quantity">
+                                <field name="half_yearly_service_quantity"/>
+                            </setting>
+                        </block>
+                        <block title="Invoice Post Type">
+                            <setting help="Invoice Post Type">
+                                <field name="invoice_post_type" widget="radio"
+                                       options="{'horizontal':True}"
+                                       required="1"/>
+                            </setting>
+                        </block>
+                        <block title="Default Items">
+                            <setting help="Installment Default Item">
+                                <field name="installment_item_id" required="1"/>
+                            </setting>
+                            <setting help="Landlord Payable Account — credited automatically when a rent payment is confirmed">
+                                <field name="landlord_account_id" required="0"/>
+                            </setting>
+                            <setting help="دفتر يومية قيود استحقاق المالك — القيد الأوتوماتيك الذي يُنشأ مع تأكيد سند القبض (مش سند القبض نفسه)">
+                                <field name="rent_payment_journal_id"/>
+                            </setting>
+                            <setting help="دفتر يومية قيود العمولة — القيد الأوتوماتيك الذي يُنشأ مع تأكيد فاتورة العمولة (مش الفاتورة نفسها)">
+                                <field name="commission_journal_id"/>
+                            </setting>
+                            <setting help="Deposit Default Item">
+                                <field name="deposit_item_id" required="1"/>
+                            </setting>
+                            <setting help="Broker Default Item">
+                                <field name="broker_item_id" required="1"/>
+                            </setting>
+                            <setting help="Maintenance Default Item">
+                                <field name="maintenance_item_id" required="1"/>
+                            </setting>
+                            <setting help="Contract Penalty Default Item">
+                                <field name="contract_penalty_item_id" required="1"/>
+                            </setting>
+                        </block>
+                        <block title="Penalty Configurations">
+                            <setting help="Is penalty applicable on contracts ?">
+                                <field name="is_penalty_applied"/>
+                            </setting>
+                            <block title="For Rent Contract" invisible="not is_penalty_applied">
+                                <setting
+                                        help="Number of extra days allowed after the due date before applying a penalty.">
+                                    <field name="penalty_days_after_due_for_rent_contract"/>
+                                    <span>Days</span>
+                                </setting>
+                                <setting help="Penalty Percentage">
+                                    <field name="penalty_percentage_for_rent_contract"/>
+                                    <span>%</span>
+                                </setting>
+                            </block>
+                            <block title="For Sale Contract" invisible="not is_penalty_applied">
+                                <setting
+                                        help="Number of extra days allowed after the due date before applying a penalty.">
+                                    <field name="penalty_days_after_due_for_sale_contract"/>
+                                    <span>Days</span>
+                                </setting>
+                                <setting help="Penalty Percentage">
+                                    <field name="penalty_percentage_for_sale_contract"/>
+                                    <span>%</span>
+                                </setting>
+                            </block>
+                        </block>
+                        <block title="Report Color Detail">
+                            <setting string="لون التقرير"
+                                     help="Select a lighter color shade for better report readability.">
+                                <field name="report_color_config" widget="color"/>
+                            </setting>
+                            <setting string="لون تقرير العقد"
+                                     help="Select a color for Rent Contract and Sell Contract.">
+                                <field name="contract_report_color" widget="color"/>
+                            </setting>
+                            <setting>
+                                <button icon="fa-repeat"
+                                        string="إعادة ضبط اللون"
+                                        type="object"
+                                        class="btn btn-primary"
+                                        name="action_reset_color"/>
+                            </setting>
+                        </block>
+                        <!-- Property Brochure Mail Configurations-->
+                        <block title="Property Brochure Mail Configurations">
+                            <setting>
+                                <div class="row">
+                                    <div class="col-4">
+
+                                        <strong>Main Title</strong>
+                                    </div>
+                                    <div class="col-8">
+                                        <field
+                                                name="mail_template_title"
+                                                placeholder="Discover Your Ideal Property"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <strong>Main Description</strong>
+                                    </div>
+                                    <div class="col-8">
+                                        <field
+                                                name="mail_template_description"
+                                                placeholder="Ready-to-move property featuring quality construction, prime location, and excellent lifestyle amenities."
+                                        />
+                                    </div>
+                                </div>
+                            </setting>
+                            <setting>
+                                <div>
+                                    <strong>Mail Template Image</strong>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <field name="template_image" widget="image" style="height:100px; width:100px;"/>
+                                </div>
+                            </setting>
+
+
+                            <div>
+                                <br/>
+                                <strong>Section Title</strong>
+                                <span>
+                                    <field name="next_section_title" placeholder="Title: e.g. What's Next?"
+                                           style="width:80%;"/>
+                                </span>
+                            </div>
+
+                            <div>
+                                <br/>
+                                <strong>Section 1</strong>
+                                <span>
+                                    <field name="mail_template_section_one_title"
+                                           placeholder="Title: e.g. Review the Digital Brochure" style="width:80%;"/>
+                                </span>
+                                <br/>
+                                <field name="mail_template_section_one_description"
+                                       style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block;"
+                                       force_save="1"
+                                       placeholder="Description: e.g. Dive into the high-resolution gallery, floor plans, and neighborhood insights. Every detail of your potential new home is just a click away."/>
+                            </div>
+
+                            <div>
+                                <br/>
+                                <strong>
+                                    Section 2
+                                </strong>
+                                <span>
+                                    <field name="mail_template_section_two_title"
+                                           placeholder="Title: e.g. Schedule a Private Tour" style="width:80%;"/>
+                                </span>
+                                <field name="mail_template_section_two_description"
+                                       style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; width:100%;"
+                                       placeholder="Description: e.g. Nothing beats the feeling of walking through the front door. Pick a time that suits your schedule for a personalized, one-on-one viewing."/>
+                            </div>
+
+                            <div>
+                                <br/>
+                                <strong>
+                                    Section 3
+                                </strong>
+                                <span>
+                                    <field name="mail_template_section_three_title"
+                                           placeholder="Title: e.g. Get Your Questions Answered" style="width:80%;"/>
+                                </span>
+                                <field name="mail_template_section_three_description"
+                                       style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; width:100%;"
+                                       placeholder="Description: e.g. Whether it’s about financing options or local school districts, our team is ready to provide the data you need to make a confident decision."
+                                />
+                            </div>
+                        </block>
+                        <!-- Contract Mail Configurations-->
+                        <block title="Contract Mail Configurations">
+                            <setting>
+                                <div class="row">
+                                    <div>
+                                        <strong>Rent Mail Template</strong>
+                                    </div>
+                                    <div>
+                                        <field name="mail_template_id"/>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div>
+                                    <div>
+                                        <strong>Rent Reminder Mail Template</strong>
+                                    </div>
+                                    <div>
+                                        <field name="rent_reminder_contract_mail_template_id"/>
+                                    </div>
+                                </div>
+
+                            </setting>
+                            <setting string="صورة قالب بريد العقد">
+                                <div>
+                                    <br/>
+                                    <field name="contract_template_image" widget="image"
+                                           style="height:100px; width:100px;"/>
+                                </div>
+                            </setting>
+                        </block>
+                        <!-- Property Booking Mail Configurations-->
+                        <block title="Property Booking and Sold  Mail Configurations">
+
+                            <setting>
+                                <div class="row">
+                                    <div>
+                                        <strong>Property Booking Mail Template</strong>
+                                    </div>
+                                    <div>
+                                        <field name="booking_mail_template_id"/>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div>
+                                    <div>
+                                        <strong>Property Sold Mail Template</strong>
+                                    </div>
+                                    <div>
+                                        <field name="property_sold_mail_template_id"/>
+                                    </div>
+                                </div>
+
+                            </setting>
+                            <setting string="صورة قالب بريد البيع">
+                                <div>
+                                    <br/>
+                                    <field name="property_sold_mail_template_image" widget="image"
+                                           style="height:100px; width:100px;"/>
+                                </div>
+                            </setting>
+                        </block>
+                        <!-- ═══════════════════════════════════════════════
+                             Dashboard Theme Configuration
+                             10 predefined professional themes — applied globally
+                             to KPIs, charts, backgrounds, and UI elements.
+                        ═══════════════════════════════════════════════ -->
+                        <block title="Dashboard Theme">
+                            <setting
+                                help="Choose a colour theme that will be applied globally across the rental dashboard — KPIs, charts, backgrounds and UI elements all update instantly.">
+                                <field name="dashboard_theme" widget="radio"
+                                       options="{'horizontal': False}"/>
+                            </setting>
+                        </block>
+                    </app>
+                </xpath>
+            </field>
+        </record>
+    
+
+    </data>
+</odoo>
