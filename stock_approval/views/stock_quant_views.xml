@@ -7,11 +7,11 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='inventory_quantity']" position="after">
                 <field name="sia_status" widget="badge"
-                    decoration-warning="sia_status == 'awaiting'"
-                    decoration-success="sia_status == 'approved'"
-                    decoration-danger="sia_status == 'rejected'"
-                    decoration-muted="sia_status == 'new'"/>
-                <field name="sia_reason" optional="show" readonly="1"/>
+                       decoration-warning="sia_status == 'awaiting'"
+                       decoration-success="sia_status == 'approved'"
+                       decoration-danger="sia_status == 'rejected'"
+                       decoration-muted="sia_status == 'new'"/>
+                <field name="sia_reason" column_invisible="1"/>
             </xpath>
             <xpath expr="//button[@name='action_inventory_history']" position="before">
                 <button name="action_sia_open_reason_wizard" type="object"
