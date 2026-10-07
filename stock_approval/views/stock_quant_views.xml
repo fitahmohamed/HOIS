@@ -19,11 +19,11 @@
                 <button name="action_sia_approve" type="object" string="Approve"
                         icon="fa-check" class="btn-link text-success"
                         invisible="sia_status != 'awaiting'"
-                        groups="stock_inventory_approval.group_stock_inventory_approver"/>
+                        groups="stock_approval.group_stock_inventory_approver"/>
                 <button name="action_sia_reject" type="object" string="Reject"
                         icon="fa-times" class="btn-link text-danger"
                         invisible="sia_status != 'awaiting'"
-                        groups="stock_inventory_approval.group_stock_inventory_approver"/>
+                        groups="stock_approval.group_stock_inventory_approver"/>
             </xpath>
         </field>
     </record>

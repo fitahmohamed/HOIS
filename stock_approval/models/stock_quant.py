@@ -20,7 +20,7 @@ class StockQuant(models.Model):
     sia_reason = fields.Text(string="Reason", copy=False)
 
     def _sia_approver_group(self):
-        return self.env.ref("stock_inventory_approval.group_stock_inventory_approver")
+        return self.env.ref("stock_approval.group_stock_inventory_approver")
 
     def action_apply_inventory(self):
         approver_group = self._sia_approver_group()
