@@ -24,7 +24,7 @@ class StockQuant(models.Model):
 
     def action_apply_inventory(self):
         approver_group = self._sia_approver_group()
-        if self.env.user in approver_group.users:
+        if self.env.user in approver_group.user_ids:
             return super().action_apply_inventory()
 
         to_submit = self.filtered(lambda q: q.inventory_diff_quantity)
@@ -39,7 +39,7 @@ class StockQuant(models.Model):
     def _sia_notify_approvers(self, approver_group):
         self.ensure_one()
         activity_type = self.env.ref("mail.mail_activity_data_todo")
-        for user in approver_group.users:
+        for user in approver_group.user_ids:
             self.activity_schedule(
                 activity_type_id=activity_type.id,
                 user_id=user.id,
@@ -69,7 +69,7 @@ class StockQuant(models.Model):
 
     def action_sia_approve(self):
         approver_group = self._sia_approver_group()
-        if self.env.user not in approver_group.users:
+        if self.env.user not in approver_group.user_ids:
             raise UserError(_("You are not allowed to approve stock adjustments."))
         to_approve = self.filtered(lambda q: q.sia_status == "awaiting")
         to_approve._sia_close_activities(_("Approved"))
@@ -79,7 +79,7 @@ class StockQuant(models.Model):
 
     def action_sia_reject(self):
         approver_group = self._sia_approver_group()
-        if self.env.user not in approver_group.users:
+        if self.env.user not in approver_group.user_ids:
             raise UserError(_("You are not allowed to reject stock adjustments."))
         to_reject = self.filtered(lambda q: q.sia_status == "awaiting")
         to_reject._sia_close_activities(_("Rejected"))
