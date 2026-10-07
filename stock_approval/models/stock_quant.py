@@ -35,8 +35,9 @@ class StockQuant(models.Model):
 
     def get_access_action(self, access_uid=None):
         return self.get_formview_action(access_uid=access_uid)
-        
-    
+
+    def _sia_approver_group(self):
+        return self.env.ref("stock_approval.group_stock_inventory_approver")
 
     def action_apply_inventory(self):
         approver_group = self._sia_approver_group()
