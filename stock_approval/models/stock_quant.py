@@ -19,6 +19,20 @@ class StockQuant(models.Model):
     )
     sia_reason = fields.Text(string="Reason", copy=False)
 
+    def get_formview_action(self, access_uid=None):
+        self.ensure_one()
+        inventory_view = self.env.ref("stock.view_stock_quant_tree_inventory_editable")
+        return {
+            "type": "ir.actions.act_window",
+            "name": _("Physical Inventory"),
+            "res_model": "stock.quant",
+            "views": [(inventory_view.id, "list")],
+            "view_mode": "list",
+            "domain": [("id", "=", self.id)],
+            "context": {"inventory_mode": 1},
+            "target": "current",
+        }
+
     def _sia_approver_group(self):
         return self.env.ref("stock_approval.group_stock_inventory_approver")
 
