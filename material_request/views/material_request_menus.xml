@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_material_request_overview" model="ir.actions.act_window">
+        <field name="name">Overview</field>
+        <field name="res_model">stock.picking.type</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[('code', '=', 'internal')]</field>
+    </record>
+
+    <menuitem id="menu_material_request_root"
+              name="Material Request"
+              sequence="10"
+              groups="stock.group_stock_user"/>
+
+    <menuitem id="menu_material_request_overview"
+              name="Overview"
+              parent="menu_material_request_root"
+              action="action_material_request_overview"
+              sequence="10"/>
+</odoo>
