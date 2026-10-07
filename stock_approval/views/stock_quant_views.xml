@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sia_view_stock_quant_tree_editable" model="ir.ui.view">
+        <field name="name">sia.stock.quant.list.editable</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='inventory_quantity']" position="after">
+                <field name="sia_status" widget="badge"
+                    decoration-warning="sia_status == 'awaiting'"
+                    decoration-success="sia_status == 'approved'"
+                    decoration-danger="sia_status == 'rejected'"
+                    decoration-muted="sia_status == 'new'"/>
+                <field name="sia_reason" optional="show" readonly="1"/>
+            </xpath>
+            <xpath expr="//button[@name='action_inventory_history']" position="before">
+                <button name="action_sia_open_reason_wizard" type="object"
+                        string="Reason" icon="fa-pencil" class="btn-link"/>
+                <button name="action_sia_approve" type="object" string="Approve"
+                        icon="fa-check" class="btn-link text-success"
+                        invisible="sia_status != 'awaiting'"
+                        groups="stock_inventory_approval.group_stock_inventory_approver"/>
+                <button name="action_sia_reject" type="object" string="Reject"
+                        icon="fa-times" class="btn-link text-danger"
+                        invisible="sia_status != 'awaiting'"
+                        groups="stock_inventory_approval.group_stock_inventory_approver"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

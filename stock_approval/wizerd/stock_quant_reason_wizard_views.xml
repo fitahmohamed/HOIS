@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sia_view_stock_quant_reason_wizard_form" model="ir.ui.view">
+        <field name="name">sia.stock.quant.reason.wizard.form</field>
+        <field name="model">stock.quant.reason.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Adjustment Reason">
+                <field name="quant_id" invisible="1"/>
+                <group>
+                    <field name="reason" placeholder="Write the reason for this adjustment..." nolabel="1"/>
+                </group>
+                <footer>
+                    <button name="action_save" type="object" string="Save" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
