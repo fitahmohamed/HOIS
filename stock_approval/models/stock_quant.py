@@ -28,12 +28,13 @@ class StockQuant(models.Model):
             "res_model": "stock.quant",
             "views": [(inventory_view.id, "list")],
             "view_mode": "list",
-            "domain": [("id", "=", self.id)],
+            "domain": [("sia_status", "=", "awaiting")],
             "context": {"inventory_mode": 1},
             "target": "current",
         }
 
-    def _sia_approver_group(self):
+    def get_access_action(self, access_uid=None):
+    return self.get_formview_action(access_uid=access_uid)
         return self.env.ref("stock_approval.group_stock_inventory_approver")
 
     def action_apply_inventory(self):
