@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="saa_view_stock_quant_tree_editable" model="ir.ui.view">
+        <field name="name">saa.stock.quant.list.editable</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='inventory_quantity']" position="after">
+                <field name="saa_status" widget="badge"
+                       decoration-warning="saa_status == 'awaiting'"
+                       decoration-success="saa_status == 'new'"/>
+                <button name="action_saa_approve" type="object" string="Approve"
+                        icon="fa-check" title="Approve"
+                        invisible="saa_status != 'awaiting'"
+                        groups="stock_adjustment_approval.group_stock_adjustment_approver"/>
+                <button name="action_saa_reject" type="object" string="Reject"
+                        icon="fa-times" title="Reject"
+                        invisible="saa_status != 'awaiting'"
+                        groups="stock_adjustment_approval.group_stock_adjustment_approver"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
