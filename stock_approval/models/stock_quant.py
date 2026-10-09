@@ -62,6 +62,26 @@ class StockQuant(models.Model):
             )
 
 
+    def action_sia_open_approval_list(self):
+        return {
+            "type": "ir.actions.act_window",
+            "name": _("Stock Adjustment Approvals"),
+            "res_model": "stock.quant",
+            "view_mode": "list",
+            "views": [
+                (
+                    self.env.ref(
+                        "stock.view_stock_quant_tree_inventory_editable"
+                    ).id,
+                    "list",
+                ),
+            ],
+            "domain": [
+                ("sia_status", "=", "awaiting"),
+            ],
+            "target": "current",
+        }
+
     def _sia_close_activities(self, feedback):
         activity_type = self.env.ref("mail.mail_activity_data_todo")
         activities = self.env["mail.activity"].search([
