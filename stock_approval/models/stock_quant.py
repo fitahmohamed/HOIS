@@ -19,23 +19,6 @@ class StockQuant(models.Model):
     )
     sia_reason = fields.Text(string="Reason", copy=False)
 
-    def get_formview_action(self, access_uid=None):
-        self.ensure_one()
-        inventory_view = self.env.ref("stock.view_stock_quant_tree_inventory_editable")
-        return {
-            "type": "ir.actions.act_window",
-            "name": _("Physical Inventory"),
-            "res_model": "stock.quant",
-            "views": [(inventory_view.id, "list")],
-            "view_mode": "list",
-            "domain": [("sia_status", "=", "awaiting")],
-            "context": {"inventory_mode": 1},
-            "target": "current",
-        }
-
-    def get_access_action(self, access_uid=None):
-        return self.get_formview_action(access_uid=access_uid)
-
     def _sia_approver_group(self):
         return self.env.ref("stock_approval.group_stock_inventory_approver")
 
@@ -53,17 +36,20 @@ class StockQuant(models.Model):
             return super(StockQuant, remaining).action_apply_inventory()
         return True
 
+    
     def _sia_notify_approvers(self, approver_group):
         self.ensure_one()
         activity_type = self.env.ref("mail.mail_activity_data_todo")
+
         for user in approver_group.user_ids:
             self.activity_schedule(
                 activity_type_id=activity_type.id,
                 user_id=user.id,
                 summary=_("Stock Adjustment Approval Required"),
                 note=_(
-                    "%(product)s at %(location)s: counted %(counted)s (on hand %(onhand)s, diff %(diff)s)."
-                    " Reason: %(reason)s. Requested by %(requester)s."
+                    "%(product)s at %(location)s: counted %(counted)s "
+                    "(on hand %(onhand)s, diff %(diff)s). "
+                    "Reason: %(reason)s. Requested by %(requester)s."
                 ) % {
                     "product": self.product_id.display_name,
                     "location": self.location_id.display_name,
@@ -74,6 +60,7 @@ class StockQuant(models.Model):
                     "requester": self.env.user.name,
                 },
             )
+
 
     def _sia_close_activities(self, feedback):
         activity_type = self.env.ref("mail.mail_activity_data_todo")
