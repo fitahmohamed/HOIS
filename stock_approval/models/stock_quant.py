@@ -45,7 +45,7 @@ class StockQuant(models.Model):
             self.activity_schedule(
                 activity_type_id=activity_type.id,
                 user_id=user.id,
-                summary=_("Stock Adjustment Approval Required"),
+                summary="Stock Adjustment Approval Required",
                 note=_(
                     "%(product)s at %(location)s: counted %(counted)s "
                     "(on hand %(onhand)s, diff %(diff)s). "
