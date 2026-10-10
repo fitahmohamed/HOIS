@@ -10,6 +10,11 @@
         "wizard/stock_quant_reason_wizard_views.xml",
         "views/stock_quant_views.xml",
     ],
+    'assets': {
+        'web.assets_backend': [
+            'stock_approval/static/src/js/activity_controller_patch.js',
+        ],
+    },
     "installable": True,
     "application": False,
     "auto_install": False,
