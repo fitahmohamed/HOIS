@@ -2,42 +2,35 @@
 /** @odoo-module **/
 
 import { patch } from "@web/core/utils/patch";
-import { ActivityController } from "@mail/views/web/activity/activity_controller";
+import { useService } from "@web/core/utils/hooks";
+import { ActivityMenu } from "@mail/core/web/activity_menu";
 
-patch(ActivityController.prototype, {
-    async openRecord(record, { newWindow } = {}) {
-        console.log("[stock_approval] openRecord called", {
-            resModel: this.props.resModel,
-            resId: record.resId,
-            newWindow,
-        });
+patch(ActivityMenu.prototype, {
+    setup() {
+        super.setup(...arguments);
+        this.orm = useService("orm");
+    },
 
-        if (this.props.resModel === "stock.quant" && !newWindow) {
-            try {
-                const rows = await this.model.orm.read(
-                    "stock.quant",
-                    [record.resId],
-                    ["sia_status"]
-                );
+    async executeActivityAction(group, domain, views, context, newWindow) {
+        if (group.model === "stock.quant") {
+            const action = await this.orm.call(
+                "stock.quant",
+                "action_sia_open_approval_list",
+                [[]]
+            );
 
-                console.log("[stock_approval] quant status", rows);
-
-                if (rows.length && rows[0].sia_status === "awaiting") {
-                    const action = await this.model.orm.call(
-                        "stock.quant",
-                        "action_sia_open_approval_list",
-                        [[record.resId]]
-                    );
-
-                    console.log("[stock_approval] opening approval action", action);
-                    return this.action.doAction(action);
-                }
-            } catch (error) {
-                console.error("[stock_approval] Failed to open approval action", error);
-                throw error;
-            }
+            return this.action.doAction(action, {
+                newWindow,
+                clearBreadcrumbs: true,
+            });
         }
 
-        return super.openRecord(record, { newWindow });
+        return super.executeActivityAction(
+            group,
+            domain,
+            views,
+            context,
+            newWindow
+        );
     },
 });
