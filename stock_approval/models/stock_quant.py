@@ -1,4 +1,4 @@
-from odoo import _, fields, models
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -18,6 +18,14 @@ class StockQuant(models.Model):
         copy=False,
     )
     sia_reason = fields.Text(string="Reason", copy=False)
+
+    @api.model
+    def _get_inventory_fields_create(self):
+        return super()._get_inventory_fields_create() + ["sia_status", "sia_reason"]
+
+    @api.model
+    def _get_inventory_fields_write(self):
+        return super()._get_inventory_fields_write() + ["sia_status", "sia_reason"]
 
     def _sia_approver_group(self):
         return self.env.ref("stock_approval.group_stock_inventory_approver")
