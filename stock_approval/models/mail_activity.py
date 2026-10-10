@@ -17,13 +17,11 @@ class MailActivity(models.Model):
 
             return {
                 "type": "ir.actions.act_window",
-                "name": _("Stock Adjustment Approvals"),
+                "name": _("Physical Inventory Approvals"),
                 "res_model": "stock.quant",
                 "view_mode": "list",
                 "views": [(view.id, "list")],
-                "domain": [
-                    ("sia_status", "=", "awaiting"),
-                ],
+                "domain": [("sia_status", "=", "awaiting")],
                 "context": {"inventory_mode": True},
                 "target": "current",
             }
