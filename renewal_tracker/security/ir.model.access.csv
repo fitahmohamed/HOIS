@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_renewal_document_user,renewal.document user,model_renewal_document,base.group_user,1,1,1,0
+access_renewal_document_manager,renewal.document manager,model_renewal_document,base.group_system,1,1,1,1
+access_renewal_document_history_user,renewal.document.history user,model_renewal_document_history,base.group_user,1,1,1,0
+access_renewal_document_history_manager,renewal.document.history manager,model_renewal_document_history,base.group_system,1,1,1,1
+access_renewal_settings_manager,renewal.settings manager,model_renewal_settings,base.group_system,1,1,1,1
+access_renewal_settings_user,renewal.settings user,model_renewal_settings,base.group_user,1,0,0,0
+access_renewal_renew_wizard,renewal.document.renew.wizard,model_renewal_document_renew_wizard,base.group_user,1,1,1,1
