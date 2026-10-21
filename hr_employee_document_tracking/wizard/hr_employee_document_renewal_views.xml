@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_employee_document_renewal_form" model="ir.ui.view">
+        <field name="name">hr.employee.document.renewal.form</field>
+        <field name="model">hr.employee.document.renewal</field>
+        <field name="arch" type="xml">
+            <form string="Renewal">
+                <field name="employee_id" invisible="1"/>
+                <field name="doc_type" invisible="1"/>
+                <group>
+                    <group string="Information">
+                        <field name="number" string="Passport Number" invisible="doc_type != 'passport'"/>
+                        <field name="number" string="Iqama Number" invisible="doc_type != 'iqama'"/>
+                        <field name="number" string="License Number" invisible="doc_type != 'license'"/>
+                        <field name="number" string="Card Number" invisible="doc_type != 'driver_card'"/>
+                        <field name="number" string="Policy Number" invisible="doc_type != 'medical'"/>
+                        <field name="profession" invisible="doc_type != 'iqama'"/>
+                        <field name="sponsor" invisible="doc_type != 'iqama'"/>
+                        <field name="country_id" invisible="doc_type not in ('passport', 'iqama')"
+                               options="{'no_create': True}"/>
+                        <field name="license_type" invisible="doc_type != 'license'"/>
+                        <field name="authority" invisible="doc_type != 'license'"/>
+                        <field name="company" invisible="doc_type != 'medical'"/>
+                        <field name="membership_number" invisible="doc_type != 'medical'"/>
+                        <field name="insurance_type" invisible="doc_type != 'medical'"/>
+                        <field name="file_name" invisible="1"/>
+                        <field name="file" filename="file_name"/>
+                        <field name="status"/>
+                        <field name="note"/>
+                    </group>
+                    <group string="Dates">
+                        <field name="issue_date" required="1"/>
+                        <field name="expiry_date" required="1"/>
+                        <field name="remaining_days"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

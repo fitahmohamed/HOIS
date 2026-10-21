@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_document_tracking" model="ir.ui.view">
+        <field name="name">hr.employee.form.document.tracking</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+
+            <div name="button_box" position="inside">
+                <button name="action_open_document_history" type="object" class="oe_stat_button"
+                        icon="fa-history" groups="hr.group_hr_user">
+                    <field name="document_history_count" widget="statinfo" string="Renewal History"/>
+                </button>
+            </div>
+
+            <xpath expr="//notebook" position="inside">
+                <!-- Passport Tracking -->
+                <page name="passport_tracking" string="Passport Tracking" groups="hr.group_hr_user">
+                    <group>
+                        <group string="Passport Information">
+                            <field name="passport_number" string="Passport Number"/>
+                            <field name="passport_country_id" string="Issue Country" options="{'no_create': True}"/>
+                            <field name="passport_file_name" invisible="1"/>
+                            <field name="passport_file" string="Upload File" filename="passport_file_name"/>
+                            <field name="passport_note" string="Note"/>
+                            <field name="passport_status" string="Status"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="passport_issue_date" string="Issue Date"/>
+                            <field name="passport_expiry_date" string="Expiry Date"/>
+                            <field name="passport_remaining_days" string="Remaining Days"/>
+                            <div colspan="2">
+                                <button name="action_open_document_renewal" type="object" string="Renewal"
+                                        class="btn-primary" icon="fa-refresh" context="{'doc_type': 'passport'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <separator string="Passport History"/>
+                    <field name="passport_history_ids" readonly="1" nolabel="1"
+                           context="{'list_view_ref': 'hr_employee_document_tracking.view_hr_employee_document_history_list', 'form_view_ref': 'hr_employee_document_tracking.view_hr_employee_document_history_form'}"/>
+                </page>
+                <!-- Iqama Tracking -->
+                <page name="iqama_tracking" string="Iqama Tracking" groups="hr.group_hr_user">
+                    <group>
+                        <group string="Iqama Information">
+                            <field name="iqama_number" string="Iqama Number"/>
+                            <field name="iqama_profession" string="Profession"/>
+                            <field name="iqama_sponsor" string="Sponsor"/>
+                            <field name="iqama_country_id" string="Issue Country" options="{'no_create': True}"/>
+                            <field name="iqama_file_name" invisible="1"/>
+                            <field name="iqama_file" string="Upload File" filename="iqama_file_name"/>
+                            <field name="iqama_note" string="Note"/>
+                            <field name="iqama_status" string="Status"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="iqama_issue_date" string="Issue Date"/>
+                            <field name="iqama_expiry_date" string="Expiry Date"/>
+                            <field name="iqama_remaining_days" string="Remaining Days"/>
+                            <div colspan="2">
+                                <button name="action_open_document_renewal" type="object" string="Renewal"
+                                        class="btn-primary" icon="fa-refresh" context="{'doc_type': 'iqama'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <separator string="Iqama History"/>
+                    <field name="iqama_history_ids" readonly="1" nolabel="1"
+                           context="{'list_view_ref': 'hr_employee_document_tracking.view_hr_employee_document_history_list', 'form_view_ref': 'hr_employee_document_tracking.view_hr_employee_document_history_form'}"/>
+                </page>
+                <!-- Driving License Tracking -->
+                <page name="license_tracking" string="Driving License Tracking" groups="hr.group_hr_user">
+                    <group>
+                        <group string="Driving License Information">
+                            <field name="license_number" string="License Number"/>
+                            <field name="license_type" string="License Type"/>
+                            <field name="license_authority" string="Authority"/>
+                            <field name="license_file_name" invisible="1"/>
+                            <field name="license_file" string="Upload File" filename="license_file_name"/>
+                            <field name="license_note" string="Note"/>
+                            <field name="license_status" string="Status"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="license_issue_date" string="Issue Date"/>
+                            <field name="license_expiry_date" string="Expiry Date"/>
+                            <field name="license_remaining_days" string="Remaining Days"/>
+                            <div colspan="2">
+                                <button name="action_open_document_renewal" type="object" string="Renewal"
+                                        class="btn-primary" icon="fa-refresh" context="{'doc_type': 'license'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <separator string="Driving License History"/>
+                    <field name="license_history_ids" readonly="1" nolabel="1"
+                           context="{'list_view_ref': 'hr_employee_document_tracking.view_hr_employee_document_history_list', 'form_view_ref': 'hr_employee_document_tracking.view_hr_employee_document_history_form'}"/>
+                </page>
+                <!-- Driver Card Tracking -->
+                <page name="driver_card_tracking" string="Driver Card Tracking" groups="hr.group_hr_user">
+                    <group>
+                        <group string="Driver Card Information">
+                            <field name="driver_card_number" string="Card Number"/>
+                            <field name="driver_card_file_name" invisible="1"/>
+                            <field name="driver_card_file" string="Upload File" filename="driver_card_file_name"/>
+                            <field name="driver_card_note" string="Note"/>
+                            <field name="driver_card_status" string="Status"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="driver_card_issue_date" string="Issue Date"/>
+                            <field name="driver_card_expiry_date" string="Expiry Date"/>
+                            <field name="driver_card_remaining_days" string="Remaining Days"/>
+                            <div colspan="2">
+                                <button name="action_open_document_renewal" type="object" string="Renewal"
+                                        class="btn-primary" icon="fa-refresh" context="{'doc_type': 'driver_card'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <separator string="Driver Card History"/>
+                    <field name="driver_card_history_ids" readonly="1" nolabel="1"
+                           context="{'list_view_ref': 'hr_employee_document_tracking.view_hr_employee_document_history_list', 'form_view_ref': 'hr_employee_document_tracking.view_hr_employee_document_history_form'}"/>
+                </page>
+                <!-- Medical Insurance Tracking -->
+                <page name="medical_tracking" string="Medical Insurance Tracking" groups="hr.group_hr_user">
+                    <group>
+                        <group string="Medical Insurance Information">
+                            <field name="medical_policy_number" string="Policy Number"/>
+                            <field name="medical_company" string="Company"/>
+                            <field name="medical_membership_number" string="Membership Number"/>
+                            <field name="medical_type" string="Type"/>
+                            <field name="medical_file_name" invisible="1"/>
+                            <field name="medical_file" string="Upload File" filename="medical_file_name"/>
+                            <field name="medical_note" string="Note"/>
+                            <field name="medical_status" string="Status"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="medical_issue_date" string="Issue Date"/>
+                            <field name="medical_expiry_date" string="Expiry Date"/>
+                            <field name="medical_remaining_days" string="Remaining Days"/>
+                            <div colspan="2">
+                                <button name="action_open_document_renewal" type="object" string="Renewal"
+                                        class="btn-primary" icon="fa-refresh" context="{'doc_type': 'medical'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <separator string="Medical Insurance History"/>
+                    <field name="medical_history_ids" readonly="1" nolabel="1"
+                           context="{'list_view_ref': 'hr_employee_document_tracking.view_hr_employee_document_history_list', 'form_view_ref': 'hr_employee_document_tracking.view_hr_employee_document_history_form'}"/>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
