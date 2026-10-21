@@ -54,8 +54,12 @@ class HrEmployeeDocumentRenewal(models.TransientModel):
             employee_vals[emp_field] = value
             history_vals[generic] = value
 
-        employee.write(employee_vals)
-        self.env["hr.employee.document.history"].create(history_vals)
+        History = self.env["hr.employee.document.history"]
+        if not History.search_count([("employee_id", "=", employee.id), ("doc_type", "=", self.doc_type)]):
+            # nothing recorded yet for this document: this is its first entry
+            history_vals["entry_type"] = "initial"
+        employee.with_context(skip_initial_document_history=True).write(employee_vals)
+        History.create(history_vals)
         # the document is renewed: close its pending renewal alerts
         employee._close_document_alerts(self.doc_type)
         return {"type": "ir.actions.act_window_close"}

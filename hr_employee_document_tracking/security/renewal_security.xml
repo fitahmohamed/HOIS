@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Users allowed into the "متابعة التجديدات" app.
+         Members are managed from the renewal settings (field "المستخدمين المسموح لهم"). -->
+    <record id="group_renewal_access" model="res.groups">
+        <field name="name">Renewal Tracker Access</field>
+        <field name="comment">Users allowed to open the Renewal Tracker app. Managed from the renewal settings.</field>
+    </record>
+
+    <!-- App menu: allowed users + administrators (so the settings stay reachable) -->
+    <record id="renewal_tracker.menu_renewal_root" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [ref('group_renewal_access'), ref('base.group_system')])]"/>
+    </record>
+
+    <!-- Renewal documents / history / renew wizard: allowed users only
+         (administrators keep their own full access lines from renewal_tracker) -->
+    <record id="renewal_tracker.access_renewal_document_user" model="ir.model.access">
+        <field name="group_id" ref="group_renewal_access"/>
+    </record>
+    <record id="renewal_tracker.access_renewal_document_history_user" model="ir.model.access">
+        <field name="group_id" ref="group_renewal_access"/>
+    </record>
+    <record id="renewal_tracker.access_renewal_renew_wizard" model="ir.model.access">
+        <field name="group_id" ref="group_renewal_access"/>
+    </record>
+</odoo>

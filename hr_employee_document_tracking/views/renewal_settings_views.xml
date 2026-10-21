@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_renewal_settings_form_access" model="ir.ui.view">
+        <field name="name">renewal.settings.form.access</field>
+        <field name="model">renewal.settings</field>
+        <field name="inherit_id" ref="renewal_tracker.view_renewal_settings_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='notify_email']" position="after">
+                <field name="notify_user_ids" widget="many2many_tags_avatar"
+                       options="{'no_create': True}"
+                       placeholder="اختر المستخدمين اللي هتوصلهم الإشعارات..."/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group string="صلاحيات الوصول">
+                    <field name="access_user_ids" widget="many2many_tags_avatar"
+                           options="{'no_create': True}"
+                           placeholder="اختر المستخدمين اللي ليهم صلاحية..."/>
+                    <div class="text-muted" colspan="2">
+                        المستخدمين دول بس هما اللي يقدروا يفتحوا تطبيق متابعة التجديدات. مديرين النظام عندهم صلاحية دايماً.
+                    </div>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

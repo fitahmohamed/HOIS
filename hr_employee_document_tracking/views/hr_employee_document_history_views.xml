@@ -6,6 +6,7 @@
         <field name="model">hr.employee.document.history</field>
         <field name="arch" type="xml">
             <list create="false" delete="false">
+                <field name="entry_type" widget="badge" decoration-muted="entry_type == 'initial'"/>
                 <field name="renewal_date"/>
                 <field name="old_expiry_date"/>
                 <field name="expiry_date"/>
@@ -28,6 +29,7 @@
             <list create="false" delete="false">
                 <field name="doc_type" string="History Type" decoration-bf="1"/>
                 <field name="employee_id" optional="hide"/>
+                <field name="entry_type" widget="badge" decoration-muted="entry_type == 'initial'"/>
                 <field name="renewal_date"/>
                 <field name="old_expiry_date"/>
                 <field name="expiry_date"/>
@@ -53,6 +55,7 @@
                     <group>
                         <group string="Renewal">
                             <field name="employee_id" readonly="1"/>
+                            <field name="entry_type" readonly="1"/>
                             <field name="renewal_date" readonly="1"/>
                             <field name="user_id" readonly="1" widget="many2one_avatar_user"/>
                         </group>
@@ -117,6 +120,7 @@
                 <group>
                     <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
                     <filter name="group_doc_type" string="History Type" context="{'group_by': 'doc_type'}"/>
+                    <filter name="group_entry_type" string="Entry Type" context="{'group_by': 'entry_type'}"/>
                     <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
                     <filter name="group_user" string="Renewed By" context="{'group_by': 'user_id'}"/>
                 </group>

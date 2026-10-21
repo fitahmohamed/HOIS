@@ -1,8 +1,8 @@
-from odoo import _, api, fields, models
+from odoo import Command, _, api, fields, models
 
 from datetime import timedelta
 
-from .document_common import DOC_TYPES, LICENSE_TYPES, STATUS_SELECTION, compute_days, get_status
+from .document_common import DOC_FIELD_MAP, DOC_TYPES, LICENSE_TYPES, STATUS_SELECTION, compute_days, get_status
 
 PREFIXES = ("passport", "iqama", "license", "driver_card", "medical")
 
@@ -169,9 +169,14 @@ class HrEmployee(models.Model):
             [("employee_id", "=", self.id), ("doc_type", "=", prefix)], limit=1)
         return last.user_id or self.env.ref("base.user_admin")
 
+    def _document_alert_users(self, prefix, settings):
+        """Users chosen in the renewal settings; otherwise the default responsible."""
+        users = self.env["res.users"].sudo().browse(settings.get("notify_user_ids") or []).exists()
+        return users or self._document_responsible_user(prefix)
+
     def _document_alert(self, prefix, label, days_left, expiry, settings, expired=False):
         self.ensure_one()
-        user = self._document_responsible_user(prefix)
+        users = self._document_alert_users(prefix, settings)
         upcoming, expired_summary = self._document_alert_summaries(label)
         if expired:
             summary = expired_summary
@@ -183,30 +188,35 @@ class HrEmployee(models.Model):
             deadline = fields.Date.today() + timedelta(days=min(days_left, 3))
 
         if settings.get("notify_activity", True):
-            exists = self.env["mail.activity"].sudo().search_count([
-                ("res_model", "=", "hr.employee"),
-                ("res_id", "=", self.id),
-                ("summary", "=", summary),
-            ], limit=1)
-            if not exists:
-                activity_type = self.env.ref("mail.mail_activity_data_todo", raise_if_not_found=False)
-                self.activity_schedule(
-                    act_type_xmlid="mail.mail_activity_data_todo" if activity_type else "",
-                    summary=summary,
-                    note=note,
-                    date_deadline=deadline,
-                    user_id=user.id,
-                )
+            for user in users:
+                exists = self.env["mail.activity"].sudo().search_count([
+                    ("res_model", "=", "hr.employee"),
+                    ("res_id", "=", self.id),
+                    ("summary", "=", summary),
+                    ("user_id", "=", user.id),
+                ], limit=1)
+                if not exists:
+                    self.activity_schedule(
+                        act_type_xmlid="mail.mail_activity_data_todo",
+                        summary=summary,
+                        note=note,
+                        date_deadline=deadline,
+                        user_id=user.id,
+                    )
         # e-mail only on the alert days (not every day after expiry)
-        if settings.get("notify_email") and not expired and user.partner_id.email:
+        partners = users.partner_id.filtered("email")
+        if settings.get("notify_email") and not expired and partners:
             template = self.env.ref(
                 "hr_employee_document_tracking.email_template_employee_document_alert",
                 raise_if_not_found=False)
             if template:
                 template.with_context(
                     doc_label=label, days_left=days_left, expiry_date=expiry,
-                    responsible_partner_id=user.partner_id.id, responsible_name=user.name,
-                ).send_mail(self.id, force_send=True)
+                    responsible_name=users[0].name if len(users) == 1 else "",
+                ).send_mail(
+                    self.id, force_send=True,
+                    email_values={"recipient_ids": [Command.set(partners.ids)], "email_to": False},
+                )
 
     def _close_document_alerts(self, prefix):
         label = dict(DOC_TYPES)[prefix]
@@ -215,6 +225,59 @@ class HrEmployee(models.Model):
             ("res_id", "in", self.ids),
             ("summary", "in", list(self._document_alert_summaries(label))),
         ]).action_done()
+
+    # ------------------------------------------------------------------ First entry -> history line
+    @api.model_create_multi
+    def create(self, vals_list):
+        employees = super().create(vals_list)
+        if not self.env.context.get("skip_initial_document_history"):
+            for emp, vals in zip(employees, vals_list):
+                emp._sync_initial_document_history(self._document_prefixes_in(vals))
+        return employees
+
+    def write(self, vals):
+        res = super().write(vals)
+        if not self.env.context.get("skip_initial_document_history"):
+            prefixes = self._document_prefixes_in(vals)
+            if prefixes:
+                for emp in self:
+                    emp._sync_initial_document_history(prefixes)
+        return res
+
+    @api.model
+    def _document_prefixes_in(self, vals):
+        return [p for p in PREFIXES if set(DOC_FIELD_MAP[p].values()) & set(vals)]
+
+    def _document_snapshot(self, prefix):
+        self.ensure_one()
+        values = {}
+        for generic, emp_field in DOC_FIELD_MAP[prefix].items():
+            value = self[emp_field]
+            if isinstance(value, models.BaseModel):
+                value = value.id
+            values[generic] = value
+        return values
+
+    def _sync_initial_document_history(self, prefixes):
+        """The first time a document is filled in, log it as an "initial" history line.
+        Until the first renewal, direct edits keep that initial line up to date."""
+        self.ensure_one()
+        History = self.env["hr.employee.document.history"].sudo()
+        for prefix in prefixes:
+            snapshot = self._document_snapshot(prefix)
+            if not any(v for k, v in snapshot.items() if k != "file_name"):
+                continue
+            lines = History.search([("employee_id", "=", self.id), ("doc_type", "=", prefix)])
+            if not lines:
+                History.create(dict(
+                    snapshot,
+                    employee_id=self.id,
+                    doc_type=prefix,
+                    entry_type="initial",
+                    user_id=self.env.user.id,
+                ))
+            elif len(lines) == 1 and lines.entry_type == "initial":
+                lines.write(snapshot)
 
     def _compute_document_history_count(self):
         data = self.env["hr.employee.document.history"]._read_group(

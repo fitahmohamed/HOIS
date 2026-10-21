@@ -11,6 +11,7 @@
                   decoration-info="status == 'warning'">
                 <field name="employee_id" string="Employee" widget="many2one_avatar_employee"/>
                 <field name="doc_type" string="History Type"/>
+                <field name="entry_type" widget="badge" decoration-muted="entry_type == 'initial'"/>
                 <field name="number" optional="show"/>
                 <field name="renewal_date"/>
                 <field name="old_expiry_date"/>

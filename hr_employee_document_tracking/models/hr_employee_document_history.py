@@ -20,6 +20,9 @@ class HrEmployeeDocumentHistory(models.Model):
     user_id = fields.Many2one(
         "res.users", string="Renewed By", default=lambda self: self.env.user, required=True
     )
+    entry_type = fields.Selection(
+        [("initial", "تسجيل أول"), ("renewal", "تجديد")],
+        string="Entry Type", default="renewal", required=True, index=True)
     old_issue_date = fields.Date(string="Old Issue Date")
     old_expiry_date = fields.Date(string="Old Expiry Date")
     # issue_date / expiry_date (from the mixin) hold the NEW values
