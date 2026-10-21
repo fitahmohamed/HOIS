@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_renewal_root"
+              name="متابعة التجديدات"
+              sequence="50"
+              web_icon="renewal_tracker,static/description/icon.png"/>
+
+    <menuitem id="menu_renewal_dashboard"
+              name="لوحة التحكم"
+              parent="menu_renewal_root"
+              action="action_renewal_dashboard"
+              sequence="10"/>
+
+    <menuitem id="menu_renewal_all"
+              name="كل الوثائق"
+              parent="menu_renewal_root"
+              action="action_renewal_document"
+              sequence="20"/>
+
+    <menuitem id="menu_renewal_urgent"
+              name="عاجل - تحتاج تجديد"
+              parent="menu_renewal_root"
+              action="action_renewal_urgent"
+              sequence="30"/>
+
+    <menuitem id="menu_renewal_settings"
+              name="الإعدادات"
+              parent="menu_renewal_root"
+              action="action_renewal_settings_server"
+              sequence="90"
+              groups="base.group_system"/>
+
+</odoo>
