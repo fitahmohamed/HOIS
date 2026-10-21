@@ -1,6 +1,6 @@
 {
     "name": "Employee Document Tracking",
-    "version": "19.0.1.2.0",
+    "version": "19.0.1.3.0",
     "summary": "Track Passport, Iqama, Driving License, Driver Card and Medical Insurance "
                "on employees with renewal wizard, renewal history and automatic statuses "
                "linked to Renewal Tracker",
@@ -17,6 +17,7 @@
         "views/hr_employee_views.xml",
         "views/employee_renewal_views.xml",
         "views/renewal_settings_views.xml",
+        "views/hr_visa_profession_views.xml",
     ],
     "installable": True,
     "application": False,

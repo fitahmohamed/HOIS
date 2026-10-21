@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_hr_visa_profession_list" model="ir.ui.view">
+        <field name="name">hr.visa.profession.list</field>
+        <field name="model">hr.visa.profession</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_visa_profession_search" model="ir.ui.view">
+        <field name="name">hr.visa.profession.search</field>
+        <field name="model">hr.visa.profession</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hr_visa_profession" model="ir.actions.act_window">
+        <field name="name">Visa Professions</field>
+        <field name="res_model">hr.visa.profession</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a visa profession</p>
+            <p>The visa professions you add here are the options of the "Visa Profession" field on employees.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_hr_visa_profession"
+              name="Visa Professions"
+              parent="hr.menu_config_employee"
+              action="action_hr_visa_profession"
+              sequence="30"/>
+
+    <!-- Employee form: under Department -->
+    <record id="view_employee_form_staff_type" model="ir.ui.view">
+        <field name="name">hr.employee.form.staff.type</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='work_information']//field[@name='department_id']" position="after">
+                <field name="staff_type" groups="hr.group_hr_user"/>
+                <field name="visa_profession_id" widget="selection" groups="hr.group_hr_user"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

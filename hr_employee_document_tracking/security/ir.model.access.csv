@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hr_employee_document_history_user,hr.employee.document.history user,model_hr_employee_document_history,hr.group_hr_user,1,1,1,0
 access_hr_employee_document_history_manager,hr.employee.document.history manager,model_hr_employee_document_history,hr.group_hr_manager,1,1,1,1
 access_hr_employee_document_renewal_user,hr.employee.document.renewal user,model_hr_employee_document_renewal,hr.group_hr_user,1,1,1,1
+access_hr_visa_profession_user,hr.visa.profession user,model_hr_visa_profession,hr.group_hr_user,1,0,0,0
+access_hr_visa_profession_manager,hr.visa.profession manager,model_hr_visa_profession,hr.group_hr_manager,1,1,1,1
