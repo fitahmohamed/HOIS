@@ -25,7 +25,6 @@
                         <field name="insurance_type" invisible="doc_type != 'medical'"/>
                         <field name="file_name" invisible="1"/>
                         <field name="file" filename="file_name"/>
-                        <field name="status"/>
                         <field name="note"/>
                     </group>
                     <group string="Dates">

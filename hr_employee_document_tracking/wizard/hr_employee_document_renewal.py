@@ -56,4 +56,6 @@ class HrEmployeeDocumentRenewal(models.TransientModel):
 
         employee.write(employee_vals)
         self.env["hr.employee.document.history"].create(history_vals)
+        # the document is renewed: close its pending renewal alerts
+        employee._close_document_alerts(self.doc_type)
         return {"type": "ir.actions.act_window_close"}

@@ -23,7 +23,11 @@
                             <field name="passport_file_name" invisible="1"/>
                             <field name="passport_file" string="Upload File" filename="passport_file_name"/>
                             <field name="passport_note" string="Note"/>
-                            <field name="passport_status" string="Status"/>
+                            <field name="passport_status" string="Status" widget="badge"
+                                   decoration-danger="passport_status == 'expired'"
+                                   decoration-warning="passport_status == 'critical'"
+                                   decoration-info="passport_status == 'warning'"
+                                   decoration-success="passport_status == 'ok'"/>
                         </group>
                         <group string="Dates">
                             <field name="passport_issue_date" string="Issue Date"/>
@@ -50,7 +54,11 @@
                             <field name="iqama_file_name" invisible="1"/>
                             <field name="iqama_file" string="Upload File" filename="iqama_file_name"/>
                             <field name="iqama_note" string="Note"/>
-                            <field name="iqama_status" string="Status"/>
+                            <field name="iqama_status" string="Status" widget="badge"
+                                   decoration-danger="iqama_status == 'expired'"
+                                   decoration-warning="iqama_status == 'critical'"
+                                   decoration-info="iqama_status == 'warning'"
+                                   decoration-success="iqama_status == 'ok'"/>
                         </group>
                         <group string="Dates">
                             <field name="iqama_issue_date" string="Issue Date"/>
@@ -76,7 +84,11 @@
                             <field name="license_file_name" invisible="1"/>
                             <field name="license_file" string="Upload File" filename="license_file_name"/>
                             <field name="license_note" string="Note"/>
-                            <field name="license_status" string="Status"/>
+                            <field name="license_status" string="Status" widget="badge"
+                                   decoration-danger="license_status == 'expired'"
+                                   decoration-warning="license_status == 'critical'"
+                                   decoration-info="license_status == 'warning'"
+                                   decoration-success="license_status == 'ok'"/>
                         </group>
                         <group string="Dates">
                             <field name="license_issue_date" string="Issue Date"/>
@@ -100,7 +112,11 @@
                             <field name="driver_card_file_name" invisible="1"/>
                             <field name="driver_card_file" string="Upload File" filename="driver_card_file_name"/>
                             <field name="driver_card_note" string="Note"/>
-                            <field name="driver_card_status" string="Status"/>
+                            <field name="driver_card_status" string="Status" widget="badge"
+                                   decoration-danger="driver_card_status == 'expired'"
+                                   decoration-warning="driver_card_status == 'critical'"
+                                   decoration-info="driver_card_status == 'warning'"
+                                   decoration-success="driver_card_status == 'ok'"/>
                         </group>
                         <group string="Dates">
                             <field name="driver_card_issue_date" string="Issue Date"/>
@@ -127,7 +143,11 @@
                             <field name="medical_file_name" invisible="1"/>
                             <field name="medical_file" string="Upload File" filename="medical_file_name"/>
                             <field name="medical_note" string="Note"/>
-                            <field name="medical_status" string="Status"/>
+                            <field name="medical_status" string="Status" widget="badge"
+                                   decoration-danger="medical_status == 'expired'"
+                                   decoration-warning="medical_status == 'critical'"
+                                   decoration-info="medical_status == 'warning'"
+                                   decoration-success="medical_status == 'ok'"/>
                         </group>
                         <group string="Dates">
                             <field name="medical_issue_date" string="Issue Date"/>

@@ -8,11 +8,12 @@ DOC_TYPES = [
     ("medical", "Medical Insurance"),
 ]
 
+# Same statuses as the "renewal_tracker" module, computed automatically
 STATUS_SELECTION = [
-    ("valid", "Valid"),
-    ("under_renewal", "Under Renewal"),
-    ("expired", "Expired"),
-    ("cancelled", "Cancelled"),
+    ("expired", "منتهي"),
+    ("critical", "عاجل جداً"),
+    ("warning", "قريب"),
+    ("ok", "سليم"),
 ]
 
 LICENSE_TYPES = [
@@ -22,7 +23,7 @@ LICENSE_TYPES = [
     ("card", "Card"),
 ]
 
-_COMMON = ["file", "file_name", "note", "status", "issue_date", "expiry_date"]
+_COMMON = ["file", "file_name", "note", "issue_date", "expiry_date"]
 
 # generic field (on wizard / history)  ->  field on hr.employee, per document type
 DOC_FIELD_MAP = {
@@ -69,6 +70,20 @@ def compute_days(issue_date, expiry_date):
     return 0
 
 
+def get_status(expiry_date, settings, today=None):
+    """Status from the days left until expiry, using renewal_tracker settings."""
+    if not expiry_date:
+        return False
+    days_left = (expiry_date - (today or fields.Date.today())).days
+    if days_left < 0:
+        return "expired"
+    if days_left <= settings.get("critical_days", 7):
+        return "critical"
+    if days_left <= settings.get("warning_days", 30):
+        return "warning"
+    return "ok"
+
+
 class HrEmployeeDocumentMixin(models.AbstractModel):
     """Generic document fields shared by the renewal wizard and the history lines."""
 
@@ -88,7 +103,6 @@ class HrEmployeeDocumentMixin(models.AbstractModel):
     file = fields.Binary(string="Upload File", attachment=True)
     file_name = fields.Char(string="File Name")
     note = fields.Text()
-    status = fields.Selection(STATUS_SELECTION, default="valid")
     issue_date = fields.Date()
     expiry_date = fields.Date()
     remaining_days = fields.Integer(compute="_compute_remaining_days", store=True)

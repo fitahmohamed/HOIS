@@ -1,4 +1,6 @@
-from odoo import fields, models
+from odoo import api, fields, models
+
+from .document_common import STATUS_SELECTION, get_status
 
 
 class HrEmployeeDocumentHistory(models.Model):
@@ -23,3 +25,20 @@ class HrEmployeeDocumentHistory(models.Model):
     # issue_date / expiry_date (from the mixin) hold the NEW values
     issue_date = fields.Date(string="New Issue Date")
     expiry_date = fields.Date(string="New Expiry Date")
+    # automatic, based on the new expiry date and the renewal_tracker settings
+    status = fields.Selection(
+        STATUS_SELECTION, string="Status", compute="_compute_status", store=True, index=True
+    )
+
+    @api.depends("expiry_date")
+    def _compute_status(self):
+        settings = self.env["renewal.settings"].sudo()._get_settings()
+        today = fields.Date.today()
+        for rec in self:
+            rec.status = get_status(rec.expiry_date, settings, today)
+
+    @api.model
+    def _recompute_document_status(self):
+        records = self.sudo().search([("expiry_date", "!=", False)])
+        self.env.add_to_compute(self._fields["status"], records)
+        records._recompute_recordset(["status"])

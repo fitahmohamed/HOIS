@@ -10,6 +10,11 @@
                 <field name="old_expiry_date"/>
                 <field name="expiry_date"/>
                 <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="status" widget="badge"
+                       decoration-danger="status == 'expired'"
+                       decoration-warning="status == 'critical'"
+                       decoration-info="status == 'warning'"
+                       decoration-success="status == 'ok'"/>
             </list>
         </field>
     </record>
@@ -27,6 +32,11 @@
                 <field name="old_expiry_date"/>
                 <field name="expiry_date"/>
                 <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="status" widget="badge"
+                       decoration-danger="status == 'expired'"
+                       decoration-warning="status == 'critical'"
+                       decoration-info="status == 'warning'"
+                       decoration-success="status == 'ok'"/>
             </list>
         </field>
     </record>
@@ -73,7 +83,11 @@
                         <group>
                             <field name="file_name" invisible="1"/>
                             <field name="file" filename="file_name" readonly="1"/>
-                            <field name="status" readonly="1"/>
+                            <field name="status" readonly="1" widget="badge"
+                                   decoration-danger="status == 'expired'"
+                                   decoration-warning="status == 'critical'"
+                                   decoration-info="status == 'warning'"
+                                   decoration-success="status == 'ok'"/>
                             <field name="note" readonly="1"/>
                         </group>
                     </group>
@@ -95,8 +109,15 @@
                 <filter name="license" string="Driving License" domain="[('doc_type', '=', 'license')]"/>
                 <filter name="driver_card" string="Driver Card" domain="[('doc_type', '=', 'driver_card')]"/>
                 <filter name="medical" string="Medical Insurance" domain="[('doc_type', '=', 'medical')]"/>
+                <separator/>
+                <filter name="st_expired" string="منتهي" domain="[('status', '=', 'expired')]"/>
+                <filter name="st_critical" string="عاجل جداً" domain="[('status', '=', 'critical')]"/>
+                <filter name="st_warning" string="قريب" domain="[('status', '=', 'warning')]"/>
+                <filter name="st_ok" string="سليم" domain="[('status', '=', 'ok')]"/>
                 <group>
+                    <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
                     <filter name="group_doc_type" string="History Type" context="{'group_by': 'doc_type'}"/>
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
                     <filter name="group_user" string="Renewed By" context="{'group_by': 'user_id'}"/>
                 </group>
             </search>
