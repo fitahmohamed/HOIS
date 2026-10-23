@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fleet_vehicle_document_renewal_form" model="ir.ui.view">
+        <field name="name">fleet.vehicle.document.renewal.form</field>
+        <field name="model">fleet.vehicle.document.renewal</field>
+        <field name="arch" type="xml">
+            <form string="Renewal">
+                <field name="vehicle_id" invisible="1"/>
+                <field name="doc_type" invisible="1"/>
+                <field name="currency_id" invisible="1"/>
+                <group>
+                    <group string="Information">
+                        <field name="number" string="Vehicle Registration Number" invisible="doc_type != 'registration'"/>
+                        <field name="company" string="Insurance Company" invisible="doc_type != 'insurance'"/>
+                        <field name="insurance_type" string="Insurance Type" invisible="doc_type != 'insurance'"/>
+                        <field name="number" string="Policy Number" invisible="doc_type != 'insurance'"/>
+                        <field name="amount" string="Amount" invisible="doc_type != 'insurance'"/>
+                        <field name="number" string="MVPI Number" invisible="doc_type != 'mvpi'"/>
+                        <field name="number" string="Authorization Number" invisible="doc_type != 'authorization'"/>
+                        <field name="driver_id" string="Authorized Driver" options="{'no_create': True}" invisible="doc_type != 'authorization'"/>
+                        <field name="number" string="Operation Card Number" invisible="doc_type != 'operation_card'"/>
+                        <field name="file_name" invisible="1"/>
+                        <field name="file" filename="file_name"/>
+                        <field name="note"/>
+                    </group>
+                    <group string="Dates">
+                        <field name="issue_date" required="1"/>
+                        <field name="expiry_date" required="1"/>
+                        <field name="remaining_days"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_confirm" type="object" string="Confirm" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

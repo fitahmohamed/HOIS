@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_vehicle_view_form_document_tracking" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form.document.tracking</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_open_document_history" type="object" class="oe_stat_button" icon="fa-history">
+                    <field name="document_history_count" widget="statinfo" string="Renewal History"/>
+                </button>
+            </div>
+            <xpath expr="//notebook" position="inside">
+                <!-- Vehicle Registration Tracking -->
+                <page name="registration_tracking" string="Vehicle Registration Tracking">
+                    <group>
+                        <group string="Vehicle Registration Information">
+                            <field name="registration_number" string="Vehicle Registration Number"/>
+                            <field name="registration_file_name" invisible="1"/>
+                            <field name="registration_file" string="Upload File" filename="registration_file_name"/>
+                            <field name="registration_note" string="Note"/>
+                            <field name="registration_status" string="Status" widget="badge"
+                                   decoration-danger="registration_status == 'expired'"
+                                   decoration-warning="registration_status == 'critical'"
+                                   decoration-info="registration_status == 'warning'"
+                                   decoration-success="registration_status == 'ok'"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="registration_issue_date" string="Issue Date"/>
+                            <field name="registration_expiry_date" string="Expiry Date"/>
+                            <field name="registration_remaining_days" string="Remaining Days"/>
+                            <div colspan="2">
+                                <button name="action_open_document_renewal" type="object" string="Renewal"
+                                        class="btn-primary" icon="fa-refresh" context="{'doc_type': 'registration'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <separator string="Vehicle Registration History"/>
+                    <field name="registration_history_ids" readonly="1" nolabel="1"
+                           context="{'list_view_ref': 'fleet_vehicle_document_tracking.view_fleet_vehicle_document_history_list', 'form_view_ref': 'fleet_vehicle_document_tracking.view_fleet_vehicle_document_history_form'}"/>
+                </page>
+                <!-- Insurance Register Tracking -->
+                <page name="insurance_tracking" string="Insurance Register Tracking">
+                    <group>
+                        <group string="Insurance Register Information">
+                            <field name="insurance_company" string="Insurance Company"/>
+                            <field name="insurance_type" string="Insurance Type"/>
+                            <field name="insurance_policy_number" string="Policy Number"/>
+                            <field name="insurance_amount" string="Amount"/>
+                            <field name="insurance_file_name" invisible="1"/>
+                            <field name="insurance_file" string="Upload File" filename="insurance_file_name"/>
+                            <field name="insurance_note" string="Note"/>
+                            <field name="insurance_status" string="Status" widget="badge"
+                                   decoration-danger="insurance_status == 'expired'"
+                                   decoration-warning="insurance_status == 'critical'"
+                                   decoration-info="insurance_status == 'warning'"
+                                   decoration-success="insurance_status == 'ok'"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="insurance_issue_date" string="Issue Date"/>
+                            <field name="insurance_expiry_date" string="Expiry Date"/>
+                            <field name="insurance_remaining_days" string="Remaining Days"/>
+                            <div colspan="2">
+                                <button name="action_open_document_renewal" type="object" string="Renewal"
+                                        class="btn-primary" icon="fa-refresh" context="{'doc_type': 'insurance'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <separator string="Insurance Register History"/>
+                    <field name="insurance_history_ids" readonly="1" nolabel="1"
+                           context="{'list_view_ref': 'fleet_vehicle_document_tracking.view_fleet_vehicle_document_history_list', 'form_view_ref': 'fleet_vehicle_document_tracking.view_fleet_vehicle_document_history_form'}"/>
+                </page>
+                <!-- MVPI Tracking -->
+                <page name="mvpi_tracking" string="MVPI Tracking">
+                    <group>
+                        <group string="MVPI Information">
+                            <field name="mvpi_number" string="MVPI Number"/>
+                            <field name="mvpi_file_name" invisible="1"/>
+                            <field name="mvpi_file" string="Upload File" filename="mvpi_file_name"/>
+                            <field name="mvpi_note" string="Note"/>
+                            <field name="mvpi_status" string="Status" widget="badge"
+                                   decoration-danger="mvpi_status == 'expired'"
+                                   decoration-warning="mvpi_status == 'critical'"
+                                   decoration-info="mvpi_status == 'warning'"
+                                   decoration-success="mvpi_status == 'ok'"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="mvpi_issue_date" string="Issue Date"/>
+                            <field name="mvpi_expiry_date" string="Expiry Date"/>
+                            <field name="mvpi_remaining_days" string="Remaining Days"/>
+                            <div colspan="2">
+                                <button name="action_open_document_renewal" type="object" string="Renewal"
+                                        class="btn-primary" icon="fa-refresh" context="{'doc_type': 'mvpi'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <separator string="MVPI History"/>
+                    <field name="mvpi_history_ids" readonly="1" nolabel="1"
+                           context="{'list_view_ref': 'fleet_vehicle_document_tracking.view_fleet_vehicle_document_history_list', 'form_view_ref': 'fleet_vehicle_document_tracking.view_fleet_vehicle_document_history_form'}"/>
+                </page>
+                <!-- Vehicle Authorization Tracking -->
+                <page name="authorization_tracking" string="Vehicle Authorization Tracking">
+                    <group>
+                        <group string="Vehicle Authorization Information">
+                            <field name="authorization_number" string="Authorization Number"/>
+                            <field name="authorization_driver_id" string="Authorized Driver" widget="many2one_avatar"/>
+                            <field name="authorization_file_name" invisible="1"/>
+                            <field name="authorization_file" string="Upload File" filename="authorization_file_name"/>
+                            <field name="authorization_note" string="Note"/>
+                            <field name="authorization_status" string="Status" widget="badge"
+                                   decoration-danger="authorization_status == 'expired'"
+                                   decoration-warning="authorization_status == 'critical'"
+                                   decoration-info="authorization_status == 'warning'"
+                                   decoration-success="authorization_status == 'ok'"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="authorization_issue_date" string="Issue Date"/>
+                            <field name="authorization_expiry_date" string="Expiry Date"/>
+                            <field name="authorization_remaining_days" string="Remaining Days"/>
+                            <div colspan="2">
+                                <button name="action_open_document_renewal" type="object" string="Renewal"
+                                        class="btn-primary" icon="fa-refresh" context="{'doc_type': 'authorization'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <separator string="Vehicle Authorization History"/>
+                    <field name="authorization_history_ids" readonly="1" nolabel="1"
+                           context="{'list_view_ref': 'fleet_vehicle_document_tracking.view_fleet_vehicle_document_history_list', 'form_view_ref': 'fleet_vehicle_document_tracking.view_fleet_vehicle_document_history_form'}"/>
+                </page>
+                <!-- Operation Card Tracking -->
+                <page name="operation_card_tracking" string="Operation Card Tracking">
+                    <group>
+                        <group string="Operation Card Information">
+                            <field name="operation_card_number" string="Operation Card Number"/>
+                            <field name="operation_card_file_name" invisible="1"/>
+                            <field name="operation_card_file" string="Upload File" filename="operation_card_file_name"/>
+                            <field name="operation_card_note" string="Note"/>
+                            <field name="operation_card_status" string="Status" widget="badge"
+                                   decoration-danger="operation_card_status == 'expired'"
+                                   decoration-warning="operation_card_status == 'critical'"
+                                   decoration-info="operation_card_status == 'warning'"
+                                   decoration-success="operation_card_status == 'ok'"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="operation_card_issue_date" string="Issue Date"/>
+                            <field name="operation_card_expiry_date" string="Expiry Date"/>
+                            <field name="operation_card_remaining_days" string="Remaining Days"/>
+                            <div colspan="2">
+                                <button name="action_open_document_renewal" type="object" string="Renewal"
+                                        class="btn-primary" icon="fa-refresh" context="{'doc_type': 'operation_card'}"/>
+                            </div>
+                        </group>
+                    </group>
+                    <separator string="Operation Card History"/>
+                    <field name="operation_card_history_ids" readonly="1" nolabel="1"
+                           context="{'list_view_ref': 'fleet_vehicle_document_tracking.view_fleet_vehicle_document_history_list', 'form_view_ref': 'fleet_vehicle_document_tracking.view_fleet_vehicle_document_history_form'}"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

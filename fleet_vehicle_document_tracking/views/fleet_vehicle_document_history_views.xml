@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- List used inside each tab -->
+    <record id="view_fleet_vehicle_document_history_list" model="ir.ui.view">
+        <field name="name">fleet.vehicle.document.history.list</field>
+        <field name="model">fleet.vehicle.document.history</field>
+        <field name="arch" type="xml">
+            <list create="false" delete="false">
+                <field name="renewal_date"/>
+                <field name="entry_type" widget="badge" decoration-muted="entry_type == 'initial'"/>
+                <field name="old_expiry_date"/>
+                <field name="expiry_date"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="status" widget="badge"
+                       decoration-danger="status == 'expired'"
+                       decoration-warning="status == 'critical'"
+                       decoration-info="status == 'warning'"
+                       decoration-success="status == 'ok'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- List used by the "Renewal History" smart button -->
+    <record id="view_fleet_vehicle_document_history_all_list" model="ir.ui.view">
+        <field name="name">fleet.vehicle.document.history.all.list</field>
+        <field name="model">fleet.vehicle.document.history</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <list create="false" delete="false">
+                <field name="doc_type" string="History Type" decoration-bf="1"/>
+                <field name="vehicle_id" optional="hide"/>
+                <field name="entry_type" widget="badge" decoration-muted="entry_type == 'initial'"/>
+                <field name="number" optional="show"/>
+                <field name="renewal_date"/>
+                <field name="old_expiry_date"/>
+                <field name="expiry_date"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="status" widget="badge"
+                       decoration-danger="status == 'expired'"
+                       decoration-warning="status == 'critical'"
+                       decoration-info="status == 'warning'"
+                       decoration-success="status == 'ok'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_fleet_vehicle_document_history_form" model="ir.ui.view">
+        <field name="name">fleet.vehicle.document.history.form</field>
+        <field name="model">fleet.vehicle.document.history</field>
+        <field name="arch" type="xml">
+            <form string="Renewal" create="false" edit="false" delete="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h2><field name="doc_type" readonly="1"/></h2>
+                    </div>
+                    <group>
+                        <group string="Renewal">
+                            <field name="vehicle_id" readonly="1"/>
+                            <field name="entry_type" readonly="1"/>
+                            <field name="renewal_date" readonly="1"/>
+                            <field name="user_id" readonly="1" widget="many2one_avatar_user"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="old_issue_date" readonly="1"/>
+                            <field name="old_expiry_date" readonly="1"/>
+                            <field name="issue_date" readonly="1"/>
+                            <field name="expiry_date" readonly="1"/>
+                            <field name="status" readonly="1" widget="badge"
+                                   decoration-danger="status == 'expired'"
+                                   decoration-warning="status == 'critical'"
+                                   decoration-info="status == 'warning'"
+                                   decoration-success="status == 'ok'"/>
+                        </group>
+                    </group>
+                    <group string="Document Information">
+                        <group>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="number" string="Vehicle Registration Number" readonly="1" invisible="doc_type != 'registration'"/>
+                            <field name="company" string="Insurance Company" readonly="1" invisible="doc_type != 'insurance'"/>
+                            <field name="insurance_type" string="Insurance Type" readonly="1" invisible="doc_type != 'insurance'"/>
+                            <field name="number" string="Policy Number" readonly="1" invisible="doc_type != 'insurance'"/>
+                            <field name="amount" string="Amount" readonly="1" invisible="doc_type != 'insurance'"/>
+                            <field name="number" string="MVPI Number" readonly="1" invisible="doc_type != 'mvpi'"/>
+                            <field name="number" string="Authorization Number" readonly="1" invisible="doc_type != 'authorization'"/>
+                            <field name="driver_id" string="Authorized Driver" readonly="1" options="{'no_create': True}" invisible="doc_type != 'authorization'"/>
+                            <field name="number" string="Operation Card Number" readonly="1" invisible="doc_type != 'operation_card'"/>
+                        </group>
+                        <group>
+                            <field name="file_name" invisible="1"/>
+                            <field name="file" filename="file_name" readonly="1"/>
+                            <field name="note" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fleet_vehicle_document_history_search" model="ir.ui.view">
+        <field name="name">fleet.vehicle.document.history.search</field>
+        <field name="model">fleet.vehicle.document.history</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="vehicle_id"/>
+                <field name="number"/>
+                <field name="user_id"/>
+                <filter name="registration" string="Vehicle Registration" domain="[('doc_type', '=', 'registration')]"/>
+                <filter name="insurance" string="Insurance Register" domain="[('doc_type', '=', 'insurance')]"/>
+                <filter name="mvpi" string="MVPI" domain="[('doc_type', '=', 'mvpi')]"/>
+                <filter name="authorization" string="Vehicle Authorization" domain="[('doc_type', '=', 'authorization')]"/>
+                <filter name="operation_card" string="Operation Card" domain="[('doc_type', '=', 'operation_card')]"/>
+                <separator/>
+                <filter name="st_expired" string="منتهي" domain="[('status', '=', 'expired')]"/>
+                <filter name="st_critical" string="عاجل جداً" domain="[('status', '=', 'critical')]"/>
+                <filter name="st_warning" string="قريب" domain="[('status', '=', 'warning')]"/>
+                <filter name="st_ok" string="سليم" domain="[('status', '=', 'ok')]"/>
+                <group>
+                    <filter name="group_vehicle" string="Vehicle" context="{'group_by': 'vehicle_id'}"/>
+                    <filter name="group_doc_type" string="History Type" context="{'group_by': 'doc_type'}"/>
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                    <filter name="group_user" string="Renewed By" context="{'group_by': 'user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
