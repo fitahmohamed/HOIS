@@ -14,6 +14,8 @@ class FleetVehicleDocumentHistory(models.Model):
         "fleet.vehicle", string="Vehicle", required=True, ondelete="cascade", index=True
     )
     company_id = fields.Many2one(related="vehicle_id.company_id", store=True)
+    vehicle_driver_id = fields.Many2one(
+        related="vehicle_id.driver_id", string="Driver", store=True)
     renewal_date = fields.Datetime(string="Renewal Date", default=fields.Datetime.now, required=True)
     user_id = fields.Many2one(
         "res.users", string="Renewed By", default=lambda self: self.env.user, required=True

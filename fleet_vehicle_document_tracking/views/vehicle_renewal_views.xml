@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vehicle_renewal_list" model="ir.ui.view">
+        <field name="name">fleet.vehicle.document.history.vehicle.renewal.list</field>
+        <field name="model">fleet.vehicle.document.history</field>
+        <field name="priority">30</field>
+        <field name="arch" type="xml">
+            <list string="Vehicle Renewal" create="false" delete="false"
+                  decoration-danger="status == 'expired'"
+                  decoration-warning="status == 'critical'"
+                  decoration-info="status == 'warning'">
+                <field name="vehicle_id" string="Vehicle"/>
+                <field name="vehicle_driver_id" string="Driver" widget="many2one_avatar" optional="show"/>
+                <field name="doc_type" string="History Type"/>
+                <field name="entry_type" widget="badge" decoration-muted="entry_type == 'initial'"/>
+                <field name="number" optional="show"/>
+                <field name="renewal_date"/>
+                <field name="old_expiry_date"/>
+                <field name="expiry_date"/>
+                <field name="remaining_days" string="Remaining Days"/>
+                <field name="user_id" widget="many2one_avatar_user"/>
+                <field name="status" widget="badge"
+                       decoration-danger="status == 'expired'"
+                       decoration-warning="status == 'critical'"
+                       decoration-info="status == 'warning'"
+                       decoration-success="status == 'ok'"/>
+                <field name="company_id" optional="hide" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- also group / search by driver -->
+    <record id="view_fleet_vehicle_document_history_search_driver" model="ir.ui.view">
+        <field name="name">fleet.vehicle.document.history.search.driver</field>
+        <field name="model">fleet.vehicle.document.history</field>
+        <field name="inherit_id" ref="view_fleet_vehicle_document_history_search"/>
+        <field name="arch" type="xml">
+            <field name="vehicle_id" position="after">
+                <field name="vehicle_driver_id"/>
+            </field>
+            <filter name="group_vehicle" position="after">
+                <filter name="group_driver" string="Driver" context="{'group_by': 'vehicle_driver_id'}"/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="action_vehicle_renewal" model="ir.actions.act_window">
+        <field name="name">Vehicle Renewal</field>
+        <field name="res_model">fleet.vehicle.document.history</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'list', 'view_id': ref('view_vehicle_renewal_list')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('view_fleet_vehicle_document_history_form')})]"/>
+        <field name="search_view_id" ref="view_fleet_vehicle_document_history_search"/>
+        <field name="context">{'create': False}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">لا توجد تجديدات للمركبات بعد</p>
+            <p>التجديدات اللي بتتعمل من زرار Renewal في فورم المركبة بتظهر هنا.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_vehicle_renewal"
+              name="Vehicle Renewal"
+              parent="renewal_tracker.menu_renewal_root"
+              action="action_vehicle_renewal"
+              sequence="26"
+              groups="fleet.fleet_group_user"/>
+</odoo>
