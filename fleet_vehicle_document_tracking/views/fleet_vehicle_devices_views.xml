@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- GPS / Camera registry: a new row right under the Driver / Vehicle sections -->
+    <record id="fleet_vehicle_view_form_devices" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form.gps.camera</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vehicle_properties']" position="before">
+                <group col="2" name="device_registry">
+                    <group string="GPS Registry" name="gps_registry">
+                        <field name="gps_installed" string="GPS Installed" widget="boolean_toggle"/>
+                        <field name="gps_id" string="GPS ID" invisible="not gps_installed"/>
+                        <field name="gps_installation_date" string="Installation Date" invisible="not gps_installed"/>
+                        <field name="gps_provider" string="Provider" invisible="not gps_installed"/>
+                        <field name="gps_remark" string="Remark" invisible="not gps_installed"/>
+                    </group>
+                    <group string="Camera / PAS Registry" name="camera_registry">
+                        <field name="camera_installed" string="Camera / PAS Installed" widget="boolean_toggle"/>
+                        <field name="camera_id" string="Camera / PAS ID" invisible="not camera_installed"/>
+                        <field name="camera_installation_date" string="Installation Date" invisible="not camera_installed"/>
+                        <field name="camera_provider" string="Provider" invisible="not camera_installed"/>
+                        <field name="camera_remark" string="Remark" invisible="not camera_installed"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- List: optional columns -->
+    <record id="fleet_vehicle_view_tree_devices" model="ir.ui.view">
+        <field name="name">fleet.vehicle.list.gps.camera</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="gps_installed" optional="hide"/>
+                <field name="gps_id" optional="hide"/>
+                <field name="camera_installed" optional="hide"/>
+                <field name="camera_id" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
