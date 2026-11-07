@@ -1,7 +1,7 @@
 {
     'name': 'Inventory Analytic Accounts',
     "author": 'kemo',
-    'version': '1.0.0',
+    'version': '0.19.1.0.0',
     'category': 'Warehouse',
     "sequence": 0,
     'depends': ['base', 'account', 'stock_account', 'stock'],
@@ -10,5 +10,6 @@
     'installable': True,
     'auto_install': False,
     'application': False,
+    
 }
 
