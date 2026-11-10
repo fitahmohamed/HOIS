@@ -202,7 +202,7 @@
         <!-- Header -->
         <div class="rm-hdr">
           <div class="rm-ht">
-            <h1 t-esc="state.currentPage === 'dashboard' ? 'Overview Dashboard' : state.currentPage.charAt(0).toUpperCase() + state.currentPage.slice(1)"/>
+            <h1 t-esc="tr(state.currentPage === 'dashboard' ? 'Overview Dashboard' : state.currentPage.charAt(0).toUpperCase() + state.currentPage.slice(1))"/>
             <p t-esc="state.today"/>
           </div>
           <div style="flex:1"/>
@@ -228,8 +228,8 @@
                   </t>
                 </div>
                 <div class="rm-kv" t-esc="kpi.v"/>
-                <div class="rm-kl" t-esc="kpi.l"/>
-                <div class="rm-ksub" t-esc="kpi.sub"/>
+                <div class="rm-kl" t-esc="tr(kpi.l)"/>
+                <div class="rm-ksub" t-esc="tr(kpi.sub)"/>
                 <div class="rm-ks"><canvas t-att-id="'sp' + kpi_index"/></div>
               </div>
             </t>
@@ -292,7 +292,7 @@
                     <div class="rm-top-rank" t-esc="p_index + 1"/>
                     <div style="flex:1">
                       <div class="rm-top-name" t-esc="p.name"/>
-                      <div class="rm-top-meta"><t t-esc="p.type"/> <t t-esc="p.city">· <t t-esc="p.city"/></t></div>
+                      <div class="rm-top-meta"><t t-esc="tr(p.type)"/> <t t-esc="p.city">· <t t-esc="p.city"/></t></div>
                     </div>
                     <div class="rm-top-rev" t-esc="p.rev"/>
                     <span t-att-class="'rm-pill rm-pill-' + statusPill(p.stage)"
@@ -323,8 +323,8 @@
                   <div class="rm-sb-item rm-lead-tile"
                        t-on-click="() =&gt; openOdooView('crm.lead', leadTileDomain(lead), 'list', lead.k)">
                     <div class="rm-sb-val" t-esc="lead.v"/>
-                    <div class="rm-sb-key" t-esc="lead.k"/>
-                    <div t-att-class="'rm-sb-delta rm-' + lead.cl" t-esc="lead.d"/>
+                    <div class="rm-sb-key" t-esc="tr(lead.k)"/>
+                    <div t-att-class="'rm-sb-delta rm-' + lead.cl" t-esc="tr(lead.d)"/>
                   </div>
                 </t>
                 <t t-if="(leads.tiles || []).length === 0">
@@ -394,8 +394,8 @@
             <t t-foreach="currentPageData.stat_bar || []" t-as="sb" t-key="sb_index">
               <div class="rm-sb-item rm-kpi" t-on-click="() =&gt; onKpiClick(sb)">
                 <div class="rm-sb-val" t-esc="sb.v"/>
-                <div class="rm-sb-key" t-esc="sb.k"/>
-                <div t-att-class="'rm-sb-delta rm-' + sb.cl" t-esc="sb.d"/>
+                <div class="rm-sb-key" t-esc="tr(sb.k)"/>
+                <div t-att-class="'rm-sb-delta rm-' + sb.cl" t-esc="tr(sb.d)"/>
               </div>
             </t>
           </div>
@@ -416,7 +416,7 @@
                 <div class="rm-ct">Recent Properties</div>
                 <div class="rm-cs">Added in the last 3 days</div>
               </div>
-              <span class="rm-tag" t-esc="(currentPageData.recent_properties || []).length + ' new'"/>
+              <span class="rm-tag" t-esc="(currentPageData.recent_properties || []).length + ' ' + tr('new')"/>
               <button class="rm-hbtn" style="margin-left:8px"
                       t-on-click="() =&gt; openOdooView('property.details', [], 'list', 'All Properties')">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -430,7 +430,7 @@
                      t-on-click="() =&gt; openOdooView('property.details', [['id','=',rp.id]], 'form', 'Recent Properties', rp.id)">
                   <div class="rm-recent-name" t-esc="rp.name"/>
                   <div class="rm-recent-meta">
-                    <t t-esc="rp.type"/>
+                    <t t-esc="tr(rp.type)"/>
                     <t t-if="rp.city"> · <t t-esc="rp.city"/></t>
                   </div>
                   <div class="rm-recent-foot">
@@ -455,8 +455,8 @@
             <t t-foreach="currentPageData.stat_bar || []" t-as="sb" t-key="sb_index">
               <div class="rm-sb-item rm-kpi" t-on-click="() =&gt; onKpiClick(sb)" style="cursor:pointer">
                 <div class="rm-sb-val" t-esc="sb.v"/>
-                <div class="rm-sb-key" t-esc="sb.k"/>
-                <div t-att-class="'rm-sb-delta rm-' + sb.cl" t-esc="sb.d"/>
+                <div class="rm-sb-key" t-esc="tr(sb.k)"/>
+                <div t-att-class="'rm-sb-delta rm-' + sb.cl" t-esc="tr(sb.d)"/>
               </div>
             </t>
           </div>
@@ -477,7 +477,7 @@
           <div class="rm-card rm-c12">
             <div class="rm-ch">
               <div><div class="rm-ct">Active Rent Contracts</div><div class="rm-cs">Currently running</div></div>
-              <span class="rm-tag rm-tag-b" t-esc="(currentPageData.rent_table || []).length + ' active'"/>
+              <span class="rm-tag rm-tag-b" t-esc="(currentPageData.rent_table || []).length + ' ' + tr('active')"/>
             </div>
             <table class="rm-tbl">
               <thead><tr><th>Ref</th><th>Tenant</th><th>Property</th><th>Monthly Rent</th><th>Expiry</th><th>Days Left</th><th>Status</th></tr></thead>
@@ -511,7 +511,7 @@
           <div class="rm-card rm-c12">
             <div class="rm-ch">
               <div><div class="rm-ct">Contract List</div><div class="rm-cs">All contracts</div></div>
-              <span class="rm-tag" t-esc="(currentPageData.contract_list || []).length + ' total'"/>
+              <span class="rm-tag" t-esc="(currentPageData.contract_list || []).length + ' ' + tr('total')"/>
             </div>
             <table class="rm-tbl">
               <thead><tr><th>Ref</th><th>Tenant</th><th>Property</th><th>Monthly Rent</th><th>Start</th><th>End</th><th>Status</th></tr></thead>
@@ -541,8 +541,8 @@
             <t t-foreach="currentPageData.stat_bar || []" t-as="sb" t-key="sb_index">
               <div class="rm-sb-item rm-kpi" t-on-click="() =&gt; onKpiClick(sb)" style="cursor:pointer">
                 <div class="rm-sb-val" t-esc="sb.v"/>
-                <div class="rm-sb-key" t-esc="sb.k"/>
-                <div t-att-class="'rm-sb-delta rm-' + sb.cl" t-esc="sb.d"/>
+                <div class="rm-sb-key" t-esc="tr(sb.k)"/>
+                <div t-att-class="'rm-sb-delta rm-' + sb.cl" t-esc="tr(sb.d)"/>
               </div>
             </t>
           </div>
@@ -565,7 +565,7 @@
                   <tr t-on-click="() =&gt; openOdooView('property.vendor', [['id', '=', s.id]], 'form', 'Sale Contracts', s.id)">
                     <td t-esc="s.sold_seq"/>
                     <td t-esc="s.property"/>
-                    <td t-esc="s.type"/>
+                    <td t-esc="tr(s.type)"/>
                     <td t-esc="s.price"/>
                     <td><span t-att-class="'rm-pill rm-pill-' + statusPill(s.stage)" t-esc="statusLabel(s.stage)"/></td>
                     <td t-esc="s.agent"/>
@@ -585,8 +585,8 @@
             <t t-foreach="currentPageData.stat_bar || []" t-as="sb" t-key="sb_index">
               <div class="rm-sb-item rm-kpi" t-on-click="() =&gt; onKpiClick(sb)" style="cursor:pointer">
                 <div class="rm-sb-val" t-esc="sb.v"/>
-                <div class="rm-sb-key" t-esc="sb.k"/>
-                <div t-att-class="'rm-sb-delta rm-' + sb.cl" t-esc="sb.d"/>
+                <div class="rm-sb-key" t-esc="tr(sb.k)"/>
+                <div t-att-class="'rm-sb-delta rm-' + sb.cl" t-esc="tr(sb.d)"/>
               </div>
             </t>
           </div>
@@ -609,7 +609,7 @@
                   <tr t-on-click="() =&gt; openOdooView('maintenance.request', [['id', '=', m.id]], 'form', 'Maintenance Requests', m.id)">
                     <td t-esc="m.name"/>
                     <td t-esc="m.property"/>
-                    <td t-esc="m.category"/>
+                    <td t-esc="tr(m.category)"/>
                     <td><span t-att-class="'rm-pill ' + (m.priority === '3' ? 'rm-pill-r' : m.priority === '2' ? 'rm-pill-a' : 'rm-pill-b')"
                               t-esc="priorityLabel(m.priority)"/></td>
                     <td t-esc="m.assigned"/>
@@ -630,8 +630,8 @@
             <t t-foreach="currentPageData.stat_bar || []" t-as="sb" t-key="sb_index">
               <div class="rm-sb-item rm-kpi" t-on-click="() =&gt; onKpiClick(sb)" style="cursor:pointer">
                 <div class="rm-sb-val" t-esc="sb.v"/>
-                <div class="rm-sb-key" t-esc="sb.k"/>
-                <div t-att-class="'rm-sb-delta rm-' + sb.cl" t-esc="sb.d"/>
+                <div class="rm-sb-key" t-esc="tr(sb.k)"/>
+                <div t-att-class="'rm-sb-delta rm-' + sb.cl" t-esc="tr(sb.d)"/>
               </div>
             </t>
           </div>
@@ -677,7 +677,7 @@
                 <div class="rm-ct">Property Map</div>
                 <div class="rm-cs">OpenStreetMap · click a marker for details</div>
               </div>
-              <span class="rm-tag rm-tag-b" t-esc="(currentPageData.properties || []).length + ' mapped'"/>
+              <span class="rm-tag rm-tag-b" t-esc="(currentPageData.properties || []).length + ' ' + tr('mapped')"/>
             </div>
             <div id="propertyMap" class="rm-map-canvas"/>
             <div t-if="(currentPageData.properties || []).length === 0" class="rm-empty">
@@ -711,8 +711,8 @@
             <t t-foreach="rightPanel.kpis || []" t-as="rk" t-key="rk_index">
               <div class="rm-rp-kpi" style="cursor:pointer" t-on-click="() => onRightPanelKpiClick(rk)">
                 <div class="rm-rk-top">
-                  <div class="rm-rk-lbl" t-esc="rk.lbl"/>
-                  <span class="rm-tr rm-up" t-esc="rk.d"/>
+                  <div class="rm-rk-lbl" t-esc="tr(rk.lbl)"/>
+                  <span class="rm-tr rm-up" t-esc="tr(rk.d)"/>
                 </div>
                 <div class="rm-rk-val" t-esc="rk.val"/>
                 <div class="rm-rk-bar">
@@ -731,14 +731,14 @@
 
         <!-- Upcoming Events -->
         <div>
-          <div class="rm-rp-sec-title">Upcoming Events <span t-esc="upcomingEvents.length + ' this period'"/></div>
+          <div class="rm-rp-sec-title">Upcoming Events <span t-esc="upcomingEvents.length + ' ' + tr('this period')"/></div>
           <div style="display:flex;flex-direction:column;gap:7px;margin-top:8px">
             <t t-foreach="upcomingEvents.slice(0,5)" t-as="ev" t-key="ev_index">
               <div class="rm-event-item" t-on-click="() =&gt; openOdooView('tenancy.details', [['id', '=', ev.id]], 'form', 'Upcoming Events', ev.id)">
                 <div t-att-class="'rm-ev-dot ' + (ev.days_left &lt;= 3 ? 'rm-ev-red' : ev.days_left &lt;= 7 ? 'rm-ev-amber' : 'rm-ev-green')"/>
                 <div style="flex:1">
                   <div class="rm-ev-name" t-esc="ev.property"/>
-                  <div class="rm-ev-meta" t-esc="ev.tenant + ' · ' + ev.days_left + 'd left'"/>
+                  <div class="rm-ev-meta" t-esc="ev.tenant + ' · ' + ev.days_left + 'd ' + tr('left')"/>
                 </div>
               </div>
             </t>
@@ -756,7 +756,7 @@
               <div class="rm-act-item" style="cursor:pointer" t-on-click="() => onActivityFeedClick(act)">
                 <div class="rm-act-dot"/>
                 <div style="flex:1">
-                  <div class="rm-act-body" t-esc="act.body || 'Activity logged'"/>
+                  <div class="rm-act-body" t-esc="tr(act.body || 'Activity logged')"/>
                   <div class="rm-act-meta" t-esc="act.author + ' · ' + (act.label || act.model)"/>
                 </div>
               </div>

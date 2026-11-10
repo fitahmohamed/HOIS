@@ -375,7 +375,7 @@ class ContractWizard(models.TransientModel):
                                           "Monthly, Quarterly, Half year, Full Payment")
             elif rec.rent_unit == "Year":
                 available_payment_term = (
-                    "Available Payment Term  : Quarterly, Yearly, Full Payment"
+                    "Available Payment Term  : Monthly, Half Year, Quarterly, Yearly, Full Payment"
                 )
             elif rec.rent_unit == "Day":
                 available_payment_term = ("Available Payment Term  : Monthly, Quarterly, "
@@ -549,6 +549,8 @@ class ContractWizard(models.TransientModel):
         if self.rent_unit == "Year" and self.payment_term not in [
             "year",
             "quarterly",
+            "half_year",
+            "monthly",
             "full_payment",
         ]:
             message = {
@@ -558,7 +560,7 @@ class ContractWizard(models.TransientModel):
                     "type": "info",
                     "title": self.env._(
                         "For Rent unit Year, please select a payment term: "
-                        "'Quarterly', 'Yearly', or 'Full Payment'."
+                        "'Monthly', 'Half Year','Quarterly', 'Yearly', or 'Full Payment'."
                     ),
                     "sticky": False,
                 },

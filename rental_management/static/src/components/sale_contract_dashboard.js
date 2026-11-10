@@ -1,6 +1,7 @@
 /** @odoo-module **/
 
 import { session } from '@web/session';
+import { _t } from "@web/core/l10n/translation";
 import { useService } from "@web/core/utils/hooks";
 import { Component, useState, onWillStart} from "@odoo/owl";
 
@@ -24,7 +25,7 @@ export class SaleContractDashboard extends Component {
         context = { 'create': false }
         this.action.doAction({
             type: 'ir.actions.act_window',
-            name: 'Contracts',
+            name: _t('Contracts'),
             res_model: 'property.vendor',
             view_mode: 'list',
             views: [[false, 'list'], [false, 'form']],

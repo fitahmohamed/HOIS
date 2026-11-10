@@ -355,7 +355,7 @@ class TenancyDetails(models.Model):
             valid_payment_terms = {
                 "Day": ["Monthly", "Quarterly", "Half Year", "Year", "Daily"],
                 "Month": ["Monthly", "Quarterly", "Half Year"],
-                "Year": ["Quarterly", "Year"],
+                "Year": ["Quarterly", "Year", "Monthly", "Half Year"],
             }
             rent_unit = self.rent_unit
             payment_term = vals.get("payment_term")
@@ -789,15 +789,15 @@ class TenancyDetails(models.Model):
         return payment_term_qty.get(self.payment_term)
 
     def _get_rent_amount_for_quarter(self, months=3):
-        """Return the rent amount for one quarterly invoice.
+        """Calculate rent amount based on rent unit and payment period."""
 
-        Monthly properties store the rent per month, while yearly properties
-        store the complete annual rent.  Keep the conversion in one place so
-        the first invoice and recurring invoices use the same calculation.
-        """
         if self.final_rent_unit == 'Year':
-            return self.total_rent / 4
+            return self.total_rent * months / 12
+
         return self.total_rent * months
+
+    def _get_rent_amount_for_period(self, months):
+        return self._get_rent_amount_for_quarter(months=months)
 
     # Active Contract
     def action_active_contract(self):
@@ -834,9 +834,23 @@ class TenancyDetails(models.Model):
             invoice_lines = []
             rent_quantity = self.get_payment_term_qty()
             rent_price = self.total_rent
-            if self.final_rent_unit == 'Year' and self.payment_term == 'quarterly':
-                rent_quantity = 1
-                rent_price = self._get_rent_amount_for_quarter()
+
+            if self.final_rent_unit == 'Year':
+                if self.payment_term == 'monthly':
+                    rent_quantity = 1
+                    rent_price = self._get_rent_amount_for_period(1)
+
+                elif self.payment_term == 'quarterly':
+                    rent_quantity = 1
+                    rent_price = self._get_rent_amount_for_period(3)
+
+                elif self.payment_term == 'half_year':
+                    rent_quantity = 1
+                    rent_price = self._get_rent_amount_for_period(6)
+
+                elif self.payment_term == 'year':
+                    rent_quantity = 1
+                    rent_price = self.total_rent
             invoice_lines.append((0, 0, {
                 'product_id': self.installment_item_id.id,
                 'quantity': rent_quantity,
@@ -902,9 +916,21 @@ class TenancyDetails(models.Model):
 
         else:
             # ═══ مسار إيجار بعمولة: سند قبض فقط ═══
-            total_amount = self._get_rent_amount_for_quarter() if (
-                self.final_rent_unit == 'Year' and self.payment_term == 'quarterly'
-            ) else self.total_rent
+            if self.final_rent_unit == 'Year':
+                if self.payment_term == 'monthly':
+                    total_amount = self._get_rent_amount_for_period(1)
+
+                elif self.payment_term == 'quarterly':
+                    total_amount = self._get_rent_amount_for_period(3)
+
+                elif self.payment_term == 'half_year':
+                    total_amount = self._get_rent_amount_for_period(6)
+
+                else:
+                    total_amount = self.total_rent
+            else:
+                total_amount = self.total_rent
+                
             if self.is_extra_service and self.extra_service_invoice == 'merge':
                 for s in self.extra_services_ids:
                     total_amount += s.price * line_services_quantity
@@ -1187,7 +1213,7 @@ class TenancyDetails(models.Model):
             contracts = self.env['tenancy.details'].sudo().search([
                 ('contract_type', '=', 'running_contract'),
                 ('payment_term', '=', 'monthly'),
-                ('final_rent_unit', '=', 'Month'),
+                ('final_rent_unit', 'in', ['Month', 'Year']),
                 ('type', '=', 'automatic'),
             ])
 
@@ -1201,7 +1227,7 @@ class TenancyDetails(models.Model):
                     ('invoice_date', '=', check_date),
                 ])
                 if not existing:
-                    total_amount = rec.total_rent
+                    total_amount = rec._get_rent_amount_for_period(1)
                     if rec.is_extra_service and rec.extra_service_invoice == 'merge':
                         for line in rec.extra_services_ids.filtered(
                                 lambda l: l.service_type == 'monthly'):
@@ -1549,7 +1575,7 @@ class TenancyDetails(models.Model):
                 ('contract_type', '=', 'running_contract'),
                 ('payment_term', '=', 'half_year'),
                 ('type', '=', 'automatic'),
-                ('final_rent_unit', '=', 'Month')])
+                ('final_rent_unit', 'in', ['Month', 'Year'])])
 
         for rec in contracts:
             if today >= rec.end_date:
@@ -1563,7 +1589,7 @@ class TenancyDetails(models.Model):
                         (rec.end_date.year - check_date.year) * 12 +
                         rec.end_date.month - check_date.month + 1)
                     qty = min(6, months_left)
-                    total_amount = rec.total_rent * qty
+                    total_amount = rec._get_rent_amount_for_period(qty)
                     if rec.is_extra_service and rec.extra_service_invoice == 'merge':
                         for line in rec.extra_services_ids.filtered(
                                 lambda l: l.service_type == 'monthly'):

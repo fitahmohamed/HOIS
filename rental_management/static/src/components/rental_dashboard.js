@@ -10,6 +10,22 @@ import { rpc } from "@web/core/network/rpc";
 import {registry} from "@web/core/registry";
 import {useService} from "@web/core/utils/hooks";
 import { loadJS } from "@web/core/assets";
+import { _t } from "@web/core/l10n/translation";
+import { user } from "@web/core/user";
+
+const dateLocale = () => {
+    const lang = (user.lang || "en_US").replace("_", "-");
+    return lang.startsWith("ar") ? "ar-u-nu-latn" : lang;
+};
+const tr = (s) => (s ? _t(s) : s);
+const TYPE_VALUES = {Land: "land", Residential: "residential", Commercial: "commercial", Industrial: "industrial"};
+const SALES_STAGE_VALUES = {Booked: "booked", Sold: "sold", Refund: "refund", Cancelled: "cancel", Locked: "locked"};
+const lookupLabel = (map, label) => {
+    for (const key of Object.keys(map)) {
+        if (label === key || label === _t(key)) return map[key];
+    }
+    return undefined;
+};
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  THEME PALETTES — 10 predefined professional colour themes
@@ -178,7 +194,7 @@ export class RentalDashboard extends Component {
             data: {},
             pageData: {},
             currency: {symbol: '₹', position: 'before', name: 'INR'},
-            today: new Date().toLocaleDateString("en-IN", {
+            today: new Date().toLocaleDateString(dateLocale(), {
                 weekday: "long",
                 day: "numeric",
                 month: "long",
@@ -317,6 +333,7 @@ export class RentalDashboard extends Component {
 
     // ── ODOO ACTION NAVIGATION ─────────────────────────────────────────────────
     openOdooView(model, domain = [], viewType = "list", name = "", res_id = false, groupby = [], context = {}) {
+        name = name ? name.split(" — ").map(tr).join(" — ") : name;
         let views = [[false, "form"]]
         if (viewType !== 'form') {
             views = [[false, viewType], [false, "form"]]
@@ -381,12 +398,12 @@ export class RentalDashboard extends Component {
 
     onRentCollectionClick(type) {
         if (!type) return;
-        this.openOdooView('tenancy.details', [['property_id.type', '=', type.toLowerCase()], ['contract_type', '=', 'running_contract']], 'list', `Rent Contracts — ${type}`);
+        this.openOdooView('tenancy.details', [['property_id.type', '=', this._typeFromLabel(type).toLowerCase()], ['contract_type', '=', 'running_contract']], 'list', `Rent Contracts — ${type}`);
     }
 
     onSalesByTypeClick(type) {
         if (!type) return;
-        this.openOdooView('property.vendor', [['property_id.type', '=', type.toLowerCase()]], 'list', `Sales — ${type}`);
+        this.openOdooView('property.vendor', [['property_id.type', '=', this._typeFromLabel(type).toLowerCase()]], 'list', `Sales — ${type}`);
     }
 
     onMaintenanceCategoryClick(cat) {
@@ -407,8 +424,7 @@ export class RentalDashboard extends Component {
     // ── CHART CLICK HANDLERS ───────────────────────────────────────────────────
     // Reverse-map display label → internal Selection value for property.type
     _typeFromLabel(label) {
-        const map = {'Land': 'land', 'Residential': 'residential', 'Commercial': 'commercial', 'Industrial': 'industrial'};
-        return map[label] || label;
+        return lookupLabel(TYPE_VALUES, label) || label;
     }
 
     onOccupancyByTypeClick(typeLabel, isOccupied) {
@@ -422,7 +438,7 @@ export class RentalDashboard extends Component {
 
     onRegionClick(region) {
         if (!region) return;
-        let regionDomain = region === 'Unassigned' ? [['region_id', '=', false]] : [['region_id.name', '=', region]]
+        let regionDomain = (region === 'Unassigned' || region === _t('Unassigned')) ? [['region_id', '=', false]] : [['region_id.name', '=', region]]
         this.openOdooView('property.details', regionDomain, 'list', `Properties — ${region}`);
     }
 
@@ -491,8 +507,7 @@ export class RentalDashboard extends Component {
 
     onSalesFunnelClick(stageName) {
         if (!stageName) return;
-        const stageMap = {'Booked': 'booked', 'Sold': 'sold', 'Refund': 'refund', 'Cancelled': 'cancel', 'Locked': 'locked'};
-        const internal = stageMap[stageName];
+        const internal = lookupLabel(SALES_STAGE_VALUES, stageName);
         const domain = internal ? [['stage', '=', internal]] : [];
         this.openOdooView('property.vendor', domain, 'list', `Sale Contracts — ${stageName}`);
     }
@@ -511,6 +526,7 @@ export class RentalDashboard extends Component {
     // ── CHART EMPTY STATE ──────────────────────────────────────────────────────
     _showEmptyChart(el, msg = "No data available") {
         if (!el) return;
+        msg = tr(msg);
         el.innerHTML = `<div class="rm-chart-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg><span>${msg}</span></div>`;
     }
 
@@ -602,7 +618,7 @@ export class RentalDashboard extends Component {
         kpis.forEach((k, i) => {
             const el = document.getElementById(`sp${i}`);
             if (el && (!k.d || !k.d.length)) {
-                this._showEmptyChart(el.parentElement || el, "No data");
+                this._showEmptyChart(el.parentElement || el, _t("No data"));
                 return;
             } else if (!el) {
                 return;
@@ -640,7 +656,7 @@ export class RentalDashboard extends Component {
         const el = document.getElementById("sankeyC");
         if (!el) return;
         if (!window.echarts || !data || !(data.links && data.links.length)) {
-            this._showEmptyChart(el, "No revenue flow data yet");
+            this._showEmptyChart(el, _t("No revenue flow data yet"));
             return;
         }
         const ec = echarts.init(el);
@@ -652,14 +668,14 @@ export class RentalDashboard extends Component {
             tooltip: {
                 trigger: "item",
                 formatter: p => p.dataType === "edge"
-                    ? `${p.data.source} → ${p.data.target}<br /><b>${formatMoney(p.data.value, currency)}</b>`
-                    : `<b>${p.name}</b>`,
+                    ? `${tr(p.data.source)} → ${tr(p.data.target)}<br /><b>${formatMoney(p.data.value, currency)}</b>`
+                    : `<b>${tr(p.name)}</b>`,
             },
             series: [{
                 type: "sankey", left: 10, right: 140, top: 10, bottom: 10,
                 nodeWidth: 14, nodeGap: 12, emphasis: {focus: "adjacency"},
                 lineStyle: {color: "gradient", curveness: 0.55, opacity: 0.52},
-                label: {fontFamily: "system-ui,sans-serif", fontSize: 11, fontWeight: 600, color: t.soft},
+                label: {fontFamily: "system-ui,sans-serif", fontSize: 11, fontWeight: 600, color: t.soft, formatter: p => tr(p.name)},
                 data: data.data.map((d, i) => ({
                     ...d, itemStyle: {color: i < 2 ? t.c1 : i === 2 ? t.c2 : "#f59e0b"}
                 })),
@@ -675,7 +691,7 @@ export class RentalDashboard extends Component {
         const el = document.getElementById("radarC");
         if (!el) return;
         if (!window.echarts || !data || !(Array.isArray(data.current) && data.current.some(v => v))) {
-            this._showEmptyChart(el, "No portfolio health data yet");
+            this._showEmptyChart(el, _t("No portfolio health data yet"));
             return;
         }
         const ec = echarts.init(el);
@@ -687,7 +703,7 @@ export class RentalDashboard extends Component {
         const indicators = (Array.isArray(data.indicators) && data.indicators.length)
             ? data.indicators
             : [
-                {name: "Occupancy",   max: 100},
+                {name: _t("Occupancy"),   max: 100},
                 {name: "Yield",       max: 100},
                 {name: "Collection",  max: 100},
                 {name: "Maintenance", max: 100},
@@ -706,13 +722,13 @@ export class RentalDashboard extends Component {
                 },
             },
             legend: {
-                data: ["Current", "Previous"],
+                data: [_t("Current"), _t("Previous")],
                 bottom: 4,
                 textStyle: {color: t.soft, fontSize: 10},
                 itemWidth: 12, itemHeight: 6,
             },
             radar: {
-                indicator: indicators,
+                indicator: indicators.map(i => ({...i, name: tr(i.name)})),
                 shape: "circle",
                 radius: "62%",        // slightly smaller so labels have room
                 center: ["50%", "45%"], // shift center upward
@@ -724,15 +740,15 @@ export class RentalDashboard extends Component {
             },
             series: [
                 {
-                    type: "radar", name: "Current", data: [{
-                        value: data.current, name: "Current",
+                    type: "radar", name: _t("Current"), data: [{
+                        value: data.current, name: _t("Current"),
                         itemStyle: {color: t.c1}, areaStyle: {color: hexToRgba(t.c1, 0.22)},
                         lineStyle: {color: t.c1, width: 2.5},
                     }],
                 },
                 {
-                    type: "radar", name: "Previous", data: [{
-                        value: data.previous, name: "Previous",
+                    type: "radar", name: _t("Previous"), data: [{
+                        value: data.previous, name: _t("Previous"),
                         itemStyle: {color: t.c2}, areaStyle: {color: hexToRgba(t.c2, 0.12)},
                         lineStyle: {color: t.c2, width: 2, type: "dashed"},
                     }],
@@ -747,7 +763,7 @@ export class RentalDashboard extends Component {
         const el = document.getElementById("fcC");
         if (!el) return;
         if (!window.Chart || !data || !(data.labels && data.labels.length)) {
-            this._showEmptyChart(el.parentElement || el, "No revenue forecast data yet");
+            this._showEmptyChart(el.parentElement || el, _t("No revenue forecast data yet"));
             return;
         }
         const t = this.state.theme;
@@ -762,11 +778,11 @@ export class RentalDashboard extends Component {
                 labels: data.labels,
                 datasets: [
                     {
-                        label: "Actuals", data: data.actuals, borderColor: t.c1, backgroundColor: g,
+                        label: _t("Actuals"), data: data.actuals, borderColor: t.c1, backgroundColor: g,
                         borderWidth: 2.5, tension: 0.4, fill: true, pointRadius: 3, pointBackgroundColor: t.c1
                     },
                     {
-                        label: "Projected", data: data.projected, borderColor: t.c2, borderWidth: 2,
+                        label: _t("Projected"), data: data.projected, borderColor: t.c2, borderWidth: 2,
                         borderDash: [6, 3], tension: 0.4, fill: false, pointRadius: 3, pointBackgroundColor: t.c2
                     },
                 ],
@@ -803,7 +819,7 @@ export class RentalDashboard extends Component {
         const el = document.getElementById("gaugeC");
         if (!el) return;
         if (!window.echarts || !data) {
-            this._showEmptyChart(el, "No occupancy data yet");
+            this._showEmptyChart(el, _t("No occupancy data yet"));
             return;
         }
         const ec = echarts.init(el);
@@ -843,7 +859,7 @@ export class RentalDashboard extends Component {
                     offsetCenter: [0, "0%"],
                     formatter: v => `${v}%`,
                 },
-                data: [{value: data.occupancy, name: "Occupancy"}],
+                data: [{value: data.occupancy, name: _t("Occupancy")}],
             }],
         });
         ec.on("click", () => this.onGaugeClick());
@@ -855,7 +871,7 @@ export class RentalDashboard extends Component {
         const el = document.getElementById("mixC");
         if (!el) return;
         if (!window.echarts || !data || !data.length || data.every(d => !d.revenue)) {
-            this._showEmptyChart(el, "No revenue mix data yet");
+            this._showEmptyChart(el, _t("No revenue mix data yet"));
             return;
         }
         const ec = echarts.init(el);
@@ -871,7 +887,7 @@ export class RentalDashboard extends Component {
                 avoidLabelOverlap: true, padAngle: 3, itemStyle: {borderRadius: 6, cursor: "pointer"},
                 label: {show: false},
                 data: data.map((d, i) => ({
-                    name: (d.type || "other").replace("_", " "),
+                    name: tr((d.type || "other").replace("_", " ")),
                     value: d.revenue,
                     itemStyle: {color: colors[i % colors.length]},
                 })),
@@ -885,7 +901,7 @@ export class RentalDashboard extends Component {
     _renderRpSpark(rp) {
         const el = document.getElementById("rpSparkCanvas");
         if (el && (!window.Chart || !rp || !rp.spark_data || !rp.spark_data.length)) {
-            this._showEmptyChart(el.parentElement || el, "No data yet");
+            this._showEmptyChart(el.parentElement || el, _t("No data yet"));
             return;
         } else if (!el) {
             return;
@@ -916,7 +932,7 @@ export class RentalDashboard extends Component {
     _renderMaintDonut(data) {
         const el = document.getElementById("rpDonut");
         if (el && (!window.echarts || !data || !data.length || data.every(d => !d.value))) {
-            this._showEmptyChart(el, "No maintenance data yet");
+            this._showEmptyChart(el, _t("No maintenance data yet"));
             return;
         } else if (!el) {
             return;
@@ -948,7 +964,7 @@ export class RentalDashboard extends Component {
         // Funnel (New → Qualified → Won) — ECharts funnel
         const fEl = document.getElementById("leadFunnelC");
         if (fEl && (!window.echarts || !Array.isArray(data.funnel) || data.funnel.every(f => !f.value))) {
-            this._showEmptyChart(fEl, "No pipeline data yet");
+            this._showEmptyChart(fEl, _t("No pipeline data yet"));
         } else if (fEl && window.echarts && Array.isArray(data.funnel)) {
             const ec = echarts.init(fEl);
             ec.setOption({
@@ -972,7 +988,7 @@ export class RentalDashboard extends Component {
                     },
                     labelLine: {show: false},
                     itemStyle: {borderColor: "#fff", borderWidth: 2, borderRadius: 6, cursor: "pointer"},
-                    data: data.funnel.map(f => ({name: f.stage, value: f.value || 0})),
+                    data: data.funnel.map(f => ({name: tr(f.stage), value: f.value || 0})),
                 }],
             });
             this._charts.push(ec);
@@ -981,7 +997,7 @@ export class RentalDashboard extends Component {
         // Source-wise leads — horizontal bar with converted overlay
         const sEl = document.getElementById("leadSourceC");
         if (sEl && (!window.Chart || !Array.isArray(data.by_source) || !data.by_source.length)) {
-            this._showEmptyChart(sEl.parentElement || sEl, "No lead source data yet");
+            this._showEmptyChart(sEl.parentElement || sEl, _t("No lead source data yet"));
         } else if (sEl && window.Chart && Array.isArray(data.by_source)) {
             const labels = data.by_source.map(s => s.source);
             const totals = data.by_source.map(s => s.leads);
@@ -992,13 +1008,13 @@ export class RentalDashboard extends Component {
                     labels,
                     datasets: [
                         {
-                            label: "Leads",
+                            label: _t("Leads"),
                             data: totals,
                             backgroundColor: hexToRgba(t.c1, 0.25),
                             borderRadius: 4,
                         },
                         {
-                            label: "Converted",
+                            label: _t("Converted"),
                             data: converted,
                             backgroundColor: t.c1,
                             borderRadius: 4,
@@ -1031,7 +1047,7 @@ export class RentalDashboard extends Component {
         // Conversion rate gauge — clean single-ring donut with center %
         const cEl = document.getElementById("leadConvC");
         if (cEl && (!window.echarts || !data.totals)) {
-            this._showEmptyChart(cEl, "No conversion data yet");
+            this._showEmptyChart(cEl, _t("No conversion data yet"));
         } else if (cEl && window.echarts && data.totals) {
             const ec = echarts.init(cEl);
             const rate = data.totals.conversion_rate || 0;
@@ -1063,7 +1079,7 @@ export class RentalDashboard extends Component {
                         fontSize: 26, fontWeight: 800, color: t.c1,
                         formatter: v => `${v}%`,
                     },
-                    data: [{value: rate, name: `${data.totals.won}/${(data.totals.won + data.totals.lost + data.totals.qualified) || 1} resolved`}],
+                    data: [{value: rate, name: `${data.totals.won}/${(data.totals.won + data.totals.lost + data.totals.qualified) || 1} ${_t("resolved")}`}],
                 }],
             });
             ec.on("click", () => this.onLeadConvClick());
@@ -1077,9 +1093,9 @@ export class RentalDashboard extends Component {
         // Occupancy by type — stacked bar
         const ptEl = document.getElementById("ptypeC");
         if (ptEl && (!window.Chart || !pd.occupancy_by_type || !pd.occupancy_by_type.length)) {
-            this._showEmptyChart(ptEl.parentElement || ptEl, "No occupancy data by type yet");
+            this._showEmptyChart(ptEl.parentElement || ptEl, _t("No occupancy data by type yet"));
         } else if (ptEl && window.Chart && pd.occupancy_by_type) {
-            const labels = pd.occupancy_by_type.map(d => d.type);
+            const labels = pd.occupancy_by_type.map(d => tr(d.type));
             const occ = pd.occupancy_by_type.map(d => d.occupied);
             const vacant = pd.occupancy_by_type.map(d => d.total - d.occupied);
             const ch = new Chart(ptEl, {
@@ -1087,8 +1103,8 @@ export class RentalDashboard extends Component {
                 data: {
                     labels,
                     datasets: [
-                        {label: "Occupied", data: occ, backgroundColor: t.c1, borderRadius: 5},
-                        {label: "Vacant", data: vacant, backgroundColor: hexToRgba(t.c1, 0.15), borderRadius: 5},
+                        {label: _t("Occupied"), data: occ, backgroundColor: t.c1, borderRadius: 5},
+                        {label: _t("Vacant"), data: vacant, backgroundColor: hexToRgba(t.c1, 0.15), borderRadius: 5},
                     ],
                 },
                 options: {
@@ -1109,7 +1125,7 @@ export class RentalDashboard extends Component {
         // Portfolio mix — pie
         const pmEl = document.getElementById("pmixC");
         if (pmEl && (!window.echarts || !pd.portfolio_mix || !pd.portfolio_mix.length)) {
-            this._showEmptyChart(pmEl, "No portfolio mix data yet");
+            this._showEmptyChart(pmEl, _t("No portfolio mix data yet"));
         } else if (pmEl && window.echarts && pd.portfolio_mix) {
             const ec = echarts.init(pmEl);
             ec.setOption({
@@ -1117,7 +1133,7 @@ export class RentalDashboard extends Component {
                 series: [{
                     type: "pie", radius: "65%",
                     data: pd.portfolio_mix.map((d, i) => ({
-                        name: d.type, value: d.count,
+                        name: tr(d.type), value: d.count,
                         itemStyle: {color: [t.c1, t.c2, "#f59e0b", "#6c63ff"][i % 4]},
                     })),
                     label: {fontFamily: "system-ui,sans-serif", fontSize: 11},
@@ -1135,7 +1151,7 @@ export class RentalDashboard extends Component {
         const moneyAxis = axisMoneyFormatter(currency);
         const rentEl = document.getElementById("rentC");
         if (rentEl && (!window.Chart || !pd.monthly_collection || !(pd.monthly_collection.labels && pd.monthly_collection.labels.length))) {
-            this._showEmptyChart(rentEl.parentElement || rentEl, "No rent collection data yet");
+            this._showEmptyChart(rentEl.parentElement || rentEl, _t("No rent collection data yet"));
         } else if (rentEl && window.Chart && pd.monthly_collection) {
             const mc = pd.monthly_collection;
             const g = rentEl.getContext("2d").createLinearGradient(0, 0, 0, 260);
@@ -1146,9 +1162,9 @@ export class RentalDashboard extends Component {
                 data: {
                     labels: mc.labels,
                     datasets: [
-                        {label: "Collected", data: mc.collected, backgroundColor: t.c1, borderRadius: 5},
+                        {label: _t("Collected"), data: mc.collected, backgroundColor: t.c1, borderRadius: 5},
                         {
-                            label: "Outstanding",
+                            label: _t("Outstanding"),
                             data: mc.outstanding,
                             backgroundColor: hexToRgba(t.c1, 0.18),
                             borderRadius: 5,
@@ -1176,7 +1192,7 @@ export class RentalDashboard extends Component {
         // Collection rate donut
         const rdEl = document.getElementById("rentD");
         if (rdEl && (!window.echarts || !pd.collection_by_type || !pd.collection_by_type.length)) {
-            this._showEmptyChart(rdEl, "No collection rate data yet");
+            this._showEmptyChart(rdEl, _t("No collection rate data yet"));
         } else if (rdEl && window.echarts && pd.collection_by_type) {
             const ec = echarts.init(rdEl);
             ec.setOption({
@@ -1185,7 +1201,7 @@ export class RentalDashboard extends Component {
                     type: "pie", radius: ["40%", "68%"],
                     itemStyle: {cursor: "pointer"},
                     data: pd.collection_by_type.map((d, i) => ({
-                        name: d.type, value: d.rate,
+                        name: tr(d.type), value: d.rate,
                         itemStyle: {color: [t.c1, t.c2, "#f59e0b"][i % 3]},
                     })),
                 }],
@@ -1200,7 +1216,7 @@ export class RentalDashboard extends Component {
         const t = this.state.theme;
         const funnelEl = document.getElementById("funnelC");
         if (funnelEl && (!window.echarts || !pd.funnel || pd.funnel.every(f => !f.count))) {
-            this._showEmptyChart(funnelEl, "No sales pipeline data yet");
+            this._showEmptyChart(funnelEl, _t("No sales pipeline data yet"));
         } else if (funnelEl && window.echarts && pd.funnel) {
             const ec = echarts.init(funnelEl);
             ec.setOption({
@@ -1209,7 +1225,7 @@ export class RentalDashboard extends Component {
                     type: "funnel", left: "10%", width: "80%",
                     sort: "descending", gap: 6,
                     data: pd.funnel.map((d, i) => ({
-                        name: d.stage, value: d.count,
+                        name: tr(d.stage), value: d.count,
                         itemStyle: {color: [t.c1, t.c2, "#f59e0b", "#e53935", "#6c63ff"][i % 5]},
                     })),
                     label: {fontFamily: "system-ui,sans-serif"},
@@ -1220,7 +1236,7 @@ export class RentalDashboard extends Component {
         }
         const sdEl = document.getElementById("salesD");
         if (sdEl && (!window.echarts || !pd.sales_by_type || !pd.sales_by_type.length)) {
-            this._showEmptyChart(sdEl, "No sales by type data yet");
+            this._showEmptyChart(sdEl, _t("No sales by type data yet"));
         } else if (sdEl && window.echarts && pd.sales_by_type) {
             const ec = echarts.init(sdEl);
             ec.setOption({
@@ -1229,7 +1245,7 @@ export class RentalDashboard extends Component {
                     type: "pie", radius: ["40%", "68%"],
                     itemStyle: {cursor: "pointer"},
                     data: pd.sales_by_type.map((d, i) => ({
-                        name: d.type, value: d.count,
+                        name: tr(d.type), value: d.count,
                         itemStyle: {color: [t.c1, t.c2, "#f59e0b", "#6c63ff"][i % 4]},
                     })),
                 }],
@@ -1244,7 +1260,7 @@ export class RentalDashboard extends Component {
         const t = this.state.theme;
         const maintEl = document.getElementById("maintC");
         if (maintEl && (!window.Chart || !pd.ticket_trends || !(pd.ticket_trends.labels && pd.ticket_trends.labels.length))) {
-            this._showEmptyChart(maintEl.parentElement || maintEl, "No maintenance ticket data yet");
+            this._showEmptyChart(maintEl.parentElement || maintEl, _t("No maintenance ticket data yet"));
         } else if (maintEl && window.Chart && pd.ticket_trends) {
             const tt = pd.ticket_trends;
             const ch = new Chart(maintEl, {
@@ -1252,9 +1268,9 @@ export class RentalDashboard extends Component {
                 data: {
                     labels: tt.labels,
                     datasets: [
-                        {label: "Open", data: tt.open, backgroundColor: t.c1, borderRadius: 4},
-                        {label: "Resolved", data: tt.resolved, backgroundColor: "#1E8449", borderRadius: 4},
-                        {label: "Escalated", data: tt.escalated, backgroundColor: "#e53935", borderRadius: 4},
+                        {label: _t("Open"), data: tt.open, backgroundColor: t.c1, borderRadius: 4},
+                        {label: _t("Resolved"), data: tt.resolved, backgroundColor: "#1E8449", borderRadius: 4},
+                        {label: _t("Escalated"), data: tt.escalated, backgroundColor: "#e53935", borderRadius: 4},
                     ],
                 },
                 options: {
@@ -1273,7 +1289,7 @@ export class RentalDashboard extends Component {
         }
         const maintPEl = document.getElementById("maintP");
         if (maintPEl && (!window.echarts || !pd.by_category || !pd.by_category.length)) {
-            this._showEmptyChart(maintPEl, "No category data yet");
+            this._showEmptyChart(maintPEl, _t("No category data yet"));
         } else if (maintPEl && window.echarts && pd.by_category) {
             const ec = echarts.init(maintPEl);
             ec.setOption({
@@ -1298,14 +1314,14 @@ export class RentalDashboard extends Component {
         // Gantt-style horizontal bars
         const ganttEl = document.getElementById("cgC");
         if (ganttEl && (!window.echarts || !pd.gantt || !pd.gantt.length)) {
-            this._showEmptyChart(ganttEl, "No contract timeline data yet");
+            this._showEmptyChart(ganttEl, _t("No contract timeline data yet"));
         } else if (ganttEl && window.echarts && pd.gantt) {
             const ec = echarts.init(ganttEl);
             const items = pd.gantt.slice(0, 20);
             const now = new Date().getTime();
             const colors = {active: t.c1, expiring: "#f59e0b", overdue: "#e53935"};
             ec.setOption({
-                tooltip: {formatter: p => `${p.name}: ${p.data[1]} → ${p.data[2]}<br />Status: ${p.data[3]}`},
+                tooltip: {formatter: p => `${p.name}: ${p.data[1]} → ${p.data[2]}<br />${_t("Status")}: ${tr(p.data[3])}`},
                 xAxis: {type: "time", boundaryGap: false},
                 yAxis: {data: items.map(c => c.tenant || c.seq), axisLabel: {fontSize: 10}},
                 series: [{
@@ -1337,7 +1353,7 @@ export class RentalDashboard extends Component {
         // ── Performance bar — horizontal, deals + commission dual series
         const bpEl = document.getElementById("bpC");
         if (bpEl && (!window.Chart || !pd.broker_performance || !pd.broker_performance.length)) {
-            this._showEmptyChart(bpEl.parentElement || bpEl, "No broker performance data yet");
+            this._showEmptyChart(bpEl.parentElement || bpEl, _t("No broker performance data yet"));
         } else if (bpEl && window.Chart && pd.broker_performance) {
             const bp = pd.broker_performance;
             const ch = new Chart(bpEl, {
@@ -1346,7 +1362,7 @@ export class RentalDashboard extends Component {
                     labels: bp.map(b => b.broker),
                     datasets: [
                         {
-                            label: "Deals",
+                            label: _t("Deals"),
                             data: bp.map(b => b.deals),
                             backgroundColor: t.c1,
                             borderRadius: 4,
@@ -1373,7 +1389,7 @@ export class RentalDashboard extends Component {
         // ── Commission breakdown donut — Sale vs Rental split
         const cbEl = document.getElementById("bcD");
         if (cbEl && (!window.echarts || !pd.commission_breakdown || !(pd.commission_breakdown.by_source || []).some(s => (s.value || 0) > 0))) {
-            this._showEmptyChart(cbEl, "No commission data yet");
+            this._showEmptyChart(cbEl, _t("No commission data yet"));
         } else if (cbEl && window.echarts && pd.commission_breakdown) {
             const cb = pd.commission_breakdown;
             const bySource = (cb.by_source || []).filter(s => (s.value || 0) > 0);
@@ -1480,11 +1496,11 @@ export class RentalDashboard extends Component {
                 const popup = `
                     <div class="rm-map-popup">
                         <div class="rm-map-popup-header">
-                            <div class="rm-map-popup-name">${this._escapeHtml(p.name || "Untitled")}</div>
+                            <div class="rm-map-popup-name">${this._escapeHtml(tr(p.name || "Untitled"))}</div>
                             <span class="rm-pill rm-pill-${this.statusPill(p.stage)}">${this._escapeHtml(this.statusLabel(p.stage))}</span>
                         </div>
                         <div class="rm-map-popup-meta">
-                            ${this._escapeHtml(p.type || "")}
+                            ${this._escapeHtml(tr(p.type || ""))}
                             ${p.city ? " · " + this._escapeHtml(p.city) : ""}
                         </div>
                         <div class="rm-map-popup-divider"></div>
@@ -1510,21 +1526,21 @@ export class RentalDashboard extends Component {
         // ── Regional distribution bar
         const regEl = document.getElementById("regC");
         if (regEl && (!window.Chart || !pd.regional || !pd.regional.length)) {
-            this._showEmptyChart(regEl.parentElement || regEl, "No regional data yet");
+            this._showEmptyChart(regEl.parentElement || regEl, _t("No regional data yet"));
         } else if (regEl && window.Chart && pd.regional) {
             const ch = new Chart(regEl, {
                 type: "bar",
                 data: {
-                    labels: pd.regional.map(r => r.region),
+                    labels: pd.regional.map(r => tr(r.region)),
                     datasets: [
                         {
-                            label: "Total",
+                            label: _t("Total"),
                             data: pd.regional.map(r => r.total),
                             backgroundColor: hexToRgba(t.c1, 0.15),
                             borderRadius: 4,
                         },
                         {
-                            label: "Rented",
+                            label: _t("Rented"),
                             data: pd.regional.map(r => r.rented),
                             backgroundColor: t.c1,
                             borderRadius: 4,
@@ -1548,7 +1564,7 @@ export class RentalDashboard extends Component {
         // ── City distribution donut
         const cityEl = document.getElementById("cityC");
         if (cityEl && (!window.echarts || !pd.city_distribution || !pd.city_distribution.length)) {
-            this._showEmptyChart(cityEl, "No city distribution data yet");
+            this._showEmptyChart(cityEl, _t("No city distribution data yet"));
         } else if (cityEl && window.echarts && pd.city_distribution) {
             const ec = echarts.init(cityEl);
             ec.setOption({
@@ -1633,7 +1649,7 @@ export class RentalDashboard extends Component {
         const g = this.state.data.occupancy_gauge || {};
         const rented = g.rented || 0;
         const total = g.total || 0;
-        return total ? `${rented} / ${total} units` : "No units yet";
+        return total ? `${rented} / ${total} ${_t("units")}` : _t("No units yet");
     }
 
     get currencyInfo() {
@@ -1649,7 +1665,7 @@ export class RentalDashboard extends Component {
     }
 
     fmtDate(d) {
-        return d ? new Date(d).toLocaleDateString("en-IN") : "—";
+        return d ? new Date(d).toLocaleDateString(dateLocale()) : "—";
     }
 
     statusPill(s) {
@@ -1662,6 +1678,10 @@ export class RentalDashboard extends Component {
         return map[s] || "b";
     }
 
+    tr(s) {
+        return tr(s);
+    }
+
     statusLabel(s) {
         const map = {
             running_contract: "Running", new_contract: "Draft",
@@ -1670,11 +1690,11 @@ export class RentalDashboard extends Component {
             paid: "Paid", not_paid: "Overdue", in_payment: "In Payment",
             done: "Done", active: "Active", expiring: "Expiring", overdue: "Overdue",
         };
-        return map[s] || String(s ?? "").replace(/_/g, " ");
+        return tr(map[s]) || String(s ?? "").replace(/_/g, " ");
     }
 
     priorityLabel(p) {
-        return ["Low", "Normal", "High", "Critical"][parseInt(p) || 0];
+        return tr(["Low", "Normal", "High", "Critical"][parseInt(p) || 0]);
     }
 
     daysDiff(d) {

@@ -3749,6 +3749,7 @@ msgid "Access Token"
 msgstr "رمز الوصول"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_penalty_invoice__message_needaction
 #: model:ir.model.fields,field_description:rental_management.field_project_document_line__message_needaction
 #: model:ir.model.fields,field_description:rental_management.field_property_details__message_needaction
@@ -3759,6 +3760,7 @@ msgstr "رمز الوصول"
 #: model:ir.model.fields,field_description:rental_management.field_rent_invoice__message_needaction
 #: model:ir.model.fields,field_description:rental_management.field_subproject_document__message_needaction
 #: model:ir.model.fields,field_description:rental_management.field_tenancy_details__message_needaction
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Action Needed"
 msgstr "الإجراء مطلوب"
 
@@ -3768,7 +3770,9 @@ msgid "Action Window View"
 msgstr "عرض نافذة العمل"
 
 #. module: rental_management
+#. odoo-javascript
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_form_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Active"
 msgstr "نشيط"
 
@@ -4023,6 +4027,7 @@ msgid "Amenities"
 msgstr "وسائل الراحة"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_maintenance_product_line__price_subtotal
 #: model:ir.model.fields,field_description:rental_management.field_penalty_invoice__amount
 #: model:ir.model.fields,field_description:rental_management.field_property_payment_wizard__amount
@@ -4032,8 +4037,9 @@ msgstr "وسائل الراحة"
 #: model_terms:ir.ui.view,arch_db:rental_management.rental_user_sell_contract_details
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_qweb_report_template
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_reminder_details_qweb_report_template
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Amount"
-msgstr "كمية"
+msgstr "المبلغ"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_rent_bill__amount
@@ -4209,6 +4215,8 @@ msgstr "التوفر"
 #: model_terms:ir.ui.view,arch_db:rental_management.property_details_form_view
 #: model_terms:ir.ui.view,arch_db:rental_management.property_project_view_form
 #: model_terms:ir.ui.view,arch_db:rental_management.property_sub_project_view_form
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Available"
 msgstr "متاح"
 
@@ -4351,8 +4359,9 @@ msgstr "سعر الكتاب"
 #: code:addons/rental_management/static/src/components/sale_contract_dashboard.xml:0
 #: code:addons/rental_management/static/src/xml/template.xml:0
 #: model:ir.model.fields.selection,name:rental_management.selection__property_vendor__stage__booked
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Booked"
-msgstr "حجزت"
+msgstr "محجوز"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_property_details__sold_booking_id
@@ -4408,6 +4417,7 @@ msgid "Brochure URL"
 msgstr "عنوان URL للكتيب"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_booking_wizard__broker_id
 #: model:ir.model.fields,field_description:rental_management.field_contract_wizard__broker_id
 #: model:ir.model.fields,field_description:rental_management.field_property_vendor__broker_id
@@ -4418,6 +4428,7 @@ msgstr "عنوان URL للكتيب"
 #: model_terms:ir.ui.view,arch_db:rental_management.property_vendor_search_view
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_qweb_report_template
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_search_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Broker"
 msgstr "وسيط"
 
@@ -4427,9 +4438,11 @@ msgid "Broker Bill"
 msgstr "بيل الوسيط"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:product.template,name:rental_management.property_product_3_product_template
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Broker Commission"
-msgstr "لجنة الوسيط"
+msgstr "عمولة الوسيط"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_res_config_settings__broker_item_id
@@ -4487,10 +4500,12 @@ msgid "Brokerage Type"
 msgstr "نوع الوساطة"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.actions.act_window,name:rental_management.broker_details_action
 #: model:ir.ui.menu,name:rental_management.menu_broker_details
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Brokers"
-msgstr "وسطاء"
+msgstr "الوسطاء"
 
 #. module: rental_management
 #: model_terms:ir.ui.view,arch_db:rental_management.property_sold_qweb_report_template
@@ -4585,8 +4600,9 @@ msgstr "لا يمكن حذف المشروع الفرعي، يرجى حذف ال�
 #. module: rental_management
 #. odoo-javascript
 #: code:addons/rental_management/static/src/xml/template.xml:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Category"
-msgstr "فئة"
+msgstr "الفئة"
 
 #. module: rental_management
 #: model:ir.model.fields.selection,name:rental_management.selection__property_documents__doc_type__certificate
@@ -4656,8 +4672,10 @@ msgid "Close Contract"
 msgstr "إغلاق العقد"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields.selection,name:rental_management.selection__property_project__status__closed
 #: model:ir.model.fields.selection,name:rental_management.selection__property_sub_project__status__closed
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Closed"
 msgstr "مغلق"
 
@@ -4688,6 +4706,7 @@ msgstr "لون"
 #: model:ir.model.fields.selection,name:rental_management.selection__property_details__type__commercial
 #: model:ir.model.fields.selection,name:rental_management.selection__property_project__property_type__commercial
 #: model:ir.model.fields.selection,name:rental_management.selection__property_sub_type__type__commercial
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Commercial"
 msgstr "تجاري"
 
@@ -4711,12 +4730,14 @@ msgid "Commercial Type"
 msgstr "النوع التجاري"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_booking_wizard__broker_commission
 #: model:ir.model.fields,field_description:rental_management.field_contract_wizard__broker_commission
 #: model:ir.model.fields,field_description:rental_management.field_property_vendor__broker_final_commission
 #: model:ir.model.fields,field_description:rental_management.field_tenancy_details__broker_commission
 #: model_terms:ir.ui.view,arch_db:rental_management.property_sold_qweb_report_template
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_qweb_report_template
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Commission"
 msgstr "عمولة"
 
@@ -4959,6 +4980,8 @@ msgstr "يجب أن يكون تاريخ بدء العقد أكبر من تاري
 #: model:ir.actions.act_window,name:rental_management.tenancy_details_action
 #: model:ir.ui.menu,name:rental_management.menu_rent_contract
 #: model:ir.ui.menu,name:rental_management.menu_sell_contract
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Contracts"
 msgstr "العقود"
 
@@ -4970,6 +4993,7 @@ msgstr "نسخ الوصلة"
 #. module: rental_management
 #. odoo-javascript
 #: code:addons/rental_management/static/src/xml/template.xml:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Corrective"
 msgstr "تصحيحية"
 
@@ -5365,7 +5389,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:rental_management.selection__contract_wizard__payment_term__daily
 #: model:ir.model.fields.selection,name:rental_management.selection__tenancy_details__payment_term__daily
 msgid "Daily"
-msgstr "يوميًا"
+msgstr "يومي"
 
 #. module: rental_management
 #. odoo-javascript
@@ -5417,7 +5441,9 @@ msgid "Days "
 msgstr "أيام"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_tenancy_details__days_left
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Days Left"
 msgstr "الأيام المتبقية"
 
@@ -5722,6 +5748,7 @@ msgstr "وثائق المشروع الفرعي"
 #. module: rental_management
 #. odoo-javascript
 #: code:addons/rental_management/static/src/xml/template.xml:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Done"
 msgstr "منتهي"
 
@@ -5735,6 +5762,7 @@ msgstr "منتهي"
 #: model:ir.model.fields.selection,name:rental_management.selection__property_sub_project__status__draft
 #: model:ir.model.fields.selection,name:rental_management.selection__tenancy_details__contract_type__new_contract
 #: model_terms:ir.ui.view,arch_db:rental_management.property_details_form_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Draft"
 msgstr "مسودة"
 
@@ -5764,7 +5792,7 @@ msgstr "مشروع الفاتورة"
 #. odoo-javascript
 #: code:addons/rental_management/static/src/components/rental_property_dashboard.xml:0
 msgid "Draft Properties"
-msgstr "خصائص المسودة"
+msgstr "عقارات المسودة"
 
 #. module: rental_management
 #: model:ir.model.fields.selection,name:rental_management.selection__property_room_measurement__type_room__drawing_room
@@ -6219,7 +6247,7 @@ msgstr "أنواع التأثيث"
 #: model:ir.model.fields.selection,name:rental_management.selection__contract_wizard__payment_term__half_year
 #: model:ir.model.fields.selection,name:rental_management.selection__tenancy_details__payment_term__half_year
 msgid "Half Year"
-msgstr "نصف سنة"
+msgstr "نصف سنوي"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_res_config_settings__half_year_days
@@ -6231,7 +6259,7 @@ msgstr "أيام نصف السنة"
 #. odoo-javascript
 #: code:addons/rental_management/static/src/components/rent_contract_dashboard.xml:0
 msgid "Half Year Payment Contracts"
-msgstr "عقود سداد نصف سنوية"
+msgstr "عقود الدفع النصف سنوية"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_res_config_settings__half_yearly_service_quantity
@@ -6539,8 +6567,9 @@ msgstr "في الحجز"
 #. module: rental_management
 #. odoo-javascript
 #: code:addons/rental_management/static/src/xml/template.xml:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "In Progress"
-msgstr "في تَقَدم"
+msgstr "قيد التنفيذ"
 
 #. module: rental_management
 #: model:ir.model.fields.selection,name:rental_management.selection__property_details__stage__sale
@@ -6609,6 +6638,7 @@ msgstr "زيادة(٪)"
 #: model:ir.model.fields.selection,name:rental_management.selection__property_details__type__industrial
 #: model:ir.model.fields.selection,name:rental_management.selection__property_project__property_type__industrial
 #: model:ir.model.fields.selection,name:rental_management.selection__property_sub_type__type__industrial
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Industrial"
 msgstr "صناعي"
 
@@ -6668,6 +6698,8 @@ msgid "Insurance Certificate"
 msgstr "شهادة التأمين"
 
 #. module: rental_management
+#. odoo-javascript
+#. odoo-python
 #: model:ir.model.fields,field_description:rental_management.field_contract_extra_service_line__invoice_id
 #: model:ir.model.fields,field_description:rental_management.field_maintenance_request__invoice_id
 #: model:ir.model.fields,field_description:rental_management.field_penalty_invoice__penalty_invoice_id
@@ -6679,6 +6711,8 @@ msgstr "شهادة التأمين"
 #: model:ir.model.fields.selection,name:rental_management.selection__maintenance_request__payment_type__invoice
 #: model_terms:ir.ui.view,arch_db:rental_management.contract_wizard_form_view
 #: model_terms:ir.ui.view,arch_db:rental_management.rental_user_rent_contract_details
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
 msgid "Invoice"
 msgstr "فاتورة"
 
@@ -6930,6 +6964,7 @@ msgstr "مطبخ"
 #: model:ir.model.fields.selection,name:rental_management.selection__property_details__type__land
 #: model:ir.model.fields.selection,name:rental_management.selection__property_project__property_type__land
 #: model:ir.model.fields.selection,name:rental_management.selection__property_sub_type__type__land
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Land"
 msgstr "أرض"
 
@@ -6937,7 +6972,7 @@ msgstr "أرض"
 #. odoo-javascript
 #: code:addons/rental_management/static/src/components/sale_contract_dashboard.xml:0
 msgid "Land Properties Contracts"
-msgstr "عقود ملكية الأراضي"
+msgstr "عقود الأراضي"
 
 #. module: rental_management
 #: model_terms:ir.ui.view,arch_db:rental_management.property_details_form_view
@@ -7171,12 +7206,16 @@ msgid "Latitude values must be float."
 msgstr "يجب أن تكون قيم خط العرض عائمة."
 
 #. module: rental_management
+#. odoo-javascript
+#. odoo-python
 #: model:ir.model,name:rental_management.model_crm_lead
 #: model:ir.model.fields,field_description:rental_management.field_sale_inquiry__lead_id
 #: model:ir.model.fields,field_description:rental_management.field_tenancy_inquiry__lead_id
 #: model_terms:ir.ui.view,arch_db:rental_management.property_details_kanban_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
 msgid "Lead"
-msgstr "يقود"
+msgstr "عميل محتمل"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_property_details__lead_count
@@ -7200,10 +7239,12 @@ msgid "Lead Notes"
 msgstr "ملاحظات الرصاص"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.ui.menu,name:rental_management.menu_property_lead
 #: model_terms:ir.ui.view,arch_db:rental_management.property_details_form_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Leads"
-msgstr "يؤدي"
+msgstr "العملاء المحتملون"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_property_room_measurement__length
@@ -7226,10 +7267,12 @@ msgid "Location"
 msgstr "موقع"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields.selection,name:rental_management.selection__property_vendor__stage__locked
 #: model_terms:ir.ui.view,arch_db:rental_management.property_vendor_form_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Locked"
-msgstr "مغلق"
+msgstr "مقفل"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_property_details__longitude
@@ -7259,6 +7302,7 @@ msgstr "قالب البريد"
 
 #. module: rental_management
 #. odoo-javascript
+#. odoo-python
 #: code:addons/rental_management/static/src/xml/template.xml:0
 #: model:ir.model.fields,field_description:rental_management.field_maintenance_product_line__maintenance_id
 #: model:ir.model.fields,field_description:rental_management.field_product_product__is_maintenance
@@ -7267,6 +7311,8 @@ msgstr "قالب البريد"
 #: model:ir.model.fields.selection,name:rental_management.selection__rent_invoice__type__maintenance
 #: model_terms:ir.ui.view,arch_db:rental_management.contract_wizard_form_view
 #: model_terms:ir.ui.view,arch_db:rental_management.property_details_kanban_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
 msgid "Maintenance"
 msgstr "صيانة"
 
@@ -7373,8 +7419,11 @@ msgid "Maintenance Request Count"
 msgstr "عدد طلبات الصيانة"
 
 #. module: rental_management
+#. odoo-javascript
 #: model_terms:ir.ui.view,arch_db:rental_management.portal_my_contracts
 #: model_terms:ir.ui.view,arch_db:rental_management.property_portal_breadcrumbs
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Maintenance Requests"
 msgstr "طلبات الصيانة"
 
@@ -7423,10 +7472,12 @@ msgid "Manual Installment (List out all rent installment)"
 msgstr "القسط اليدوي (إدراج جميع أقساط الإيجار)"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields.selection,name:rental_management.selection__ir_actions_act_window_view__view_mode__tk_map
 #: model:ir.model.fields.selection,name:rental_management.selection__ir_ui_view__type__tk_map
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Map"
-msgstr "رسم خريطة"
+msgstr "الخريطة"
 
 #. module: rental_management
 #: model_terms:ir.ui.view,arch_db:rental_management.property_details_form_view
@@ -7540,7 +7591,7 @@ msgstr "يجب أن تكون أيام الشهر صفرًا أو أكبر"
 #: model:ir.model.fields.selection,name:rental_management.selection__property_vendor_wizard__payment_term__monthly
 #: model:ir.model.fields.selection,name:rental_management.selection__tenancy_details__payment_term__monthly
 msgid "Monthly"
-msgstr "شهريا"
+msgstr "شهري"
 
 #. module: rental_management
 #. odoo-javascript
@@ -7622,8 +7673,10 @@ msgstr "اتصال قريب"
 
 #. module: rental_management
 #. odoo-python
+#. odoo-javascript
 #: code:addons/rental_management/models/rent_contract.py:0
 #: code:addons/rental_management/models/sale_contract.py:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "New"
 msgstr "جديد"
 
@@ -7875,10 +7928,12 @@ msgstr ""
 "                                                            إعدادات الضغط."
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields.selection,name:rental_management.selection__property_area_type__type__other
 #: model:ir.model.fields.selection,name:rental_management.selection__property_payment_wizard__type__other
 #: model:ir.model.fields.selection,name:rental_management.selection__rent_invoice__type__other
 #: model:product.template,name:rental_management.property_maintenance_product_5_product_template
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Other"
 msgstr "آخر"
 
@@ -7929,11 +7984,13 @@ msgid "PM"
 msgstr "مساءً"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_property_vendor__paid_amount
 #: model_terms:ir.ui.view,arch_db:rental_management.property_sold_qweb_report_template
 #: model_terms:ir.ui.view,arch_db:rental_management.rental_user_sell_contract_details
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_qweb_report_template
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_reminder_details_qweb_report_template
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Paid"
 msgstr "مدفوع"
 
@@ -8160,12 +8217,14 @@ msgid "Percentage must be zero or greater"
 msgstr "يجب أن تكون النسبة صفرًا أو أكبر"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_contract_wizard__customer_phone
 #: model:ir.model.fields,field_description:rental_management.field_property_details__landlord_phone
 #: model:ir.model.fields,field_description:rental_management.field_property_payment_wizard__vendor_phone
 #: model:ir.model.fields,field_description:rental_management.field_property_vendor__customer_phone
 #: model_terms:ir.ui.view,arch_db:rental_management.property_vendor_form_view
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_form_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Phone"
 msgstr "هاتف"
 
@@ -8239,6 +8298,7 @@ msgstr "اضغط على ENTER للتبديل"
 #. module: rental_management
 #. odoo-javascript
 #: code:addons/rental_management/static/src/xml/template.xml:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Preventive"
 msgstr "وقائية"
 
@@ -8255,6 +8315,7 @@ msgid "Previous Rent"
 msgstr "الإيجار السابق"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_booking_wizard__price
 #: model:ir.model.fields,field_description:rental_management.field_contract_extra_service_line__price
 #: model:ir.model.fields,field_description:rental_management.field_contract_service_line__price
@@ -8266,8 +8327,9 @@ msgstr "الإيجار السابق"
 #: model_terms:ir.ui.view,arch_db:rental_management.property_details_qweb_report_template
 #: model_terms:ir.ui.view,arch_db:rental_management.property_sold_qweb_report_template
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_qweb_report_template
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Price"
-msgstr "سعر"
+msgstr "السعر"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_contract_wizard__price_per_area
@@ -8400,8 +8462,9 @@ msgstr "المشاريع"
 #: model:ir.ui.menu,name:rental_management.menu_property
 #: model:ir.ui.menu,name:rental_management.menu_property_details
 #: model_terms:ir.ui.view,arch_db:rental_management.user_type_inherit_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Properties"
-msgstr "ملكيات"
+msgstr "العقارات"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_res_partner__properties_ids
@@ -8417,6 +8480,7 @@ msgstr "عدد الخصائص"
 
 #. module: rental_management
 #. odoo-javascript
+#. odoo-python
 #: code:addons/rental_management/static/src/xml/template.xml:0
 #: model:ir.model.fields,field_description:rental_management.field_account_bank_statement_line__tenancy_property_id
 #: model:ir.model.fields,field_description:rental_management.field_account_move__tenancy_property_id
@@ -8443,8 +8507,11 @@ msgstr "عدد الخصائص"
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_qweb_report_template
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_search_view
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_reminder_details_qweb_report_template
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Property"
-msgstr "ملكية"
+msgstr "عقار"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_account_bank_statement_line__sold_property_id
@@ -8865,7 +8932,7 @@ msgstr "يجب أن يكون الربع أكبر من 1."
 #: model:ir.model.fields.selection,name:rental_management.selection__property_vendor_wizard__payment_term__quarterly
 #: model:ir.model.fields.selection,name:rental_management.selection__tenancy_details__payment_term__quarterly
 msgid "Quarterly"
-msgstr "ربع سنوية"
+msgstr "ربع سنوي"
 
 #. module: rental_management
 #. odoo-javascript
@@ -8939,8 +9006,9 @@ msgstr "المرجع."
 #: code:addons/rental_management/static/src/xml/template.xml:0
 #: model:ir.model.fields.selection,name:rental_management.selection__property_vendor__stage__refund
 #: model_terms:ir.ui.view,arch_db:rental_management.property_vendor_form_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Refund"
-msgstr "استرداد"
+msgstr "مسترد"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_property_details__region_id
@@ -9030,6 +9098,7 @@ msgid "Reminder days for creating tenancy invoice must be zero or greater"
 msgstr "يجب أن تكون الأيام التذكيرية لإنشاء فاتورة الإيجار صفرًا أو أكبر"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_tenancy_details__total_rent
 #: model:ir.model.fields.selection,name:rental_management.selection__landlord_sale_tenancy__report_for__tenancy
 #: model:ir.model.fields.selection,name:rental_management.selection__property_details__sale_lease__for_tenancy
@@ -9045,6 +9114,7 @@ msgstr "يجب أن تكون الأيام التذكيرية لإنشاء فات
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_list_view
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_qweb_report_template
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_reminder_details_qweb_report_template
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Rent"
 msgstr "إيجار"
 
@@ -9072,10 +9142,14 @@ msgid "Rent Broker Count"
 msgstr "عدد وسطاء الإيجار"
 
 #. module: rental_management
+#. odoo-javascript
+#. odoo-python
 #: model:ir.model.fields,field_description:rental_management.field_contract_service_line__rent_contract_id
 #: model:ir.model.fields,field_description:rental_management.field_maintenance_request__rent_contract_id
 #: model:ir.model.fields,field_description:rental_management.field_maintenance_wizard__rent_contract_id
 #: model_terms:ir.ui.view,arch_db:rental_management.user_type_inherit_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
 msgid "Rent Contract"
 msgstr "عقد الإيجار"
 
@@ -9103,9 +9177,11 @@ msgid "Rent Contract Top Broker"
 msgstr "عقد الإيجار أعلى وسيط"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_property_details__tenancy_ids
 #: model_terms:ir.ui.view,arch_db:rental_management.portal_my_contracts
 #: model_terms:ir.ui.view,arch_db:rental_management.property_portal_breadcrumbs
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Rent Contracts"
 msgstr "عقود الإيجار"
 
@@ -9149,11 +9225,15 @@ msgid "Rent Installments"
 msgstr "أقساط الإيجار"
 
 #. module: rental_management
+#. odoo-javascript
+#. odoo-python
 #: model:ir.model.fields,field_description:rental_management.field_penalty_invoice__rent_contract_invoice_id
 #: model_terms:ir.ui.view,arch_db:rental_management.rent_bill_list_view
 #: model_terms:ir.ui.view,arch_db:rental_management.rent_invoice_list_view
 #: model_terms:ir.ui.view,arch_db:rental_management.rent_penalty_invoice_tree_view
 #: model_terms:ir.ui.view,arch_db:rental_management.sale_penalty_invoice_tree_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
 msgid "Rent Invoice"
 msgstr "فاتورة الإيجار"
 
@@ -9357,9 +9437,11 @@ msgid "Reports"
 msgstr "التقارير"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_maintenance_wizard__name
 #: model:ir.ui.menu,name:rental_management.menu_property_maintenance
 #: model_terms:ir.ui.view,arch_db:rental_management.maintenance_wizard_form_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Request"
 msgstr "طلب"
 
@@ -9396,6 +9478,7 @@ msgstr "إعادة التعيين إلى المسودة"
 #: model:ir.model.fields.selection,name:rental_management.selection__property_details__type__residential
 #: model:ir.model.fields.selection,name:rental_management.selection__property_project__property_type__residential
 #: model:ir.model.fields.selection,name:rental_management.selection__property_sub_type__type__residential
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Residential"
 msgstr "سكني"
 
@@ -9465,14 +9548,16 @@ msgstr "يجب أن تكون الغرف صفرًا أو أكبر"
 #: code:addons/rental_management/static/src/components/rent_contract_dashboard.xml:0
 #: code:addons/rental_management/static/src/xml/template.xml:0
 #: model:ir.model.fields.selection,name:rental_management.selection__tenancy_details__contract_type__running_contract
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Running"
-msgstr "جري"
+msgstr "ساري"
 
 #. module: rental_management
 #. odoo-javascript
 #: code:addons/rental_management/static/src/components/rent_contract_dashboard.xml:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Running Contracts"
-msgstr "تشغيل العقود"
+msgstr "العقود السارية"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_penalty_invoice__message_has_sms_error
@@ -9489,13 +9574,15 @@ msgid "SMS Delivery error"
 msgstr "خطأ في تسليم الرسائل القصيرة"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields.selection,name:rental_management.selection__property_details__sale_lease__for_sale
 #: model:ir.model.fields.selection,name:rental_management.selection__property_project__project_for__sale
 #: model:ir.model.fields.selection,name:rental_management.selection__property_project__sale_lease__sale
 #: model:ir.model.fields.selection,name:rental_management.selection__property_sub_project__sale_lease__sale
 #: model_terms:ir.ui.view,arch_db:rental_management.property_details_form_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Sale"
-msgstr "أُوكَازيُون"
+msgstr "بيع"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_property_details__sale_broker_count
@@ -9503,7 +9590,11 @@ msgid "Sale Broker Count"
 msgstr "عدد وسطاء البيع"
 
 #. module: rental_management
+#. odoo-javascript
+#. odoo-python
 #: model_terms:ir.ui.view,arch_db:rental_management.user_type_inherit_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
 msgid "Sale Contract"
 msgstr "عقد البيع"
 
@@ -9792,8 +9883,9 @@ msgstr "الاتفاقية الموقعة"
 #: code:addons/rental_management/static/src/xml/template.xml:0
 #: model:ir.model.fields.selection,name:rental_management.selection__property_details__stage__sold
 #: model:ir.model.fields.selection,name:rental_management.selection__property_vendor__stage__sold
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Sold"
-msgstr "مُباع"
+msgstr "مباع"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_res_partner__property_sold_ids
@@ -9884,9 +9976,11 @@ msgid "Specifications"
 msgstr "تحديد"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_property_vendor__stage
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Stage"
-msgstr "منصة"
+msgstr "المرحلة"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_contract_wizard__start_date
@@ -9958,8 +10052,10 @@ msgstr "إحصائيات"
 #: model_terms:ir.ui.view,arch_db:rental_management.rental_user_sell_contract_info
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_list_view
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_search_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Status"
-msgstr "حالة"
+msgstr "الحالة"
 
 #. module: rental_management
 #: model:ir.model.fields,help:rental_management.field_penalty_invoice__activity_state
@@ -10276,9 +10372,11 @@ msgid "Tenancy Service Line"
 msgstr "خط خدمة الإيجار"
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_tenancy_details__tenancy_id
 #: model_terms:ir.ui.view,arch_db:rental_management.property_vendor_search_view
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_search_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Tenant"
 msgstr "مستأجر"
 
@@ -10452,8 +10550,9 @@ msgstr ""
 #: code:addons/rental_management/static/src/xml/template.xml:0
 #: model:ir.model.fields,field_description:rental_management.field_maintenance_request__total
 #: model_terms:ir.ui.view,arch_db:rental_management.property_details_form_view
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
 msgid "Total"
-msgstr "المجموع"
+msgstr "الإجمالي"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_property_vendor__total_sell_amount
@@ -10583,8 +10682,10 @@ msgstr "إجمالي متر مكعب"
 #. module: rental_management
 #. odoo-javascript
 #: code:addons/rental_management/static/src/components/rental_property_dashboard.xml:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Total Properties"
-msgstr "إجمالي الخصائص"
+msgstr "إجمالي العقارات"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_property_project__total_area
@@ -10676,6 +10777,7 @@ msgid "Total unit per floor should be greater than 1."
 msgstr "يجب أن يكون إجمالي الوحدة لكل طابق أكبر من 1."
 
 #. module: rental_management
+#. odoo-javascript
 #: model:ir.model.fields,field_description:rental_management.field_active_contract__type
 #: model:ir.model.fields,field_description:rental_management.field_agreement_template_variables__field_type
 #: model:ir.model.fields,field_description:rental_management.field_extra_service_line__service_type
@@ -10693,8 +10795,9 @@ msgstr "يجب أن يكون إجمالي الوحدة لكل طابق أكبر 
 #: model_terms:ir.ui.view,arch_db:rental_management.rental_user_maintenance_info
 #: model_terms:ir.ui.view,arch_db:rental_management.rental_user_rent_contract_details
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_qweb_report_template
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
 msgid "Type"
-msgstr "يكتب"
+msgstr "النوع"
 
 #. module: rental_management
 #: model:ir.model.fields,field_description:rental_management.field_tenancy_details__property_type
@@ -11152,3 +11255,1419 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:rental_management.tenancy_details_form_view
 msgid "✔ Extend Contract"
 msgstr "✔ تمديد العقد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Loading Rental Dashboard"
+msgstr "جارٍ تحميل لوحة الإيجارات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Rental Dashboard"
+msgstr "لوحة إدارة الأملاك"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Assembling your portfolio…"
+msgstr "جارٍ تجهيز محفظتك العقارية…"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Revenue"
+msgstr "الإيرادات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Analytics"
+msgstr "التحليلات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Rental"
+msgstr "الإيجار"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Navigation"
+msgstr "التنقل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Map View"
+msgstr "عرض الخريطة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Rental & Contracts"
+msgstr "الإيجار والعقود"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Sales"
+msgstr "المبيعات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Quick Glance"
+msgstr "نظرة سريعة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Rented"
+msgstr "مؤجر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Expiring 30d"
+msgstr "تنتهي خلال 30 يومًا"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Revenue Flow"
+msgstr "تدفق الإيرادات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Income → Expense → Profit"
+msgstr "الدخل ← المصروفات ← الربح"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Sankey"
+msgstr "سانكي"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Portfolio Health Radar"
+msgstr "رادار صحة المحفظة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "6 KPI dimensions scored"
+msgstr "تقييم 6 مؤشرات أداء"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Radar"
+msgstr "رادار"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Revenue Forecast"
+msgstr "توقعات الإيرادات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Actuals + 3-month projection"
+msgstr "الفعلي + توقع 3 أشهر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "FY Live"
+msgstr "السنة المالية مباشر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Occupancy Gauge"
+msgstr "مؤشر الإشغال"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Portfolio utilisation"
+msgstr "استغلال المحفظة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Revenue Mix"
+msgstr "تنوع الإيرادات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "By property type"
+msgstr "حسب نوع العقار"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Top Properties"
+msgstr "أفضل العقارات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "By revenue — last 3 months"
+msgstr "حسب الإيرادات — آخر 3 أشهر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Live"
+msgstr "مباشر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No property data yet"
+msgstr "لا توجد بيانات عقارات بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Leads Dashboard"
+msgstr "لوحة العملاء المحتملين"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Pipeline health · conversion · sources"
+msgstr "صحة المسار · التحويل · المصادر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "CRM"
+msgstr "إدارة العملاء"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No lead data available"
+msgstr "لا توجد بيانات عملاء محتملين"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Pipeline Funnel"
+msgstr "قمع المسار"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "New → Qualified → Won"
+msgstr "جديد ← مؤهل ← مكتسب"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Source-wise Leads"
+msgstr "العملاء المحتملون حسب المصدر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Last 6 months"
+msgstr "آخر 6 أشهر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Conversion Rate"
+msgstr "معدل التحويل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Won vs resolved"
+msgstr "المكتسب مقابل المحسوم"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Overdue Invoices"
+msgstr "الفواتير المتأخرة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Unpaid past due date"
+msgstr "غير مدفوعة بعد تاريخ الاستحقاق"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Due Date"
+msgstr "تاريخ الاستحقاق"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Days Overdue"
+msgstr "أيام التأخير"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No overdue invoices 🎉"
+msgstr "لا توجد فواتير متأخرة 🎉"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Occupancy by Type"
+msgstr "الإشغال حسب النوع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Portfolio Mix"
+msgstr "تنوع المحفظة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Recent Properties"
+msgstr "العقارات الأخيرة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Added in the last 3 days"
+msgstr "أضيفت خلال آخر 3 أيام"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No new properties in the last 3 days."
+msgstr "لا توجد عقارات جديدة خلال آخر 3 أيام."
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Monthly Rent Collection"
+msgstr "تحصيل الإيجار الشهري"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Collected vs outstanding"
+msgstr "المحصّل مقابل المستحق"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Collection Rate"
+msgstr "معدل التحصيل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Active Rent Contracts"
+msgstr "عقود الإيجار النشطة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Currently running"
+msgstr "سارية حاليًا"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Ref"
+msgstr "المرجع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Monthly Rent"
+msgstr "الإيجار الشهري"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Expiry"
+msgstr "الانتهاء"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No active rent contracts"
+msgstr "لا توجد عقود إيجار نشطة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Contracts Timeline"
+msgstr "الجدول الزمني للعقود"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Start → end, latest 30"
+msgstr "البداية ← النهاية، آخر 30"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Contract List"
+msgstr "قائمة العقود"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "All contracts"
+msgstr "جميع العقود"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Start"
+msgstr "البداية"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "End"
+msgstr "النهاية"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No contracts yet"
+msgstr "لا توجد عقود بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Sales Pipeline — Funnel"
+msgstr "مسار المبيعات — القمع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Funnel"
+msgstr "القمع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Sales by Type"
+msgstr "المبيعات حسب النوع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Sales Contracts"
+msgstr "عقود البيع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "#Ref"
+msgstr "#المرجع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Agent"
+msgstr "الوكيل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No sales contracts found"
+msgstr "لا توجد عقود بيع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Ticket Trends"
+msgstr "اتجاهات التذاكر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "By Category"
+msgstr "حسب الفئة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Assigned"
+msgstr "المسؤول"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No maintenance requests found"
+msgstr "لا توجد طلبات صيانة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Broker Performance"
+msgstr "أداء الوسطاء"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Commission Breakdown"
+msgstr "تفصيل العمولات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Broker Directory"
+msgstr "دليل الوسطاء"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Deals"
+msgstr "الصفقات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Last Deal"
+msgstr "آخر صفقة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No brokers found"
+msgstr "لا يوجد وسطاء"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Property Map"
+msgstr "خريطة العقارات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "OpenStreetMap · click a marker for details"
+msgstr "OpenStreetMap · اضغط على العلامة للتفاصيل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No properties with coordinates yet. Add Latitude/Longitude to properties to see them here."
+msgstr "لا توجد عقارات بإحداثيات بعد. أضف خط العرض/الطول للعقارات لعرضها هنا."
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Regional Distribution"
+msgstr "التوزيع الإقليمي"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Total vs rented per region"
+msgstr "الإجمالي مقابل المؤجر لكل منطقة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "City Distribution"
+msgstr "التوزيع حسب المدينة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Top 8 cities"
+msgstr "أعلى 8 مدن"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Key Metrics"
+msgstr "المؤشرات الرئيسية"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Revenue — 30 Days"
+msgstr "الإيرادات — 30 يومًا"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Upcoming Events"
+msgstr "الأحداث القادمة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No upcoming expirations in 14 days"
+msgstr "لا توجد انتهاءات قادمة خلال 14 يومًا"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Live Activity"
+msgstr "النشاط المباشر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Auto-refresh"
+msgstr "تحديث تلقائي"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "No recent activity"
+msgstr "لا يوجد نشاط حديث"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Maintenance Status"
+msgstr "حالة الصيانة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "Overview Dashboard"
+msgstr "لوحة المعلومات العامة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "new"
+msgstr "جديد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "active"
+msgstr "نشط"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "total"
+msgstr "إجمالي"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "mapped"
+msgstr "على الخريطة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "this period"
+msgstr "في هذه الفترة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.xml:0
+msgid "left"
+msgstr "متبقي"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Occupancy Rate"
+msgstr "معدل الإشغال"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Total Revenue"
+msgstr "إجمالي الإيرادات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Rental Yield"
+msgstr "العائد الإيجاري"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Active Contracts"
+msgstr "العقود النشطة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Churn Rate"
+msgstr "معدل المغادرة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Renewals Due"
+msgstr "التجديدات المستحقة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Portfolio avg · FY"
+msgstr "متوسط المحفظة · السنة المالية"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "All rent contracts"
+msgstr "جميع عقود الإيجار"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Next 60 days · action needed"
+msgstr "خلال 60 يومًا القادمة · مطلوب إجراء"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Rent Income"
+msgstr "دخل الإيجار"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Deposit Income"
+msgstr "دخل التأمين"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Maintenance Income"
+msgstr "دخل الصيانة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Sales Income"
+msgstr "دخل المبيعات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Broker Commissions"
+msgstr "عمولات الوسطاء"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Operating Expenses"
+msgstr "المصروفات التشغيلية"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Net Profit"
+msgstr "صافي الربح"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Other Rent Income"
+msgstr "دخل إيجار آخر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Occupancy"
+msgstr "الإشغال"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Yield"
+msgstr "العائد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Collection"
+msgstr "التحصيل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Growth"
+msgstr "النمو"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Current"
+msgstr "الحالي"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Previous"
+msgstr "السابق"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Portfolio Value"
+msgstr "قيمة المحفظة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Total asset value"
+msgstr "إجمالي قيمة الأصول"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Avg Lease Term"
+msgstr "متوسط مدة الإيجار"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Running contracts"
+msgstr "العقود السارية"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Pending Invoices"
+msgstr "الفواتير المعلقة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Activity logged"
+msgstr "تم تسجيل نشاط"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "System"
+msgstr "النظام"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Total Leads"
+msgstr "إجمالي العملاء المحتملين"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Qualified"
+msgstr "مؤهل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Converted"
+msgstr "محوّل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Converted (Won)"
+msgstr "محوّل (مكتسب)"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "CRM not installed"
+msgstr "إدارة العملاء غير مثبتة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "In-flight"
+msgstr "قيد المتابعة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Closed-won"
+msgstr "مغلق بالكسب"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "resolved"
+msgstr "محسوم"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Direct / Unknown"
+msgstr "مباشر / غير معروف"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Unknown"
+msgstr "غير معروف"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Won"
+msgstr "مكتسب"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Vacant Units"
+msgstr "الوحدات الشاغرة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Untitled"
+msgstr "بدون عنوان"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Occupied Property"
+msgstr "العقار المؤجر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Occupied Properties"
+msgstr "العقارات المؤجرة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Revenue / Month"
+msgstr "الإيرادات / الشهر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "This month"
+msgstr "هذا الشهر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Monthly Revenue"
+msgstr "الإيرادات الشهرية"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Expiring (30d)"
+msgstr "تنتهي (30 يومًا)"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Action needed"
+msgstr "مطلوب إجراء"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Expiring Contracts"
+msgstr "العقود المنتهية قريبًا"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Past end date"
+msgstr "تجاوزت تاريخ الانتهاء"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Overdue Contracts"
+msgstr "العقود المتأخرة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Total Contracts"
+msgstr "إجمالي العقود"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "All time"
+msgstr "كل الفترات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "All Contracts"
+msgstr "جميع العقود"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Total Sales Contracts"
+msgstr "إجمالي عقود البيع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "All stages"
+msgstr "جميع المراحل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "All Sale Contracts"
+msgstr "جميع عقود البيع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Properties Sold"
+msgstr "العقارات المباعة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Completed"
+msgstr "مكتمل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Sales Revenue"
+msgstr "إيرادات المبيعات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Total Requests"
+msgstr "إجمالي الطلبات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "All Maintenance Requests"
+msgstr "جميع طلبات الصيانة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Open Tickets"
+msgstr "التذاكر المفتوحة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Resolved"
+msgstr "تم الحل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Resolved Tickets"
+msgstr "التذاكر المحلولة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Open"
+msgstr "مفتوح"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Escalated"
+msgstr "مصعّد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Unassigned"
+msgstr "غير معيّن"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Active Brokers"
+msgstr "الوسطاء النشطون"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Sale + Rent"
+msgstr "بيع + إيجار"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Total Commission"
+msgstr "إجمالي العمولة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Sale + Rent · All time"
+msgstr "بيع + إيجار · كل الفترات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Commission — Sale Contracts"
+msgstr "العمولة — عقود البيع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Sale Commission"
+msgstr "عمولة البيع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Rental Commission"
+msgstr "عمولة الإيجار"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No data available"
+msgstr "لا توجد بيانات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No data"
+msgstr "لا توجد بيانات"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No data yet"
+msgstr "لا توجد بيانات بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No revenue flow data yet"
+msgstr "لا توجد بيانات تدفق إيرادات بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No portfolio health data yet"
+msgstr "لا توجد بيانات صحة المحفظة بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No revenue forecast data yet"
+msgstr "لا توجد بيانات توقع الإيرادات بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No occupancy data yet"
+msgstr "لا توجد بيانات إشغال بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No revenue mix data yet"
+msgstr "لا توجد بيانات تنوع الإيرادات بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No maintenance data yet"
+msgstr "لا توجد بيانات صيانة بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No pipeline data yet"
+msgstr "لا توجد بيانات مسار بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No lead source data yet"
+msgstr "لا توجد بيانات مصادر العملاء بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No conversion data yet"
+msgstr "لا توجد بيانات تحويل بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No occupancy data by type yet"
+msgstr "لا توجد بيانات إشغال حسب النوع بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No portfolio mix data yet"
+msgstr "لا توجد بيانات تنوع المحفظة بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No rent collection data yet"
+msgstr "لا توجد بيانات تحصيل الإيجار بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No collection rate data yet"
+msgstr "لا توجد بيانات معدل التحصيل بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No sales pipeline data yet"
+msgstr "لا توجد بيانات مسار المبيعات بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No sales by type data yet"
+msgstr "لا توجد بيانات المبيعات حسب النوع بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No maintenance ticket data yet"
+msgstr "لا توجد بيانات تذاكر الصيانة بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No category data yet"
+msgstr "لا توجد بيانات فئات بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No contract timeline data yet"
+msgstr "لا توجد بيانات الجدول الزمني للعقود بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No broker performance data yet"
+msgstr "لا توجد بيانات أداء الوسطاء بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No commission data yet"
+msgstr "لا توجد بيانات عمولات بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No regional data yet"
+msgstr "لا توجد بيانات إقليمية بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No city distribution data yet"
+msgstr "لا توجد بيانات توزيع المدن بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "No units yet"
+msgstr "لا توجد وحدات بعد"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "units"
+msgstr "وحدة"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Actuals"
+msgstr "الفعلي"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Projected"
+msgstr "المتوقع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Collected"
+msgstr "المحصّل"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Outstanding"
+msgstr "المستحق"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Occupied"
+msgstr "مؤجر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Vacant"
+msgstr "شاغر"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Low"
+msgstr "منخفض"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Normal"
+msgstr "عادي"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "High"
+msgstr "مرتفع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Critical"
+msgstr "حرج"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Expired"
+msgstr "منتهي"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "In Payment"
+msgstr "قيد الدفع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Expiring"
+msgstr "ينتهي قريبًا"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Sale Contracts"
+msgstr "عقود البيع"
+
+#. module: rental_management
+#. odoo-javascript
+#: code:addons/rental_management/static/src/components/rental_dashboard.js:0
+msgid "Converted Leads"
+msgstr "العملاء المحوّلون"
+
+#. module: rental_management
+#. odoo-python
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
+msgid "%(occupied)s of %(total)s units"
+msgstr "%(occupied)s من %(total)s وحدة"
+
+#. module: rental_management
+#. odoo-python
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
+msgid "%(month)s · All properties"
+msgstr "%(month)s · جميع العقارات"
+
+#. module: rental_management
+#. odoo-python
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
+msgid "%(count)s exits · last 30 days"
+msgstr "%(count)s مغادرة · آخر 30 يومًا"
+
+#. module: rental_management
+#. odoo-python
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
+msgid "%(count)s mo"
+msgstr "%(count)s شهر"
+
+#. module: rental_management
+#. odoo-python
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
+msgid "%(count)s invoices"
+msgstr "%(count)s فاتورة"
+
+#. module: rental_management
+#. odoo-python
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
+msgid "%(count)s in last 30d"
+msgstr "%(count)s خلال آخر 30 يومًا"
+
+#. module: rental_management
+#. odoo-python
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
+msgid "%(won)s/%(total)s resolved"
+msgstr "%(won)s/%(total)s محسوم"
+
+#. module: rental_management
+#. odoo-python
+#: code:addons/rental_management/controllers/dashboard_controller.py:0
+msgid "Activity on %(model)s"
+msgstr "نشاط على %(model)s"

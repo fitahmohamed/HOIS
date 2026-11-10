@@ -11,6 +11,7 @@ from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta
 from odoo import http, fields
 from odoo.http import request
+from odoo.tools.misc import format_date
 
 _logger = logging.getLogger(__name__)
 
@@ -532,7 +533,7 @@ class RentalDashboardController(http.Controller):
         return [
             {
                 'l': 'Occupancy Rate', 'v': f"{occupancy_rate}%", 'tr': 0.0,
-                'sub': f"{occupied} of {total_props} units",
+                'sub': request.env._("%(occupied)s of %(total)s units", occupied=occupied, total=total_props),
                 'ic': 'M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6',
                 'd': occ_spark,
                 'action': {'model': 'property.details', 'name': 'Occupancy Rate',
@@ -540,7 +541,7 @@ class RentalDashboardController(http.Controller):
             },
             {
                 'l': 'Total Revenue', 'v': format_money(revenue_curr), 'tr': rev_trend,
-                'sub': f"{today.strftime('%b %Y')} · All properties",
+                'sub': request.env._("%(month)s · All properties", month=format_date(request.env, today, date_format='MMM yyyy')),
                 'ic': 'M12 3v18M17 7H9.5a2.5 2.5 0 000 5h5a2.5 2.5 0 010 5H6',
                 'd': rev_spark,
                 'action': {'model': 'account.move', 'name': 'Total Revenue',
@@ -565,7 +566,7 @@ class RentalDashboardController(http.Controller):
             },
             {
                 'l': 'Churn Rate', 'v': f"{churn_rate}%", 'tr': 0.0,
-                'sub': f"{churned} exits · last 30 days",
+                'sub': request.env._("%(count)s exits · last 30 days", count=churned),
                 'ic': 'M3 17l6-6 4 4 8-8M14 17h7v-7',
                 'd': churn_spark,
                 'action': {'model': 'tenancy.details', 'name': 'Churn Rate',
@@ -982,7 +983,7 @@ class RentalDashboardController(http.Controller):
         today = dt.today()
         for i in range(1, 4):
             future = today + relativedelta(months=i)
-            labels.append(future.strftime('%b %y'))
+            labels.append(format_date(request.env, future, date_format='MMM yy'))
             actuals.append(None)
 
         projected = [None] * len(rows) + [round(last_val + avg_growth * (i + 1), 1) for i in range(3)]
@@ -1178,10 +1179,10 @@ class RentalDashboardController(http.Controller):
             'kpis': [
                 {'lbl': 'Portfolio Value', 'val': format_money(portfolio_value),
                  'pct': portfolio_pct, 'd': 'Total asset value'},
-                {'lbl': 'Avg Lease Term', 'val': f"{int(avg_lease)} mo",
+                {'lbl': 'Avg Lease Term', 'val': request.env._("%(count)s mo", count=int(avg_lease)),
                  'pct': lease_pct, 'd': 'Running contracts'},
                 {'lbl': 'Pending Invoices', 'val': format_money(pending_amt),
-                 'pct': pending_pct, 'd': f"{pending_cnt} invoices"},
+                 'pct': pending_pct, 'd': request.env._("%(count)s invoices", count=pending_cnt)},
             ],
             'spark_data': spark_data,
             'spark_total': format_money(collection_month_to_date),
@@ -1307,7 +1308,7 @@ class RentalDashboardController(http.Controller):
                     _strip_html(body_html)
                     or (subject or '').strip()
                     or subtype_str.strip()
-                    or f"Activity on {ACTIVITY_MODEL_LABELS.get(model, model)}"
+                    or request.env._("Activity on %(model)s", model=request.env._(ACTIVITY_MODEL_LABELS.get(model, model)))
             )
 
             feed.append({
@@ -1315,7 +1316,7 @@ class RentalDashboardController(http.Controller):
                 'body': body_text,
                 'author': _resolve_translated(author_name) if isinstance(author_name, dict) else (author_name or 'System'),
                 'model': model,
-                'label': ACTIVITY_MODEL_LABELS.get(model, model),
+                'label': request.env._(ACTIVITY_MODEL_LABELS.get(model, model)),
                 'res_id': res_id,
                 'kind': ACTIVITY_KIND_BY_MESSAGE_TYPE.get(message_type, 'log'),
             })
@@ -1492,11 +1493,11 @@ class RentalDashboardController(http.Controller):
         ]
 
         tiles = [
-            {'k': 'Total Leads',     'v': str(total),     'd': f'{last_30} in last 30d', 'cl': 'up'},
+            {'k': 'Total Leads',     'v': str(total),     'd': request.env._("%(count)s in last 30d", count=last_30), 'cl': 'up'},
             {'k': 'Qualified',       'v': str(qualified), 'd': 'In-flight',               'cl': 'up'},
             {'k': 'Converted (Won)', 'v': str(won),       'd': 'Closed-won',              'cl': 'up'},
             {'k': 'Conversion Rate', 'v': f'{conversion_rate}%',
-             'd': f'{won}/{denom or 1} resolved', 'cl': 'up' if conversion_rate >= 20 else 'a'},
+             'd': request.env._("%(won)s/%(total)s resolved", won=won, total=denom or 1), 'cl': 'up' if conversion_rate >= 20 else 'a'},
         ]
 
         return {

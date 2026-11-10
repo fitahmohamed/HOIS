@@ -262,16 +262,16 @@ class AccountPayment(models.Model):
         write_off_line_vals = write_off_line_vals or {}
 
         if self.transfer_type in ['standard', 'account_to_journal']:
-            line_vals_list = super(AccountPayment, self)._prepare_move_line_default_vals(
+            liquidity_line, counterpart_line = super(AccountPayment, self)._prepare_move_line_default_vals(
                 write_off_line_vals, force_balance)
 
             # Add analytic distribution to standard payment lines
             analytic_distribution = self._get_analytic_distribution(self.analytic_account_id)
             if analytic_distribution:
-                for line in line_vals_list:
-                    line['analytic_distribution'] = analytic_distribution
+                liquidity_line['analytic_distribution'] = analytic_distribution
+                counterpart_line['analytic_distribution'] = analytic_distribution
 
-            return line_vals_list
+            return [liquidity_line, counterpart_line]
 
         elif self.transfer_type == 'account_to_account':
             if not self.source_account_id or not self.dest_account_id:
@@ -419,25 +419,13 @@ class AccountPayment(models.Model):
                 ]
 
         elif self.transfer_type == 'multi_account':
-            line_vals_list = super(AccountPayment, self)._prepare_move_line_default_vals(
+            liquidity_line, counterpart_line = super(AccountPayment, self)._prepare_move_line_default_vals(
                 write_off_line_vals, force_balance)
-            liquidity_line = line_vals_list[0]
-
-            # lines = [{
-            #     'name': liquidity_line['name'],
-            #     'account_id': liquidity_line['account_id'],
-            #     'debit': liquidity_line['debit'],
-            #     'credit': liquidity_line['credit'],
-            #     'currency_id': self.currency_id.id,
-            #     'partner_id': self.partner_id.id,
-            #     'analytic_distribution': self._get_analytic_distribution(self.analytic_account_id),
-            # }]
-
             lines = [{
-                'name': liquidity_line.get('name'),
-                'account_id': liquidity_line.get('account_id'),
-                'debit': 0.0,
-                'credit': self.amount,
+                'name': liquidity_line['name'],
+                'account_id': liquidity_line['account_id'],
+                'debit': liquidity_line['debit'],
+                'credit': liquidity_line['credit'],
                 'currency_id': self.currency_id.id,
                 'partner_id': self.partner_id.id,
                 'analytic_distribution': self._get_analytic_distribution(self.analytic_account_id),

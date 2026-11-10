@@ -1,6 +1,7 @@
 /** @odoo-module **/
 
 import { session } from '@web/session';
+import { _t } from "@web/core/l10n/translation";
 import { useService } from "@web/core/utils/hooks";
 import { Component, useState, onWillStart} from "@odoo/owl";
 
@@ -28,7 +29,7 @@ export class RentalPropertyDashboard extends Component {
         context = { 'create': true }
         this.action.doAction({
             type: 'ir.actions.act_window',
-            name: 'Properties',
+            name: _t('Properties'),
             res_model: 'property.details',
             view_mode: 'list',
             views: [[false, 'list'], [false, 'kanban'], [false, 'form']],
@@ -50,7 +51,7 @@ export class RentalPropertyDashboard extends Component {
         context = { 'create': true }
         this.action.doAction({
             type: 'ir.actions.act_window',
-            name: 'Properties',
+            name: _t('Properties'),
             res_model: 'property.details',
             view_mode: 'list',
             views: [[false, 'list'], [false, 'kanban'], [false, 'form']],
@@ -72,7 +73,7 @@ export class RentalPropertyDashboard extends Component {
         context = { 'create': true }
         this.action.doAction({
             type: 'ir.actions.act_window',
-            name: 'Properties',
+            name: _t('Properties'),
             res_model: 'property.details',
             view_mode: 'list',
             views: [[false, 'list'], [false, 'kanban'], [false, 'form']],
